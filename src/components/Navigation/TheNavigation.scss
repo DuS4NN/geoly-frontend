@@ -1,0 +1,86 @@
+@font-face {
+  font-family: 'Nexa';
+  src: url('../../assets/fonts/Nexa-Bold.otf');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../../assets/fonts/OpenSans-Regular.otf');
+}
+@font-face {
+  font-family: 'Nexa';
+  src: url('../../assets/fonts/Nexa-Light.otf');
+  font-weight: normal;
+}
+
+.navigation{
+  padding-top: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--light-mode-input-backgroud);
+
+  .navigation-logo {
+    width: 20vw;
+    display: table-cell;
+    height: 100%;
+
+    .navigation-logo-helper{
+      width: 10%;
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    img{
+      margin-left: auto;
+      display: inline-block;
+      width: 11vw;
+      vertical-align: middle;
+      max-width: 150px;
+    }
+  }
+
+  .navigation-links{
+    height: 100%;
+    display: table-cell;
+    width: 60vw;
+    text-align: right;
+
+    a{
+      margin-right: 5vw;
+      text-decoration: none;
+      letter-spacing: 1.5px;
+      font-family: OpenSans;
+      color: var(--light-mode-dark-green);
+      transition: color, 0.2s
+    }
+    a:hover{
+      color: var(--light-mode-light-green);
+      transition: color, 0.5s
+    }
+  }
+
+  .navigation-button{
+    width: 20vw;
+    display: table-cell;
+    text-align: right;
+
+    button{
+      margin-right: 45px;
+      font-size: 16px;
+      text-decoration: none;
+      letter-spacing: 2px;
+      border-radius: 50px;
+      padding: 8px 4vw;
+      border: none;
+      cursor: pointer;
+      color: white;
+      font-family: OpenSans;
+      font-weight: normal;
+      background-image: linear-gradient(to right, var(--light-mode-light-green) 0%, var(--light-mode-dark-green) 100%);
+    }
+
+    button:hover{
+
+    }
+  }
+}
