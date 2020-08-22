@@ -7,3 +7,10 @@ export interface Song {
     album: string
 }
 
+export interface LogInUser {
+    nickName: string,
+    mapTheme: number,
+    darkMode: boolean,
+    languageId: number
+}
+
