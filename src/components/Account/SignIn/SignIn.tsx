@@ -1,11 +1,11 @@
-import React, {ChangeEvent, FormEvent, useContext, useEffect, useRef, useState} from "react"
+import React, {ChangeEvent, FormEvent, useContext, useRef, useState} from "react"
 import {Link, useHistory} from "react-router-dom"
 import {useAlert} from "react-alert"
 import axios from "axios"
 //Context
-import {UserContext} from "../../../UserContext";
+import {UserContext} from "../../../UserContext"
 // Type
-import {LogInUser} from "../../../types";
+import {LogInUser} from "../../../types"
 // Style
 import './SignIn.scss'
 
@@ -116,13 +116,13 @@ const SignIn: React.FC<Props> = () => {
             <form className="form" onSubmit={handleSubmit}>
 
                 <div className="form-input">
-                    <input max="254" ref={emailInput} autoFocus className="input-field-email" type="email" placeholder={text.logIn.formEmailPlaceholder} name="username" />
+                    <input required max="254" ref={emailInput} autoFocus className="input-field-email" type="email" placeholder={text.logIn.formEmailPlaceholder} name="username" />
                 </div>
 
                 <br /> <br />
 
                 <div className="form-input">
-                    <input onChange={handleChange} value={password} min="4" max="20" ref={passwordInput} className="input-field-password" type="password" placeholder={text.logIn.formPasswordPlaceholder} name="password" />
+                    <input required onChange={handleChange} value={password} min="4" max="20" ref={passwordInput} className="input-field-password" type="password" placeholder={text.logIn.formPasswordPlaceholder} name="password" />
                 </div>
 
                 <div className="form-forgot">

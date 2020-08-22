@@ -8,10 +8,14 @@ export const text = {
         signInButton: 'Prihlásiť sa',
         signInDiscord: 'Použiť Discord účet',
         signInFacebook: 'Použiť Facebook účet',
-        signInGoogle: 'Použiť Google účet'
+        signInGoogle: 'Použiť Google účet',
+        createAccountTitleFirstLine: 'Nemáte',
+        createAccountTitleSecondLine: 'účet?',
+        createAccountSubTitleFirstLine: 'Zadajte Vaše osobné údaje',
+        createAccountSubTitleSecondLine: 'a začnite objavovať okolie',
+        signUpButton: 'Registrovať sa'
     },
     error: {
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne'
     }
-
 }
