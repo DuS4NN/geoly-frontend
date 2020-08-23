@@ -1,18 +1,19 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {Switch, Route} from "react-router-dom"
 
-import './App.scss'
-
+//Children
 import TheNavigation from "./components/Navigation/TheNavigation"
 import SignIn from "./views/SignIn"
-import { UserContext } from "./UserContext";
+import SignUp from "./views/SignUp";
+// Context
+import { UserContext } from "./UserContext"
+// Style
+import './App.scss'
 
-import Tunes from "./views/Tunes";
-
+// Component
 function App() {
-
+    // User Context
     let userFromStorage
-
     if(localStorage.getItem("nickName")){
         userFromStorage = {
             nickName: localStorage.getItem("nickName"),
@@ -28,9 +29,9 @@ function App() {
             darkMode: "false"
         }
     }
-
     const [userContext, setUserContext] = useState(userFromStorage)
 
+    // Template
     return (
         <div className="app">
             <header>
@@ -40,7 +41,7 @@ function App() {
                 <Switch>
                     <UserContext.Provider value={{userContext, setUserContext}}>
                         <Route exact path="/login" component={SignIn} />
-                        <Route exact path="/tunes" component={Tunes} />
+                        <Route exact path="/register" component={SignUp} />
                     </UserContext.Provider>
                 </Switch>
 

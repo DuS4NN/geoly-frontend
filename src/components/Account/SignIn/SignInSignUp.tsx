@@ -1,7 +1,9 @@
 import React, {useContext} from "react"
-import {UserContext} from "../../../UserContext";
+// Context
+import {UserContext} from "../../../UserContext"
 // Style
 import './SignInSignUp.scss'
+import {useHistory} from "react-router-dom";
 
 //Props
 interface Props {
@@ -11,10 +13,18 @@ interface Props {
 const SignInSignUp: React.FC<Props> = () => {
     // Context
     //@ts-ignore
-    const {userContext, setUserContext} = useContext(UserContext)
+    const {userContext} = useContext(UserContext)
+
+    // Redirect
+    const history = useHistory()
 
     // Text
     const text = require('../../../assets/languageText/'+userContext['languageId']+'.ts').text
+
+    // Methods
+    const handleClick = () => {
+        history.push("/register")
+    }
 
     // Template
     return (
@@ -31,7 +41,7 @@ const SignInSignUp: React.FC<Props> = () => {
                 </div>
 
                 <div className="create-account-button">
-                    <button>{text.logIn.signUpButton}</button>
+                    <button onClick={handleClick}>{text.logIn.signUpButton}</button>
                 </div>
             </div>
 

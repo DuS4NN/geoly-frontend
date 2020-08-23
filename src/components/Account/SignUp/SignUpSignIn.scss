@@ -1,0 +1,74 @@
+@font-face {
+  font-family: 'Nexa';
+  src: url('../../../assets/fonts/Nexa-Bold.otf');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../../../assets/fonts/OpenSans-Regular.otf');
+}
+@font-face {
+  font-family: 'Nexa';
+  src: url('../../../assets/fonts/Nexa-Light.otf');
+  font-weight: normal;
+}
+
+.sign-up{
+  .log-in{
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+    width: 40vw;
+    height: 95vh;
+    background: url("../../../assets/images/register-side.svg");
+    background-size: cover;
+    background-position: right;
+  }
+  .log-in-box{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    background: rgba(0,0,0, 0.3);
+  }
+
+  .log-in-title{
+    font-family: Nexa;
+    color: white;
+    font-weight: bold;
+    padding-top: 1px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .log-in-description{
+    font-family: Nexa;
+    font-weight: normal;
+    letter-spacing: 0.8px;
+    color: white;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+  }
+
+  .log-in-button{
+    margin-top: 30px;
+    text-align: center;
+    padding-bottom: 50px;
+
+    button{
+      font-size: 16px;
+      text-decoration: none;
+      letter-spacing: 2px;
+      border-radius: 50px;
+      padding: 8px 4vw;
+      border: none;
+      cursor: pointer;
+      color: white;
+      font-family: OpenSans;
+      font-weight: normal;
+      background-image: linear-gradient(to left, var(--light-mode-light-green) 0%, var(--light-mode-dark-green) 100%);
+    }
+  }
+}

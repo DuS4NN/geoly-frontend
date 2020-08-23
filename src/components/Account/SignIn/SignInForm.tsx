@@ -76,7 +76,7 @@ const SignInForm: React.FC<Props> = () => {
             }
             setUserContext(newUser)
             history.push("/")
-        }).catch(function (e) {
+        }).catch(function (error) {
             alert.error(text.error.BAD_CREDENTIALS)
             setPassword("")
         })
