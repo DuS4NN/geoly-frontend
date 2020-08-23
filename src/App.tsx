@@ -4,7 +4,7 @@ import {Switch, Route} from "react-router-dom"
 import './App.scss'
 
 import TheNavigation from "./components/Navigation/TheNavigation"
-import Account from "./views/Account"
+import SignIn from "./views/SignIn"
 import { UserContext } from "./UserContext";
 
 import Tunes from "./views/Tunes";
@@ -39,7 +39,7 @@ function App() {
             <main className="content">
                 <Switch>
                     <UserContext.Provider value={{userContext, setUserContext}}>
-                        <Route exact path="/login" component={Account} />
+                        <Route exact path="/login" component={SignIn} />
                         <Route exact path="/tunes" component={Tunes} />
                     </UserContext.Provider>
                 </Switch>

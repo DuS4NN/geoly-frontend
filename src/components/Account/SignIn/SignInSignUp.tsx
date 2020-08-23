@@ -1,14 +1,14 @@
 import React, {useContext} from "react"
 import {UserContext} from "../../../UserContext";
 // Style
-import './CreateAccount.scss'
+import './SignInSignUp.scss'
 
 //Props
 interface Props {
 }
 
 // Component
-const CreateAccount: React.FC<Props> = () => {
+const SignInSignUp: React.FC<Props> = () => {
     // Context
     //@ts-ignore
     const {userContext, setUserContext} = useContext(UserContext)
@@ -39,4 +39,4 @@ const CreateAccount: React.FC<Props> = () => {
     )
 }
 
-export default CreateAccount
+export default SignInSignUp
