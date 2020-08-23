@@ -15,7 +15,7 @@ interface Props {
 const SignUpForm: React.FC = () => {
     // Context
     //@ts-ignore
-    const {userContext, setUserContext} = useContext(UserContext)
+    const {userContext} = useContext(UserContext)
 
     // Redirect
     const history = useHistory()

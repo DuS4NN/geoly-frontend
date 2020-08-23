@@ -129,6 +129,18 @@
     color: white;
     font-family: OpenSans;
     font-weight: normal;
-    background-image: linear-gradient(to right, var(--light-mode-light-green) 0%, var(--light-mode-dark-green) 100%);
+    background-size: 300% 100%;
+    background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-light-green), var(--button-dark-green));
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+
+  button:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
   }
 }
