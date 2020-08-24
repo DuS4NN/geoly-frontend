@@ -75,7 +75,7 @@ const SignUpForm: React.FC = () => {
             let statusCode = response.data.responseEntity.statusCode
 
             if(statusCode === 'ACCEPTED'){
-                alert.success(text.info[serverResponse])
+                alert.success(text.success[serverResponse])
                 setEmail("")
                 setPassword("")
                 setConfirmPassword("")

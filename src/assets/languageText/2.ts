@@ -32,8 +32,17 @@ export const text = {
         signInSubtitleSecondLine: 'začať objavovať okolie',
         signInButton: 'Prihlásiť sa'
     },
+    forgot: {
+        title: 'Zabudli ste heslo?',
+        subtitle: 'Nebojte! Zašleme Vám email, pomocou ktorého si obnovíte heslo.',
+        inputEmailPlaceholder: 'Email',
+        submitButton: 'Odoslať'
+    },
     error: {
+        // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',
+
+        // Register
         PASSWORDS_MATCH: 'Zadané heslá sa nezhodujú',
         SOMETHING_WENT_WRONG: 'Niečo sa pokazilo, skúste to znovu',
         NICKNAME_ALREADY_EXISTS: 'Zadaný Nick je už použitý',
@@ -42,8 +51,23 @@ export const text = {
         INVALID_NICKNAME_LENGTH: 'Dĺžka nicku je 4 až 15 znakov',
         INVALID_EMAIL: 'Formát emailu je nesprávny',
         EMAIL_ALREADY_EXISTS: 'Emailová adresa je už použitá',
+
+        // Forgot Password
+        ACCOUNT_NOT_VERIFIED: 'Účet nie je aktivovaný',
+        ACCOUNT_NOT_ACTIVE: 'Úćet nie je aktívny',
+
+        // Reset Password
+        INVALID_TOKEN: 'Token je neplatný',
+
+        // Other
+        USER_NOT_FOUND: 'Účet nenájdený'
     },
     success: {
-        'USER_CREATED': 'Potvrdzovací email bol odoslaný na zadanú emailovú adresu'
+        // Register
+        USER_CREATED: 'Potvrdzovací email bol odoslaný na zadanú emailovú adresu',
+        // Forgot Password
+        EMAIL_SENT: 'Email pre obnovu hesla bol odoslaný',
+        // Reset Password
+        PASSWORD_RESET: 'Vaše heslo bolo zmenené'
     }
 }

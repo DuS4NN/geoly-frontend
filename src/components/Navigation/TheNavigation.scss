@@ -14,24 +14,17 @@
 }
 
 .navigation{
-  padding-top: 25px;
-  padding-bottom: 25px;
+  height: 110px;
   border-bottom: 1px solid var(--light-mode-input-backgroud);
+  display: table;
 
   .navigation-logo {
+    vertical-align: middle;
     width: 20vw;
     display: table-cell;
-    height: 100%;
-
-    .navigation-logo-helper{
-      width: 10%;
-      display: inline-block;
-      height: 100%;
-      vertical-align: middle;
-    }
+    padding-left: 45px;
 
     img{
-      margin-left: auto;
       display: inline-block;
       width: 11vw;
       vertical-align: middle;
@@ -40,7 +33,7 @@
   }
 
   .navigation-links{
-    height: 100%;
+    vertical-align: middle;
     display: table-cell;
     width: 60vw;
     text-align: right;
@@ -60,6 +53,7 @@
   }
 
   .navigation-button {
+    vertical-align: middle;
     width: 20vw;
     display: table-cell;
     text-align: right;

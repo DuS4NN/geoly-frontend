@@ -3,8 +3,9 @@ import {Switch, Route} from "react-router-dom"
 
 //Children
 import TheNavigation from "./components/Navigation/TheNavigation"
+import ForgotPassword from "./views/ForgotPassword"
 import SignIn from "./views/SignIn"
-import SignUp from "./views/SignUp";
+import SignUp from "./views/SignUp"
 // Context
 import { UserContext } from "./UserContext"
 // Style
@@ -42,6 +43,7 @@ function App() {
                     <UserContext.Provider value={{userContext, setUserContext}}>
                         <Route exact path="/login" component={SignIn} />
                         <Route exact path="/register" component={SignUp} />
+                        <Route path="/forgot" component={ForgotPassword} />
                     </UserContext.Provider>
                 </Switch>
 

@@ -8,7 +8,28 @@
   --button-dark-green: #2bb673;
 }
 
+#root{
+  width: 100%;
+  height: 100%;
+}
+
+.app{
+  width: 100%;
+  height: 100%;
+}
+
+.content{
+  width: 100%;
+  height: 100%;
+  height: -webkit-calc(100% - 111px);
+  height: -moz-calc(100% - 111px);
+  height: calc(100% - 111px);
+  min-height: 300px;
+}
+
 html, body{
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
 }

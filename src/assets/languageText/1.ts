@@ -32,8 +32,24 @@ export const text = {
         signInSubtitleSecondLine: 'discover your surroundings',
         signInButton: 'Sign In'
     },
+    forgot: {
+        title: 'Forgot your password?',
+        subTitle: 'Dont\'t worry! We\'ll send you an email with a link to reset your password.',
+        inputEmailPlaceholder: 'Email',
+        submitButton: 'Send'
+    },
+    reset: {
+        title: 'Reset your password',
+        subTitle: 'Type your new password and login with new credentials!',
+        inputPasswordPlaceholder: 'Password',
+        inputConfirmPasswordPlaceholder: 'Confirm password',
+        submitButton: 'Reset'
+    },
     error: {
+        // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',
+
+        // Register
         PASSWORDS_MATCH: 'Passwords do not match',
         SOMETHING_WENT_WRONG: 'Something went wrong, please try again',
         NICKNAME_ALREADY_EXISTS: 'Nickname is already used',
@@ -42,13 +58,30 @@ export const text = {
         INVALID_NICKNAME_LENGTH: 'Nickname must be 4-20 characters long',
         INVALID_EMAIL: 'Email format is incorrect',
         EMAIL_ALREADY_EXISTS: 'Email address is already used',
+
+        // Forgot Password
+        ACCOUNT_NOT_VERIFIED: 'Account not verified',
+        ACCOUNT_NOT_ACTIVE: 'Account not active',
+        // Reset Password
+        INVALID_TOKEN: 'Token is invalid',
+
+        // Other
+        USER_NOT_FOUND: 'Account not found'
     },
     success: {
-        'USER_CREATED': 'A verification email has been sent to your email address'
+        // Register
+        USER_CREATED: 'A verification email has been sent to your email address',
+        // Forgot
+        EMAIL_SENT: 'An email to reset your password has been sent',
+        // Reset
+        PASSWORD_RESET: 'Your password has been changed'
+
     }
     // NOT_ACCEPTABLE
     // NOT_FOUND
     // INTERNAL_SERVER_ERROR
+
+    // BAD_REQUEST
 
     // OK - Vraciam dáta
     // ACCEPTED - Všetko OK ale dáta nevraciam

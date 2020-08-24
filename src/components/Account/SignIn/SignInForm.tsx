@@ -9,6 +9,9 @@ import {LogInUser} from "../../../types"
 // Style
 import './SignInForm.scss'
 
+// Children
+import ModalForgot from "../../Modals/ModalForgot";
+
 // Props
 interface Props {
 }
@@ -29,6 +32,7 @@ const SignInForm: React.FC<Props> = () => {
 
     //State
     const [password, setPassword] = useState("")
+    const [showModal, setShowModal] = useState(false)
     // Alerts
     const alert = useAlert()
     // Text
@@ -82,9 +86,16 @@ const SignInForm: React.FC<Props> = () => {
         })
     }
 
+    const handleOpenModal = () => {
+        setShowModal(true)
+    }
+
     // Template
     return (
         <div className="sign-in-form">
+
+            <ModalForgot showModal={showModal} setShowModal={setShowModal} />
+
             <div className="sign-in-form-title">
                 <h2>{text.logIn.title}</h2>
             </div>
@@ -126,7 +137,7 @@ const SignInForm: React.FC<Props> = () => {
                 </div>
 
                 <div className="form-forgot">
-                    <Link to="/forgot" className="forgot">{text.logIn.forgotPassword}</Link>
+                    <span onClick={handleOpenModal} className="forgot">{text.logIn.forgotPassword}</span>
                 </div>
 
                 <button className="form-button">{text.logIn.signInButton}</button>
