@@ -101,20 +101,20 @@
   }
 
   .form-forgot{
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
     margin-top: 30px;
     margin-bottom: 30px;
     text-align: center;
-
-    a{
-      color: black;
-      font-family: Nexa;
-      text-decoration: none;
-      padding-bottom: 2px;
-      border-bottom: 1px solid;
-      font-weight: normal;
-      letter-spacing: 0.8px;
-    }
+    cursor: pointer;
+    color: black;
+    font-family: Nexa;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid;
+    font-weight: normal;
+    letter-spacing: 0.8px;
   }
 
   .form-button{
@@ -130,7 +130,7 @@
     font-family: OpenSans;
     font-weight: normal;
     background-size: 300% 100%;
-    background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-light-green), var(--button-dark-green));
+    background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
     box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
