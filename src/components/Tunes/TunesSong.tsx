@@ -20,6 +20,7 @@ const TunesSong: React.FC<Props> = props => {
         console.log("dasd")
     }, [])
 
+
     const shorten = (str: string, len = 55): string => {
         return truncate(str, {length: len});
     }

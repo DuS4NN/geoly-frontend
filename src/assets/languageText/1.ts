@@ -66,7 +66,9 @@ export const text = {
         // Forgot
         EMAIL_SENT: 'An email to reset your password has been sent',
         // Reset
-        PASSWORD_RESET: 'Your password has been changed'
+        PASSWORD_RESET: 'Your password has been changed',
+        // Verify
+        ACCOUNT_ACTIVATED: 'Your account has been verified'
 
     }
     // NOT_ACCEPTABLE

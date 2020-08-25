@@ -67,6 +67,8 @@ export const text = {
         // Forgot Password
         EMAIL_SENT: 'Email pre obnovu hesla bol odoslaný',
         // Reset Password
-        PASSWORD_RESET: 'Vaše heslo bolo zmenené'
+        PASSWORD_RESET: 'Vaše heslo bolo zmenené',
+        // Verify
+        ACCOUNT_ACTIVATED: 'Váš účet bol aktivovaný'
     }
 }

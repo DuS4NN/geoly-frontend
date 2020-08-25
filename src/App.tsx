@@ -4,6 +4,7 @@ import {Switch, Route} from "react-router-dom"
 //Children
 import TheNavigation from "./components/Navigation/TheNavigation"
 import ForgotPassword from "./views/ForgotPassword"
+import Verify from "./components/Account/Verify/Verify"
 import SignIn from "./views/SignIn"
 import SignUp from "./views/SignUp"
 // Context
@@ -44,6 +45,7 @@ function App() {
                         <Route exact path="/login" component={SignIn} />
                         <Route exact path="/register" component={SignUp} />
                         <Route path="/forgot" component={ForgotPassword} />
+                        <Route path="/verify" component={Verify} />
                     </UserContext.Provider>
                 </Switch>
 
