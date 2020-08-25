@@ -2,7 +2,7 @@ import React from "react"
 
 // Children
 import SignUpForm from "../components/Account/SignUp/SignUpForm"
-import SignUpSignIn from "../components/Account/SignUp/SignUpSignIn"
+import SignUpBackground from "../components/Account/SignUp/SignUpBackground"
 
 // Props
 interface Props {
@@ -14,7 +14,7 @@ const SignUp: React.FC = () => {
     // Template
     return (
         <div className="sign-up">
-            <SignUpSignIn />
+            <SignUpBackground />
             <SignUpForm />
         </div>
     )

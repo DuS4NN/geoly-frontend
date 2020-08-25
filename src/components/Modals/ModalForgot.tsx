@@ -9,6 +9,7 @@ import disableScroll from 'disable-scroll'
 import {UserContext} from "../../UserContext";
 // Style
 import './ModalForgot.scss'
+import CSSTransition from "react-transition-group/CSSTransition";
 
 
 // Props
@@ -76,9 +77,9 @@ const ModalForgot: React.FC<Props> = props => {
     // Template
     return (
             <ReactModal className="forgot-modal"
-                isOpen={showModal}
-                onAfterOpen={onAfterOpenModal}
-            >
+                        closeTimeoutMS={500}
+                        isOpen={showModal}
+                        onAfterOpen={onAfterOpenModal}>
                 <div className="image">
                     <img src={forgotPassword} alt="" />
                 </div>
@@ -104,7 +105,6 @@ const ModalForgot: React.FC<Props> = props => {
                 <div className="close-modal">
                     <button onClick={handleCloseModal}>X</button>
                 </div>
-
             </ReactModal>
     )
 }

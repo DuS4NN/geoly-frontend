@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'Nexa';
+  src: url('../../../assets/fonts/Nexa-Bold.otf');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../../../assets/fonts/OpenSans-Regular.otf');
+}
+@font-face {
+  font-family: 'Nexa';
+  src: url('../../../assets/fonts/Nexa-Light.otf');
+  font-weight: normal;
+}
+
+.sign-in{
+  .sign-in-background{
+    display: table-cell;
+    width: 50vw;
+    height: 100%;
+    background-image: url("../../../assets/images/waveRight/waveRight.svg");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+    background-color: #EAFBF3
+  }
+
+  .sign-in-background-bg{
+    display: table;
+    background-image: url("../../../assets/images/waveRight/backgroundBottomRight.svg"), url("../../../assets/images/waveRight/backgroundTopRight.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0 100%, 0 0;
+    width: 75%;
+    margin-left: 25%;
+    height: 100%;
+  }
+
+  .sign-in-background-img{
+    display: table;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../assets/images/login.svg");
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: 0 50%;
+  }
+}
+
+
+

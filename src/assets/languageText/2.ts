@@ -9,11 +9,7 @@ export const text = {
         signInDiscord: 'Použiť Discord účet',
         signInFacebook: 'Použiť Facebook účet',
         signInGoogle: 'Použiť Google účet',
-        createAccountTitleFirstLine: 'Nemáte',
-        createAccountTitleSecondLine: 'účet?',
-        createAccountSubTitleFirstLine: 'Zadajte Vaše osobné údaje',
-        createAccountSubTitleSecondLine: 'a začnite objavovať okolie',
-        signUpButton: 'Registrovať sa'
+        createAccount: 'Nemáte ešte účet?'
     },
     signUp: {
         title: 'Vytvoriť Geoly účet',
@@ -26,17 +22,20 @@ export const text = {
         formPasswordAgainPlaceholder: 'Potvrdenie hesla',
         formNicNamePlaceholder: 'Nick',
         signUpButton: 'Registrovať sa',
-        signInTitleFirstLine: 'Už máte',
-        signInTitleSecondLine: 'účet?',
-        signInSubtitleFirstLine: 'Stačí sa prihlásiť a',
-        signInSubtitleSecondLine: 'začať objavovať okolie',
-        signInButton: 'Prihlásiť sa'
+        signIn: 'Už máte účet?'
     },
     forgot: {
         title: 'Zabudli ste heslo?',
         subtitle: 'Nebojte! Zašleme Vám email, pomocou ktorého si obnovíte heslo.',
         inputEmailPlaceholder: 'Email',
         submitButton: 'Odoslať'
+    },
+    reset: {
+        title: 'Obnovte svoje heslo',
+        subTitle: 'Zadajte nové heslo a prihláste sa pomocou nových údajov!',
+        inputPasswordPlaceholder: 'Heslo',
+        inputConfirmPasswordPlaceholder: 'Potvrdenie hesla',
+        submitButton: 'Obnoviť'
     },
     error: {
         // Login

@@ -9,11 +9,7 @@ export const text = {
         signInDiscord: 'Use Discord account',
         signInFacebook: 'Use Facebook account',
         signInGoogle: 'Use Google account',
-        createAccountTitleFirstLine: 'Don\'t have ',
-        createAccountTitleSecondLine: 'an account?',
-        createAccountSubTitleFirstLine: 'Enter your personal details and',
-        createAccountSubTitleSecondLine: 'start discover your surroundings',
-        signUpButton: 'Sign Up'
+        createAccount: 'Don\'t have an account?'
     },
     signUp: {
         title: 'Create Geoly account',
@@ -26,11 +22,7 @@ export const text = {
         formPasswordAgainPlaceholder: 'Confirm password',
         formNicNamePlaceholder: 'Nickname',
         signUpButton: 'Sign Up',
-        signInTitleFirstLine: 'Already have',
-        signInTitleSecondLine: 'an account?',
-        signInSubtitleFirstLine: 'Just log in and start',
-        signInSubtitleSecondLine: 'discover your surroundings',
-        signInButton: 'Sign In'
+        signIn: 'Already have an account?'
     },
     forgot: {
         title: 'Forgot your password?',

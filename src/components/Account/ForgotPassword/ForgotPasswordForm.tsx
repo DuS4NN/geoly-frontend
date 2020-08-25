@@ -75,10 +75,13 @@ const ForgotPasswordForm: React.FC = () => {
     // Template
     return (
         <div className="forgot-password">
-            <div className="forgot-password-box">
                 <div className="forgot-password-image">
-                    <img src={resetImage} alt="" />
+                    <div className="forgot-password-image-bg">
+                        <div className="forgot-password-image-img">
+                        </div>
+                    </div>
                 </div>
+
                 <div className="forgot-password-form">
                     <div className="title">
                         <h2>{text.reset.title}</h2>
@@ -97,7 +100,7 @@ const ForgotPasswordForm: React.FC = () => {
                         <button>{text.reset.submitButton}</button>
                     </form>
                 </div>
-            </div>
+
         </div>
     )
 }

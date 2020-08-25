@@ -15,12 +15,15 @@
 
 .sign-up {
   width: 100%;
+  height: 100%;
+  display: table;
   vertical-align: middle;
 
   .sign-up-form{
     display: table-cell;
     vertical-align: middle;
     width: 60vw;
+    height: 100%;
   }
 
   .sign-up-form-title{
@@ -104,25 +107,30 @@
     background: url("../../../assets/images/inputImages/nickname.svg") no-repeat scroll 15px;
   }
 
-  .form-forgot{
-    width: 100%;
+  .form-sign-in{
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
     margin-top: 30px;
     margin-bottom: 30px;
-    text-align: center;
-
-    a{
-      color: black;
-      font-family: Nexa;
-      text-decoration: none;
-      padding-bottom: 2px;
-      border-bottom: 1px solid;
-      font-weight: normal;
-      letter-spacing: 0.8px;
-    }
+    cursor: pointer;
+    color: black;
+    font-family: Nexa;
+    text-decoration: none;
+    font-weight: normal;
+    letter-spacing: 0.8px;
   }
+
+  .sign-in-link-text{
+    border-bottom: 1px solid black;
+    padding-bottom: 2px;
+    cursor: pointer;
+  }
+
 
   .form-button{
     margin-top: 10px;
+    margin-bottom: 50px;
     font-size: 16px;
     text-decoration: none;
     letter-spacing: 2px;

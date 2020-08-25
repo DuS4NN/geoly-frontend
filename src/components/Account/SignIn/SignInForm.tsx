@@ -62,6 +62,10 @@ const SignInForm: React.FC<Props> = () => {
         setPassword(e.target.value)
     }
 
+    const handleRedirect = () => {
+        history.push("/register")
+    }
+
     const handleLogin = (email: String, password: String) => {
         axios({
             method: 'post',
@@ -138,10 +142,10 @@ const SignInForm: React.FC<Props> = () => {
 
                 <div className="form-forgot">
                     <span onClick={handleOpenModal} className="forgot">{text.logIn.forgotPassword}</span>
+                    <span onClick={handleRedirect} className="sign-up-link-text">{text.logIn.createAccount}</span>
                 </div>
 
-                <button className="form-button">{text.logIn.signInButton}</button>
-
+                <button className="form-button-signin">{text.logIn.signInButton}</button>
             </form>
         </div>
     )

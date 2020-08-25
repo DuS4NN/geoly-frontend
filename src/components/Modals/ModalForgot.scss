@@ -13,6 +13,22 @@
   font-weight: normal;
 }
 
+.ReactModal__Overlay {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
 .forgot-modal{
   margin-top: 10%;
   width: 70vw;
@@ -21,12 +37,13 @@
   margin-left: auto;
   border: 1px solid #999e9d;
   border-radius: 20px;
-  background: #fff;
+  background: white;
 
   .image{
     vertical-align: middle;
     display: inline-block;
-    width: 40%;
+    width: 35%;
+    margin-left: 5%;
 
     img{
       width: 100%;
@@ -38,8 +55,8 @@
     vertical-align: middle;
     display: inline-block;
     width: 55%;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-bottom: 70px;
 
     .title {
       font-size: 30px;
@@ -61,7 +78,8 @@
       text-align: center;
     }
 
-    .from {
+    .form {
+      padding-top: 10px;
       text-align: center;
     }
 
@@ -120,8 +138,7 @@
 
   .close-modal{
     text-align: right;
-    padding-top: 5px;
-    padding-right: 0px;
+    padding-top: 8px;
     vertical-align: top;
     display: inline-block;
     width: 5%;
@@ -130,6 +147,7 @@
       background: none;
       border: none;
       cursor: pointer;
+      margin-right: 3px;
       font-family: Nexa;
       font-weight: bold;
       font-size: 20px;

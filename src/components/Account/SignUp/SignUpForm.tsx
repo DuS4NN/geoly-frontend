@@ -136,6 +136,10 @@ const SignUpForm: React.FC = () => {
         setConfirmPassword(e.target.value)
     }
 
+    const handleRedirect = () => {
+        history.push("/login")
+    }
+
     // Template
     return (
         <div className="sign-up-form">
@@ -191,7 +195,9 @@ const SignUpForm: React.FC = () => {
                     <input value={confirmPassword} onChange={handleConfirmPasswordChange} required  min="4" max="20" ref={confirmPasswordInput} className="input-field-password" type="password" placeholder={text.signUp.formPasswordAgainPlaceholder} name="confirm-password" />
                 </div>
 
-                <br /> <br />
+                <div className="form-sign-in">
+                    <span onClick={handleRedirect} className="sign-in-link-text">{text.signUp.signIn}</span>
+                </div>
 
                 <button className="form-button">{text.signUp.signUpButton}</button>
 

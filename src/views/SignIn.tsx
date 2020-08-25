@@ -2,7 +2,7 @@ import React from 'react'
 
 // Children
 import SignInForm from "../components/Account/SignIn/SignInForm"
-import SignInSignUp from "../components/Account/SignIn/SignInSignUp"
+import SignInBackground from "../components/Account/SignIn/SignInBackground"
 
 // Props
 interface Props {
@@ -15,9 +15,9 @@ const SignIn: React.FC = () => {
     return (
         <div className="sign-in">
             <SignInForm />
-            <SignInSignUp />
+            <SignInBackground />
         </div>
     )
 }
-
+//<SignInBackground />
 export default SignIn
