@@ -1,7 +1,6 @@
 import React from 'react'
 // Style
 import './SignUpBackground.scss'
-import {useHistory} from "react-router-dom";
 
 // Props
 interface Props {

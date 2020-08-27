@@ -17,8 +17,13 @@
   height: 110px;
   border-bottom: 1px solid var(--light-mode-input-backgroud);
   display: table;
+}
 
-  .navigation-logo {
+.navigation-links{
+  height: 100%;
+  display: table;
+
+  .navigation-links-logo {
     vertical-align: middle;
     width: 20vw;
     display: table-cell;
@@ -32,7 +37,7 @@
     }
   }
 
-  .navigation-links{
+  .navigation-links-link{
     vertical-align: middle;
     display: table-cell;
     width: 60vw;
@@ -51,39 +56,4 @@
       transition: color, 0.5s
     }
   }
-
-  .navigation-button {
-    vertical-align: middle;
-    width: 20vw;
-    display: table-cell;
-    text-align: right;
-
-    button {
-      margin-right: 45px;
-      font-size: 16px;
-      text-decoration: none;
-      letter-spacing: 2px;
-      border-radius: 50px;
-      padding: 8px 4vw;
-      border: none;
-      cursor: pointer;
-      color: white;
-      font-family: OpenSans;
-      font-weight: normal;
-      background-size: 300% 100%;
-      background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
-      box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
-      -o-transition: all .4s ease-in-out;
-      -webkit-transition: all .4s ease-in-out;
-      transition: all .4s ease-in-out;
-    }
-
-    button:hover {
-      background-position: 100% 0;
-      -o-transition: all .4s ease-in-out;
-      -webkit-transition: all .4s ease-in-out;
-      transition: all .4s ease-in-out;
-    }
-  }
-
 }

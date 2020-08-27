@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {Switch, Route} from "react-router-dom"
 
 //Children
-import TheNavigation from "./components/Navigation/TheNavigation"
+import Navigation from "./views/Navigation"
 import ForgotPassword from "./views/ForgotPassword"
 import Verify from "./components/Account/Verify/Verify"
 import SignIn from "./views/SignIn"
@@ -19,6 +19,7 @@ function App() {
     if(localStorage.getItem("nickName")){
         userFromStorage = {
             nickName: localStorage.getItem("nickName"),
+            profileImage: localStorage.getItem("profileImage"),
             languageId: localStorage.getItem("languageId"),
             mapTheme: localStorage.getItem("mapTheme"),
             darkMode: localStorage.getItem("darkMode")
@@ -26,6 +27,7 @@ function App() {
     }else{
         userFromStorage = {
             nickName: localStorage.getItem("nickName"),
+            profileImage: localStorage.getItem("profileImage"),
             languageId: "1",
             mapTheme: "1",
             darkMode: "false"
@@ -36,20 +38,22 @@ function App() {
     // Template
     return (
         <div className="app">
-            <header>
-                <TheNavigation />
-            </header>
-            <main className="content">
-                <Switch>
-                    <UserContext.Provider value={{userContext, setUserContext}}>
+            <UserContext.Provider value={{userContext, setUserContext}}>
+
+                <header>
+                    <Navigation />
+                </header>
+
+                <main className="content">
+                    <Switch>
                         <Route exact path="/login" component={SignIn} />
                         <Route exact path="/register" component={SignUp} />
                         <Route path="/forgot" component={ForgotPassword} />
                         <Route path="/verify" component={Verify} />
-                    </UserContext.Provider>
-                </Switch>
+                    </Switch>
+                </main>
 
-            </main>
+            </UserContext.Provider>
         </div>
     );
 }

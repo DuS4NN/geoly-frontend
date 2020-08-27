@@ -1,42 +1,38 @@
 import React from "react"
 import {NavLink, Link} from "react-router-dom"
 
-import './TheNavigation.scss'
+// Style
+import './NavigationLinks.scss'
 
+// Props
 interface Props {
-
 }
 
-const TheNavigation: React.FC<Props> = () => {
+// Component
+const NavigationLinks: React.FC<Props> = () => {
 
+    // Image
     const logo = require('../../assets/images/logo-with-text.svg')
 
+    // Template
     return (
-        <nav className="navigation">
-            <div className="navigation-logo">
-                <span className="navigation-logo-helper"></span>
+        <div className="navigation-links">
+            <div className="navigation-links-logo">
                 <Link to="/">
                     <img src={logo} alt=""/>
                 </Link>
-
             </div>
 
-            <div className="navigation-links">
+            <div className="navigation-links-link">
                 <NavLink to="/map"  exact>Map</NavLink>
                 <NavLink to="/profile">Profile</NavLink>
                 <NavLink to="/quests" >Quests</NavLink>
                 <NavLink to="/groups" >Groups</NavLink>
                 <NavLink to="/premium" >Premium</NavLink>
             </div>
+        </div>
 
-            <div className="navigation-button navigation-profile">
-                <form>
-                    <button>Log In</button>
-                </form>
-            </div>
-
-        </nav>
     )
 }
 
-export default TheNavigation
+export default NavigationLinks

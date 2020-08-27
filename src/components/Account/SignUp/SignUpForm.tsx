@@ -20,11 +20,6 @@ const SignUpForm: React.FC = () => {
     // Redirect
     const history = useHistory()
 
-    // Do on start
-    if(userContext['nickName']){
-        history.push("/")
-    }
-
     // State
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")

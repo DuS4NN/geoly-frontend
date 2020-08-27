@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useHistory} from "react-router-dom"
 import axios from "axios"
 import {useAlert} from "react-alert"
@@ -44,7 +44,7 @@ const Verify: React.FC = () => {
             history.push("/login")
         })
     }, [])
-    
+
     // Template
     return (
         <div>

@@ -9,6 +9,7 @@ export interface Song {
 
 export interface LogInUser {
     nickName: string,
+    profileImage: string,
     mapTheme: number,
     darkMode: boolean,
     languageId: number

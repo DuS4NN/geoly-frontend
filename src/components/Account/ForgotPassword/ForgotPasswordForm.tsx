@@ -30,9 +30,6 @@ const ForgotPasswordForm: React.FC = () => {
     // Text
     const text = require('../../../assets/languageText/'+userContext['languageId']+'.ts').text
 
-    // Image
-    const resetImage = require('../../../assets/images/resetPassword.svg')
-
     //Methods
     const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value)

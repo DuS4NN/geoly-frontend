@@ -25,11 +25,6 @@ const SignInForm: React.FC<Props> = () => {
     // Redirect
     const history = useHistory()
 
-    // Do on start
-    if(userContext['nickName']){
-        history.push("/")
-    }
-
     //State
     const [password, setPassword] = useState("")
     const [showModal, setShowModal] = useState(false)
@@ -72,12 +67,14 @@ const SignInForm: React.FC<Props> = () => {
             url: process.env.REACT_APP_API_SERVER_URL+'/login?username='+email+'&password='+password,
         }).then(function (response) {
             localStorage.setItem('nickName', response.data.nickName)
+            localStorage.setItem("profileImage", response.data.profileImage)
             localStorage.setItem('languageId', response.data.languageId)
             localStorage.setItem('mapTheme', response.data.mapTheme)
             localStorage.setItem('darkMode', response.data.darkMode)
 
             let newUser:LogInUser = {
                 nickName: response.data.nickName,
+                profileImage: response.data.profileImage,
                 languageId: response.data.languageId,
                 mapTheme: response.data.mapTheme,
                 darkMode: response.data.darkMode

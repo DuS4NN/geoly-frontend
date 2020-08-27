@@ -9,8 +9,6 @@ import disableScroll from 'disable-scroll'
 import {UserContext} from "../../UserContext";
 // Style
 import './ModalForgot.scss'
-import CSSTransition from "react-transition-group/CSSTransition";
-
 
 // Props
 interface Props {
