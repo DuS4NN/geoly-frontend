@@ -65,6 +65,7 @@ const SignInForm: React.FC<Props> = () => {
         axios({
             method: 'post',
             url: process.env.REACT_APP_API_SERVER_URL+'/login?username='+email+'&password='+password,
+            withCredentials: true
         }).then(function (response) {
             localStorage.setItem('nickName', response.data.nickName)
             localStorage.setItem("profileImage", response.data.profileImage)

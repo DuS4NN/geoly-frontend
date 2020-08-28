@@ -16,7 +16,7 @@ const TunesList: React.FC<Props> = props => {
     return (
         <TransitionGroup component="ul" className="tunes-list">
             {songs.map(song =>(
-                <CSSTransition key={song.id} timeout={200} classNames="song">
+                <CSSTransition timeout={200} classNames="song">
                     <li key={song.id}>
                         <TunesSong song={song}/>
                     </li>

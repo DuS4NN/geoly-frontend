@@ -1,31 +1,41 @@
 import React, {useContext} from "react"
+import {useHistory} from "react-router-dom"
+
 // Context
 import {UserContext} from "../../UserContext"
 // Style
 import './NavigationProfile.scss'
-import {useHistory} from "react-router-dom";
+
 
 // Props
 interface Props {
+    showRoll: boolean
+    setShowRoll: (showRoll: boolean) => void
 }
 
 // Component
-const NavigationProfile: React.FC<Props> = () => {
+const NavigationProfile: React.FC<Props> = (props) => {
     // Context
     //@ts-ignore
     const {userContext} = useContext(UserContext)
+
+    // State
+    const {showRoll, setShowRoll} = props
 
     // Redirect
     const history = useHistory()
 
     // Image
-    const logo = require('../../assets/images/socialMedia/facebook.svg')
     const messageIcon = require('../../assets/images/inputImages/message.svg')
     const notificationIcon = require('../../assets/images/inputImages/notification.svg')
 
     // Methods
     const handleClick = () => {
         history.push("/login")
+    }
+
+    const handleRoll = () => {
+        setShowRoll(!showRoll)
     }
 
     // Template
@@ -41,7 +51,7 @@ const NavigationProfile: React.FC<Props> = () => {
                         <img src={notificationIcon} alt="" />
                     </div>
                     <div className="profile-image">
-                        <img src={"http://localhost:8080/image?url="+userContext['profileImage']} alt="" />
+                        <img onClick={handleRoll} src={"http://localhost:8080/image?url="+userContext['profileImage']} alt="" />
                     </div>
 
                 </div>

@@ -1,7 +1,8 @@
-import React from "react"
+import React, {useState} from "react"
 // Children
 import NavigationLinks from "../components/Navigation/NavigationLinks"
 import NavigationProfile from "../components/Navigation/NavigationProfile"
+import NavigationRoll from "../components/Navigation/NavigationRoll"
 
 // Props
 interface Props {
@@ -10,11 +11,16 @@ interface Props {
 // Component
 const Navigation: React.FC<Props> = () => {
 
+    const [showRoll, setShowRoll] = useState(false)
+
     // Template
     return (
         <nav className="navigation">
             <NavigationLinks />
-            <NavigationProfile />
+            <NavigationProfile setShowRoll={setShowRoll} showRoll={showRoll} />
+            {showRoll && (
+                <NavigationRoll setShowRoll={setShowRoll}/>
+            )}
         </nav>
     )
 }

@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FormEvent, useContext, useState} from "react"
+import React, {ChangeEvent, FormEvent, useContext, useEffect, useState, useRef} from "react"
 import {useAlert} from "react-alert"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
@@ -38,13 +38,23 @@ const ModalForgot: React.FC<Props> = props => {
     const forgotPassword = require('../../assets/images/forgotPassword.svg')
 
     // Methods
+    const handleKeyPress = (e: KeyboardEvent) => {
+        if(e.code === 'Escape'){
+            handleCloseModal()
+        }
+    }
+
     const handleCloseModal = () => {
         setShowModal(false)
         disableScroll.off()
+
+        document.removeEventListener("keydown", handleKeyPress);
     }
 
     const onAfterOpenModal = () => {
         disableScroll.on()
+
+        document.addEventListener("keydown", handleKeyPress);
     }
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -74,10 +84,11 @@ const ModalForgot: React.FC<Props> = props => {
 
     // Template
     return (
-            <ReactModal className="forgot-modal"
-                        closeTimeoutMS={500}
-                        isOpen={showModal}
-                        onAfterOpen={onAfterOpenModal}>
+            <ReactModal
+                className="forgot-modal"
+                closeTimeoutMS={500}
+                isOpen={showModal}
+                onAfterOpen={onAfterOpenModal}>
                 <div className="image">
                     <img src={forgotPassword} alt="" />
                 </div>
