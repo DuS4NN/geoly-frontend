@@ -13,6 +13,7 @@ import SignUp from "./views/SignUp"
 import { UserContext } from "./UserContext"
 // Style
 import './App.scss'
+import Ranking from "./views/Ranking";
 
 // Component
 function App() {
@@ -49,6 +50,7 @@ function App() {
                         <Route path="/forgot" component={ForgotPassword} />
                         <Route path="/verify" component={Verify} />
                         <Route path="/logout" component={Logout} />
+                        <Route path="/ranking" component={Ranking} />
                     </Switch>
                 </main>
 

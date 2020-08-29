@@ -33,7 +33,7 @@ const NavigationLinks: React.FC<Props> = () => {
 
             <div className="navigation-links-link">
                 <NavLink to="/map" >{text.navigation.map}</NavLink>
-                <NavLink to="/top">{text.navigation.ranking}</NavLink>
+                <NavLink to="/ranking">{text.navigation.ranking}</NavLink>
                 <NavLink to="/quests" >{text.navigation.quests}</NavLink>
                 <NavLink to="/groups" >{text.navigation.groups}</NavLink>
                 <NavLink to="/premium" >{text.navigation.premium}</NavLink>

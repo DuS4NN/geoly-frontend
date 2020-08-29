@@ -14,6 +14,9 @@
 }
 
 .navigation{
+  position: relative;
+  z-index: 1000;
+  background: white;
   height: 110px;
   border-bottom: 1px solid var(--light-mode-input-backgroud);
   display: table;
