@@ -26,15 +26,12 @@ const Verify: React.FC = () => {
     const text = require('../../../assets/languageText/'+userContext['languageId']+'.ts').text
 
     useEffect(() => {
-        console.log(token)
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/verify?token='+token
         }).then(function (response) {
             let serverResponse = response.data.responseEntity.body
             let statusCode = response.data.responseEntity.statusCode
-
-            console.log(response)
 
             if(statusCode === 'ACCEPTED'){
                 alert.success(text.success[serverResponse])
@@ -43,7 +40,7 @@ const Verify: React.FC = () => {
             }
             history.push("/login")
         })
-    }, [])
+    }, [alert, history, text, token])
 
     // Template
     return (

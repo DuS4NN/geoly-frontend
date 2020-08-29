@@ -2,11 +2,13 @@ import React, {useState} from 'react'
 import {Switch, Route} from "react-router-dom"
 
 //Children
+import Verify from "./components/Account/Verify/Verify"
+import Logout from "./components/Account/LogOut/LogOut"
 import Navigation from "./views/Navigation"
 import ForgotPassword from "./views/ForgotPassword"
-import Verify from "./components/Account/Verify/Verify"
 import SignIn from "./views/SignIn"
 import SignUp from "./views/SignUp"
+
 // Context
 import { UserContext } from "./UserContext"
 // Style
@@ -15,24 +17,20 @@ import './App.scss'
 // Component
 function App() {
     // User Context
-    let userFromStorage
-    if(localStorage.getItem("nickName")){
-        userFromStorage = {
-            nickName: localStorage.getItem("nickName"),
-            profileImage: localStorage.getItem("profileImage"),
-            languageId: localStorage.getItem("languageId"),
-            mapTheme: localStorage.getItem("mapTheme"),
-            darkMode: localStorage.getItem("darkMode")
-        }
-    }else{
-        userFromStorage = {
-            nickName: localStorage.getItem("nickName"),
-            profileImage: localStorage.getItem("profileImage"),
-            languageId: "1",
-            mapTheme: "1",
-            darkMode: "false"
-        }
+    let nickName = localStorage.getItem("nickName") ? localStorage.getItem("nickName") : null
+    let profileImage = localStorage.getItem("profileImage") ? localStorage.getItem("profileImage") : null
+    let languageId = localStorage.getItem("languageId") ? localStorage.getItem("languageId") : '1'
+    let mapTheme = localStorage.getItem("mapTheme") ? localStorage.getItem("MapTheme") : '1'
+    let darkMode = localStorage.getItem("darkMode") ? localStorage.getItem("darkMode") : 'false'
+
+    let userFromStorage = {
+        nickName: nickName,
+        profileImage: profileImage,
+        languageId: languageId,
+        mapTheme: mapTheme,
+        darkMode: darkMode
     }
+
     const [userContext, setUserContext] = useState(userFromStorage)
 
     // Template
@@ -50,6 +48,7 @@ function App() {
                         <Route exact path="/register" component={SignUp} />
                         <Route path="/forgot" component={ForgotPassword} />
                         <Route path="/verify" component={Verify} />
+                        <Route path="/logout" component={Logout} />
                     </Switch>
                 </main>
 

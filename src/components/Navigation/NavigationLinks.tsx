@@ -25,7 +25,7 @@ const NavigationLinks: React.FC<Props> = () => {
 
             <div className="navigation-links-link">
                 <NavLink to="/map" >Map</NavLink>
-                <NavLink to="/profile">Profile</NavLink>
+                <NavLink to="/top">Top</NavLink>
                 <NavLink to="/quests" >Quests</NavLink>
                 <NavLink to="/groups" >Groups</NavLink>
                 <NavLink to="/premium" >Premium</NavLink>

@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FormEvent, useContext, useEffect, useState, useRef} from "react"
+import React, {ChangeEvent, FormEvent, useContext, useState} from "react"
 import {useAlert} from "react-alert"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
