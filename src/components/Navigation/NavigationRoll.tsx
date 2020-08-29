@@ -40,6 +40,10 @@ const NavigationRoll: React.FC<Props> = (props) => {
     const darkModeIcon = require("../../assets/images/navigationIcons/darkmode.svg")
 
     // Methods
+    const handleClick = () => {
+        setShowRoll(false)
+    }
+
     const handleChange = () => {
 
         let toggle:boolean = !userContext['darkMode']
@@ -109,7 +113,7 @@ const NavigationRoll: React.FC<Props> = (props) => {
                         </div>
                     </article>
 
-                    <Link to={'/profile/'+userContext['nickName']} className="navigation-roll-item profile">
+                    <Link onClick={handleClick} to={'/profile/'+userContext['nickName']} className="navigation-roll-item profile">
                         <div className="navigation-roll-item-icon">
                             <img src={profileIcon} alt="" />
                         </div>
@@ -118,7 +122,7 @@ const NavigationRoll: React.FC<Props> = (props) => {
                         </div>
                     </Link>
 
-                    <Link to={"/settings"} className="navigation-roll-item settings">
+                    <Link onClick={handleClick} to={"/settings"} className="navigation-roll-item settings">
                         <div className="navigation-roll-item-icon">
                             <img src={settingsIcon} alt="" />
                         </div>
@@ -127,7 +131,7 @@ const NavigationRoll: React.FC<Props> = (props) => {
                         </div>
                     </Link>
 
-                    <Link to={"/logout"} className="navigation-roll-item logout">
+                    <Link onClick={handleClick} to={"/logout"} className="navigation-roll-item logout">
                         <div className="navigation-roll-item-icon">
                             <img    src={logoutIcon} alt="" />
                         </div>

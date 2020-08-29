@@ -37,6 +37,14 @@ export const text = {
         inputConfirmPasswordPlaceholder: 'Confirm password',
         submitButton: 'Reset'
     },
+    navigation: {
+        map: 'Map',
+        ranking: 'Ranking',
+        quests: 'Quests',
+        groups: 'Groups',
+        premium: 'Premium',
+        logIn: 'Log In'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',

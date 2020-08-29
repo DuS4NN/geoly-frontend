@@ -37,6 +37,14 @@ export const text = {
         inputConfirmPasswordPlaceholder: 'Potvrdenie hesla',
         submitButton: 'Obnoviť'
     },
+    navigation: {
+        map: 'Mapa',
+        ranking: 'Rebríček',
+        quests: 'Úlohy',
+        groups: 'Skupiny',
+        premium: 'Prémium',
+        logIn: 'Prihlásiť sa'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',
