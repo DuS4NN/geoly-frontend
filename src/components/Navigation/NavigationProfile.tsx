@@ -51,7 +51,7 @@ const NavigationProfile: React.FC<Props> = (props) => {
                         <img src={notificationIcon} alt="" />
                     </div>
                     <div className="profile-image">
-                        <img onClick={handleRoll} src={"http://localhost:8080/image?url="+userContext['profileImage']} alt="" />
+                        <img onClick={handleRoll} src={process.env.REACT_APP_IMAGE_SERVER_URL+userContext['profileImage']} alt="" />
                     </div>
 
                 </div>

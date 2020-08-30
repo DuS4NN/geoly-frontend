@@ -45,6 +45,26 @@ export const text = {
         premium: 'Premium',
         logIn: 'Log In'
     },
+    ranking: {
+        title: 'Ranking',
+        subtitle: 'Complete tasks, earn points and place in the ranking of the best players in this season!',
+        season: 'Season: ',
+        noData: 'No player seems to have gained a points this season'
+    },
+    month: {
+        0: 'January',
+        1: 'February',
+        2: 'March',
+        3: 'April',
+        4: 'May',
+        5: 'June',
+        6: 'July',
+        7: 'August',
+        8: 'September',
+        9: 'October',
+        10: 'November',
+        11: 'December'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',
@@ -79,11 +99,12 @@ export const text = {
         ACCOUNT_ACTIVATED: 'Your account has been verified'
 
     }
-    // NOT_ACCEPTABLE
-    // NOT_FOUND
-    // INTERNAL_SERVER_ERROR
+    // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka
+    // NOT_FOUND - Nenašlo sa, pravdepodobne BAD_REQUEST
+    // INTERNAL_SERVER_ERROR - Chyba
+    // BAD_REQUEST - Vyhodí len pri Validatore
 
-    // BAD_REQUEST
+    // NO_CONTENT - Všetko je OK ale nie sú žiadne dáta
 
     // OK - Vraciam dáta
     // ACCEPTED - Všetko OK ale dáta nevraciam

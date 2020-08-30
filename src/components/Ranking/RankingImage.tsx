@@ -15,7 +15,9 @@ const RankingImage: React.FC = () => {
     //@ts-ignore
     const {userContext} = useContext(UserContext)
 
-    const test = require('../../assets/images/obliqueBottom.svg')
+    const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
+
+    const bottomImage = require('../../assets/images/obliqueBottom.svg')
 
     // Template
     return (
@@ -24,25 +26,23 @@ const RankingImage: React.FC = () => {
             <div className="ranking-image-content">
                 <div className="content-text">
                     <div className="content-text-title">
-                        <h2>Ranking</h2>
+                        <h2>{text.ranking.title}</h2>
                     </div>
                     <br />
                     <div className="content-text-subtitle">
-                        <span>Plnte úlohy, získavajte body a umiestnite sa v rebíčku najlepšíc hráčov v tejto sezóne!</span>
+                        <span>{text.ranking.subtitle}</span>
                     </div>
                 </div>
 
                 <div className="content-image">
-
                 </div>
             </div>
 
             <div className="ranking-image-background">
-                <img src={test} alt="" />
+                <img src={bottomImage} alt="" />
             </div>
 
         </div>
-
     )
 }
 

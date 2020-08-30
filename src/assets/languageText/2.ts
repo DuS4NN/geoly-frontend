@@ -45,6 +45,26 @@ export const text = {
         premium: 'Prémium',
         logIn: 'Prihlásiť sa'
     },
+    ranking: {
+        title: 'Rebríček',
+        subtitle: 'Splňte úlohy, získajte body a umiestnite sa v rebríčku najlepších hráčov v tejto sezóne!',
+        season: 'Sezóna: ',
+        noData: 'Zdá sa, že žiadny hráč v tejto sezóne nezískal body'
+    },
+    month: {
+        0: 'Január',
+        1: 'Február',
+        2: 'Marec',
+        3: 'Apríl',
+        4: 'Máj',
+        5: 'Jún',
+        6: 'Júl',
+        7: 'August',
+        8: 'September',
+        9: 'Október',
+        10: 'November',
+        11: 'December'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',

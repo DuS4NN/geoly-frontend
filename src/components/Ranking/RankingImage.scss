@@ -7,7 +7,11 @@
     width: 100vw;
     height: 400px;
     display: table;
-    background: var(--background-light-green);
+    background-color: var(--background-light-green);
+    background-image: url("../../assets/images/waveRight/backgroundTopRight.svg"), url("../../assets/images/waveLeft/backgroundTopLeft.svg");
+    background-position: top right, top left;
+    background-repeat: no-repeat;
+    background-size: 25%;
 
     .content-text{
       width: 50%;
@@ -40,7 +44,6 @@
         font-weight: normal;
         letter-spacing: 0.8px;
       }
-
     }
 
     .content-image{

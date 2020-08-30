@@ -15,3 +15,10 @@ export interface LogInUser {
     languageId: number
 }
 
+export interface RankingPlayer {
+    position: number,
+    points: number,
+    nickname: string,
+    profileImage: string
+}
+
