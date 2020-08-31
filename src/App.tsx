@@ -8,6 +8,7 @@ import Navigation from "./views/Navigation"
 import ForgotPassword from "./views/ForgotPassword"
 import SignIn from "./views/SignIn"
 import SignUp from "./views/SignUp"
+import Map from "./views/Map"
 
 // Context
 import { UserContext } from "./UserContext"
@@ -51,6 +52,7 @@ function App() {
                         <Route path="/verify" component={Verify} />
                         <Route path="/logout" component={Logout} />
                         <Route path="/ranking" component={Ranking} />
+                        <Route path="/map" component={Map} />
                     </Switch>
                 </main>
 
