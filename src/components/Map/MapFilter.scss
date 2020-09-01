@@ -1,0 +1,105 @@
+.map-filter{
+  height: 100px;
+  display: table-cell;
+  vertical-align: middle;
+  width: 100vw;
+
+
+  .map-filter-search{
+    display: table-cell;
+    vertical-align: middle;
+
+    .autocomplete-dropdown-container{
+      padding-top: 5px;
+      padding-bottom: 5px;
+      position: absolute;
+      top: 185px;
+      z-index: 1000;
+      border-radius: 5px;
+      background: white;
+      border: 1px solid hsl(0,0%,80%);
+    }
+
+    .suggestion-item, .suggestion-item--active{
+      white-space: nowrap;
+    }
+
+    .dropdown-container-loading{
+      background: white;
+      width: 300px;
+      text-align: center;
+
+      img{
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    input {
+      width: 280px;
+      height: 34px;
+      border: 1px solid hsl(0,0%,80%);
+      border-radius: 5px;
+      font-family: OpenSans;
+      font-size: 15px;
+      letter-spacing: 0.8px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .suggestion-item--active{
+      background: blue;
+    }
+
+    input:hover{
+      border: 1px solid hsl(0,0%,60%);
+    }
+  }
+
+  .map-filter-category{
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .map-filter-difficulty{
+    display: table-cell;
+
+  }
+
+
+
+
+  .custom-select{
+    font-family: OpenSans;
+    width: 300px;
+    font-size: 15px;
+    letter-spacing: 0.8px;
+  }
+
+  #react-select-2-input{
+    font-family: OpenSans;
+    font-size: 14px!important;
+  }
+
+  .map-filter-select{
+    .map-filter-select-image{
+      display: table-cell;
+      width: 20%;
+
+      img{
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .map-filter-select-label{
+      vertical-align: middle;
+      padding-left: 30px;
+      display: table-cell;
+      width: 80%;
+
+    }
+  }
+}
+
+

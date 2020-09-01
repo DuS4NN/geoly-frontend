@@ -25,6 +25,7 @@ const Ranking: React.FC = () => {
     var position = 0
 
 
+
     useEffect( () => {
 
         axios({
@@ -59,26 +60,28 @@ const Ranking: React.FC = () => {
             }
         })
 
-    }, [])
+        const extractPlayer = (player:any) => {
+            return {
+                position: player[0],
+                points: player[1],
+                nickname: player[2],
+                profileImage: player[3]
+            } as unknown as RankingPlayer
+        }
 
-    const extractPlayer = (player:any) => {
-        return {
-            position: player[0],
-            points: player[1],
-            nickname: player[2],
-            profileImage: player[3]
-        } as unknown as RankingPlayer
-    }
+        const extractData = (player:any) => {
+            position++
+            return {
+                position: position,
+                points: player[0],
+                nickname: player[1],
+                profileImage: player[2]
+            } as unknown as RankingPlayer
+        }
 
-    const extractData = (player:any) => {
-        position++
-        return {
-            position: position,
-            points: player[0],
-            nickname: player[1],
-            profileImage: player[2]
-        } as unknown as RankingPlayer
-    }
+    }, [userContext, position])
+
+
 
     // Template
     return (

@@ -65,6 +65,20 @@ export const text = {
         10: 'November',
         11: 'December'
     },
+    mapFilter: {
+        searchPlacesPlaceholder: 'Select place..',
+        placeNotFound: 'Place not found',
+        selectCategory: 'Select category..',
+        noCategoryLeft: 'No categories left'
+    },
+    category: {
+      history: 'History',
+      art: 'Art',
+      view: 'View',
+      architecture: 'Architecture',
+      nature: 'Nature',
+      culture: 'Culture'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',

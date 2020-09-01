@@ -1,7 +1,6 @@
-import React, {useContext, useState} from 'react'
+import React from 'react'
 import {NavLink} from "react-router-dom"
-// Context
-import {UserContext} from "../../UserContext"
+
 
 // Style
 import './RankingItem.scss'
@@ -16,9 +15,6 @@ interface Props {
 // Component
 const RankingItem: React.FC<Props> = (props) => {
 
-    // Context
-    //@ts-ignore
-    const {userContext} = useContext(UserContext)
     const {player} = props
 
     // Template

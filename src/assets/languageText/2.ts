@@ -65,6 +65,20 @@ export const text = {
         10: 'November',
         11: 'December'
     },
+    mapFilter: {
+        searchPlacesPlaceholder: 'Vyberte miesto..',
+        placeNotFound: 'Miesto sa nenašlo',
+        selectCategory: 'Vyberte kategóriu..',
+        noCategoryLeft: 'Žiadne ďalšie možnosti'
+    },
+    category: {
+        history: 'História',
+        art: 'Umenie',
+        view: 'Výhľad',
+        architecture: 'Architektúra',
+        nature: 'Príroda',
+        culture: 'Kultúra'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',
