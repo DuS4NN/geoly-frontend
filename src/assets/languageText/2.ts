@@ -69,7 +69,13 @@ export const text = {
         searchPlacesPlaceholder: 'Vyberte miesto..',
         placeNotFound: 'Miesto sa nenašlo',
         selectCategory: 'Vyberte kategóriu..',
-        noCategoryLeft: 'Žiadne ďalšie možnosti'
+        noCategoryLeft: 'Žiadne ďalšie možnosti',
+        placeLabel: 'Miesto:',
+        categoryLabel: 'Kategórie',
+        difficultyLabel: 'Obtiažnosť:',
+        reviewLabel: 'Hodnotenie:',
+        unreviewLabel: 'Neohodnotené',
+        findButton: 'Hľadať'
     },
     category: {
         history: 'História',

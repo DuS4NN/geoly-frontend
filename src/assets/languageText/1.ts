@@ -69,7 +69,13 @@ export const text = {
         searchPlacesPlaceholder: 'Select place..',
         placeNotFound: 'Place not found',
         selectCategory: 'Select category..',
-        noCategoryLeft: 'No categories left'
+        noCategoryLeft: 'No categories left',
+        placeLabel: 'Place:',
+        categoryLabel: 'Categories:',
+        difficultyLabel: 'Difficulty:',
+        reviewLabel: 'Review:',
+        unreviewLabel: 'Not rated:',
+        findButton: 'Search'
     },
     category: {
       history: 'History',

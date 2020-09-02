@@ -1,18 +1,17 @@
-import React, {ChangeEvent, useContext, useEffect, useRef, useState} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import Slider from '@material-ui/core/Slider';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Toggle from 'react-toggle'
 import axios from 'axios'
 import chroma from 'chroma-js';
 import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
-
-import './MapFilter.scss'
 import Select, {components} from "react-select";
 import {debounce} from "lodash-es";
 import {useAlert} from "react-alert";
 import {UserContext} from "../../UserContext";
 
 import '../Elements/Toggle.scss'
+import './MapFilter.scss'
 
 // Props
 interface Props {
@@ -38,7 +37,7 @@ const MapFilter: React.FC<Props> = (props) => {
     const {map} = props
 
     //@ts-ignore
-    const {userContext, setUserContext} = useContext(UserContext)
+    const {userContext} = useContext(UserContext)
     const [categoryList, setCategoryList] = useState([])
     const [address, setAddress] = useState("")
     const {Option} = components;
@@ -245,7 +244,7 @@ const MapFilter: React.FC<Props> = (props) => {
 
 
             <div className="map-filter-search">
-                <div className="map-filter-label">Difficulty</div>
+                <div className="map-filter-label">{text.mapFilter.placeLabel}</div>
                 <PlacesAutocomplete
                     value={address}
                     onChange={handleChange}
@@ -288,7 +287,7 @@ const MapFilter: React.FC<Props> = (props) => {
 
 
             <div className="map-filter-category">
-                <div className="map-filter-label">Difficulty</div>
+                <div className="map-filter-label">{text.mapFilter.categoryLabel}</div>
                 <Select
                     closeMenuOnSelect={false}
                     onChange={handleCategoryChange}
@@ -303,7 +302,7 @@ const MapFilter: React.FC<Props> = (props) => {
             </div>
 
             <div className="map-filter-sliders">
-                <div className="map-filter-label">Difficulty</div>
+                <div className="map-filter-label">{text.mapFilter.difficultyLabel}</div>
                 <PrettoSlider
                     className="pretto-slider"
                     defaultValue={difficultyFind}
@@ -313,7 +312,7 @@ const MapFilter: React.FC<Props> = (props) => {
                     max={5}
                 />
 
-                <div className="map-filter-label">Difficulty</div>
+                <div className="map-filter-label">{text.mapFilter.reviewLabel}</div>
                 <PrettoSlider
                     className="pretto-slider"
                     defaultValue={reviewFind}
@@ -324,7 +323,7 @@ const MapFilter: React.FC<Props> = (props) => {
                 />
 
                 <div  className= "map-filter-toggle">
-                    <div className="map-filter-label">Difficulty</div>
+                    <div className="map-filter-label">{text.mapFilter.unreviewLabel}</div>
                     <Toggle
                         defaultChecked={true}
                         onChange={handleToggleChange}
@@ -338,20 +337,10 @@ const MapFilter: React.FC<Props> = (props) => {
             </div>
 
             <div className="map-filter-submit">
-                <button onClick={handleSearch}>Find</button>
+                <button onClick={handleSearch}>{text.mapFilter.findButton}</button>
             </div>
         </div>
     )
-
-    /* Nastavit si polohu - input s nazvom mesta, štátu
-     Filtrovať úlohy {
-
-     - typ - select
-     - náročnosť - posuvník
-     - review - posuvník
-     - unreviewed - checkbox
-     }
-    */
 }
 
 export default MapFilter
