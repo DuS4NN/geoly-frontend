@@ -58,9 +58,7 @@ const NavigationRoll: React.FC<Props> = (props) => {
             if(statusCode === 'ACCEPTED'){
                 let newUserContext:LogInUser = userContext
                 newUserContext['darkMode'] = toggle
-                setUserContext(
-                    newUserContext
-                )
+                setUserContext(newUserContext)
                 localStorage.setItem('darkMode', String(toggle))
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)

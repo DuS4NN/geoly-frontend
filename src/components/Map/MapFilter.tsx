@@ -1,17 +1,18 @@
 import React, {ChangeEvent, useContext, useEffect, useRef, useState} from "react"
+import Slider from '@material-ui/core/Slider';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import Toggle from 'react-toggle'
 import axios from 'axios'
 import chroma from 'chroma-js';
-import PlacesAutocomplete, {
-    geocodeByAddress,
-    getLatLng,
-} from 'react-places-autocomplete';
+import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
 
 import './MapFilter.scss'
 import Select, {components} from "react-select";
-import {capitalize, debounce} from "lodash-es";
+import {debounce} from "lodash-es";
 import {useAlert} from "react-alert";
 import {UserContext} from "../../UserContext";
 
+import '../Elements/Toggle.scss'
 
 // Props
 interface Props {
@@ -27,6 +28,12 @@ interface Category {
 
 // Component
 const MapFilter: React.FC<Props> = (props) => {
+
+    const [categoryFind, setCategoryFind] = useState([1,2,3,4,5,6])
+    const [difficultyFind, setDifficultyFind] = useState([1,5])
+    const [reviewFind, setReviewFind] = useState([1,5])
+    const [unreviewed, setUnreviewed] = useState(true)
+    const [rollFilter, setRollFilter] = useState(true)
 
     const {map} = props
 
@@ -46,21 +53,6 @@ const MapFilter: React.FC<Props> = (props) => {
         ARCHITECTURE: '#fccb5b',
         NATURE: '#53dc92',
         CULTURE: '#ff4155'
-    }
-    const searchStyle = {
-        cursor: 'pointer',
-        width: '280px',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        fontFamily: 'OpenSans',
-        fontSize: '15px',
-        letterSpacing: '0.8px',
-        paddingLeft: '10px',
-        paddingRight: '10px',
-        verticalAlign: 'middle',
-        borderRadius: '5px',
-        paddingTop: '15px',
-        paddingBottom: '15px'
     }
 
     const loadingImage = require("../../assets/images/otherIcons/loading.svg")
@@ -162,6 +154,39 @@ const MapFilter: React.FC<Props> = (props) => {
             .catch(error => alert.error(text.mapFilter.placeNotFound))
     },500)
 
+    const handleCategoryChange = (e:any) => {
+        if(!e) return
+        let category:number[] = e.map((category:Category) => extractCategory(category))
+        setCategoryFind(category)
+    }
+
+    const extractCategory = (category:Category) => {
+        return category.value
+    }
+
+    const handleDifficultyChange = (event:any, value:any) => {
+        setDifficultyFind(value)
+    }
+
+    const handleReviewChange = (event:any, value:any) => {
+        setReviewFind(value)
+    }
+
+    const handleToggleChange = () => {
+        setUnreviewed(!unreviewed)
+    }
+
+    const handleRoll = () => {
+        setRollFilter(!rollFilter)
+    }
+
+    const handleSearch = () => {
+        console.log(categoryFind)
+        console.log(difficultyFind)
+        console.log(reviewFind)
+        console.log(unreviewed)
+    }
+
     //@ts-ignore
     const IconOption = (props: categoryList) => (
         <Option {...props}>
@@ -178,11 +203,49 @@ const MapFilter: React.FC<Props> = (props) => {
         </Option>
     )
 
+    const PrettoSlider = withStyles({
+        root: {
+            color: '#52af77',
+            height: 8,
+        },
+        thumb: {
+            height: 24,
+            width: 24,
+            backgroundColor: '#fff',
+            border: '2px solid currentColor',
+            marginTop: -8,
+            marginLeft: -12,
+            '&:focus, &:hover, &$active': {
+                boxShadow: 'inherit',
+            },
+        },
+        active: {},
+        valueLabel: {
+            left: 'calc(-50% + 4px)',
+        },
+        track: {
+            height: 8,
+            borderRadius: 4,
+        },
+        rail: {
+            height: 8,
+            borderRadius: 4,
+        },
+    })(Slider);
+
+    const arrowUp = require("../../assets/images/otherIcons/arrow-up.svg")
+    const arrowDown = require("../../assets/images/otherIcons/arrow-down.svg")
+
     // Template
     return (
-        <div className="map-filter">
-            <div className="map-filter-search">
+        <div className={rollFilter ? "map-filter" : "map-filter hidden" }>
+            <div className="map-filter-arrow">
+                <img onClick={handleRoll} src={rollFilter ? arrowUp : arrowDown} alt="" />
+            </div>
 
+
+            <div className="map-filter-search">
+                <div className="map-filter-label">Difficulty</div>
                 <PlacesAutocomplete
                     value={address}
                     onChange={handleChange}
@@ -197,21 +260,19 @@ const MapFilter: React.FC<Props> = (props) => {
                                 })}
                             />
 
-                            <div className="autocomplete-dropdown-container">
+
+                            <div className="dropdown-container">
                                 {loading && <div className="dropdown-container-loading"><img src={loadingImage} alt="" /></div>}
-                                {suggestions.map(suggestion => {
+                                {suggestions.map( (suggestion, index) => {
+
                                     const className = suggestion.active
-                                        ? 'suggestion-item--active'
-                                        : 'suggestion-item';
-                                    // inline style for demonstration purpose
-                                    const style = suggestion.active
-                                        ? { backgroundColor: '#eff6f4', ...searchStyle }
-                                        : { backgroundColor: '#ffffff', ...searchStyle}
+                                        ? 'suggestion-item--active item'+index
+                                        : 'suggestion-item item'+index
+                                    const key = index
                                     return (
                                         <div
                                             {...getSuggestionItemProps(suggestion, {
                                                 className,
-                                                style,
                                             })}
                                         >
                                             <span>{suggestion.description}</span>
@@ -225,9 +286,12 @@ const MapFilter: React.FC<Props> = (props) => {
 
             </div>
 
+
             <div className="map-filter-category">
+                <div className="map-filter-label">Difficulty</div>
                 <Select
                     closeMenuOnSelect={false}
+                    onChange={handleCategoryChange}
                     isMulti
                     options={categoryList}
                     placeholder={text.mapFilter.selectCategory}
@@ -238,11 +302,44 @@ const MapFilter: React.FC<Props> = (props) => {
                 />
             </div>
 
-            <div className="map-filter-difficulty">
+            <div className="map-filter-sliders">
+                <div className="map-filter-label">Difficulty</div>
+                <PrettoSlider
+                    className="pretto-slider"
+                    defaultValue={difficultyFind}
+                    valueLabelDisplay="auto"
+                    onChangeCommitted={handleDifficultyChange}
+                    min={1}
+                    max={5}
+                />
 
+                <div className="map-filter-label">Difficulty</div>
+                <PrettoSlider
+                    className="pretto-slider"
+                    defaultValue={reviewFind}
+                    valueLabelDisplay="auto"
+                    onChangeCommitted={handleReviewChange}
+                    min={1}
+                    max={5}
+                />
+
+                <div  className= "map-filter-toggle">
+                    <div className="map-filter-label">Difficulty</div>
+                    <Toggle
+                        defaultChecked={true}
+                        onChange={handleToggleChange}
+                        icons={{
+                            checked: null,
+                            unchecked: null,
+                        }}
+                    />
+                </div>
 
             </div>
 
+            <div className="map-filter-submit">
+                <button onClick={handleSearch}>Find</button>
+            </div>
         </div>
     )
 
