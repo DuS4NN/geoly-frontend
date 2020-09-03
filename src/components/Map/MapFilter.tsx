@@ -16,6 +16,9 @@ import './MapFilter.scss'
 // Props
 interface Props {
     map: any
+    google: any
+    boundarySe: any
+    boundaryNw: any
 }
 
 interface Category {
@@ -28,13 +31,13 @@ interface Category {
 // Component
 const MapFilter: React.FC<Props> = (props) => {
 
-    const [categoryFind, setCategoryFind] = useState([1,2,3,4,5,6])
+    const [categoryFind, setCategoryFind] = useState([])
     const [difficultyFind, setDifficultyFind] = useState([1,5])
     const [reviewFind, setReviewFind] = useState([1,5])
     const [unreviewed, setUnreviewed] = useState(true)
     const [rollFilter, setRollFilter] = useState(true)
 
-    const {map} = props
+    const {map, boundaryNw, boundarySe, google} = props
 
     //@ts-ignore
     const {userContext} = useContext(UserContext)
@@ -118,7 +121,20 @@ const MapFilter: React.FC<Props> = (props) => {
 
     useEffect( () => {
         getAllCategories()
-    }, [])
+        getInit()
+    }, [map])
+
+
+    const getInit = () => {
+        if(map && map.getBounds()){
+            handleSearch()
+        }else{
+            setTimeout(function () {
+                console.log("Nejde")
+                getInit()
+            },500)
+        }
+    }
 
     // Methods
     const getAllCategories = () => {
@@ -156,6 +172,7 @@ const MapFilter: React.FC<Props> = (props) => {
     const handleCategoryChange = (e:any) => {
         if(!e) return
         let category:number[] = e.map((category:Category) => extractCategory(category))
+        //@ts-ignore
         setCategoryFind(category)
     }
 
@@ -180,11 +197,22 @@ const MapFilter: React.FC<Props> = (props) => {
     }
 
     const handleSearch = () => {
-        console.log(categoryFind)
-        console.log(difficultyFind)
-        console.log(reviewFind)
-        console.log(unreviewed)
+        axios({
+            method: 'POST',
+            url: process.env.REACT_APP_API_SERVER_URL+'/questByParam',
+            data: {
+                categoryId: categoryFind,
+                difficulty: difficultyFind,
+                review: reviewFind,
+                unreviewed: unreviewed,
+                coordinatesNw: boundaryNw,
+                coordinatesSe: boundarySe
+            }
+        }).then(function (response) {
+            console.log(response)
+        })
     }
+
 
     //@ts-ignore
     const IconOption = (props: categoryList) => (
@@ -197,8 +225,6 @@ const MapFilter: React.FC<Props> = (props) => {
                     {props.data.label}
                 </div>
             </div>
-
-
         </Option>
     )
 
