@@ -16,9 +16,17 @@ import './MapFilter.scss'
 // Props
 interface Props {
     map: any
-    google: any
-    boundarySe: any
-    boundaryNw: any
+    setCategoryFind: (category: any) => void
+    setDifficultyFind: (difficulty: any) => void
+    setReviewFind: (review: any) => void
+    setUnreviewed: (unreviewed: any) => void
+    unreviewed: boolean
+    reviewFind: any
+    difficultyFind: any
+    handleSearch: (boundsNw:any, boundsSe:any) => void
+    boundNw: any
+    boundSe: any
+
 }
 
 interface Category {
@@ -31,13 +39,10 @@ interface Category {
 // Component
 const MapFilter: React.FC<Props> = (props) => {
 
-    const [categoryFind, setCategoryFind] = useState([])
-    const [difficultyFind, setDifficultyFind] = useState([1,5])
-    const [reviewFind, setReviewFind] = useState([1,5])
-    const [unreviewed, setUnreviewed] = useState(true)
+
     const [rollFilter, setRollFilter] = useState(true)
 
-    const {map, boundaryNw, boundarySe, google} = props
+    const {map, boundNw, boundSe, unreviewed, setUnreviewed, setReviewFind, setDifficultyFind, setCategoryFind, reviewFind, difficultyFind, handleSearch} = props
 
     //@ts-ignore
     const {userContext} = useContext(UserContext)
@@ -121,20 +126,7 @@ const MapFilter: React.FC<Props> = (props) => {
 
     useEffect( () => {
         getAllCategories()
-        getInit()
     }, [map])
-
-
-    const getInit = () => {
-        if(map && map.getBounds()){
-            handleSearch()
-        }else{
-            setTimeout(function () {
-                console.log("Nejde")
-                getInit()
-            },500)
-        }
-    }
 
     // Methods
     const getAllCategories = () => {
@@ -196,23 +188,9 @@ const MapFilter: React.FC<Props> = (props) => {
         setRollFilter(!rollFilter)
     }
 
-    const handleSearch = () => {
-        axios({
-            method: 'POST',
-            url: process.env.REACT_APP_API_SERVER_URL+'/questByParam',
-            data: {
-                categoryId: categoryFind,
-                difficulty: difficultyFind,
-                review: reviewFind,
-                unreviewed: unreviewed,
-                coordinatesNw: boundaryNw,
-                coordinatesSe: boundarySe
-            }
-        }).then(function (response) {
-            console.log(response)
-        })
+    const handleClickButton = () => {
+        handleSearch(boundNw, boundSe)
     }
-
 
     //@ts-ignore
     const IconOption = (props: categoryList) => (
@@ -363,7 +341,7 @@ const MapFilter: React.FC<Props> = (props) => {
             </div>
 
             <div className="map-filter-submit">
-                <button onClick={handleSearch}>{text.mapFilter.findButton}</button>
+                <button onClick={handleClickButton}>{text.mapFilter.findButton}</button>
             </div>
         </div>
     )

@@ -8,16 +8,16 @@ import {debounce} from "lodash-es";
 
 // Props
 interface Props {
-    setMap: (map: any) => void
-    setGoogle: (google: any) => void
-    setBoundaryNw: (boundaryNw:any) => void
-    setBoundarySe: (boundarySe:any) => void
+    setMap: (map:any) => void
+    setBoundSe: (bound:any) => void
+    setBoundNw: (bound:any) => void
+    handleSearch: (boundsNw:any, boundsSe:any) => void
 }
 
 // Component
 const MapView: React.FC<Props> = (props) => {
 
-    const {setMap, setGoogle, setBoundaryNw, setBoundarySe} = props
+    const {setMap, handleSearch, setBoundNw, setBoundSe} = props
 
     const {ref, map, google} = useGoogleMaps(
         process.env.REACT_APP_GOOGLE_API_KEY+"",
@@ -31,7 +31,6 @@ const MapView: React.FC<Props> = (props) => {
     useEffect( () => {
         if(map && google){
             setMap(map)
-            setGoogle(google)
             handleDrag()
 
             google.maps.event.addListener(map, 'bounds_changed', function () {
@@ -54,9 +53,10 @@ const MapView: React.FC<Props> = (props) => {
     // Methods
     const handleDrag = debounce(() => {
         let bounds = map.getBounds()
-        setBoundaryNw([bounds.Va.i, bounds.Va.j])
-        setBoundarySe([bounds.Za.i, bounds.Za.j])
-    }, 1000)
+        handleSearch([bounds.Va.i, bounds.Va.j],[bounds.Za.i, bounds.Za.j])
+        setBoundNw([bounds.Va.i, bounds.Va.j])
+        setBoundSe([bounds.Za.i, bounds.Za.j])
+    }, 500)
 
     // Template
     return (
