@@ -15,6 +15,7 @@ import { UserContext } from "./UserContext"
 // Style
 import './App.scss'
 import Ranking from "./views/Ranking";
+import MapView from "./components/Map/MapView";
 
 // Component
 function App() {

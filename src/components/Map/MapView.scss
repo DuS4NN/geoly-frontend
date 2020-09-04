@@ -1,20 +1,15 @@
 .map{
   height: 100%;
   width: 100%;
+  min-height: 625px;
 }
 
 .map-view{
   height: 100%;
   width: 100%;
 
-  .map{
-    height: 100%;
-    min-height: 625px;
-    width: 100%;
-
-    .gmnoprint, .gm-style-cc, .gm-control-active, .gm-fullscreen-control {
-      display: none;
-    }
+  .gmnoprint, .gm-style-cc, .gm-control-active, .gm-fullscreen-control {
+    display: none;
   }
-}
 
+}

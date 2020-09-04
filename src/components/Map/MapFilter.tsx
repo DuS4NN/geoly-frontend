@@ -15,18 +15,17 @@ import './MapFilter.scss'
 
 // Props
 interface Props {
-    map: any
-    setCategoryFind: (category: any) => void
-    setDifficultyFind: (difficulty: any) => void
-    setReviewFind: (review: any) => void
-    setUnreviewed: (unreviewed: any) => void
-    unreviewed: boolean
-    reviewFind: any
-    difficultyFind: any
-    handleSearch: (boundsNw:any, boundsSe:any) => void
-    boundNw: any
-    boundSe: any
+    mapRef: any
+    setDifficulty: (difficulty:any) => void
+    setReview: (review:any) => void
+    setNoReviewed: (category:any) => void
+    setCategory: (category:any) => void
 
+    noReviewed: boolean
+    review: any
+    difficulty: any
+
+    handleSearchClick: () => void
 }
 
 interface Category {
@@ -39,15 +38,14 @@ interface Category {
 // Component
 const MapFilter: React.FC<Props> = (props) => {
 
-
-    const [rollFilter, setRollFilter] = useState(true)
-
-    const {map, boundNw, boundSe, unreviewed, setUnreviewed, setReviewFind, setDifficultyFind, setCategoryFind, reviewFind, difficultyFind, handleSearch} = props
-
     //@ts-ignore
     const {userContext} = useContext(UserContext)
+    const {mapRef, setDifficulty, setReview, setNoReviewed, setCategory, noReviewed, review, difficulty, handleSearchClick} = props
+
+    const [rollFilter, setRollFilter] = useState(true)
     const [categoryList, setCategoryList] = useState([])
     const [address, setAddress] = useState("")
+
     const {Option} = components;
 
     const alert = useAlert()
@@ -62,8 +60,97 @@ const MapFilter: React.FC<Props> = (props) => {
         CULTURE: '#ff4155'
     }
 
+    // Images
     const loadingImage = require("../../assets/images/otherIcons/loading.svg")
+    const arrowUp = require("../../assets/images/otherIcons/arrow-up.svg")
+    const arrowDown = require("../../assets/images/otherIcons/arrow-down.svg")
 
+    // On start
+    useEffect( () => {
+        getAllCategories()
+    }, [])
+
+    // Methods
+    const getAllCategories = () => {
+        axios({
+            method: 'GET',
+            url: process.env.REACT_APP_API_SERVER_URL+'/categories'
+        }).then(function (response) {
+            let categories:Category[] = response.data.map((category:any) => extractCategoriesFromResponse(category))
+            //@ts-ignore
+            setCategoryList(categories)
+        })
+    }
+
+    const extractCategoriesFromResponse = (category:any) => {
+        return {
+            value: category.id,
+            label: text.category[category.name.toLowerCase()],
+            color: colors[category.name],
+            imageUrl: require("../../"+category.imageUrl)
+        } as Category
+    }
+
+    const handleClickSearchButton = () => {
+       handleSearchClick()
+    }
+
+    const handleCategoryChange = (e:any) => {
+        if(e==null) return
+        let category:number[] = e.map((category:Category) => extractCategoryFromInput(category))
+        //@ts-ignore
+        setCategory(category)
+    }
+
+    const extractCategoryFromInput = (category:any) => {
+        return category.value
+    }
+
+    const handleAddressSelect = debounce((e) => {
+        setAddress(e)
+        geocodeByAddress(e)
+            .then(results => getLatLng(results[0]))
+            .then(latLng=> mapRef.setCenter(latLng))
+            .catch(error => alert.error(text.mapFilter.placeNotFound))
+
+        handleSearchClick()
+    },500)
+
+    const handleAddressChange = (address : any) => {
+        setAddress(address)
+    }
+
+    const handleDifficultyChange = (event:any, value:any) => {
+        setDifficulty(value)
+    }
+
+    const handleReviewChange = (event:any, value:any) => {
+        setReview(value)
+    }
+
+    const handleNotReviewedChange = () => {
+        setNoReviewed(!noReviewed)
+    }
+
+    const handleRollChange = () => {
+        setRollFilter(!rollFilter)
+    }
+
+    //@ts-ignore
+    const IconOption = (props: categoryList) => (
+        <Option {...props}>
+            <div className="map-filter-select">
+                <div className="map-filter-select-image">
+                    <img src={props.data.imageUrl} alt=""/>
+                </div>
+                <div className="map-filter-select-label">
+                    {props.data.label}
+                </div>
+            </div>
+        </Option>
+    )
+
+    // Inline style
     const customStyle = {
         //@ts-ignore
         control: (styles, state) => ({ ...styles,
@@ -123,89 +210,6 @@ const MapFilter: React.FC<Props> = (props) => {
             },
         }),
     };
-
-    useEffect( () => {
-        getAllCategories()
-    }, [map])
-
-    // Methods
-    const getAllCategories = () => {
-        axios({
-            method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/categories'
-        }).then(function (response) {
-            let categories:Category[] = response.data.map((category:any) => extractData(category))
-            //@ts-ignore
-            setCategoryList(categories)
-        })
-    }
-
-    const extractData = (category:any) => {
-        return {
-            value: category.id,
-            label: text.category[category.name.toLowerCase()],
-            color: colors[category.name],
-            imageUrl: require("../../"+category.imageUrl)
-        } as Category
-    }
-
-    const handleChange = (address : any) => {
-        setAddress(address)
-    }
-
-    const handleSelect = debounce((e) => {
-        setAddress(e)
-        geocodeByAddress(e)
-            .then(results => getLatLng(results[0]))
-            .then(latLng=> map.setCenter(latLng))
-            .catch(error => alert.error(text.mapFilter.placeNotFound))
-    },500)
-
-    const handleCategoryChange = (e:any) => {
-        if(!e) return
-        let category:number[] = e.map((category:Category) => extractCategory(category))
-        //@ts-ignore
-        setCategoryFind(category)
-    }
-
-    const extractCategory = (category:Category) => {
-        return category.value
-    }
-
-    const handleDifficultyChange = (event:any, value:any) => {
-        setDifficultyFind(value)
-    }
-
-    const handleReviewChange = (event:any, value:any) => {
-        setReviewFind(value)
-    }
-
-    const handleToggleChange = () => {
-        setUnreviewed(!unreviewed)
-    }
-
-    const handleRoll = () => {
-        setRollFilter(!rollFilter)
-    }
-
-    const handleClickButton = () => {
-        handleSearch(boundNw, boundSe)
-    }
-
-    //@ts-ignore
-    const IconOption = (props: categoryList) => (
-        <Option {...props}>
-            <div className="map-filter-select">
-                <div className="map-filter-select-image">
-                    <img src={props.data.imageUrl} alt=""/>
-                </div>
-                <div className="map-filter-select-label">
-                    {props.data.label}
-                </div>
-            </div>
-        </Option>
-    )
-
     const PrettoSlider = withStyles({
         root: {
             color: '#52af77',
@@ -236,14 +240,11 @@ const MapFilter: React.FC<Props> = (props) => {
         },
     })(Slider);
 
-    const arrowUp = require("../../assets/images/otherIcons/arrow-up.svg")
-    const arrowDown = require("../../assets/images/otherIcons/arrow-down.svg")
-
     // Template
     return (
         <div className={rollFilter ? "map-filter" : "map-filter hidden" }>
             <div className="map-filter-arrow">
-                <img onClick={handleRoll} src={rollFilter ? arrowUp : arrowDown} alt="" />
+                <img onClick={handleRollChange} src={rollFilter ? arrowUp : arrowDown} alt="" />
             </div>
 
 
@@ -251,8 +252,8 @@ const MapFilter: React.FC<Props> = (props) => {
                 <div className="map-filter-label">{text.mapFilter.placeLabel}</div>
                 <PlacesAutocomplete
                     value={address}
-                    onChange={handleChange}
-                    onSelect={handleSelect}
+                    onChange={handleAddressChange}
+                    onSelect={handleAddressSelect}
                 >
                     {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                         <div>
@@ -292,24 +293,24 @@ const MapFilter: React.FC<Props> = (props) => {
 
             <div className="map-filter-category">
                 <div className="map-filter-label">{text.mapFilter.categoryLabel}</div>
-                <Select
-                    closeMenuOnSelect={false}
-                    onChange={handleCategoryChange}
-                    isMulti
-                    options={categoryList}
-                    placeholder={text.mapFilter.selectCategory}
-                    noOptionsMessage={() => text.mapFilter.noCategoryLeft}
-                    className="custom-select"
-                    styles={customStyle}
-                    components={{Option: IconOption}}
-                />
+                    <Select
+                        closeMenuOnSelect={false}
+                        onChange={handleCategoryChange}
+                        isMulti
+                        options={categoryList}
+                        placeholder={text.mapFilter.selectCategory}
+                        noOptionsMessage={() => text.mapFilter.noCategoryLeft}
+                        className="custom-select"
+                        styles={customStyle}
+                        components={{Option: IconOption}}
+                    />
             </div>
 
             <div className="map-filter-sliders">
                 <div className="map-filter-label">{text.mapFilter.difficultyLabel}</div>
                 <PrettoSlider
                     className="pretto-slider"
-                    defaultValue={difficultyFind}
+                    defaultValue={difficulty}
                     valueLabelDisplay="auto"
                     onChangeCommitted={handleDifficultyChange}
                     min={1}
@@ -319,7 +320,7 @@ const MapFilter: React.FC<Props> = (props) => {
                 <div className="map-filter-label">{text.mapFilter.reviewLabel}</div>
                 <PrettoSlider
                     className="pretto-slider"
-                    defaultValue={reviewFind}
+                    defaultValue={review}
                     valueLabelDisplay="auto"
                     onChangeCommitted={handleReviewChange}
                     min={1}
@@ -330,7 +331,7 @@ const MapFilter: React.FC<Props> = (props) => {
                     <div className="map-filter-label">{text.mapFilter.unreviewLabel}</div>
                     <Toggle
                         defaultChecked={true}
-                        onChange={handleToggleChange}
+                        onChange={handleNotReviewedChange}
                         icons={{
                             checked: null,
                             unchecked: null,
@@ -341,7 +342,7 @@ const MapFilter: React.FC<Props> = (props) => {
             </div>
 
             <div className="map-filter-submit">
-                <button onClick={handleClickButton}>{text.mapFilter.findButton}</button>
+                <button onClick={handleClickSearchButton}>{text.mapFilter.findButton}</button>
             </div>
         </div>
     )
