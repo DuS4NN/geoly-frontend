@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import { useGoogleMaps } from "react-hook-google-maps";
 import {debounce} from "lodash-es";
 import axios from "axios";
@@ -7,6 +7,8 @@ import MapFilter from "./MapFilter";
 // Style
 import './MapView.scss'
 import './MapFilter.scss'
+import {useAlert} from "react-alert";
+import {UserContext} from "../../UserContext";
 
 // Props
 interface Props {
@@ -14,7 +16,10 @@ interface Props {
 }
 
 // Component
-const MapView: React.FC<Props> = (props) => {
+const MapView: React.FC<Props> = () => {
+
+    //@ts-ignore
+    const {userContext} = useContext(UserContext)
 
     const [mapRef, setMapRef] = useState(null)
 
@@ -26,6 +31,9 @@ const MapView: React.FC<Props> = (props) => {
 
     const [markers, setMarkers] = useState(Array())
     const [bounds, setBounds] = useState({})
+
+    const alert = useAlert()
+    const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
     const {ref, map, google} = useGoogleMaps(
         process.env.REACT_APP_GOOGLE_API_KEY+"",
@@ -76,7 +84,6 @@ const MapView: React.FC<Props> = (props) => {
                 coordinatesSe: boundsSe
             }
         }).then(function (response) {
-            console.log(response.data)
             let statusCode = response.data.responseEntity.statusCode
             if (statusCode === 'OK') {
                 deleteAllMarkers()
@@ -94,17 +101,28 @@ const MapView: React.FC<Props> = (props) => {
                 url: require("../../"+quest[1]),
                 scaledSize: new google.maps.Size(35, 35),
             },
-            map: map
+            map: map,
+            questId: quest[0]
         })
         markers.push(marker)
 
-        google.maps.event.addListener(marker, 'click', function (e:any) {
-            handleClickOnMarker(e)
+        google.maps.event.addListener(marker, 'click', function () {
+            handleClickOnMarker(marker)
         })
     }
 
-    const handleClickOnMarker = (e:any) => {
-        
+    const handleClickOnMarker = (marker:any) => {
+        axios({
+            method: 'GET',
+            url: process.env.REACT_APP_API_SERVER_URL+'/questDetail?id='+marker['questId']
+        }).then(function (response) {
+            let statusCode = response.data.responseEntity.statusCode
+            if (statusCode === 'OK') {
+                console.log(response.data.data)
+            }else{
+                alert.error(text.error.QUEST_NOT_FOUND)
+            }
+        })
     }
 
     const findNewBoundsAndStartSearch = () => {

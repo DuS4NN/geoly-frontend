@@ -115,7 +115,8 @@ export const text = {
         INVALID_TOKEN: 'Token is invalid',
 
         // Other
-        USER_NOT_FOUND: 'Account not found'
+        USER_NOT_FOUND: 'Account not found',
+        QUEST_NOT_FOUND: 'Quest not found'
     },
     success: {
         // Register

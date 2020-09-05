@@ -115,7 +115,8 @@ export const text = {
         INVALID_TOKEN: 'Token je neplatný',
 
         // Other
-        USER_NOT_FOUND: 'Účet nenájdený'
+        USER_NOT_FOUND: 'Účet nenájdený',
+        QUEST_NOT_FOUND: 'Úloha nenájdená'
     },
     success: {
         // Register
