@@ -1,17 +1,12 @@
-import React, {useContext, useEffect, useState} from "react"
+import React, {useEffect, useState} from "react"
 import { useGoogleMaps } from "react-hook-google-maps";
-import chroma from 'chroma-js';
-
-
-import {useAlert} from "react-alert";
-// Children
-
-import './MapView.scss'
-import './MapFilter.scss'
 import {debounce} from "lodash-es";
 import axios from "axios";
+// Children
 import MapFilter from "./MapFilter";
-
+// Style
+import './MapView.scss'
+import './MapFilter.scss'
 
 // Props
 interface Props {
@@ -27,10 +22,10 @@ const MapView: React.FC<Props> = (props) => {
     const [difficulty, setDifficulty] = useState([1,5])
     const [review, setReview] = useState([1,5])
     const [noReviewed, setNoReviewed] = useState(true)
+    const [stageType, setStageType] = useState([])
 
-    const [markers, setMarkers] = useState([])
+    const [markers, setMarkers] = useState(Array())
     const [bounds, setBounds] = useState({})
-
 
     const {ref, map, google} = useGoogleMaps(
         process.env.REACT_APP_GOOGLE_API_KEY+"",
@@ -47,7 +42,6 @@ const MapView: React.FC<Props> = (props) => {
             handleMapClick()
             setBounds(map.getBounds())
         }
-
     }, [map])
 
     // Methods
@@ -56,24 +50,25 @@ const MapView: React.FC<Props> = (props) => {
         if(bounds && bounds.Va && bounds.Va.i === map.getBounds().Va.i && bounds && bounds.Va && bounds.Va.j === map.getBounds().Va.j){
             return
         }
-
-        let boundsNew = map.getBounds()
-        handleSearch([boundsNew.Va.i, boundsNew.Va.j],[boundsNew.Za.i, boundsNew.Za.j])
-        setBounds(map.getBounds())
+        findNewBoundsAndStartSearch()
     }, 500)
 
     const deleteAllMarkers = ( () => {
-        markers.map((marker:any) => marker.setMap(null));
-        setMarkers([])
+        markers.map((marker:any) => deleteMarker(marker))
+        markers.length = 0
     })
 
+    const deleteMarker = (marker:any) => {
+        marker.setMap(null)
+    }
+
     const handleSearch = (boundsNw:any, boundsSe:any) => {
-        console.log("Search")
         axios({
             method: 'POST',
             url: process.env.REACT_APP_API_SERVER_URL + '/questByParam',
             data: {
                 categoryId: category,
+                stageType: stageType,
                 difficulty: difficulty,
                 review: review,
                 unreviewed: noReviewed,
@@ -81,6 +76,7 @@ const MapView: React.FC<Props> = (props) => {
                 coordinatesSe: boundsSe
             }
         }).then(function (response) {
+            console.log(response.data)
             let statusCode = response.data.responseEntity.statusCode
             if (statusCode === 'OK') {
                 deleteAllMarkers()
@@ -100,14 +96,19 @@ const MapView: React.FC<Props> = (props) => {
             },
             map: map
         })
-        //@ts-ignore
-        setMarkers(newMarkers => [...markers, marker])
+        markers.push(marker)
     }
 
-    const handleSearchClick = () => {
+    const findNewBoundsAndStartSearch = () => {
         let boundsNew = map.getBounds()
         handleSearch([boundsNew.Va.i, boundsNew.Va.j],[boundsNew.Za.i, boundsNew.Za.j])
         setBounds(map.getBounds())
+    }
+
+    const handleAddressChange = () => {
+        setTimeout(function () {
+            findNewBoundsAndStartSearch()
+        }, 1000)
     }
 
     // Template
@@ -120,8 +121,10 @@ const MapView: React.FC<Props> = (props) => {
                 setReview={setReview}
                 setNoReviewed={setNoReviewed}
                 setCategory={setCategory}
+                setStageType={setStageType}
 
-                handleSearchClick={handleSearchClick}
+                handleSearchClick={findNewBoundsAndStartSearch}
+                handleAddressChangeClick={handleAddressChange}
 
                 noReviewed={noReviewed}
                 review={review}

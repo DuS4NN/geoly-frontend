@@ -9,7 +9,7 @@ import Select, {components} from "react-select";
 import {debounce} from "lodash-es";
 import {useAlert} from "react-alert";
 import {UserContext} from "../../UserContext";
-
+// Style
 import '../Elements/Toggle.scss'
 import './MapFilter.scss'
 
@@ -20,12 +20,14 @@ interface Props {
     setReview: (review:any) => void
     setNoReviewed: (category:any) => void
     setCategory: (category:any) => void
+    setStageType: (stageType:any) => void
 
     noReviewed: boolean
     review: any
     difficulty: any
 
     handleSearchClick: () => void
+    handleAddressChangeClick: () => void
 }
 
 interface Category {
@@ -40,10 +42,11 @@ const MapFilter: React.FC<Props> = (props) => {
 
     //@ts-ignore
     const {userContext} = useContext(UserContext)
-    const {mapRef, setDifficulty, setReview, setNoReviewed, setCategory, noReviewed, review, difficulty, handleSearchClick} = props
+    const {mapRef, setDifficulty, setReview, setNoReviewed, setCategory, setStageType, noReviewed, review, difficulty, handleSearchClick, handleAddressChangeClick} = props
 
     const [rollFilter, setRollFilter] = useState(true)
     const [categoryList, setCategoryList] = useState([])
+    const [stageTypesList, setStageTypesList] = useState([])
     const [address, setAddress] = useState("")
 
     const {Option} = components;
@@ -51,7 +54,7 @@ const MapFilter: React.FC<Props> = (props) => {
     const alert = useAlert()
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
-    const colors:any = {
+    const categoryColors:any = {
         HISTORY: '#e80054',
         ART: '#754ca0',
         VIEW: '#73d4ff',
@@ -60,14 +63,21 @@ const MapFilter: React.FC<Props> = (props) => {
         CULTURE: '#ff4155'
     }
 
+    const stageTypeColors:any = {
+        GO_TO_PLACE: '#30daec',
+        ANSWER_QUESTION: '#fded32',
+        SCAN_QR_CODE: '#ff526c'
+    }
+
     // Images
     const loadingImage = require("../../assets/images/otherIcons/loading.svg")
-    const arrowUp = require("../../assets/images/otherIcons/arrow-up.svg")
-    const arrowDown = require("../../assets/images/otherIcons/arrow-down.svg")
+    const arrowRight = require("../../assets/images/otherIcons/arrow-right.svg")
+    const arrowLeft = require("../../assets/images/otherIcons/arrow-left.svg")
 
     // On start
     useEffect( () => {
         getAllCategories()
+        getAllStageTypes()
     }, [])
 
     // Methods
@@ -81,14 +91,31 @@ const MapFilter: React.FC<Props> = (props) => {
             setCategoryList(categories)
         })
     }
-
     const extractCategoriesFromResponse = (category:any) => {
         return {
             value: category.id,
             label: text.category[category.name.toLowerCase()],
-            color: colors[category.name],
+            color: categoryColors[category.name],
             imageUrl: require("../../"+category.imageUrl)
         } as Category
+    }
+
+    const getAllStageTypes = () => {
+        axios({
+            method: 'GET',
+            url: process.env.REACT_APP_API_SERVER_URL+'/stagetypes'
+        }).then(function (response) {
+            let stageTypes = response.data.map((stageType:any) => extractStageTypesFromResponse(stageType))
+            setStageTypesList(stageTypes)
+        })
+    }
+    const extractStageTypesFromResponse = (stageType:any) => {
+        return {
+            value: stageType,
+            label: text.stageType[stageType],
+            color: stageTypeColors[stageType],
+            imageUrl: require('../../assets/images/stageTypeImages/'+stageType+'.svg')
+        }
     }
 
     const handleClickSearchButton = () => {
@@ -96,14 +123,29 @@ const MapFilter: React.FC<Props> = (props) => {
     }
 
     const handleCategoryChange = (e:any) => {
-        if(e==null) return
+        if(e==null){
+            setCategory([])
+            return
+        }
         let category:number[] = e.map((category:Category) => extractCategoryFromInput(category))
         //@ts-ignore
         setCategory(category)
     }
-
     const extractCategoryFromInput = (category:any) => {
         return category.value
+    }
+
+    const handleStageTypeChange = (e:any) => {
+        if(e==null){
+            setStageType([])
+            return
+        }
+        let newStageTypes = e.map((stageType:any) => extractStageTypeFromInput(stageType))
+        setStageType(newStageTypes)
+    }
+
+    const extractStageTypeFromInput = (stageType:any) => {
+        return stageType.value
     }
 
     const handleAddressSelect = debounce((e) => {
@@ -113,7 +155,7 @@ const MapFilter: React.FC<Props> = (props) => {
             .then(latLng=> mapRef.setCenter(latLng))
             .catch(error => alert.error(text.mapFilter.placeNotFound))
 
-        handleSearchClick()
+        handleAddressChangeClick()
     },500)
 
     const handleAddressChange = (address : any) => {
@@ -242,12 +284,10 @@ const MapFilter: React.FC<Props> = (props) => {
 
     // Template
     return (
-        <div className={rollFilter ? "map-filter" : "map-filter hidden" }>
-            <div className="map-filter-arrow">
-                <img onClick={handleRollChange} src={rollFilter ? arrowUp : arrowDown} alt="" />
-            </div>
+        <div className="map-filter" >
 
 
+        <div className={rollFilter ? "map-filter-content" : "map-filter-content hidden" }>
             <div className="map-filter-search">
                 <div className="map-filter-label">{text.mapFilter.placeLabel}</div>
                 <PlacesAutocomplete
@@ -290,21 +330,37 @@ const MapFilter: React.FC<Props> = (props) => {
 
             </div>
 
-
             <div className="map-filter-category">
                 <div className="map-filter-label">{text.mapFilter.categoryLabel}</div>
-                    <Select
-                        closeMenuOnSelect={false}
-                        onChange={handleCategoryChange}
-                        isMulti
-                        options={categoryList}
-                        placeholder={text.mapFilter.selectCategory}
-                        noOptionsMessage={() => text.mapFilter.noCategoryLeft}
-                        className="custom-select"
-                        styles={customStyle}
-                        components={{Option: IconOption}}
-                    />
+                <Select
+                    closeMenuOnSelect={false}
+                    onChange={handleCategoryChange}
+                    isMulti
+                    options={categoryList}
+                    placeholder={text.mapFilter.selectCategory}
+                    noOptionsMessage={() => text.mapFilter.noCategoryLeft}
+                    className="custom-select"
+                    styles={customStyle}
+                    components={{Option: IconOption}}
+                />
             </div>
+
+            <div className="map-filter-category">
+                <div className="map-filter-label">{text.mapFilter.stageTypeLabel}</div>
+                <Select
+                    closeMenuOnSelect={false}
+                    onChange={handleStageTypeChange}
+                    isMulti
+                    options={stageTypesList}
+                    placeholder={text.mapFilter.selectStageType}
+                    noOptionsMessage={() => text.mapFilter.noStageTypeLeft}
+                    className="custom-select"
+                    styles={customStyle}
+                    components={{Option: IconOption}}
+                />
+
+            </div>
+
 
             <div className="map-filter-sliders">
                 <div className="map-filter-label">{text.mapFilter.difficultyLabel}</div>
@@ -344,6 +400,15 @@ const MapFilter: React.FC<Props> = (props) => {
             <div className="map-filter-submit">
                 <button onClick={handleClickSearchButton}>{text.mapFilter.findButton}</button>
             </div>
+        </div>
+
+        <div className="map-filter-show">
+            <div className="map-filter-arrow">
+                <img onClick={handleRollChange} src={rollFilter ? arrowLeft : arrowRight} alt="" />
+            </div>
+        </div>
+
+
         </div>
     )
 }

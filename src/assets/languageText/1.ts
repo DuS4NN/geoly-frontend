@@ -70,12 +70,16 @@ export const text = {
         placeNotFound: 'Place not found',
         selectCategory: 'Select category..',
         noCategoryLeft: 'No categories left',
+        stageTypeLabel: 'Stage types:',
+        selectStageType: 'Select stage types..',
+        noStageTypeLeft: 'No Stage type left',
         placeLabel: 'Place:',
         categoryLabel: 'Categories:',
         difficultyLabel: 'Difficulty:',
         reviewLabel: 'Review:',
         unreviewLabel: 'Not rated:',
         findButton: 'Search'
+
     },
     category: {
       history: 'History',
@@ -84,6 +88,11 @@ export const text = {
       architecture: 'Architecture',
       nature: 'Nature',
       culture: 'Culture'
+    },
+    stageType: {
+      GO_TO_PLACE: 'Go to a place',
+      ANSWER_QUESTION: 'Answer a question',
+      SCAN_QR_CODE: 'Scan a QR code'
     },
     error: {
         // Login

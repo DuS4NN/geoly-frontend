@@ -70,6 +70,9 @@ export const text = {
         placeNotFound: 'Miesto sa nenašlo',
         selectCategory: 'Vyberte kategóriu..',
         noCategoryLeft: 'Žiadne ďalšie možnosti',
+        stageTypeLabel: 'Typy úloh:',
+        selectStageType: 'Vyberte typy úloh..',
+        noStageTypeLeft: 'Žiadne ďalšie možnosti',
         placeLabel: 'Miesto:',
         categoryLabel: 'Kategórie',
         difficultyLabel: 'Obtiažnosť:',
@@ -84,6 +87,11 @@ export const text = {
         architecture: 'Architektúra',
         nature: 'Príroda',
         culture: 'Kultúra'
+    },
+    stageType: {
+        GO_TO_PLACE: 'Ísť na miesto',
+        ANSWER_QUESTION: 'Odpovedať na otázku',
+        SCAN_QR_CODE: 'Naskenovať QR kód'
     },
     error: {
         // Login
