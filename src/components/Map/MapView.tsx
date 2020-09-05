@@ -97,6 +97,14 @@ const MapView: React.FC<Props> = (props) => {
             map: map
         })
         markers.push(marker)
+
+        google.maps.event.addListener(marker, 'click', function (e:any) {
+            handleClickOnMarker(e)
+        })
+    }
+
+    const handleClickOnMarker = (e:any) => {
+        
     }
 
     const findNewBoundsAndStartSearch = () => {

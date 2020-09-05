@@ -286,7 +286,6 @@ const MapFilter: React.FC<Props> = (props) => {
     return (
         <div className="map-filter" >
 
-
         <div className={rollFilter ? "map-filter-content" : "map-filter-content hidden" }>
             <div className="map-filter-search">
                 <div className="map-filter-label">{text.mapFilter.placeLabel}</div>
@@ -372,7 +371,7 @@ const MapFilter: React.FC<Props> = (props) => {
                     min={1}
                     max={5}
                 />
-
+                <br/><br/>
                 <div className="map-filter-label">{text.mapFilter.reviewLabel}</div>
                 <PrettoSlider
                     className="pretto-slider"
@@ -402,7 +401,7 @@ const MapFilter: React.FC<Props> = (props) => {
             </div>
         </div>
 
-        <div className="map-filter-show">
+        <div className={rollFilter ? "map-filter-show" : "map-filter-show hidden"}>
             <div className="map-filter-arrow">
                 <img onClick={handleRollChange} src={rollFilter ? arrowLeft : arrowRight} alt="" />
             </div>

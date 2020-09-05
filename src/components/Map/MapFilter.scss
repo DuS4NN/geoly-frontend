@@ -2,27 +2,38 @@
   max-width: 0!important;
   overflow: hidden;
 
+  .map-filter{
+    border: none!important;
+  }
+
   .map-filter-search, .map-filter-category, .map-filter-label,
   .map-filter-sliders, .map-filter-submit{
     display: none;
   }
 }
 
+
+.map-filter-show.hidden{
+    background-color: transparent!important;
+    border-right: none!important;
+    transition: background-color .3s ease-out;
+}
+
 .map-filter{
+  background: transparent!important;
   position: absolute;
   height: calc(100% - 112px);
   display: table;
-  background: white;
   overflow: hidden;
-  border-bottom: 1px solid var(--light-mode-input-backgroud);
-  border-right: 1px solid var(--light-mode-input-backgroud);
   top: 111px;
   z-index: 1000;
 
   .map-filter-arrow{
     width: 100%;
     text-align: center;
-    margin-bottom: 15px;
+    background: white;
+    padding-top: 25px;
+    padding-bottom: 25px;
 
     img{
       cursor: pointer;
@@ -32,7 +43,8 @@
   }
 
   .map-filter-content{
-    transition: max-width 0.3s ease-out;
+    background: white;
+    transition: max-width 0.2s ease-out;
     padding-bottom: 50px;
     padding-top: 50px;
     width: 30vw;
@@ -44,6 +56,8 @@
     display: table-cell;
     width: 40px;
     vertical-align: middle;
+    background-color: white;
+    border-right: 1px solid var(--light-mode-input-backgroud);
   }
 
 
