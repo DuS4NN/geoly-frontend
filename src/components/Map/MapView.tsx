@@ -9,6 +9,23 @@ import './MapView.scss'
 import './MapFilter.scss'
 import {useAlert} from "react-alert";
 import {UserContext} from "../../UserContext";
+import MapQuestDetail from "./MapQuestDetail";
+
+interface questDetail{
+    questId: number
+    questName: string
+    description: string
+    createdAt: string
+    difficulty: number
+    categoryName: string
+    categoryImg: any
+    userName: string
+    userImage: string
+    avgReview: number
+    countFinish: number
+    countOnStage: number
+    countCancel: number
+}
 
 // Props
 interface Props {
@@ -31,6 +48,8 @@ const MapView: React.FC<Props> = () => {
 
     const [markers, setMarkers] = useState(Array())
     const [bounds, setBounds] = useState({})
+
+    const [questDetail, setQuestDetail] = useState(null)
 
     const alert = useAlert()
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
@@ -93,7 +112,6 @@ const MapView: React.FC<Props> = () => {
             }
         })
     }
-
     const createMarker = (quest:any) => {
         let marker = new google.maps.Marker({
             position: {lat: quest[2], lng: quest[3]},
@@ -118,11 +136,29 @@ const MapView: React.FC<Props> = () => {
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
             if (statusCode === 'OK') {
-                console.log(response.data.data)
+                let newQuestDetail = response.data.data.map((questDetail:any) => extractQuestDetailFromResponse(questDetail))
+                setQuestDetail(newQuestDetail[0])
             }else{
                 alert.error(text.error.QUEST_NOT_FOUND)
             }
         })
+    }
+    const extractQuestDetailFromResponse = (questDetail:any) => {
+        return{
+            questId: questDetail[0],
+            questName: questDetail[1],
+            description: questDetail[2],
+            createdAt: questDetail[3],
+            difficulty: questDetail[4],
+            categoryName: questDetail[5],
+            categoryImg: questDetail[6],
+            userName: questDetail[7],
+            userImage: questDetail[8],
+            avgReview: questDetail[9],
+            countFinish: questDetail[10],
+            countOnStage: questDetail[11],
+            countCancel: questDetail[12],
+        } as questDetail
     }
 
     const findNewBoundsAndStartSearch = () => {
@@ -155,6 +191,11 @@ const MapView: React.FC<Props> = () => {
                 noReviewed={noReviewed}
                 review={review}
                 difficulty={difficulty}
+            />
+
+            <MapQuestDetail
+                questDetail={questDetail}
+                setQuestDetail={setQuestDetail}
             />
 
             <div className="map" onClick={handleMapClick} ref={ref}>

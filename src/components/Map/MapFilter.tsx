@@ -119,7 +119,8 @@ const MapFilter: React.FC<Props> = (props) => {
     }
 
     const handleClickSearchButton = () => {
-       handleSearchClick()
+        handleSearchClick()
+        setRollFilter(false)
     }
 
     const handleCategoryChange = (e:any) => {

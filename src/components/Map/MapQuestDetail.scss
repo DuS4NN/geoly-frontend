@@ -1,0 +1,146 @@
+.map-quest-detail.hidden{
+  max-width: 0!important;
+  overflow: hidden;
+  border: none;
+
+  .quest-detail-content{
+    display: none;
+  }
+}
+
+.map-quest-detail{
+  position: absolute;
+  height: calc(100% - 112px);
+  transition: max-width 0.2s ease-out;
+  overflow: hidden;
+  right: 0;
+  width: 30vw;
+  max-width: 30vw;
+  top: 111px;
+  z-index: 1;
+  background: white;
+  border-left: 1px solid var(--light-mode-input-backgroud);
+
+  .quest-detail-content{
+    padding-bottom: 50px;
+
+    .quest-detail-header{
+      padding-top: 10px;
+      background-color: var(--background-light-green);
+      background-image: url("../../assets/images/waveRight/backgroundTopRight.svg");
+      background-repeat: no-repeat;
+      background-position: 100% 0;
+      background-size: contain;
+
+      .quest-detail-exit{
+        width: 30%;
+        text-align: right;
+        display: table-cell;
+        vertical-align: top;
+
+        button{
+          background: none;
+          font-family: Nexa;
+          font-weight: bold;
+          font-size: 18px;
+          border: none;
+          margin-right: 10px;
+          cursor: pointer;
+        }
+      }
+
+      .quest-detail-category{
+        width: 100%;
+        display: table-cell;
+
+        .quest-detail-category-image{
+            display: table-cell;
+          img{
+            margin-left: 20px;
+            width: 70px;
+            height: 70px;
+          }
+        }
+        .quest-detail-category-name{
+          padding-left: 20px;
+          display: table-cell;
+          vertical-align: middle;
+          font-family: Nexa;
+          font-weight: bold;
+          font-size: 25px;
+          color: var(--light-mode-dark-green)
+
+        }
+
+      }
+
+      .quest-detail-title{
+        margin-right: 2%;
+        margin-left: 2%;
+        padding-bottom: 50px;
+        padding-top: 30px;
+        overflow: hidden;
+        height: auto;
+        text-overflow: ellipsis;
+        text-align: center;
+        width: 96%;
+        font-family: Nexa;
+        font-weight: bold;
+        font-size: 25px;
+        letter-spacing: 1.8px;
+        color: var(--light-mode-dark-green)
+      }
+    }
+
+    .quest-detail-header-bottom{
+      width: 100%;
+      background: white;
+    }
+
+    .quest-detail-user{
+      display: table;
+      width: 100%;
+
+      .quest-detail-user-image{
+        width: 40px;
+        display: table-cell;
+        padding-left: 30px;
+
+        img{
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+        }
+      }
+
+      .quest-detail-user-name{
+        vertical-align: middle;
+        cursor: pointer;
+        display: table-cell;
+        padding-right: 30px;
+        left: 0;
+        overflow: hidden;
+        font-family: OpenSans;
+        font-size: 16px;
+
+        a{
+          color: black;
+          text-decoration: none;
+        }
+      }
+
+    }
+
+    .quest-detail-description{
+      padding-top: 15px;
+      padding-left: 30px;
+      padding-right: 30px;
+      text-align: center;
+
+      font-family: OpenSans;
+      font-size: 13px;
+    }
+
+  }
+}
+
