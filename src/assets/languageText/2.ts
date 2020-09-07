@@ -78,7 +78,15 @@ export const text = {
         difficultyLabel: 'Obtiažnosť:',
         reviewLabel: 'Hodnotenie:',
         unreviewLabel: 'Neohodnotené',
-        findButton: 'Hľadať'
+        findButton: 'Hľadať',
+        difficulty: 'Obťiažnosť:',
+        review: 'Hodnotenie:',
+        success: 'Úspešnosť:',
+        cancel: 'Zrušené',
+        pending: 'Nedokončené',
+        finish: 'Ukončené',
+        showButton: 'Prejsť na úlohu'
+
     },
     category: {
         history: 'História',

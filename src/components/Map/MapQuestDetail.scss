@@ -133,14 +133,102 @@
 
     .quest-detail-description{
       padding-top: 15px;
+      letter-spacing: 0.8px;
       padding-left: 30px;
       padding-right: 30px;
       text-align: center;
-
-      font-family: OpenSans;
-      font-size: 13px;
+      font-family: Nexa;
+      font-size: 14px;
     }
 
+    .quest-detail-graph{
+      display: table;
+      width: 100%;
+      margin-top: 30px;
+      margin-bottom: 50px;
+      text-align: center;
+      margin-right: auto;
+      margin-left: auto;
+
+      .quest-detail-graph-label{
+        text-align: center;
+        font-family: OpenSans;
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+
+      .quest-detail-graph-difficulty{
+        width: 33%;
+        display: table-cell;
+
+        canvas{
+          margin-left: auto;
+          margin-right: auto;
+          width: 96%;
+          max-height: 70px;
+          max-width: 140px;
+        }
+      }
+      .quest-detail-graph-review{
+        width: 33%;
+        display: table-cell;
+
+        canvas{
+          margin-left: auto;
+          margin-right: auto;
+          width: 96%;
+          max-height: 70px;
+          max-width: 140px;
+        }
+      }
+      .quest-detail-graph-success{
+        width: 33%;
+        text-align: center;
+        display: table-cell;
+
+        canvas{
+          margin-left: auto;
+          margin-right: auto;
+          width: 96%;
+          max-height: 70px;
+          max-width: 140px;
+        }
+      }
+    }
+
+    .quest-detail-button{
+      text-align: center;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+
+
+      button {
+        font-size: 16px;
+        text-decoration: none;
+        letter-spacing: 2px;
+        border-radius: 50px;
+        padding: 8px 12%;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-family: OpenSans;
+        font-weight: normal;
+        background-size: 300% 100%;
+        background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
+        box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+      }
+
+      button:hover {
+        background-position: 100% 0;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+      }
+    }
   }
 }
 

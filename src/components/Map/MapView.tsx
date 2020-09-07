@@ -130,6 +130,7 @@ const MapView: React.FC<Props> = () => {
     }
 
     const handleClickOnMarker = (marker:any) => {
+        setQuestDetail(null)
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/questDetail?id='+marker['questId']

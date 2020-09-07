@@ -78,8 +78,14 @@ export const text = {
         difficultyLabel: 'Difficulty:',
         reviewLabel: 'Review:',
         unreviewLabel: 'Not rated:',
-        findButton: 'Search'
-
+        findButton: 'Search',
+        difficulty: 'Difficulty:',
+        review: 'Review:',
+        success: 'Success:',
+        cancel: 'Cancel',
+        pending: 'Pending',
+        finish: 'Finish',
+        showButton: 'Show the quest'
     },
     category: {
       history: 'History',
