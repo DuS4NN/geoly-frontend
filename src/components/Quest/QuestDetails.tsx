@@ -22,6 +22,8 @@ const QuestDetails: React.FC<Props> = (props) => {
     const reviewChartContainer = useRef(null)
     const successChartContainer = useRef(null)
 
+    const [date, setDate] = useState(new Date())
+
     const {details} = props
 
     const [image, setImage] = useState("")
@@ -63,6 +65,8 @@ const QuestDetails: React.FC<Props> = (props) => {
     useEffect(() => {
         if(details.categoryImage){
             setImage( require("../../"+details.categoryImage))
+
+            setDate(new Date(details.questDate))
 
             // Custom chart
             Chart.defaults.RoundedDifficultyDoughnut = Chart.helpers.clone(Chart.defaults.doughnut);
@@ -329,7 +333,6 @@ const QuestDetails: React.FC<Props> = (props) => {
         }
     }, [details])
 
-
     // Template
     return (
         <div className="quest-details">
@@ -341,6 +344,10 @@ const QuestDetails: React.FC<Props> = (props) => {
                 <div className="category-name">
                     <span>{details.categoryName}</span>
                 </div>
+
+                <div className="date">
+                    <span>{date.getDate()+" "+text.month[date.getMonth()]+" "+date.getFullYear()}</span>
+                </div>
             </div>
 
             <div className="quest-details-title">
@@ -349,6 +356,7 @@ const QuestDetails: React.FC<Props> = (props) => {
 
             <div className="quest-details-user">
                 <div className="quest-detail-user-box">
+
                     <div className="user-image">
                         <img alt="" src={process.env.REACT_APP_IMAGE_SERVER_URL+details.userImage} />
                     </div>
@@ -356,7 +364,6 @@ const QuestDetails: React.FC<Props> = (props) => {
                         <NavLink to={"/profile/"+details.userName}>{details.userName}</NavLink>
                     </div>
                 </div>
-
             </div>
 
             <div className="quest-details-description">

@@ -6,6 +6,7 @@ import axios from "axios";
 import QuestDetails from "../components/Quest/QuestDetails";
 import QuestStages from "../components/Quest/QuestStages";
 
+
 // Props
 interface Props {
 }
@@ -22,6 +23,7 @@ const Quest: React.FC = () => {
     useEffect(() => {
         getStages()
         getDetails()
+        getImages()
     },[])
 
     const getDetails = () => {
@@ -53,7 +55,8 @@ const Quest: React.FC = () => {
             questReview: detail[8],
             countFinish: detail[9],
             countOnStage: detail[10],
-            countCancel: detail[11]
+            countCancel: detail[11],
+            questDate: detail[12]
         } as unknown
     }
 
@@ -86,6 +89,7 @@ const Quest: React.FC = () => {
     }
 
     const getImages = () => {
+        console.log("a")
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/quest/images?id='+id
@@ -95,13 +99,21 @@ const Quest: React.FC = () => {
             if(statusCode === 'OK'){
                 let newImages = response.data.data.map((image:any) => extractImage(image))
                 setImages(newImages)
+                console.log("b")
             }else if(statusCode === 'NO_CONTENT'){
                 setImages([])
             }
         })
     }
     const extractImage = (image:any) => {
-        return image
+        console.log("c")
+        return {
+            src: process.env.REACT_APP_IMAGE_SERVER_URL+image,
+            thumbnail: process.env.REACT_APP_IMAGE_SERVER_URL+image,
+            thumbnailWidth: 320,
+            thumbnailHeight: 212
+        }
+
     }
 
     const getReviews = () => {
@@ -123,7 +135,6 @@ const Quest: React.FC = () => {
         console.log(review)
     }
 
-
     // Template
     return (
         <div className="quest">
@@ -133,7 +144,6 @@ const Quest: React.FC = () => {
                 <QuestDetails details={details} />
                 <QuestStages stages={stages}/>
             </div>
-
         </div>
     )
 }

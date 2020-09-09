@@ -1,7 +1,12 @@
+.ReactGridGallery{
+  margin-right: auto!important;
+  margin-left: auto!important;
+}
+
+
 .quest{
   width: 100%;
   height: 100%;
-
 
   .quest-detail-content{
     margin-left: auto;
@@ -18,6 +23,15 @@
     .quest-details-category{
       padding-top: 10px;
       display: table;
+
+      .date{
+        display: table-cell;
+        vertical-align: middle;
+        font-family: Nexa;
+        font-size: 11px;
+        padding-left: 10px;
+        color: var(--light-mode-gray-text)
+      }
 
       .category-image{
         display: table-cell;
@@ -52,9 +66,11 @@
 
     .quest-details-user{
       width: 100%;
+      text-align: right;
       height: 27px;
 
       .quest-detail-user-box{
+        display: inline-block;
         text-align: right;
         height: 27px;
       }
@@ -80,7 +96,6 @@
           text-decoration: none;
         }
       }
-
     }
 
     .quest-details-description{
