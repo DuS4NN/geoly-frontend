@@ -19,7 +19,6 @@ const ForgotPasswordForm: React.FC = () => {
 
     // State
     const [token, setToken] = useState(window.location.href.split('/').pop())
-    console.log(token)
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
 

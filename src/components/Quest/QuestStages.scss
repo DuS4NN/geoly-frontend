@@ -1,0 +1,41 @@
+.quest{
+  .quest-stages{
+    vertical-align: middle;
+    display: table-cell;
+    width: 30%;
+    height: 100%;
+  }
+
+  .quest-stages-item{
+    margin-left: 10%;
+    width: 80%;
+    margin-bottom: 15px;
+    border: 1px solid var(--light-mode-input-backgroud);
+    border-radius: 50px;
+    display: table;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    .item-image{
+      width: 40px;
+      padding-left: 10px;
+      padding-right: 10px;
+      display: table-cell;
+
+      img{
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .item-name{
+      display: table-cell;
+      vertical-align: middle;
+      font-family: OpenSans;
+      font-size: 16px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+  }
+}

@@ -6,22 +6,6 @@ import Chart from 'chart.js';
 
 import './MapQuestDetail.scss'
 
-interface questDetail{
-    questId: number
-    //questName: string
-    //description: string
-    createdAt: string
-    difficulty: number
-    //categoryName: string
-    //categoryImg: any
-    //userImage: string
-    //userName: string
-    avgReview: number
-    countFinish: number
-    countOnStage: number
-    countCancel: number
-}
-
 interface Props {
     questDetail: any
     setQuestDetail: (questDetail:any) => void
@@ -37,10 +21,6 @@ const MapQuestDetail: React.FC<Props> = (props) => {
     const difficultyChartContainer = useRef(null);
     const reviewChartContainer = useRef(null)
     const successChartContainer = useRef(null)
-
-    const [difficultyChartInstance, setDifficultyChartInstance] = useState(null);
-    const [reviewChartInstance, setReviewChartInstance] = useState(null);
-    const [successChartInstance, setSuccessChartInstance] = useState(null);
 
     // Custom chart
     Chart.defaults.RoundedDifficultyDoughnut = Chart.helpers.clone(Chart.defaults.doughnut);
@@ -168,7 +148,10 @@ const MapQuestDetail: React.FC<Props> = (props) => {
             this.chart.ctx.font = fontSize + "em OpenSans";
             this.chart.ctx.textBaseline = "middle";
 
-            let successValue = 100 / (questDetail.countFinish + questDetail.countOnStage + questDetail.countCancel) * questDetail.countFinish
+            let successValue = Math.round(100 / (questDetail.countFinish+1 + questDetail.countOnStage + questDetail.countCancel) * (questDetail.countFinish+1))
+            if(isNaN(successValue)){
+                successValue = 0
+            }
 
             var text = successValue+'%',
                 textX = Math.round((width - (this.chart.ctx.measureText(text).width)/2) / 2),
@@ -297,7 +280,7 @@ const MapQuestDetail: React.FC<Props> = (props) => {
         data: {
             labels: [text.mapFilter.finish, text.mapFilter.pending, text.mapFilter.cancel],
             datasets: [{
-                data: [questDetail?.countFinish,questDetail?.countOnStage, questDetail?.countCancel],
+                data: [questDetail?.countFinish+1, questDetail?.countOnStage, questDetail?.countCancel],
                 backgroundColor: [
                     '#A7E9AF',
                     '#81F5FF',
@@ -314,18 +297,15 @@ const MapQuestDetail: React.FC<Props> = (props) => {
         },
         options: {...chartOptions,
         tooltips: {
-            enabled: true
+            enabled: false
         }}
     }
-
-
 
     const handleDifficultyGraphDraw = () => {
         if (difficultyChartContainer && difficultyChartContainer.current) {
             setTimeout(() => {
                 //@ts-ignore
-                const newChartInstance:any = new Chart(difficultyChartContainer.current, difficultyChartConfig);
-                setDifficultyChartInstance(newChartInstance);
+                new Chart(difficultyChartContainer.current, difficultyChartConfig);
             },300)
         }
     }
@@ -334,8 +314,7 @@ const MapQuestDetail: React.FC<Props> = (props) => {
         if (reviewChartContainer && reviewChartContainer.current) {
             setTimeout(() => {
                 //@ts-ignore
-                const newChartInstance:any = new Chart(reviewChartContainer.current, reviewChartConfig);
-                setReviewChartInstance(newChartInstance);
+                new Chart(reviewChartContainer.current, reviewChartConfig);
             },300)
         }
     }
@@ -344,8 +323,7 @@ const MapQuestDetail: React.FC<Props> = (props) => {
         if (successChartContainer && successChartContainer.current) {
             setTimeout(() => {
                 //@ts-ignore
-                const newChartInstance:any = new Chart(successChartContainer.current, successChartConfig);
-                setSuccessChartInstance(newChartInstance);
+                new Chart(successChartContainer.current, successChartConfig);
             },300)
         }
     }

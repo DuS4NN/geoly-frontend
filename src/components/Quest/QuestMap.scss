@@ -1,0 +1,17 @@
+.quest{
+  width: 100%;
+  height: 100%;
+
+  .quest-map{
+    height: 40%;
+
+    .map-ref{
+      height: 100%;
+      width: 100%;
+    }
+
+    .gmnoprint, .gm-style-cc, .gm-control-active, .gm-fullscreen-control {
+      display: none;
+    }
+  }
+}

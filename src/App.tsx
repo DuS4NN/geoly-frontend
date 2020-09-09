@@ -9,6 +9,7 @@ import ForgotPassword from "./views/ForgotPassword"
 import SignIn from "./views/SignIn"
 import SignUp from "./views/SignUp"
 import Map from "./views/Map"
+import Quest from "./views/Quest"
 
 // Context
 import { UserContext } from "./UserContext"
@@ -54,6 +55,7 @@ function App() {
                         <Route path="/logout" component={Logout} />
                         <Route path="/ranking" component={Ranking} />
                         <Route path="/map" component={Map} />
+                        <Route path="/quest/" component={Quest} />
                     </Switch>
                 </main>
 

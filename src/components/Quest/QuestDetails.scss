@@ -1,0 +1,155 @@
+.quest{
+  width: 100%;
+  height: 100%;
+
+
+  .quest-detail-content{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 2000px;
+    display: table;
+  }
+
+  .quest-details{
+    display: table-cell;
+    width: 70%;
+
+    .quest-details-category{
+      padding-top: 10px;
+      display: table;
+
+      .category-image{
+        display: table-cell;
+
+        img{
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      .category-name{
+        vertical-align: middle;
+        padding-left: 10px;
+        font-family: Nexa;
+        font-weight: bold;
+        font-size: 15px;
+        letter-spacing: 1px;
+        display: table-cell;
+      }
+    }
+
+    .quest-details-title{
+      font-family: Nexa;
+      font-weight: bold;
+      color: var(--light-mode-dark-green);
+      font-size: 18px;
+      text-align: left;
+      h1{
+        margin-bottom: 5px;
+      }
+    }
+
+    .quest-details-user{
+      width: 100%;
+      height: 27px;
+
+      .quest-detail-user-box{
+        text-align: right;
+        height: 27px;
+      }
+
+      .user-image{
+        display: inline-block;
+
+        img{
+          border-radius: 50%;
+          width: 27px;
+          height: 27px;
+        }
+      }
+      .user-name{
+        padding-bottom:18px;
+        font-family: OpenSans;
+        font-size: 14px;
+        padding-left: 10px;
+        vertical-align: middle;
+        display: inline-block;
+        a{
+          color: black;
+          text-decoration: none;
+        }
+      }
+
+    }
+
+    .quest-details-description{
+      margin-top: 15px;
+      border-top: 1px solid var(--light-mode-input-backgroud);
+      width: 100%;
+      padding-top: 10px;
+      font-family: Nexa;
+      font-size: 15px;
+      letter-spacing: 0.8px;
+    }
+
+    .quest-details-graph{
+      display: table;
+      width: 100%;
+      margin-top: 30px;
+      margin-bottom: 50px;
+      text-align: center;
+      margin-right: auto;
+      margin-left: auto;
+
+      .quest-detail-graph-label{
+        text-align: center;
+        font-family: OpenSans;
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+
+      .quest-detail-graph-difficulty{
+        width: 33%;
+        display: table-cell;
+
+        canvas{
+          margin-left: auto;
+          margin-right: auto;
+          width: 96%;
+          max-height: 90px;
+          max-width: 180px;
+        }
+      }
+      .quest-detail-graph-review{
+        width: 33%;
+        display: table-cell;
+
+        canvas{
+          margin-left: auto;
+          margin-right: auto;
+          width: 96%;
+          max-height: 90px;
+          max-width: 180px;
+        }
+      }
+      .quest-detail-graph-success{
+        width: 33%;
+        text-align: center;
+        display: table-cell;
+
+        canvas{
+          margin-left: auto;
+          margin-right: auto;
+          width: 96%;
+          max-height: 90px;
+          max-width: 180px;
+        }
+      }
+    }
+
+
+  }
+
+
+}
