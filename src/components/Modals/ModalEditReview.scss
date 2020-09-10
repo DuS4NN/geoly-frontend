@@ -1,0 +1,146 @@
+.edit-review-modal{
+  margin-top: 20vh;
+  width: 70vw;
+  max-width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid #999e9d;
+  border-radius: 20px;
+  background: white;
+
+  .image{
+    vertical-align: middle;
+    display: inline-block;
+    width: 35%;
+    margin-left: 5%;
+
+    img{
+      width: 100%;
+    }
+  }
+
+  .edit-review-form{
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    width: 55%;
+    margin-top: 30px;
+    margin-bottom: 70px;
+
+    .title {
+      font-size: 30px;
+      font-weight: bold;
+      font-family: Nexa;
+      color: var(--light-mode-dark-green);
+      text-align: center;
+    }
+
+    .subtitle {
+      margin-left: auto;
+      margin-right: auto;
+      font-family: Nexa;
+      font-weight: normal;
+      letter-spacing: 0.8px;
+      color: black;
+      width: 80%;
+      height: 50px;
+      text-align: center;
+    }
+
+    .form {
+      padding-top: 10px;
+      text-align: center;
+
+      .form-review{
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: left;
+        padding-bottom: 5px;
+      }
+
+      .form-textarea{
+        text-align: center;
+        padding-bottom: 15px;
+
+        textarea{
+          width: 80%;
+          min-height: 40px;
+          resize: vertical;
+          font-size: 14px;
+          font-family: Nexa;
+          letter-spacing: 0.2px;
+          border: 1px solid var(--light-mode-input-backgroud);
+          padding: 7px;
+        }
+      }
+
+      button{
+        margin-top: 10px;
+        font-size: 16px;
+        text-decoration: none;
+        letter-spacing: 2px;
+        border-radius: 50px;
+        padding: 8px 15%;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-family: OpenSans;
+        background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
+        box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
+        font-weight: normal;
+        background-size: 300% 100%;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+      }
+
+      button:hover {
+        background-position: 100% 0;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+      }
+    }
+  }
+
+
+  .close-modal{
+    text-align: right;
+    padding-top: 8px;
+    vertical-align: top;
+    display: inline-block;
+    width: 5%;
+
+    button{
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-right: 3px;
+      font-family: Nexa;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    button:hover{
+      color: var(--light-mode-dark-green)
+    }
+  }
+
+
+  .ReactModal__Overlay {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 500ms ease-in-out;
+  }
+
+  .ReactModal__Overlay--after-open {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  .ReactModal__Overlay--before-close {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}

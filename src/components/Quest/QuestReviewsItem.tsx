@@ -1,19 +1,20 @@
-import React, {useContext, useState} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import {UserContext} from "../../UserContext"
 //@ts-ignore
-import ReactStars from "react-rating-stars-component"
+import StarRatingComponent from 'react-star-rating-component'
 
 
 // Props
 interface Props {
     review: any
     deleteReview: (id:number) => void
+    editReview: (id:number, reviewText:string, reviewRate:number) => void
 }
 
 // Component
 const QuestReviewsItem: React.FC<Props> = (props) => {
 
-    const {review, deleteReview} = props
+    const {review, deleteReview, editReview} = props
 
     const [date, setDate] = useState(new Date())
 
@@ -25,6 +26,10 @@ const QuestReviewsItem: React.FC<Props> = (props) => {
 
     const handleDelete = () => {
         deleteReview(review.reviewId)
+    }
+
+    const handleEdit = () => {
+        editReview(review.reviewId, review.reviewText, review.reviewRate)
     }
 
     // Template
@@ -39,14 +44,11 @@ const QuestReviewsItem: React.FC<Props> = (props) => {
                 </div>
 
                 <div className="header-rating">
-                    <ReactStars
-                        className="rating-stars"
-                        count={5}
-                        isHalf={false}
+                    <StarRatingComponent
+                        starCount={5}
+                        name={"rating"}
                         value={review.reviewRate}
-                        edit={false}
-                        size={30}
-                        activeColor="#30dd8a"
+                        editing={false}
                     />
                 </div>
             </div>
@@ -61,7 +63,7 @@ const QuestReviewsItem: React.FC<Props> = (props) => {
                 </div>
                 {review.owner===1 && (
                     <div className="footer-icons">
-                        <img title={text.iconTitle.edit} alt="" src={require("../../assets/images/otherIcons/edit.svg")} />
+                        <img onClick={handleEdit} title={text.iconTitle.edit} alt="" src={require("../../assets/images/otherIcons/edit.svg")} />
                         <img onClick={handleDelete} title={text.iconTitle.delete} className="footer-icon-delete" alt="" src={require("../../assets/images/otherIcons/delete.svg")} />
                     </div>
                 )

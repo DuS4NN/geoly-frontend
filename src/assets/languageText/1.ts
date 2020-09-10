@@ -110,6 +110,11 @@ export const text = {
         accept: 'Yes',
         decline: 'No'
     },
+    editReview: {
+        title: 'Edit the review',
+        subTitle: 'Have we decided to edit the review? Let\'s go!',
+        editButton: 'Edit'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',
@@ -130,6 +135,10 @@ export const text = {
         // Reset Password
         INVALID_TOKEN: 'Token is invalid',
 
+        // Edit Review
+        INVALID_REVIEW_TEXT_FORMAT: 'Review must be 1-500 characters long',
+        INVALID_REVIEW_LENGTH_SIZE: 'Review must be 1-500 characters long',
+
         // Other
         USER_NOT_FOUND: 'Account not found',
         QUEST_NOT_FOUND: 'Quest not found'
@@ -144,7 +153,8 @@ export const text = {
         // Verify
         ACCOUNT_ACTIVATED: 'Your account has been verified',
         // Review
-        REVIEW_DELETED: 'The review has been deleted'
+        REVIEW_DELETED: 'The review has been deleted',
+        REVIEW_EDITED: 'The review has been edited'
 
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka

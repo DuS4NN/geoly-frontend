@@ -164,7 +164,7 @@ const Quest: React.FC = () => {
                 <QuestStages stages={stages}/>
             </div>
 
-            <QuestReviewsList countReviews={countReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} />
+            <QuestReviewsList questId={id} countReviews={countReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} />
         </div>
     )
 }

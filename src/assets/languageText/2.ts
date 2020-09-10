@@ -111,6 +111,11 @@ export const text = {
         accept: 'Áno',
         decline: 'Nie'
     },
+    editReview: {
+        title: 'Upraviť recenziu',
+        subTitle: 'Rozhodli ste sa upraviť rezenciu? Poďme na to!',
+        editButton: 'Upraviť'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',
@@ -119,7 +124,7 @@ export const text = {
         PASSWORDS_MATCH: 'Zadané heslá sa nezhodujú',
         SOMETHING_WENT_WRONG: 'Niečo sa pokazilo, skúste to znovu',
         NICKNAME_ALREADY_EXISTS: 'Zadaný Nick je už použitý',
-        INVALID_PASSWORD: 'Dĺžka hesla musí byť 4 - 20 znakov',
+        INVALID_PASSWORD: 'Dĺžka hesla musí byť 4-20 znakov',
         INVALID_NICKNAME_FORMAT: 'Nick môže obsahovať A-Z, a-z, 0-9 a -_.',
         INVALID_NICKNAME_LENGTH: 'Dĺžka nicku je 4 až 15 znakov',
         INVALID_EMAIL: 'Formát emailu je nesprávny',
@@ -131,6 +136,10 @@ export const text = {
 
         // Reset Password
         INVALID_TOKEN: 'Token je neplatný',
+
+        // Edit Review
+        INVALID_REVIEW_TEXT_FORMAT: 'Dĺžka recenzie musí byť 1-500 znakov',
+        INVALID_REVIEW_LENGTH_SIZE: 'Dĺžka recenzie musí byť 1-500 znakov',
 
         // Other
         USER_NOT_FOUND: 'Účet nenájdený',
@@ -146,6 +155,7 @@ export const text = {
         // Verify
         ACCOUNT_ACTIVATED: 'Váš účet bol aktivovaný',
         // Review
-        REVIEW_DELETED: 'Recenzia bola odstránená'
+        REVIEW_DELETED: 'Recenzia bola odstránená',
+        REVIEW_EDITED: 'Recenzia bola upravená'
     }
 }
