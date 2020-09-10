@@ -140,7 +140,7 @@ const QuestDetails: React.FC<Props> = (props) => {
                     if(details.questReview === null){
                         avgReviewValue = "0"
                     }else{
-                        avgReviewValue = details.questReview+""
+                        avgReviewValue = Math.round(details.questReview)+""
                     }
 
                     var text = avgReviewValue,

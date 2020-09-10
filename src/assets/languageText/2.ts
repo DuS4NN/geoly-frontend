@@ -101,6 +101,16 @@ export const text = {
         ANSWER_QUESTION: 'Odpovedať na otázku',
         SCAN_QR_CODE: 'Naskenovať QR kód'
     },
+    iconTitle: {
+        delete: 'Odstrániť',
+        edit: 'Upraviť'
+    },
+    deleteReview: {
+        title: 'Odstrániť recenziu',
+        subTitle: 'Ste si istý, že chcete natrvalo odstrániť túto recenziu?',
+        accept: 'Áno',
+        decline: 'Nie'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',

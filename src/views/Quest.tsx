@@ -5,6 +5,7 @@ import QuestMap from "../components/Quest/QuestMap";
 import axios from "axios";
 import QuestDetails from "../components/Quest/QuestDetails";
 import QuestStages from "../components/Quest/QuestStages";
+import QuestReviewsList from "../components/Quest/QuestReviewsList";
 
 
 // Props
@@ -20,10 +21,13 @@ const Quest: React.FC = () => {
     const [reviews, setReviews] = useState([])
     const [details, setDetails] = useState({})
 
+    const [countReviews, setCountReviews] = useState(0)
+
     useEffect(() => {
         getStages()
         getDetails()
         getImages()
+        getReviews(1)
     },[])
 
     const getDetails = () => {
@@ -89,7 +93,6 @@ const Quest: React.FC = () => {
     }
 
     const getImages = () => {
-        console.log("a")
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/quest/images?id='+id
@@ -99,14 +102,12 @@ const Quest: React.FC = () => {
             if(statusCode === 'OK'){
                 let newImages = response.data.data.map((image:any) => extractImage(image))
                 setImages(newImages)
-                console.log("b")
             }else if(statusCode === 'NO_CONTENT'){
                 setImages([])
             }
         })
     }
     const extractImage = (image:any) => {
-        console.log("c")
         return {
             src: process.env.REACT_APP_IMAGE_SERVER_URL+image,
             thumbnail: process.env.REACT_APP_IMAGE_SERVER_URL+image,
@@ -116,10 +117,11 @@ const Quest: React.FC = () => {
 
     }
 
-    const getReviews = () => {
+    const getReviews = (page:number) => {
         axios({
             method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/quest/review?id='+id
+            url: process.env.REACT_APP_API_SERVER_URL+'/quest/review?id='+id+"&page="+page,
+            withCredentials: true
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
 
@@ -130,9 +132,26 @@ const Quest: React.FC = () => {
                 setReviews([])
             }
         })
+
+        axios({
+            method: 'GET',
+            url: process.env.REACT_APP_API_SERVER_URL+'/quest/reviewcount?id='+id
+        }).then(function (response) {
+            setCountReviews(response.data)
+        })
+
     }
     const extractReview = (review:any) => {
-        console.log(review)
+        return {
+            owner: review[0],
+            reviewId: review[1],
+            reviewText: review[2],
+            reviewRate: review[3],
+            reviewDate: review[4],
+            userName: review[5],
+            userImage: review[6],
+            show: true
+        } as unknown
     }
 
     // Template
@@ -144,6 +163,8 @@ const Quest: React.FC = () => {
                 <QuestDetails details={details} />
                 <QuestStages stages={stages}/>
             </div>
+
+            <QuestReviewsList countReviews={countReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} />
         </div>
     )
 }

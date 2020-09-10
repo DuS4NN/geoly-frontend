@@ -1,0 +1,83 @@
+.quest-reviews-list{
+  width: 60%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .quest-review-item{
+    border: 1px solid var(--light-mode-input-backgroud);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+
+    .quest-review-header{
+      width: 100%;
+      display: table;
+
+      .header-user-image{
+        display: table-cell;
+        vertical-align: middle;
+        width: 30px;
+
+        img{
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+        }
+
+      }
+      .header-user-name{
+        font-family: OpenSans;
+        font-size: 16px;
+        padding-left: 10px;
+        display: table-cell;
+        vertical-align: middle;
+      }
+      .header-rating{
+        margin-bottom: 10px;
+        width: 125px;
+        display: table-cell;
+      }
+    }
+
+    .quest-review-text{
+      display: table-cell;
+      padding-top: 10px;
+      font-family: Nexa;
+      letter-spacing: 0.2px;
+      font-size: 16px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .quest-review-footer{
+      margin-top: 20px;
+      margin-left: 30px;
+    }
+
+    .footer-date{
+
+      font-family: Nexa;
+      color: var(--light-mode-gray-text);
+      font-size: 12px;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .footer-icons{
+      text-align: right;
+
+      img{
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+      }
+
+      .footer-icon-delete{
+        margin-left: 10px;
+      }
+
+    }
+
+  }
+}

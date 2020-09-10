@@ -164,7 +164,7 @@ const MapView: React.FC<Props> = () => {
 
     const findNewBoundsAndStartSearch = () => {
         let boundsNew = map.getBounds()
-        handleSearch([boundsNew.Va.i, boundsNew.Va.j],[boundsNew.Za.i, boundsNew.Za.j])
+        handleSearch([boundsNew.Va.i, boundsNew.Va.j],[boundsNew.ab.i, boundsNew.ab.j])
         setBounds(map.getBounds())
     }
 

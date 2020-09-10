@@ -94,7 +94,7 @@ const MapQuestDetail: React.FC<Props> = (props) => {
             if(questDetail.avgReview === null){
                 avgReviewValue = "0"
             }else{
-                avgReviewValue = questDetail.avgReview
+                avgReviewValue = Math.round(questDetail.avgReview)+""
             }
 
             var text = avgReviewValue,

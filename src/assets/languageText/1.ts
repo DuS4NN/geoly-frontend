@@ -100,6 +100,16 @@ export const text = {
       ANSWER_QUESTION: 'Answer a question',
       SCAN_QR_CODE: 'Scan a QR code'
     },
+    iconTitle: {
+        delete: 'Delete',
+        edit: 'Edit'
+    },
+    deleteReview: {
+        title: 'Delete the review',
+        subTitle: 'Are you sure you want to permanently delete this review?',
+        accept: 'Yes',
+        decline: 'No'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',
