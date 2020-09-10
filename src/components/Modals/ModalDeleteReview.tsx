@@ -8,12 +8,15 @@ import disableScroll from 'disable-scroll'
 import {UserContext} from "../../UserContext";
 // Style
 import './ModalDeleteReview.scss'
+import {useAlert} from "react-alert";
 
 // Props
 interface Props {
     showModal: boolean
     setShowModal: (show: boolean) => void
     deleteReviewId: number
+    setReviews: (review:any) => void
+    reviews: any
 }
 
 // Components
@@ -21,9 +24,10 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
     // Context
     //@ts-ignore
     const {userContext} = useContext(UserContext)
+    const alert = useAlert()
 
     // Props state
-    const {showModal, setShowModal, deleteReviewId} = props
+    const {showModal, setShowModal, deleteReviewId, reviews, setReviews} = props
 
 
     // Modal
@@ -53,10 +57,25 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
         document.addEventListener("keydown", handleKeyPress);
     }
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
+    const handleSubmit = () => {
+        axios({
+            method: 'DELETE',
+            url: process.env.REACT_APP_API_SERVER_URL+'/quest/review?reviewId='+deleteReviewId,
+            withCredentials: true
+        }).then(function (response) {
+            let serverResponse = response.data.responseEntity.body
+            let statusCode = response.data.responseEntity.statusCode
 
-
+            if(statusCode === 'ACCEPTED'){
+                alert.success(text.success[serverResponse])
+                setReviews(reviews.filter(function (review:any) {
+                    return review.reviewId !== deleteReviewId
+                }))
+                handleCloseModal()
+            }else{
+                alert.error(text.error.SOMETHING_WENT_WRONG)
+            }
+        })
     }
 
     // Template
@@ -82,10 +101,10 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
                 </div>
                 <div className="form">
                     <div className="form-yes">
-                        <button>{text.deleteReview.accept}</button>
+                        <button onClick={handleSubmit}>{text.deleteReview.accept}</button>
                     </div>
-                    <div className="form-no">
-                        <button>{text.deleteReview.decline}</button>
+                    <div className="form-no" >
+                        <button onClick={handleCloseModal}>{text.deleteReview.decline}</button>
                     </div>
                 </div>
             </div>

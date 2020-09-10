@@ -142,7 +142,9 @@ export const text = {
         // Reset
         PASSWORD_RESET: 'Your password has been changed',
         // Verify
-        ACCOUNT_ACTIVATED: 'Your account has been verified'
+        ACCOUNT_ACTIVATED: 'Your account has been verified',
+        // Review
+        REVIEW_DELETED: 'The review has been deleted'
 
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka

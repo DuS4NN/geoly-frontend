@@ -144,6 +144,8 @@ export const text = {
         // Reset Password
         PASSWORD_RESET: 'Vaše heslo bolo zmenené',
         // Verify
-        ACCOUNT_ACTIVATED: 'Váš účet bol aktivovaný'
+        ACCOUNT_ACTIVATED: 'Váš účet bol aktivovaný',
+        // Review
+        REVIEW_DELETED: 'Recenzia bola odstránená'
     }
 }

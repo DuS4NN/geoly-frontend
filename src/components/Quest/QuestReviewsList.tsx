@@ -19,6 +19,15 @@ interface Props {
 // Component
 const QuestReviewsList: React.FC<Props> = (props) => {
 
+    // Context
+    //@ts-ignore
+    const {userContext} = useContext(UserContext)
+
+
+
+    // Text
+    const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
+
     const {reviews, getReviews, countReviews, setReviews} = props
 
     const [page, setPage] = useState(1)
@@ -52,10 +61,6 @@ const QuestReviewsList: React.FC<Props> = (props) => {
     const deleteReview = (id:number) => {
         setDeleteReviewId(id)
         setShowModalDeleteReview(true)
-
-        /*setReviews(reviews.filter(function (review:any) {
-            return review.reviewId !== id
-        }))*/
     }
 
     const classes = useStyles();
@@ -64,7 +69,7 @@ const QuestReviewsList: React.FC<Props> = (props) => {
     return (
         <div className="quest-reviews-list">
 
-            <ModalDeleteReview deleteReviewId={deleteReviewId} showModal={showModalDeleteReview} setShowModal={setShowModalDeleteReview} />
+            <ModalDeleteReview setReviews={setReviews} reviews={reviews} deleteReviewId={deleteReviewId} showModal={showModalDeleteReview} setShowModal={setShowModalDeleteReview} />
 
             {reviews.map((review:any) => (
                 review.show===true && (
