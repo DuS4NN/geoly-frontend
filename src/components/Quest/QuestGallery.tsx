@@ -25,10 +25,6 @@ const QuestGallery: React.FC<Props> = (props) => {
         <div className="quest-gallery">
             {images.length > 0 && (
                 <div>
-                    <div className="quest-gallery-title">
-                        <span>Gallery</span>
-                    </div>
-
                     <ImageGallery
                         items={images}
                         showPlayButton={false}

@@ -336,34 +336,8 @@ const QuestDetails: React.FC<Props> = (props) => {
     // Template
     return (
         <div className="quest-details">
-
-            <div className="quest-details-category">
-                <div className="category-image">
-                    <img alt="" src={image} />
-                </div>
-                <div className="category-name">
-                    <span>{details.categoryName}</span>
-                </div>
-
-                <div className="date">
-                    <span>{date.getDate()+" "+text.month[date.getMonth()]+" "+date.getFullYear()}</span>
-                </div>
-            </div>
-
             <div className="quest-details-title">
-                <h1>{details.questName}</h1>
-            </div>
-
-            <div className="quest-details-user">
-                <div className="quest-detail-user-box">
-
-                    <div className="user-image">
-                        <img alt="" src={process.env.REACT_APP_IMAGE_SERVER_URL+details.userImage} />
-                    </div>
-                    <div className="user-name">
-                        <NavLink to={"/profile/"+details.userName}>{details.userName}</NavLink>
-                    </div>
-                </div>
+                <span>{text.review.details}</span>
             </div>
 
             <div className="quest-details-description">

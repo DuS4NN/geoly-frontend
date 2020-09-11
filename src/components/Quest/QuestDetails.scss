@@ -3,10 +3,24 @@
   margin-left: auto!important;
 }
 
-
 .quest{
   width: 100%;
   height: 100%;
+
+  .quest-report{
+    width: 90%;
+    margin-top: 5px;
+    text-align: right;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
+
+    img{
+      width: 30px;
+      cursor: pointer;
+      height: 30px;
+    }
+  }
 
   .quest-button{
     margin-top: 30px;
@@ -22,7 +36,7 @@
       text-decoration: none;
       letter-spacing: 2px;
       border-radius: 50px;
-      padding: 8px 6%;
+      padding: 8px 4%;
       border: none;
       cursor: pointer;
       color: white;
@@ -48,106 +62,37 @@
     margin-left: auto;
     margin-right: auto;
     width: 90%;
-    max-width: 2000px;
+    max-width: 1500px;
     display: table;
+  }
+
+  .quest-details-title{
+    font-family: Nexa;
+    font-weight: bold;
+    margin-bottom: 12px;
+    margin-top: 30px;
+    font-size: 30px;
+    color: var(--light-mode-dark-green);
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--light-mode-gray-text);
   }
 
   .quest-details{
     display: table-cell;
     width: 70%;
 
-    .quest-details-category{
-      padding-top: 10px;
-      display: table;
-
-      .date{
-        display: table-cell;
-        vertical-align: middle;
-        font-family: Nexa;
-        font-size: 11px;
-        padding-left: 10px;
-        color: var(--light-mode-gray-text)
-      }
-
-      .category-image{
-        display: table-cell;
-
-        img{
-          width: 30px;
-          height: 30px;
-        }
-      }
-
-      .category-name{
-        vertical-align: middle;
-        padding-left: 10px;
-        font-family: Nexa;
-        font-weight: bold;
-        font-size: 15px;
-        letter-spacing: 1px;
-        display: table-cell;
-      }
-    }
-
-    .quest-details-title{
-      font-family: Nexa;
-      font-weight: bold;
-      color: var(--light-mode-dark-green);
-      font-size: 18px;
-      text-align: left;
-      h1{
-        margin-bottom: 5px;
-      }
-    }
-
-    .quest-details-user{
-      width: 100%;
-      text-align: right;
-      height: 27px;
-
-      .quest-detail-user-box{
-        display: inline-block;
-        text-align: right;
-        height: 27px;
-      }
-
-      .user-image{
-        display: inline-block;
-
-        img{
-          border-radius: 50%;
-          width: 27px;
-          height: 27px;
-        }
-      }
-      .user-name{
-        padding-bottom:18px;
-        font-family: OpenSans;
-        font-size: 14px;
-        padding-left: 10px;
-        vertical-align: middle;
-        display: inline-block;
-        a{
-          color: black;
-          text-decoration: none;
-        }
-      }
-    }
-
     .quest-details-description{
-      margin-top: 15px;
-      border-top: 1px solid var(--light-mode-input-backgroud);
       width: 100%;
       padding-top: 10px;
       font-family: Nexa;
-      font-size: 15px;
-      letter-spacing: 0.8px;
+      font-size: 18px;
+      letter-spacing: 0.5px;
     }
 
     .quest-details-graph{
       display: table;
       width: 100%;
-      margin-top: 30px;
+      margin-top: 40px;
       margin-bottom: 50px;
       text-align: center;
       margin-right: auto;
@@ -201,6 +146,4 @@
 
 
   }
-
-
 }

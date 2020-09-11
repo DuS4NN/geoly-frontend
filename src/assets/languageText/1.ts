@@ -120,7 +120,20 @@ export const text = {
         addReview: 'Add a review',
         reviews: 'Reviews',
         reviewPlaceholder: 'It was great!',
-        signUp: 'Sign Up'
+        signUp: 'Sign Up',
+        details: 'Details',
+        report: 'Report the quest'
+    },
+    reportQuest: {
+        title: 'Report a quest',
+        subTitle: 'Did you find something inappropriate ? Don\'t worry, we will handle that!',
+        button: 'Report'
+    },
+    reportReasons: {
+        INAPPROPRIATE_DESCRIPTION: 'Inappropriate description',
+        INAPPROPRIATE_NAME: 'Inappropriate name',
+        INAPPROPRIATE_IMAGE: 'Inappropriate image',
+        IMPOSSIBLE_QUEST: 'Impossible quest'
     },
     error: {
         // Login
@@ -157,7 +170,8 @@ export const text = {
 
         // Other
         USER_NOT_FOUND: 'Account not found',
-        QUEST_NOT_FOUND: 'Quest not found'
+        QUEST_NOT_FOUND: 'Quest not found',
+        SELECT_REASON: 'Select a reason'
     },
     success: {
         // Register
@@ -172,7 +186,9 @@ export const text = {
         REVIEW_DELETED: 'The review has been deleted',
         REVIEW_EDITED: 'The review has been edited',
         REVIEW_ADDED: 'The review has been added',
-        USER_SIGNED_UP_ON_QUEST: 'You have signed up for the task'
+        USER_SIGNED_UP_ON_QUEST: 'You have signed up for the task',
+        // Report
+        QUEST_REPORT_CREATED: 'The quest has been reported'
 
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka

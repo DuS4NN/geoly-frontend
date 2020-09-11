@@ -121,7 +121,20 @@ export const text = {
         addReview: 'Pridať recenziu',
         reviews: 'Recenzie',
         reviewPlaceholder: 'Bolo to skvelé!',
-        signUp: 'Prihlásiť sa'
+        signUp: 'Prihlásiť sa',
+        details: 'Popis',
+        report: 'Nahlásiť úlohu'
+    },
+    reportQuest: {
+        title: 'Nahlásiť úlohu',
+        subTitle: 'Našli ste niečo nevhodné? Nebojte sa, to zvládneme!',
+        button: 'Nahlásiť'
+    },
+    reportReasons: {
+        INAPPROPRIATE_DESCRIPTION: 'Nevhodný popis',
+        INAPPROPRIATE_NAME: 'Nevhodný názov',
+        INAPPROPRIATE_IMAGE: 'Nevhodný obrázok',
+        IMPOSSIBLE_QUEST: 'Nesplnitelná úloha'
     },
     error: {
         // Login
@@ -157,7 +170,8 @@ export const text = {
 
         // Other
         USER_NOT_FOUND: 'Účet nenájdený',
-        QUEST_NOT_FOUND: 'Úloha nenájdená'
+        QUEST_NOT_FOUND: 'Úloha nenájdená',
+        SELECT_REASON: 'Vyberte dôvod'
     },
     success: {
         // Register
@@ -172,6 +186,8 @@ export const text = {
         REVIEW_DELETED: 'Recenzia bola odstránená',
         REVIEW_EDITED: 'Recenzia bola upravená',
         REVIEW_ADDED: 'Recenzia bola pridaná',
-        USER_SIGNED_UP_ON_QUEST: 'Boli ste prihlásený na úlohu'
+        USER_SIGNED_UP_ON_QUEST: 'Boli ste prihlásený na úlohu',
+        // Report
+        QUEST_REPORT_CREATED: 'Úloha bola nahlásená'
     }
 }

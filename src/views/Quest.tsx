@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 
 // Children
 import QuestMap from "../components/Quest/QuestMap";
@@ -9,6 +9,9 @@ import QuestReviewsList from "../components/Quest/QuestReviewsList";
 import QuestReviewsForm from "../components/Quest/QuestReviewsForm";
 import QuestButton from "../components/Quest/QuestButton";
 import QuestGallery from "../components/Quest/QuestGallery";
+import QuestTitle from "../components/Quest/QuestTitle";
+import {UserContext} from "../UserContext";
+import ModalReportQuest from "../components/Modals/ModalReportQuest";
 
 
 // Props
@@ -18,11 +21,18 @@ interface Props {
 // Component
 const Quest: React.FC = () => {
 
+    //@ts-ignore
+    const {userContext} = useContext(UserContext)
+
+    const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
+
     const [id, setId] = useState(window.location.href.split('/').pop())
     const [images, setImages] = useState([])
     const [stages, setStages] = useState([])
     const [reviews, setReviews] = useState([])
     const [details, setDetails] = useState({})
+
+    const [showReportModal, setShowReportModal] = useState(false)
 
     const [countReviews, setCountReviews] = useState(0)
     const [addReview, setAddReview] = useState(0)
@@ -158,10 +168,22 @@ const Quest: React.FC = () => {
         } as unknown
     }
 
+    const openReportModal = () => {
+        setShowReportModal(true)
+    }
+
     // Template
     return (
         <div className="quest">
+            <ModalReportQuest questId={id} showReportModal={showReportModal} setShowReportModal={setShowReportModal} />
+
+            <QuestTitle details={details} />
+
             <QuestMap stages={stages} />
+
+            <div className="quest-report">
+                <img title={text.review.report} onClick={openReportModal} alt="" src={require("../assets/images/otherIcons/report.svg")} />
+            </div>
 
             <div className="quest-detail-content">
                 <QuestDetails details={details} />

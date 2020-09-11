@@ -1,0 +1,94 @@
+.quest-title{
+  width: 100%;
+  height: 400px;
+  background-color: var(--background-light-green);
+  background-image: url("../../assets/images/waveRight/backgroundTopRight.svg"), url("../../assets/images/waveLeft/backgroundTopLeft.svg");
+  background-position: top right, top left;
+  background-repeat: no-repeat;
+  background-size: 25%;
+  display: table;
+  border-bottom: 1px solid var(--light-mode-input-backgroud);
+
+  .quest-title-category{
+    height: 50px;
+    padding-left: 30px;
+    padding-top: 10px;
+    display: table;
+
+    .date{
+      display: table-cell;
+      vertical-align: middle;
+      font-family: Nexa;
+      font-size: 13px;
+      padding-left: 10px;
+      color: var(--light-mode-gray-text)
+    }
+
+    .category-image{
+      display: table-cell;
+      vertical-align: middle;
+      img{
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .category-name{
+      vertical-align: middle;
+      padding-left: 10px;
+      font-family: Nexa;
+      font-weight: bold;
+      font-size: 17px;
+      letter-spacing: 1px;
+      display: table-cell;
+    }
+  }
+
+  .quest-title-name{
+    vertical-align: bottom;
+    padding-top: 100px;
+    padding-left: 5%;
+    height: 200px;
+    text-align: left;
+    font-size: 50px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: Nexa;
+    color: var(--light-mode-dark-green);
+  }
+
+  .quest-title-user{
+    height: 50px;
+    width: 100%;
+
+    .quest-title-user-box{
+      float: right;
+      padding-right: 50px;
+      display: table;
+    }
+
+    .user-image{
+      display: table-cell;
+      vertical-align: middle;
+
+      img{
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .user-name{
+      vertical-align: middle;
+      font-family: OpenSans;
+      font-size: 17px;
+      padding-left: 10px;
+      display: table-cell;
+
+      a{
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+}
