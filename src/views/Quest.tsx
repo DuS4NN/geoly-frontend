@@ -7,6 +7,8 @@ import QuestDetails from "../components/Quest/QuestDetails";
 import QuestStages from "../components/Quest/QuestStages";
 import QuestReviewsList from "../components/Quest/QuestReviewsList";
 import QuestReviewsForm from "../components/Quest/QuestReviewsForm";
+import QuestButton from "../components/Quest/QuestButton";
+import QuestGallery from "../components/Quest/QuestGallery";
 
 
 // Props
@@ -111,10 +113,8 @@ const Quest: React.FC = () => {
     }
     const extractImage = (image:any) => {
         return {
-            src: process.env.REACT_APP_IMAGE_SERVER_URL+image,
-            thumbnail: process.env.REACT_APP_IMAGE_SERVER_URL+image,
-            thumbnailWidth: 320,
-            thumbnailHeight: 212
+            original: process.env.REACT_APP_IMAGE_SERVER_URL+image,
+            thumbnail: process.env.REACT_APP_IMAGE_SERVER_URL+image
         }
 
     }
@@ -167,6 +167,10 @@ const Quest: React.FC = () => {
                 <QuestDetails details={details} />
                 <QuestStages stages={stages}/>
             </div>
+
+            <QuestGallery images={images} />
+
+            <QuestButton questId={id} />
 
             <QuestReviewsForm setAddReview={setAddReview} questId={id} reviews={reviews} setReviews={setReviews} addReview={addReview} />
             <QuestReviewsList questId={id} countReviews={countReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} setAddReview={setAddReview}/>

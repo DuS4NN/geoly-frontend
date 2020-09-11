@@ -47,7 +47,7 @@ export const text = {
     },
     ranking: {
         title: 'Ranking',
-        subtitle: 'Complete tasks, earn points and place in the ranking of the best players in this season!',
+        subtitle: 'Complete a tasks, earn a points and place in the ranking of the best players in this season!',
         season: 'Season: ',
         noData: 'No player seems to have gained a points this season'
     },
@@ -119,7 +119,8 @@ export const text = {
         addButton: 'Send',
         addReview: 'Add a review',
         reviews: 'Reviews',
-        reviewPlaceholder: 'It was great!'
+        reviewPlaceholder: 'It was great!',
+        signUp: 'Sign Up'
     },
     error: {
         // Login
@@ -147,6 +148,12 @@ export const text = {
         // Add Review
         REVIEW_ALREADY_EXIST: 'A user can only add one review',
         USER_DOESNT_PLAY_QUEST: 'A user can add a review only if the quest was played',
+        // Sign Up On Review
+        USER_ALREADY_FINISHED_QUEST: 'A quest can be completed only once',
+        USER_HAS_ACTIVE_QUEST: 'A user can have only one active quest',
+        USER_CAN_NOT_PLAY_OWN_QUEST: 'A user cannot start their own quest',
+
+
 
         // Other
         USER_NOT_FOUND: 'Account not found',
@@ -164,7 +171,8 @@ export const text = {
         // Review
         REVIEW_DELETED: 'The review has been deleted',
         REVIEW_EDITED: 'The review has been edited',
-        REVIEW_ADDED: 'The review has been added'
+        REVIEW_ADDED: 'The review has been added',
+        USER_SIGNED_UP_ON_QUEST: 'You have signed up for the task'
 
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka

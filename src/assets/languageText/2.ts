@@ -120,7 +120,8 @@ export const text = {
         addButton: 'Odoslať',
         addReview: 'Pridať recenziu',
         reviews: 'Recenzie',
-        reviewPlaceholder: 'Bolo to skvelé!'
+        reviewPlaceholder: 'Bolo to skvelé!',
+        signUp: 'Prihlásiť sa'
     },
     error: {
         // Login
@@ -149,6 +150,10 @@ export const text = {
         // Add Review
         REVIEW_ALREADY_EXIST: 'Používatel môže pridať iba jednu recenziu',
         USER_DOESNT_PLAY_QUEST: 'Používateľ môže pridať recenziu iba v prípade, ak úlohu hral',
+        // Sign Up On Review
+        USER_ALREADY_FINISHED_QUEST: 'Úlohu je možné dokončiť iba raz',
+        USER_HAS_ACTIVE_QUEST: 'Používateľ môže mať iba jednu aktívnu úlohu',
+        USER_CAN_NOT_PLAY_OWN_QUEST: 'Používateľ nemôže začať vlastnú úlohu',
 
         // Other
         USER_NOT_FOUND: 'Účet nenájdený',
@@ -166,6 +171,7 @@ export const text = {
         // Review
         REVIEW_DELETED: 'Recenzia bola odstránená',
         REVIEW_EDITED: 'Recenzia bola upravená',
-        REVIEW_ADDED: 'Recenzia bola pridaná'
+        REVIEW_ADDED: 'Recenzia bola pridaná',
+        USER_SIGNED_UP_ON_QUEST: 'Boli ste prihlásený na úlohu'
     }
 }
