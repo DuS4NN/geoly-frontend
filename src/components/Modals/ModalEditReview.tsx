@@ -63,7 +63,9 @@ const ModalEditReview: React.FC<Props> = (props) => {
     }
 
     const onAfterOpenModal = () => {
-        disableScroll.on()
+        disableScroll.on(null,{
+            disableKeys: false
+        })
 
         document.addEventListener("keydown", handleKeyPress);
     }
