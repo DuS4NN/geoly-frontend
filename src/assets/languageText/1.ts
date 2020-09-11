@@ -115,6 +115,12 @@ export const text = {
         subTitle: 'Have we decided to edit the review? Let\'s go!',
         editButton: 'Edit'
     },
+    review: {
+        addButton: 'Send',
+        addReview: 'Add a review',
+        reviews: 'Reviews',
+        reviewPlaceholder: 'It was great!'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',
@@ -138,6 +144,9 @@ export const text = {
         // Edit Review
         INVALID_REVIEW_TEXT_FORMAT: 'Review must be 1-500 characters long',
         INVALID_REVIEW_LENGTH_SIZE: 'Review must be 1-500 characters long',
+        // Add Review
+        REVIEW_ALREADY_EXIST: 'A user can only add one review',
+        USER_DOESNT_PLAY_QUEST: 'A user can add a review only if the quest was played',
 
         // Other
         USER_NOT_FOUND: 'Account not found',
@@ -154,7 +163,8 @@ export const text = {
         ACCOUNT_ACTIVATED: 'Your account has been verified',
         // Review
         REVIEW_DELETED: 'The review has been deleted',
-        REVIEW_EDITED: 'The review has been edited'
+        REVIEW_EDITED: 'The review has been edited',
+        REVIEW_ADDED: 'The review has been added'
 
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka

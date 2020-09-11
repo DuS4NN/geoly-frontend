@@ -44,12 +44,8 @@ const ModalEditReview: React.FC<Props> = (props) => {
     // Text
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
-
-    const [textareaValue, setTextareaValue] = useState(reviewText)
-
     // Methods
     const handleKeyPress = (e: KeyboardEvent) => {
-        console.log(e.code)
         if(e.code === 'Escape'){
             handleCloseModal()
         }
@@ -115,11 +111,6 @@ const ModalEditReview: React.FC<Props> = (props) => {
         setReviewRate(e)
     }
 
-    const test = (e:any) => {
-        //@ts-ignore
-        console.log(textareaRef.current.value)
-    }
-
     // Template
     return (
         <ReactModal
@@ -158,7 +149,7 @@ const ModalEditReview: React.FC<Props> = (props) => {
                     </div>
 
                     <div className="form-textarea">
-                        <textarea ref={textareaRef} defaultValue={textareaValue} onChange={test}/>
+                        <textarea maxLength={500} ref={textareaRef} defaultValue={reviewText} />
                     </div>
 
                     <div className="form-button">

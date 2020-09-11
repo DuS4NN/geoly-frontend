@@ -4,6 +4,16 @@
   margin-left: auto;
   margin-right: auto;
 
+  .quest-reviews-list-title{
+    font-family: Nexa;
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: var(--light-mode-dark-green);
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--light-mode-gray-text);
+  }
+
   .quest-review-item{
     border: 1px solid var(--light-mode-input-backgroud);
     padding: 15px;

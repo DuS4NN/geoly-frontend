@@ -16,7 +16,7 @@ const QuestReviewsItem: React.FC<Props> = (props) => {
 
     const {review, deleteReview, editReview} = props
 
-    const [date, setDate] = useState(new Date())
+    const [date] = useState(new Date(review.reviewDate))
 
     //@ts-ignore
     const {userContext} = useContext(UserContext)

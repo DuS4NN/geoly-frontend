@@ -6,6 +6,7 @@ import axios from "axios";
 import QuestDetails from "../components/Quest/QuestDetails";
 import QuestStages from "../components/Quest/QuestStages";
 import QuestReviewsList from "../components/Quest/QuestReviewsList";
+import QuestReviewsForm from "../components/Quest/QuestReviewsForm";
 
 
 // Props
@@ -22,6 +23,7 @@ const Quest: React.FC = () => {
     const [details, setDetails] = useState({})
 
     const [countReviews, setCountReviews] = useState(0)
+    const [addReview, setAddReview] = useState(0)
 
     useEffect(() => {
         getStages()
@@ -135,9 +137,11 @@ const Quest: React.FC = () => {
 
         axios({
             method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/quest/reviewcount?id='+id
+            url: process.env.REACT_APP_API_SERVER_URL+'/quest/reviewinfo?id='+id,
+            withCredentials: true
         }).then(function (response) {
-            setCountReviews(response.data)
+            setCountReviews(response.data.data[0])
+            setAddReview(response.data.data[1])
         })
 
     }
@@ -164,7 +168,8 @@ const Quest: React.FC = () => {
                 <QuestStages stages={stages}/>
             </div>
 
-            <QuestReviewsList questId={id} countReviews={countReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} />
+            <QuestReviewsForm setAddReview={setAddReview} questId={id} reviews={reviews} setReviews={setReviews} addReview={addReview} />
+            <QuestReviewsList questId={id} countReviews={countReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} setAddReview={setAddReview}/>
         </div>
     )
 }

@@ -16,6 +16,7 @@ interface Props {
     setShowModal: (show: boolean) => void
     deleteReviewId: number
     setReviews: (review:any) => void
+    setAddReview: (addReview:number) => void
     reviews: any
 }
 
@@ -27,7 +28,7 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
     const alert = useAlert()
 
     // Props state
-    const {showModal, setShowModal, deleteReviewId, reviews, setReviews} = props
+    const {showModal, setShowModal, deleteReviewId, reviews, setReviews, setAddReview} = props
 
 
     // Modal
@@ -73,6 +74,7 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
                 setReviews(reviews.filter(function (review:any) {
                     return review.reviewId !== deleteReviewId
                 }))
+                setAddReview(1)
                 handleCloseModal()
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)

@@ -116,6 +116,12 @@ export const text = {
         subTitle: 'Rozhodli ste sa upraviť rezenciu? Poďme na to!',
         editButton: 'Upraviť'
     },
+    review: {
+        addButton: 'Odoslať',
+        addReview: 'Pridať recenziu',
+        reviews: 'Recenzie',
+        reviewPlaceholder: 'Bolo to skvelé!'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',
@@ -140,6 +146,9 @@ export const text = {
         // Edit Review
         INVALID_REVIEW_TEXT_FORMAT: 'Dĺžka recenzie musí byť 1-500 znakov',
         INVALID_REVIEW_LENGTH_SIZE: 'Dĺžka recenzie musí byť 1-500 znakov',
+        // Add Review
+        REVIEW_ALREADY_EXIST: 'Používatel môže pridať iba jednu recenziu',
+        USER_DOESNT_PLAY_QUEST: 'Používateľ môže pridať recenziu iba v prípade, ak úlohu hral',
 
         // Other
         USER_NOT_FOUND: 'Účet nenájdený',
@@ -156,6 +165,7 @@ export const text = {
         ACCOUNT_ACTIVATED: 'Váš účet bol aktivovaný',
         // Review
         REVIEW_DELETED: 'Recenzia bola odstránená',
-        REVIEW_EDITED: 'Recenzia bola upravená'
+        REVIEW_EDITED: 'Recenzia bola upravená',
+        REVIEW_ADDED: 'Recenzia bola pridaná'
     }
 }

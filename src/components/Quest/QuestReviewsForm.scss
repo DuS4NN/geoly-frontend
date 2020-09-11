@@ -1,0 +1,103 @@
+.quest-review-form{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  .quest-review-form-container{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .container-header-image{
+    margin-bottom: -4px;
+  }
+
+  .container-footer-image{
+    margin-top: -1px;
+  }
+
+  .quest-review-form-container-content{
+    background: var(--background-light-green);
+    width: 100%;
+    padding-bottom: 18px;
+
+
+    .form-title{
+      max-width: 1200px;
+      margin-right: auto;
+      margin-left: auto;
+      width: 70%;
+      font-family: Nexa;
+      font-weight: bold;
+      margin-bottom: 12px;
+      font-size: 30px;
+      color: var(--light-mode-dark-green);
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--light-mode-gray-text);
+    }
+
+    .form-rating{
+      max-width: 1200px;
+      margin-right: auto;
+      margin-left: auto;
+      width: 70%;
+    }
+
+    .form-textarea{
+      max-width: 1200px;
+      margin-right: auto;
+      margin-left: auto;
+      width: 70%;
+
+      textarea{
+        min-height: 100px;
+        width: 98%;
+        resize: vertical;
+        font-size: 16px;
+        font-family: Nexa;
+        letter-spacing: 0.2px;
+        border: 1px solid var(--light-mode-gray-text);
+        padding: 10px;
+        border-radius: 12px;
+      }
+    }
+
+    .form-button{
+      max-width: 1200px;
+      margin-right: auto;
+      margin-left: auto;
+      width: 70%;
+      text-align: right;
+      margin-top: 10px;
+
+      button{
+        margin-top: 10px;
+        font-size: 16px;
+        text-decoration: none;
+        letter-spacing: 2px;
+        border-radius: 50px;
+        padding: 8px 8%;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-family: OpenSans;
+        background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
+        box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
+        font-weight: normal;
+        background-size: 300% 100%;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+      }
+
+      button:hover {
+        background-position: 100% 0;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+      }
+
+    }
+  }
+}
