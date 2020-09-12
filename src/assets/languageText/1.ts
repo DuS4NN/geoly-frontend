@@ -142,7 +142,8 @@ export const text = {
         signOut: 'Sign Out',
         createdQuests: 'Created quests',
         deleteQuest: 'Delete',
-        editQuest: 'Edit'
+        editQuest: 'Edit',
+        playedQuests: 'Played quests'
     },
     error: {
         // Login

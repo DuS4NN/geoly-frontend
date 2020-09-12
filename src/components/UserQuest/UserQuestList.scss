@@ -1,8 +1,141 @@
 .user-quest-list{
-  width: 100vw;
+  width: 100%;
   top: 540px;
   padding-bottom: 20px;
   position: absolute;
+
+  .user-quest-played{
+    width: 100%;
+
+    .user-quest-played-container{
+      width: 100%;
+      margin-bottom: 50px;
+
+      .item-stage-container{
+        border-left: 1px solid var(--light-mode-input-backgroud);
+        border-right: 1px solid var(--light-mode-input-backgroud);
+        width: calc(100% - 81px);
+        height: 50px;
+        margin-left: 81px;
+
+        display: table;
+
+        .item-stage-image{
+          display: table-cell;
+          vertical-align: middle;
+          padding-left: 10px;
+          padding-right: 15px;
+          width: 30px;
+
+          img{
+            width: 30px;
+          }
+        }
+        .item-stage-name{
+          width: 40%;
+          display: table-cell;
+          vertical-align: middle;
+          font-family: OpenSans;
+          font-weight: normal;
+          font-size: 14px;
+          letter-spacing: 0.8px;
+        }
+        .item-stage-status{
+          width: 20px;
+          text-align: right;
+          display: table-cell;
+          vertical-align: middle;
+          padding-right: 10px;
+          padding-left: 10px;
+
+          img{
+            width: 20px;
+          }
+        }
+        .item-stage-date{
+          text-align: right;
+          padding-right: 10px;
+          font-family: Nexa;
+          color: var(--light-mode-gray-text);
+          font-size: 12px;
+          letter-spacing: 0.2px;
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+
+      .container-title{
+        width: 60vw;
+        margin-left: auto;
+        margin-right: auto;
+        background: white;
+        border-top: 1px solid var(--light-mode-input-backgroud);
+        border-left: 1px solid var(--light-mode-input-backgroud);
+        border-right: 1px solid var(--light-mode-input-backgroud);
+        h2{
+          margin-bottom: 0;
+          padding-bottom: 29px;
+          font-family: Nexa;
+          font-weight: bold;
+          font-size: 35px;
+          padding-left: 20px;
+          letter-spacing: 0.8px;
+          text-align: left;
+          color: var(--light-mode-dark-green)
+        }
+      }
+      .container-table{
+        width: 60vw;
+        margin-left: auto;
+        margin-right: auto;
+        background: white;
+
+
+        .container-table-item{
+          border-top: 1px solid var(--light-mode-input-backgroud);
+          border-right: 1px solid var(--light-mode-input-backgroud);
+          display: table;
+          width: 100%;
+          height: 70px;
+
+
+          .item-category-image{
+            border-bottom: 1px solid var(--light-mode-input-backgroud);
+            border-left: 1px solid var(--light-mode-input-backgroud);
+            vertical-align: middle;
+            display: table-cell;
+            padding-left: 20px;
+            padding-right: 20px;
+            width: 40px;
+            img{
+              width: 40px;
+              height: 40px;
+            }
+          }
+
+          .item-quest-name{
+            padding-left: 30px;
+            vertical-align: middle;
+            display: table-cell;
+            font-family: OpenSans;
+            font-weight: normal;
+            font-size: 16px;
+            letter-spacing: 0.8px;
+            text-align: left;
+            width: inherit;
+            white-space: nowrap;
+
+            a{
+              cursor: pointer;
+              text-decoration: none;
+              color: black
+            }
+          }
+        }
+
+      }
+    }
+  }
 
   .user-quest-active{
     .user-quest-active-container{
@@ -13,7 +146,7 @@
         margin-right: auto;
         padding-top: 20px;
         padding-bottom: 20px;
-        width: 60%;
+        width: 60vw;
         border-bottom: 1px solid var(--light-mode-input-backgroud);
         border-right: 1px solid var(--light-mode-input-backgroud);
         border-left: 1px solid var(--light-mode-input-backgroud);
@@ -123,7 +256,9 @@
   }
 
   .user-quest-created{
+
     .user-quest-created-container{
+      margin-bottom: 50px;
       .container-title{
         width: 60vw;
         margin-left: auto;
@@ -204,7 +339,6 @@
 
           }
         }
-
       }
     }
   }

@@ -143,7 +143,8 @@ export const text = {
         signOut: 'Odhlásiť sa',
         createdQuests: 'Vytvorené úlohy',
         deleteQuest: 'Odstrániť',
-        editQuest: 'Upraviť'
+        editQuest: 'Upraviť',
+        playedQuests: 'Played quests'
     },
     error: {
         // Login
