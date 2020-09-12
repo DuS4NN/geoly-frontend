@@ -13,6 +13,12 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
 }
 
 
+.ReactModal__Body--open{
+  .image-gallery-icon{
+    display: none!important;
+  }
+}
+
 .quest-gallery{
   width: 60%;
   max-width: 1000px;
@@ -53,6 +59,7 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
 
 .image-gallery-using-mouse {
   .image-gallery-icon {
+
     &:focus {
       outline: none;
     }

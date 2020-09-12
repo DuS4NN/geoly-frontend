@@ -135,6 +135,15 @@ export const text = {
         INAPPROPRIATE_IMAGE: 'Inappropriate image',
         IMPOSSIBLE_QUEST: 'Impossible quest'
     },
+    userQuest: {
+        title: 'Quests',
+        subtitle: 'Here you can find your active, completed and created quests',
+        activeQuest: 'Active quest',
+        signOut: 'Sign Out',
+        createdQuests: 'Created quests',
+        deleteQuest: 'Delete',
+        editQuest: 'Edit'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',

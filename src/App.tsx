@@ -17,6 +17,7 @@ import { UserContext } from "./UserContext"
 import './App.scss'
 import Ranking from "./views/Ranking";
 import MapView from "./components/Map/MapView";
+import UserQuest from "./views/UserQuest";
 
 // Component
 function App() {
@@ -56,6 +57,7 @@ function App() {
                         <Route path="/ranking" component={Ranking} />
                         <Route path="/map" component={Map} />
                         <Route path="/quest/" component={Quest} />
+                        <Route exact path="/quests" component={UserQuest} />
                     </Switch>
                 </main>
 

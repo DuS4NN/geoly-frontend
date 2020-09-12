@@ -1,0 +1,63 @@
+.user-quest-image{
+  width: 100vw;
+  height: auto;
+
+  .user-quest-image-content{
+    padding-top: 30px;
+    width: 100vw;
+    height: 400px;
+    display: table;
+    background-color: var(--background-light-green);
+    background-image: url("../../assets/images/waveRight/backgroundTopRight.svg"), url("../../assets/images/waveLeft/backgroundTopLeft.svg");
+    background-position: top right, top left;
+    background-repeat: no-repeat;
+    background-size: 25%;
+
+    .content-text{
+      width: 50%;
+      display: table-cell;
+      text-align: right;
+      padding-right: 10%;
+
+      .content-text-title{
+        width: 50%;
+        text-align: left;
+        font-size: 50px;
+        margin-left: auto;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: Nexa;
+        color: var(--light-mode-dark-green);
+
+        h2{
+          margin-bottom: 10px;
+        }
+      }
+
+      .content-text-subtitle{
+        width: 50%;
+        text-align: left;
+        margin-left: auto;
+        color: black;
+        font-family: Nexa;
+        font-weight: normal;
+        letter-spacing: 0.8px;
+      }
+    }
+
+    .content-image{
+      width: 50%;
+      display: table-cell;
+
+      background-image: url("../../assets/images/userQuest.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 10%;
+    }
+  }
+
+  .user-quest-image-background{
+    width: 100vw;
+  }
+}

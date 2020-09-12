@@ -136,6 +136,15 @@ export const text = {
         INAPPROPRIATE_IMAGE: 'Nevhodný obrázok',
         IMPOSSIBLE_QUEST: 'Nesplnitelná úloha'
     },
+    userQuest: {
+        title: 'Úlohy',
+        subtitle: 'Tu môžete nájsť svoje aktívne, dokončené a vytvorené úlohy',
+        activeQuest: 'Aktívna úloha',
+        signOut: 'Odhlásiť sa',
+        createdQuests: 'Vytvorené úlohy',
+        deleteQuest: 'Odstrániť',
+        editQuest: 'Upraviť'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',

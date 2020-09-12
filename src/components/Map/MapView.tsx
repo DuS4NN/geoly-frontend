@@ -57,7 +57,7 @@ const MapView: React.FC<Props> = () => {
     const {ref, map, google} = useGoogleMaps(
         process.env.REACT_APP_GOOGLE_API_KEY+"",
         {
-            center: { lat:48.7163857, lng: 21.2610746 },
+            center: { lat:48.864716, lng: 2.349014 },
             zoom: 12,
             minZoom: 12
         }

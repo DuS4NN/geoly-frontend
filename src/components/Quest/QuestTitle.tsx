@@ -19,6 +19,7 @@ const QuestTitle: React.FC<Props> = (props) => {
     const {details} = props
     const [image, setImage] = useState("")
     const [date, setDate] = useState(new Date())
+    const [category, setCategory] = useState("")
 
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
@@ -26,6 +27,7 @@ const QuestTitle: React.FC<Props> = (props) => {
         if (details.categoryImage) {
             setImage( require( "../../" + details.categoryImage ) )
             setDate(new Date(details.questDate))
+            setCategory(details.categoryName)
         }
     },[details])
 
@@ -39,7 +41,7 @@ const QuestTitle: React.FC<Props> = (props) => {
                     <img alt="" src={image} />
                 </div>
                 <div className="category-name">
-                    <span>{details.categoryName}</span>
+                    <span>{text.category[category.toLowerCase()]}</span>
                 </div>
 
                 <div className="date">
