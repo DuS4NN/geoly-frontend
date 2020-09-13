@@ -149,6 +149,11 @@ export const text = {
         deleteQuestTitle: 'Odstrániť úlohu',
         deleteQuestDesc: 'Ste si istý, že chcete natvrvalo odstrániť túto úlohu?'
     },
+    stageStatus: {
+        ON_STAGE: 'Vykonáva sa',
+        FINISHED: 'Dokončené',
+        CANCELED: 'Zrušené'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',

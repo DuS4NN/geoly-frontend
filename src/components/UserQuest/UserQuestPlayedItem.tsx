@@ -53,7 +53,7 @@ const UserQuestPlayedItem: React.FC<Props> = (props) => {
                         <span>{quest.stageDate ? new Date(quest.stageDate).getDate()+" "+text.month[new Date(quest.stageDate).getMonth()]+" "+new Date(quest.stageDate).getFullYear() : ""}</span>
                     </div>
                     <div className="item-stage-status">
-                        <img alt="" src={quest.stageStatus ? require("../../assets/images/stageStatus/"+quest.stageStatus+".svg") : ""} />
+                        <img alt="" title={text.stageStatus[quest.stageStatus]} src={quest.stageStatus ? require("../../assets/images/stageStatus/"+quest.stageStatus+".svg") : ""} />
                     </div>
                 </div>
             ))}

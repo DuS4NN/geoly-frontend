@@ -148,6 +148,11 @@ export const text = {
         deleteQuestTitle: 'Delete the quest',
         deleteQuestDesc: 'Are you sure you want to permanently delete this quest?'
     },
+    stageStatus: {
+        ON_STAGE: 'In progress',
+        FINISHED: 'Finished',
+        CANCELED: 'Canceled'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',
