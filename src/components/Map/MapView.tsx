@@ -46,7 +46,7 @@ const MapView: React.FC<Props> = () => {
     const [noReviewed, setNoReviewed] = useState(true)
     const [stageType, setStageType] = useState([])
 
-    const [markers, setMarkers] = useState(Array())
+    const [markers] = useState([]) as Array<any>
     const [bounds, setBounds] = useState({})
 
     const [questDetail, setQuestDetail] = useState(null)

@@ -1,5 +1,5 @@
-import React, {useContext, useEffect, useRef, useState} from "react";
-import {NavLink, useHistory} from "react-router-dom"
+import React, {useContext, useEffect, useRef} from "react";
+import {useHistory} from "react-router-dom"
 import {UserContext} from "../../UserContext";
 import Chart from 'chart.js';
 
@@ -301,32 +301,38 @@ const MapQuestDetail: React.FC<Props> = (props) => {
         }}
     }
 
-    const handleDifficultyGraphDraw = () => {
-        if (difficultyChartContainer && difficultyChartContainer.current) {
-            setTimeout(() => {
-                //@ts-ignore
-                new Chart(difficultyChartContainer.current, difficultyChartConfig);
-            },300)
-        }
-    }
 
-    const handleReviewGraphDraw = () => {
-        if (reviewChartContainer && reviewChartContainer.current) {
-            setTimeout(() => {
-                //@ts-ignore
-                new Chart(reviewChartContainer.current, reviewChartConfig);
-            },300)
-        }
-    }
 
-    const handleSuccessGraphDraw = () => {
-        if (successChartContainer && successChartContainer.current) {
-            setTimeout(() => {
-                //@ts-ignore
-                new Chart(successChartContainer.current, successChartConfig);
-            },300)
+    useEffect(() => {
+        const handleDifficultyGraphDraw = () => {
+            if (difficultyChartContainer && difficultyChartContainer.current) {
+                setTimeout(() => {
+                    //@ts-ignore
+                    new Chart(difficultyChartContainer.current, difficultyChartConfig);
+                },300)
+            }
         }
-    }
+        const handleReviewGraphDraw = () => {
+            if (reviewChartContainer && reviewChartContainer.current) {
+                setTimeout(() => {
+                    //@ts-ignore
+                    new Chart(reviewChartContainer.current, reviewChartConfig);
+                },300)
+            }
+        }
+        const handleSuccessGraphDraw = () => {
+            if (successChartContainer && successChartContainer.current) {
+                setTimeout(() => {
+                    //@ts-ignore
+                    new Chart(successChartContainer.current, successChartConfig);
+                },300)
+            }
+        }
+
+        handleDifficultyGraphDraw()
+        handleReviewGraphDraw()
+        handleSuccessGraphDraw()
+    }, [difficultyChartConfig, reviewChartConfig, successChartConfig])
 
     const handleRedirect = () => {
         history.push("/quest/"+questDetail.questId)
@@ -373,7 +379,6 @@ const MapQuestDetail: React.FC<Props> = (props) => {
                                 <span>{text.mapFilter.difficulty}</span>
                             </div>
                             <canvas ref={difficultyChartContainer}>
-                                <iframe onLoad={handleDifficultyGraphDraw} />
                             </canvas>
                         </div>
                         <div className="quest-detail-graph-review">
@@ -381,7 +386,6 @@ const MapQuestDetail: React.FC<Props> = (props) => {
                                 <span>{text.mapFilter.review}</span>
                             </div>
                             <canvas ref={reviewChartContainer}>
-                                <iframe onLoad={handleReviewGraphDraw} />
                             </canvas>
                         </div>
                         <div className="quest-detail-graph-success">
@@ -389,7 +393,6 @@ const MapQuestDetail: React.FC<Props> = (props) => {
                                 <span>{text.mapFilter.success}</span>
                             </div>
                             <canvas ref={successChartContainer}>
-                                <iframe onLoad={handleSuccessGraphDraw} />
                             </canvas>
                         </div>
                     </div>
