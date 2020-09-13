@@ -1,4 +1,4 @@
-import React, {FormEvent, useContext} from "react"
+import React, {FormEvent, useContext, useEffect} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
@@ -14,25 +14,26 @@ import {useAlert} from "react-alert";
 interface Props {
     showModal: boolean
     setShowModal: (show: boolean) => void
-    deleteReviewId: number
-    setReviews: (review:any) => void
-    setAddReview: (addReview:number) => void
-    reviews: any
+    deleteQuestId: number
+    createdQuests: any
+    setCreatedQuests: (createdQuests:any) =>void
 }
 
 // Components
-const ModalDeleteReview: React.FC<Props> = (props) => {
+const ModalDeleteQuest: React.FC<Props> = (props) => {
     // Context
     //@ts-ignore
     const {userContext} = useContext(UserContext)
     const alert = useAlert()
 
     // Props state
-    const {showModal, setShowModal, deleteReviewId, reviews, setReviews, setAddReview} = props
+    const {showModal, setShowModal, deleteQuestId, setCreatedQuests, createdQuests} = props
 
 
     // Modal
-    Modal.setAppElement("#root")
+    useEffect(() => {
+        Modal.setAppElement("#root")
+    },[])
     // Text
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
@@ -62,19 +63,18 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
 
     const handleSubmit = () => {
         axios({
-            method: 'DELETE',
-            url: process.env.REACT_APP_API_SERVER_URL+'/quest/review?reviewId='+deleteReviewId,
+            method: 'GET',
+            url: process.env.REACT_APP_API_SERVER_URL+'/quest/disable?id='+deleteQuestId,
             withCredentials: true
         }).then(function (response) {
             let serverResponse = response.data.responseEntity.body
             let statusCode = response.data.responseEntity.statusCode
 
             if(statusCode === 'ACCEPTED'){
-                alert.success(text.success[serverResponse])
-                setReviews(reviews.filter(function (review:any) {
-                    return review.reviewId !== deleteReviewId
+                setCreatedQuests(createdQuests.filter(function (quest:any) {
+                    return quest.questId !== deleteQuestId
                 }))
-                setAddReview(1)
+                alert.success(text.success[serverResponse])
                 handleCloseModal()
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -96,11 +96,11 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
 
             <div className="delete-form">
                 <div className="title">
-                    <h3>{text.deleteReview.title}</h3>
+                    <h3>{text.userQuest.deleteQuestTitle}</h3>
                 </div>
                 <div className="subtitle">
                     <span>
-                        {text.deleteReview.subTitle}
+                        {text.userQuest.deleteQuestDesc}
                     </span>
                 </div>
                 <div className="form">
@@ -120,4 +120,4 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
     )
 }
 
-export default ModalDeleteReview
+export default ModalDeleteQuest

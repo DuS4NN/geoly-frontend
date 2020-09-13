@@ -4,43 +4,50 @@ import {NavLink} from "react-router-dom"
 import {UserContext} from "../../UserContext"
 
 import './UserQuestList.scss'
+import ModalDeleteQuest from "../Modals/ModalDeleteQuest";
 
 // Props
 interface Props {
     createdQuest: any
+    createdQuests: any
+    setCreatedQuests: (createdQuests:any) => void
 }
 
 const UserQuestCreatedItem: React.FC<Props> = (props) => {
 
-    const {createdQuest} = props
+    const {createdQuest, createdQuests, setCreatedQuests} = props
 
     // Context
     //@ts-ignore
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
-    const [image, setImage] = useState("")
+    const [showDeleteModal, setShowDeleteModal] = useState(false)
 
-    useEffect(() => {
-        if(createdQuest.questId){
-            setImage(createdQuest.categoryImage)
-        }
 
-    }, [createdQuest])
+    const handleDeleteQuest = () => {
+        setShowDeleteModal(true)
+    }
+
+    const handleEditQuest = () => {
+
+    }
 
     return (
         <div className="user-quest-created">
+            <ModalDeleteQuest showModal={showDeleteModal} setShowModal={setShowDeleteModal} deleteQuestId={createdQuest.questId} createdQuests={createdQuests} setCreatedQuests={setCreatedQuests} />
+
             {createdQuest != {} && (
                 <div className="container-table-item">
                     <div className="item-category-image">
-                        <img alt="" src={require("../../"+image)} />
+                        <img alt="" src={createdQuest.questId ? require("../../"+createdQuest.categoryImage) : "" } />
                     </div>
                     <div className="item-quest-name">
                         <NavLink to={"./quest/"+createdQuest.questId}>{createdQuest.questName}</NavLink>
                     </div>
                     <div className="item-quest-buttons">
-                        <img title={text.userQuest.editQuest}  alt="" src={require("../../assets/images/otherIcons/edit.svg")} />
-                        <img title={text.userQuest.deleteQuest}  alt="" src={require("../../assets/images/otherIcons/delete.svg")} />
+                        <img title={text.userQuest.editQuest} onClick={handleEditQuest}  alt="" src={require("../../assets/images/otherIcons/edit.svg")} />
+                        <img title={text.userQuest.deleteQuest} onClick={handleDeleteQuest} alt="" src={require("../../assets/images/otherIcons/delete.svg")} />
                     </div>
                 </div>
             )}

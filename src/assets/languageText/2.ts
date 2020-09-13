@@ -145,7 +145,9 @@ export const text = {
         deleteQuest: 'Odstrániť',
         editQuest: 'Upraviť',
         playedQuests: 'Played quests',
-        noData: 'Zdá sa, že nemáte žiadne aktívne, dokončené ani vytvorené úlohy'
+        noData: 'Zdá sa, že nemáte žiadne aktívne, dokončené ani vytvorené úlohy',
+        deleteQuestTitle: 'Odstrániť úlohu',
+        deleteQuestDesc: 'Ste si istý, že chcete natvrvalo odstrániť túto úlohu?'
     },
     error: {
         // Login
@@ -201,6 +203,7 @@ export const text = {
         // Report
         QUEST_REPORT_CREATED: 'Úloha bola nahlásená',
         // Quest
-        SIGNED_OUT_OF_QUEST: 'Boli ste odhlásený z úlohy'
+        SIGNED_OUT_OF_QUEST: 'Boli ste odhlásený z úlohy',
+        QUEST_DISABLED: 'Úloha bola deaktivovaná'
     }
 }

@@ -31,7 +31,7 @@ const UserQuestCreated: React.FC<Props> = (props) => {
 
                     <div className="container-table">
                         {createdQuest.map((quest:any) => (
-                            <UserQuestCreatedItem key={quest.questId} createdQuest={quest} />
+                            <UserQuestCreatedItem key={quest.questId} createdQuest={quest} createdQuests={createdQuest} setCreatedQuests={setCreatedQuest} />
                         ))}
                     </div>
                 </div>

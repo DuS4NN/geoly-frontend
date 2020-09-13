@@ -145,6 +145,8 @@ export const text = {
         editQuest: 'Edit',
         playedQuests: 'Played quests',
         noData: 'It looks like you don\'t have any active, completed, or created quests',
+        deleteQuestTitle: 'Delete the quest',
+        deleteQuestDesc: 'Are you sure you want to permanently delete this quest?'
     },
     error: {
         // Login
@@ -177,8 +179,6 @@ export const text = {
         USER_HAS_ACTIVE_QUEST: 'A user can have only one active quest',
         USER_CAN_NOT_PLAY_OWN_QUEST: 'A user cannot start their own quest',
 
-
-
         // Other
         USER_NOT_FOUND: 'Account not found',
         QUEST_NOT_FOUND: 'Quest not found',
@@ -201,7 +201,8 @@ export const text = {
         // Report
         QUEST_REPORT_CREATED: 'The quest has been reported',
         // Quest
-        SIGNED_OUT_OF_QUEST: 'You have been signed out of quest'
+        SIGNED_OUT_OF_QUEST: 'You have been signed out of quest',
+        QUEST_DISABLED: 'The quest has been deactivated'
 
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka
