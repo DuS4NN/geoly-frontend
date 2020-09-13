@@ -111,7 +111,6 @@ const UserQuestList: React.FC = () => {
         })
     }
     const extractAPlayedQuest = (playedQuest:any) => {
-
         let extractPlayedQuest = Array()
 
         for(let i=0; i<playedQuest.length; i++){
@@ -137,6 +136,23 @@ const UserQuestList: React.FC = () => {
             <UserQuestActive activeQuest={activeQuest} setActiveQuest={setActiveQuest} />
             <UserQuestCreated createdQuest={createdQuest} setCreatedQuest={setCreatedQuest}  />
             <UserQuestPlayed playedQuest={playedQuest} setPlayedQuest={setPlayedQuest} />
+
+
+            {Object.keys(activeQuest).length === 0 && Object.keys(createdQuest).length === 0 && Object.keys(playedQuest).length === 0 && (
+                <div className="user-quest-empty">
+
+                    <div className="container-title">
+                        <h2>Quests</h2>
+                    </div>
+
+                    <div className="user-quest-empty-title">
+                        <span>{text.userQuest.noData}</span>
+                    </div>
+                    <br />
+                    <img src={require("../../assets/images/noData.svg")} alt="" />
+                </div>
+            )}
+
         </div>
     )
 }

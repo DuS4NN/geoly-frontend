@@ -143,7 +143,8 @@ export const text = {
         createdQuests: 'Created quests',
         deleteQuest: 'Delete',
         editQuest: 'Edit',
-        playedQuests: 'Played quests'
+        playedQuests: 'Played quests',
+        noData: 'It looks like you don\'t have any active, completed, or created quests',
     },
     error: {
         // Login

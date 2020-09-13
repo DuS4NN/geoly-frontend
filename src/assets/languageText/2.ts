@@ -144,7 +144,8 @@ export const text = {
         createdQuests: 'Vytvorené úlohy',
         deleteQuest: 'Odstrániť',
         editQuest: 'Upraviť',
-        playedQuests: 'Played quests'
+        playedQuests: 'Played quests',
+        noData: 'Zdá sa, že nemáte žiadne aktívne, dokončené ani vytvorené úlohy'
     },
     error: {
         // Login

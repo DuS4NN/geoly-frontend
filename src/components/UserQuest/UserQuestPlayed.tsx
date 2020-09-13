@@ -35,9 +35,13 @@ const UserQuestPlayed: React.FC<Props> = (props) => {
                             <UserQuestPlayedItem key={quest[0].questId} playedQuest={quest} />
                         ))}
                     </div>
+
+                    <div className="user-quest-played-container-bottom">
+                        <div className="user-quest-played-container-bottom-border">
+                        </div>
+                    </div>
                 </div>
             )}
-
         </div>
     )
 }

@@ -37,7 +37,7 @@ const UserQuestActive: React.FC<Props> = (props) => {
 
     return (
         <div className="user-quest-active">
-            {activeQuest != {} && (
+            {activeQuest.questId && (
                 <div className="user-quest-active-container">
                     <div className="container-title">
                         <h2>{text.userQuest.activeQuest}</h2>

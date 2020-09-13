@@ -42,7 +42,7 @@ const UserQuestPlayedItem: React.FC<Props> = (props) => {
             </div>
 
             {playedQuest.map((quest:any) => (
-                <div key={quest.stageId} className="item-stage-container">
+                <div key={quest.stageId + quest.stageStatus} className="item-stage-container">
                     <div className="item-stage-image">
                         <img alt="" src={quest.questId ? require("../../assets/images/stageTypeImages/"+quest.stageType+".svg") : ""} />
                     </div>
