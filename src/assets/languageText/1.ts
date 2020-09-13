@@ -197,9 +197,11 @@ export const text = {
         REVIEW_DELETED: 'The review has been deleted',
         REVIEW_EDITED: 'The review has been edited',
         REVIEW_ADDED: 'The review has been added',
-        USER_SIGNED_UP_ON_QUEST: 'You have signed up for the task',
+        USER_SIGNED_UP_ON_QUEST: 'You have been signed up for the quest',
         // Report
-        QUEST_REPORT_CREATED: 'The quest has been reported'
+        QUEST_REPORT_CREATED: 'The quest has been reported',
+        // Quest
+        SIGNED_OUT_OF_QUEST: 'You have been signed out of quest'
 
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka

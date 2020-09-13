@@ -42,7 +42,7 @@ const UserQuestPlayedItem: React.FC<Props> = (props) => {
             </div>
 
             {playedQuest.map((quest:any) => (
-                <div key={quest.stageId + quest.stageStatus} className="item-stage-container">
+                <div key={quest.stageId + quest.stageStatus + quest.stageDate} className="item-stage-container">
                     <div className="item-stage-image">
                         <img alt="" src={quest.questId ? require("../../assets/images/stageTypeImages/"+quest.stageType+".svg") : ""} />
                     </div>
@@ -50,7 +50,7 @@ const UserQuestPlayedItem: React.FC<Props> = (props) => {
                         <span>{quest.questId ? text.stageType[quest.stageType] : ""}</span>
                     </div>
                     <div className="item-stage-date">
-                        <span>{date.getDate()+" "+text.month[date.getMonth()]+" "+date.getFullYear()}</span>
+                        <span>{quest.stageDate ? new Date(quest.stageDate).getDate()+" "+text.month[new Date(quest.stageDate).getMonth()]+" "+new Date(quest.stageDate).getFullYear() : ""}</span>
                     </div>
                     <div className="item-stage-status">
                         <img alt="" src={quest.stageStatus ? require("../../assets/images/stageStatus/"+quest.stageStatus+".svg") : ""} />

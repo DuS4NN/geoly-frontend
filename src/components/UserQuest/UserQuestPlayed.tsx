@@ -10,12 +10,11 @@ import UserQuestPlayedItem from "./UserQuestPlayedItem";
 // Props
 interface Props {
     playedQuest: any
-    setPlayedQuest: (activeQuest:any) => void
 }
 
 const UserQuestPlayed: React.FC<Props> = (props) => {
 
-    const {playedQuest, setPlayedQuest} = props
+    const {playedQuest} = props
 
     // Context
     //@ts-ignore
@@ -31,7 +30,7 @@ const UserQuestPlayed: React.FC<Props> = (props) => {
                     </div>
 
                     <div className="container-table">
-                        {playedQuest.reverse().map((quest:any) => (
+                        {playedQuest.map((quest:any) => (
                             <UserQuestPlayedItem key={quest[0].questId} playedQuest={quest} />
                         ))}
                     </div>

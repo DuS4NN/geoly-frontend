@@ -35,6 +35,25 @@ const UserQuestActive: React.FC<Props> = (props) => {
         }
     },[activeQuest])
 
+    const handleSignOut = () => {
+        axios({
+            method: 'GET',
+            url: process.env.REACT_APP_API_SERVER_URL+'/quest/signout?questId='+activeQuest.questId,
+            withCredentials: true
+        }).then(function (response) {
+            let serverResponse = response.data.responseEntity.body
+            let statusCode = response.data.responseEntity.statusCode
+
+            if(statusCode === 'ACCEPTED'){
+                setActiveQuest({})
+                alert.success(text.success[serverResponse])
+            }else{
+                alert.error(text.error.SOMETHING_WENT_WRONG)
+            }
+        })
+
+    }
+
     return (
         <div className="user-quest-active">
             {activeQuest.questId && (
@@ -57,7 +76,7 @@ const UserQuestActive: React.FC<Props> = (props) => {
                     </div>
 
                     <div className="container-button">
-                        <button>{text.userQuest.signOut}</button>
+                        <button onClick={handleSignOut}>{text.userQuest.signOut}</button>
                     </div>
 
                 </div>

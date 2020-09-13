@@ -101,7 +101,7 @@ const UserQuestList: React.FC = () => {
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
             if(statusCode === 'OK'){
-                let newPlayedQuest = response.data.data.map((playedQuest:any) => extractAPlayedQuest(playedQuest))
+                let newPlayedQuest = response.data.data.reverse().map((playedQuest:any) => extractAPlayedQuest(playedQuest))
                 setPlayedQuest(newPlayedQuest)
             }else if(statusCode === 'NO_CONTENT'){
                 setPlayedQuest({})
@@ -133,9 +133,10 @@ const UserQuestList: React.FC = () => {
     // Template
     return (
         <div className="user-quest-list">
+
             <UserQuestActive activeQuest={activeQuest} setActiveQuest={setActiveQuest} />
             <UserQuestCreated createdQuest={createdQuest} setCreatedQuest={setCreatedQuest}  />
-            <UserQuestPlayed playedQuest={playedQuest} setPlayedQuest={setPlayedQuest} />
+            <UserQuestPlayed playedQuest={playedQuest} />
 
 
             {Object.keys(activeQuest).length === 0 && Object.keys(createdQuest).length === 0 && Object.keys(playedQuest).length === 0 && (

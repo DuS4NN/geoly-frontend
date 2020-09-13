@@ -199,6 +199,8 @@ export const text = {
         REVIEW_ADDED: 'Recenzia bola pridaná',
         USER_SIGNED_UP_ON_QUEST: 'Boli ste prihlásený na úlohu',
         // Report
-        QUEST_REPORT_CREATED: 'Úloha bola nahlásená'
+        QUEST_REPORT_CREATED: 'Úloha bola nahlásená',
+        // Quest
+        SIGNED_OUT_OF_QUEST: 'Boli ste odhlásený z úlohy'
     }
 }
