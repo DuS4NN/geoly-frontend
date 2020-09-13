@@ -19,7 +19,6 @@ interface Props {
 // Component
 const SignInForm: React.FC<Props> = () => {
     // Context
-    //@ts-ignore
     const {userContext, setUserContext} = useContext(UserContext)
 
     // Redirect

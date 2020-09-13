@@ -1,4 +1,4 @@
-import React, {FormEvent, useContext} from "react"
+import React, {useContext} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
@@ -23,7 +23,6 @@ interface Props {
 // Components
 const ModalDeleteReview: React.FC<Props> = (props) => {
     // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
     const alert = useAlert()
 

@@ -19,7 +19,6 @@ interface Props {
 // Components
 const ModalForgot: React.FC<Props> = props => {
     // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     // Props state

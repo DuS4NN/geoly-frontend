@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import {useHistory} from "react-router-dom"
 import axios from "axios"
 import {useAlert} from "react-alert"
@@ -12,7 +12,6 @@ interface Props {
 // Component
 const Verify: React.FC = () => {
     // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     //State

@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react"
+import React, {useContext, useState} from "react"
 import {NavLink} from "react-router-dom"
 // Context
 import {UserContext} from "../../UserContext"
@@ -18,7 +18,6 @@ const UserQuestCreatedItem: React.FC<Props> = (props) => {
     const {createdQuest, createdQuests, setCreatedQuests} = props
 
     // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
@@ -37,7 +36,7 @@ const UserQuestCreatedItem: React.FC<Props> = (props) => {
         <div className="user-quest-created">
             <ModalDeleteQuest showModal={showDeleteModal} setShowModal={setShowDeleteModal} deleteQuestId={createdQuest.questId} createdQuests={createdQuests} setCreatedQuests={setCreatedQuests} />
 
-            {createdQuest != {} && (
+            {createdQuest !== {} && (
                 <div className="container-table-item">
                     <div className="item-category-image">
                         <img alt="" src={createdQuest.questId ? require("../../"+createdQuest.categoryImage) : "" } />

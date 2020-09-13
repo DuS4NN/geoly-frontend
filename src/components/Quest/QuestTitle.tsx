@@ -11,8 +11,6 @@ interface Props {
 
 // Component
 const QuestTitle: React.FC<Props> = (props) => {
-
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
 

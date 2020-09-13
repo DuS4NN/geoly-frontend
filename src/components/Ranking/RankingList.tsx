@@ -25,7 +25,6 @@ const RankingList: React.FC<Props> = props => {
     const date = new Date()
 
     // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text

@@ -16,7 +16,6 @@ interface Props {
 // Component
 const NavigationProfile: React.FC<Props> = (props) => {
     // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     // State

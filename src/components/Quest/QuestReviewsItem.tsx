@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react"
+import React, {useContext, useState} from "react"
 import {UserContext} from "../../UserContext"
 //@ts-ignore
 import StarRatingComponent from 'react-star-rating-component'
@@ -17,8 +17,6 @@ const QuestReviewsItem: React.FC<Props> = (props) => {
     const {review, deleteReview, editReview} = props
 
     const [date] = useState(new Date(review.reviewDate))
-
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text

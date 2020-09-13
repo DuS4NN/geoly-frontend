@@ -11,8 +11,6 @@ interface Props {
 
 // Component
 const LogOut: React.FC = () => {
-    // Context
-    //@ts-ignore
     const {userContext, setUserContext} = useContext(UserContext)
 
     // Redirect

@@ -1,8 +1,6 @@
 import React, {useContext} from 'react'
 import {useHistory} from "react-router-dom"
-// Context
 import {UserContext} from "../UserContext"
-// Children
 import SignInForm from "../components/Account/SignIn/SignInForm"
 import SignInBackground from "../components/Account/SignIn/SignInBackground"
 
@@ -13,7 +11,6 @@ interface Props {
 // Component
 const SignIn: React.FC = () => {
     // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     // Redirect

@@ -1,6 +1,5 @@
-import React, {useContext, useState} from "react"
+import React, {useContext} from "react"
 import axios from "axios"
-
 import {UserContext} from "../../UserContext";
 import {useAlert} from "react-alert";
 
@@ -11,8 +10,6 @@ interface Props {
 
 // Component
 const QuestButton: React.FC<Props> = (props) => {
-
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
     const alert = useAlert()
 

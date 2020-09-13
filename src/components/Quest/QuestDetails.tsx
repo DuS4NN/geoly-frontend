@@ -1,6 +1,4 @@
-import React, {useContext, useEffect, useRef, useState} from "react"
-import {NavLink} from "react-router-dom"
-
+import React, {useContext, useEffect, useRef} from "react"
 import "./QuestDetails.scss"
 import {UserContext} from "../../UserContext";
 import Chart from "chart.js";
@@ -12,8 +10,6 @@ interface Props {
 
 // Component
 const QuestDetails: React.FC<Props> = (props) => {
-
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
@@ -22,11 +18,9 @@ const QuestDetails: React.FC<Props> = (props) => {
     const reviewChartContainer = useRef(null)
     const successChartContainer = useRef(null)
 
-    const [date, setDate] = useState(new Date())
-
     const {details} = props
 
-    const [image, setImage] = useState("")
+
 
     // Chart options
     const chartOptions = {
@@ -64,10 +58,6 @@ const QuestDetails: React.FC<Props> = (props) => {
 
     useEffect(() => {
         if(details.categoryImage){
-            setImage( require("../../"+details.categoryImage))
-
-            setDate(new Date(details.questDate))
-
             // Custom chart
             Chart.defaults.RoundedDifficultyDoughnut = Chart.helpers.clone(Chart.defaults.doughnut);
             Chart.controllers.RoundedDifficultyDoughnut = Chart.controllers.doughnut.extend({
@@ -331,7 +321,7 @@ const QuestDetails: React.FC<Props> = (props) => {
             handleReviewGraphDraw()
             handleSuccessGraphDraw()
         }
-    }, [details])
+    }, [details, chartOptions, text])
 
     // Template
     return (

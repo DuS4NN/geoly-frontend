@@ -1,13 +1,11 @@
-import React, {FormEvent, useContext, useEffect, useState} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import {useAlert} from "react-alert"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
 //@ts-ignore
 import disableScroll from 'disable-scroll'
-// Context
 import {UserContext} from "../../UserContext";
-// Style
 import './ModalReportQuest.scss'
 
 interface Props {
@@ -18,8 +16,6 @@ interface Props {
 }
 
 const ModalReportQuest: React.FC<Props> = (props) => {
-
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     const {showReportModal, setShowReportModal, questId} = props
@@ -68,7 +64,7 @@ const ModalReportQuest: React.FC<Props> = (props) => {
 
     const handleSubmit = () => {
 
-        if(selectedReason==""){
+        if(selectedReason === ""){
             alert.error(text.error.SELECT_REASON)
             return
         }
@@ -113,7 +109,7 @@ const ModalReportQuest: React.FC<Props> = (props) => {
                     {reportReasons.map(reportReason => (
                         <div onClick={function () {
                             setSelectedReason(reportReason)
-                        }} key={reportReason} className={selectedReason==reportReason ? "form-item selected" : "form-item" } >
+                        }} key={reportReason} className={selectedReason === reportReason ? "form-item selected" : "form-item" } >
                             <span>{text.reportReasons[reportReason]}</span>
                         </div>
                     ))}

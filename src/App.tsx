@@ -10,14 +10,14 @@ import SignIn from "./views/SignIn"
 import SignUp from "./views/SignUp"
 import Map from "./views/Map"
 import Quest from "./views/Quest"
+import Ranking from "./views/Ranking";
+import UserQuest from "./views/UserQuest";
 
 // Context
 import { UserContext } from "./UserContext"
 // Style
 import './App.scss'
-import Ranking from "./views/Ranking";
-import MapView from "./components/Map/MapView";
-import UserQuest from "./views/UserQuest";
+
 
 // Component
 function App() {

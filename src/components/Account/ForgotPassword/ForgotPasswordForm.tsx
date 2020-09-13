@@ -13,8 +13,6 @@ interface Props {
 
 // Component
 const ForgotPasswordForm: React.FC = () => {
-    // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     // State

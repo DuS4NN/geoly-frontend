@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react"
+import React, {useContext} from "react"
 import {NavLink} from "react-router-dom"
 // Context
 import {UserContext} from "../../UserContext"
@@ -13,21 +13,8 @@ interface Props {
 const UserQuestPlayedItem: React.FC<Props> = (props) => {
 
     const {playedQuest} = props
-
-    // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
-
-    const [categoryImage, setCategoryImage] = useState("")
-    const [date, setDate] = useState(new Date())
-
-    useEffect(() => {
-        if(playedQuest[0].questId){
-            setCategoryImage(playedQuest[0].categoryImage)
-        }
-
-    }, [playedQuest])
 
     return (
         <div>

@@ -1,4 +1,4 @@
-import React, {useContext, useRef, useState} from "react"
+import React, {useContext, useRef} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 //@ts-ignore
@@ -6,11 +6,10 @@ import ReactStars from "react-rating-stars-component"
 import axios from "axios"
 //@ts-ignore
 import disableScroll from 'disable-scroll'
-// Context
 import {UserContext} from "../../UserContext";
-// Style
-import './ModalEditReview.scss'
 import {useAlert} from "react-alert";
+
+import './ModalEditReview.scss'
 
 // Props
 interface Props {
@@ -30,7 +29,6 @@ interface Props {
 // Components
 const ModalEditReview: React.FC<Props> = (props) => {
     // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
     const alert = useAlert()
 
@@ -95,7 +93,7 @@ const ModalEditReview: React.FC<Props> = (props) => {
         })
     }
     const extractReview = (review:any) => {
-        if(review.reviewId != editReviewId){
+        if(review.reviewId !== editReviewId){
             return review
         }else{
             return {

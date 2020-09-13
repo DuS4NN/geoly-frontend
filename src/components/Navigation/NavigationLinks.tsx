@@ -13,7 +13,6 @@ interface Props {
 
 // Component
 const NavigationLinks: React.FC<Props> = () => {
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     // Text

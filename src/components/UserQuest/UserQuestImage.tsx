@@ -1,7 +1,5 @@
 import React, {useContext} from "react"
-
 import {UserContext} from "../../UserContext"
-
 import './UserQuestImage.scss'
 
 // Props
@@ -11,7 +9,6 @@ interface Props {
 // Component
 const UserQuestImage: React.FC = () => {
     // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text

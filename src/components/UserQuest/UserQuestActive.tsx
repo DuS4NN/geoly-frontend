@@ -1,12 +1,10 @@
 import React, {useContext, useEffect, useState} from "react"
 import {NavLink} from "react-router-dom"
 import axios from "axios"
-import {useHistory} from "react-router-dom"
-// Context
 import {UserContext} from "../../UserContext"
+import {useAlert} from "react-alert";
 
 import './UserQuestList.scss'
-import {useAlert} from "react-alert";
 
 // Props
 interface Props {
@@ -22,7 +20,6 @@ const UserQuestActive: React.FC<Props> = (props) => {
     const [category, setCategory] = useState("")
 
     // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 

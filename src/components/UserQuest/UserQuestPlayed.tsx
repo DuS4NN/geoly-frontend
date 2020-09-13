@@ -1,11 +1,7 @@
-import React, {useContext, useEffect, useState} from "react"
-import {NavLink} from "react-router-dom"
-// Context
+import React, {useContext} from "react"
 import {UserContext} from "../../UserContext"
-
-import './UserQuestList.scss'
-import UserQuestCreatedItem from "./UserQuestCreatedItem";
 import UserQuestPlayedItem from "./UserQuestPlayedItem";
+import './UserQuestList.scss'
 
 // Props
 interface Props {
@@ -15,9 +11,6 @@ interface Props {
 const UserQuestPlayed: React.FC<Props> = (props) => {
 
     const {playedQuest} = props
-
-    // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 

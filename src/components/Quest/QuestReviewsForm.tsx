@@ -3,7 +3,6 @@ import axios from "axios"
 import {UserContext} from "../../UserContext"
 //@ts-ignore
 import ReactStars from "react-rating-stars-component"
-
 import './QuestReviewsForm.scss'
 import {useAlert} from "react-alert";
 
@@ -25,8 +24,6 @@ const QuestReviewsForm: React.FC<Props> = (props) => {
     const textareaRef = useRef(null)
     const [date] = useState(new Date())
     const [reviewRate, setReviewRate] = useState(1)
-
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
@@ -79,7 +76,7 @@ const QuestReviewsForm: React.FC<Props> = (props) => {
     // Template
     return (
         <div className="quest-review-form">
-            {addReview == 1 && (
+            {addReview === 1 && (
                 <div className="quest-review-form-container">
 
                     <div className="container-header-image">

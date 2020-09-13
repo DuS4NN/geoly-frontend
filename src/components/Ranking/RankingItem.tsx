@@ -1,11 +1,8 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
-
-
-// Style
+import {RankingPlayer} from '../../types'
 import './RankingItem.scss'
 
-import {RankingPlayer} from '../../types'
 
 // Props
 interface Props {

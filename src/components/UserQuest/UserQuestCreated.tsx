@@ -1,5 +1,4 @@
-import React, {useContext, useEffect, useState} from "react"
-import {NavLink} from "react-router-dom"
+import React, {useContext} from "react"
 // Context
 import {UserContext} from "../../UserContext"
 
@@ -17,7 +16,6 @@ const UserQuestCreated: React.FC<Props> = (props) => {
     const {createdQuest, setCreatedQuest} = props
 
     // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 

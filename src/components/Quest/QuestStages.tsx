@@ -1,7 +1,7 @@
-import React, {useContext, useState} from "react"
+import React, {useContext} from "react"
+import {UserContext} from "../../UserContext";
 
 import "./QuestStages.scss"
-import {UserContext} from "../../UserContext";
 
 // Props
 interface Props {
@@ -10,8 +10,6 @@ interface Props {
 
 // Component
 const QuestStages: React.FC<Props> = (props) => {
-
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     const {stages} = props

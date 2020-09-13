@@ -1,14 +1,14 @@
-import React, {FormEvent, useContext, useEffect} from "react"
+import React, {useContext, useEffect} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
 //@ts-ignore
 import disableScroll from 'disable-scroll'
-// Context
 import {UserContext} from "../../UserContext";
-// Style
-import './ModalDelete.scss'
 import {useAlert} from "react-alert";
+
+
+import './ModalDelete.scss'
 
 // Props
 interface Props {
@@ -22,7 +22,6 @@ interface Props {
 // Components
 const ModalDeleteQuest: React.FC<Props> = (props) => {
     // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
     const alert = useAlert()
 

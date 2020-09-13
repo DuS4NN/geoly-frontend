@@ -22,7 +22,6 @@ interface Props {
 const QuestReviewsList: React.FC<Props> = (props) => {
 
     // Context
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     // Text
@@ -85,7 +84,7 @@ const QuestReviewsList: React.FC<Props> = (props) => {
 
             <ModalEditReview questId={questId} setReviewRate={setEditReviewRate} reviewText={editReviewText} reviewRate={editReviewRate} showModal={showModalEditReview} setShowModal={setShowModalEditReview} editReviewId={editReviewId} setReviews={setReviews} reviews={reviews} />
 
-            {reviews.length != 0 && (
+            {reviews.length !== 0 && (
                 <div className="quest-reviews-list-title">
                     {text.review.reviews}
                 </div>

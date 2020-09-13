@@ -16,10 +16,9 @@ interface Props {
 const Ranking: React.FC = () => {
 
     // State
-    const [top, setTop] = useState(Array())
+    const [top, setTop] = useState([]) as Array<any>
     const [user, setUser] = useState({})
 
-    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     var position = 0
@@ -79,7 +78,7 @@ const Ranking: React.FC = () => {
             } as unknown as RankingPlayer
         }
 
-    }, [userContext, position])
+    }, [userContext, position, setTop])
 
 
 

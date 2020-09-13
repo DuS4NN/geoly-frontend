@@ -7,8 +7,6 @@ import {UserContext} from "../../UserContext"
 import {LogInUser} from "../../types"
 import {useAlert} from "react-alert"
 import {Link} from "react-router-dom"
-
-// Style
 import './NavigationRoll.scss'
 import '../Elements/Toggle.scss'
 
@@ -21,7 +19,6 @@ interface Props {
 // Component
 const NavigationRoll: React.FC<Props> = (props) => {
     // Context
-    //@ts-ignore
     const {userContext, setUserContext} = useContext(UserContext)
 
     //Ref
