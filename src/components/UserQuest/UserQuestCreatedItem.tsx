@@ -5,6 +5,7 @@ import {UserContext} from "../../UserContext"
 
 import './UserQuestList.scss'
 import ModalDeleteQuest from "../Modals/ModalDeleteQuest";
+import ModalEditQuest from "../Modals/ModalEditQuest";
 
 // Props
 interface Props {
@@ -22,6 +23,7 @@ const UserQuestCreatedItem: React.FC<Props> = (props) => {
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
     const [showDeleteModal, setShowDeleteModal] = useState(false)
+    const [showEditModal, setShowEditModal] = useState(false)
 
 
     const handleDeleteQuest = () => {
@@ -29,12 +31,13 @@ const UserQuestCreatedItem: React.FC<Props> = (props) => {
     }
 
     const handleEditQuest = () => {
-
+        setShowEditModal(true)
     }
 
     return (
         <div className="user-quest-created">
             <ModalDeleteQuest showModal={showDeleteModal} setShowModal={setShowDeleteModal} deleteQuestId={createdQuest.questId} createdQuests={createdQuests} setCreatedQuests={setCreatedQuests} />
+            <ModalEditQuest showModal={showEditModal} setShowModal={setShowEditModal} createdQuest={createdQuest} createdQuests={createdQuests} setCreatedQuests={setCreatedQuests} />
 
             {createdQuest !== {} && (
                 <div className="container-table-item">

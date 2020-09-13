@@ -147,7 +147,10 @@ export const text = {
         playedQuests: 'Played quests',
         noData: 'Zdá sa, že nemáte žiadne aktívne, dokončené ani vytvorené úlohy',
         deleteQuestTitle: 'Odstrániť úlohu',
-        deleteQuestDesc: 'Ste si istý, že chcete natvrvalo odstrániť túto úlohu?'
+        deleteQuestDesc: 'Ste si istý, že chcete natvrvalo odstrániť túto úlohu?',
+        difficultyLabel: 'Obtiažnosť',
+        privateLabel: 'Súkromný',
+        categoryLabel: 'Kategória'
     },
     stageStatus: {
         ON_STAGE: 'Vykonáva sa',

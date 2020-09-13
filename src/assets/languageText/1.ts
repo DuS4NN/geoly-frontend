@@ -85,7 +85,7 @@ export const text = {
         cancel: 'Cancel',
         pending: 'Pending',
         finish: 'Finish',
-        showButton: 'Show the quest'
+        showButton: 'Show the quest',
     },
     category: {
       history: 'History',
@@ -146,7 +146,10 @@ export const text = {
         playedQuests: 'Played quests',
         noData: 'It looks like you don\'t have any active, completed, or created quests',
         deleteQuestTitle: 'Delete the quest',
-        deleteQuestDesc: 'Are you sure you want to permanently delete this quest?'
+        deleteQuestDesc: 'Are you sure you want to permanently delete this quest?',
+        difficultyLabel: 'Difficulty',
+        privateLabel: 'Private',
+        categoryLabel: 'Category'
     },
     stageStatus: {
         ON_STAGE: 'In progress',
