@@ -9,6 +9,7 @@ import Select, {components} from "react-select";
 import {debounce} from "lodash-es";
 import {useAlert} from "react-alert";
 import {UserContext} from "../../UserContext";
+// Style
 import '../Elements/Toggle.scss'
 import './MapFilter.scss'
 
@@ -38,6 +39,8 @@ interface Category {
 
 // Component
 const MapFilter: React.FC<Props> = (props) => {
+
+    //@ts-ignore
     const {userContext} = useContext(UserContext)
     const {mapRef, setDifficulty, setReview, setNoReviewed, setCategory, setStageType, noReviewed, review, difficulty, handleSearchClick, handleAddressChangeClick} = props
 
@@ -73,48 +76,48 @@ const MapFilter: React.FC<Props> = (props) => {
 
     // On start
     useEffect( () => {
-        const getAllCategories = () => {
-            axios({
-                method: 'GET',
-                url: process.env.REACT_APP_API_SERVER_URL+'/categories'
-            }).then(function (response) {
-                let categories:Category[] = response.data.map((category:any) => extractCategoriesFromResponse(category))
-                //@ts-ignore
-                setCategoryList(categories)
-            })
-        }
-        const extractCategoriesFromResponse = (category:any) => {
-            return {
-                value: category.id,
-                label: text.category[category.name.toLowerCase()],
-                color: categoryColors[category.name],
-                imageUrl: require("../../"+category.imageUrl)
-            } as Category
-        }
-
-        const getAllStageTypes = () => {
-            axios({
-                method: 'GET',
-                url: process.env.REACT_APP_API_SERVER_URL+'/stagetypes'
-            }).then(function (response) {
-                let stageTypes = response.data.map((stageType:any) => extractStageTypesFromResponse(stageType))
-                setStageTypesList(stageTypes)
-            })
-        }
-        const extractStageTypesFromResponse = (stageType:any) => {
-            return {
-                value: stageType,
-                label: text.stageType[stageType],
-                color: stageTypeColors[stageType],
-                imageUrl: require('../../assets/images/stageTypeImages/'+stageType+'.svg')
-            }
-        }
-
         getAllCategories()
         getAllStageTypes()
-    }, [categoryColors, stageTypeColors, text])
+    }, [])
 
     // Methods
+    const getAllCategories = () => {
+        axios({
+            method: 'GET',
+            url: process.env.REACT_APP_API_SERVER_URL+'/categories'
+        }).then(function (response) {
+            let categories:Category[] = response.data.map((category:any) => extractCategoriesFromResponse(category))
+            //@ts-ignore
+            setCategoryList(categories)
+        })
+    }
+    const extractCategoriesFromResponse = (category:any) => {
+        return {
+            value: category.id,
+            label: text.category[category.name.toLowerCase()],
+            color: categoryColors[category.name],
+            imageUrl: require("../../"+category.imageUrl)
+        } as Category
+    }
+
+    const getAllStageTypes = () => {
+        axios({
+            method: 'GET',
+            url: process.env.REACT_APP_API_SERVER_URL+'/stagetypes'
+        }).then(function (response) {
+            let stageTypes = response.data.map((stageType:any) => extractStageTypesFromResponse(stageType))
+            setStageTypesList(stageTypes)
+        })
+    }
+    const extractStageTypesFromResponse = (stageType:any) => {
+        return {
+            value: stageType,
+            label: text.stageType[stageType],
+            color: stageTypeColors[stageType],
+            imageUrl: require('../../assets/images/stageTypeImages/'+stageType+'.svg')
+        }
+    }
+
     const handleClickSearchButton = () => {
         handleSearchClick()
         setRollFilter(false)
@@ -126,6 +129,7 @@ const MapFilter: React.FC<Props> = (props) => {
             return
         }
         let category:number[] = e.map((category:Category) => extractCategoryFromInput(category))
+        //@ts-ignore
         setCategory(category)
     }
     const extractCategoryFromInput = (category:any) => {
@@ -191,8 +195,8 @@ const MapFilter: React.FC<Props> = (props) => {
 
     // Inline style
     const customStyle = {
-
-        control: (styles:any, state:any) => ({ ...styles,
+        //@ts-ignore
+        control: (styles, state) => ({ ...styles,
             backgroundColor: 'white',
             color: state.isFocused ? '#023a1c' : '',
             boxShadow: 'none',
@@ -308,6 +312,7 @@ const MapFilter: React.FC<Props> = (props) => {
                                     const className = suggestion.active
                                         ? 'suggestion-item--active item'+index
                                         : 'suggestion-item item'+index
+                                    const key = index
                                     return (
                                         <div
                                             {...getSuggestionItemProps(suggestion, {

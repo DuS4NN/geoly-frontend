@@ -34,6 +34,8 @@ interface Props {
 
 // Component
 const MapView: React.FC<Props> = () => {
+
+    //@ts-ignore
     const {userContext} = useContext(UserContext)
 
     const [mapRef, setMapRef] = useState(null)
@@ -44,7 +46,7 @@ const MapView: React.FC<Props> = () => {
     const [noReviewed, setNoReviewed] = useState(true)
     const [stageType, setStageType] = useState([])
 
-    const [markers] = useState([]) as Array<any>
+    const [markers, setMarkers] = useState(Array())
     const [bounds, setBounds] = useState({})
 
     const [questDetail, setQuestDetail] = useState(null)
