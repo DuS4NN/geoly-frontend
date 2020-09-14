@@ -149,12 +149,17 @@ export const text = {
         deleteQuestDesc: 'Are you sure you want to permanently delete this quest?',
         difficultyLabel: 'Difficulty',
         privateLabel: 'Private',
-        categoryLabel: 'Category'
+        categoryLabel: 'Category',
+        edit: 'Edit'
     },
     stageStatus: {
         ON_STAGE: 'In progress',
         FINISHED: 'Finished',
         CANCELED: 'Canceled'
+    },
+    imageUploader: {
+        buttonText: 'Upload',
+        maxCount: 'The maximum number of images is 5'
     },
     error: {
         // Login

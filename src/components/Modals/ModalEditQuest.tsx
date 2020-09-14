@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react"
+import React, {useContext, useEffect, useRef, useState} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
@@ -12,6 +12,7 @@ import './ModalEditQuest.scss'
 import Toggle from "react-toggle";
 import Select from "react-select";
 import chroma from "chroma-js";
+import ImageUpload from "../Elements/ImageUpload";
 
 // Props
 interface Props {
@@ -30,19 +31,41 @@ const ModalEditQuest: React.FC<Props> = (props) => {
 
     const {showModal, setShowModal, createdQuests, createdQuest, setCreatedQuests} = props
 
-    const [privateQuest, setPrivateQuest] = useState(createdQuest.questPrivate)
     const [category, setCategory] = useState([])
-    const [selectedCategory, setSelectedCategory] = useState(0)
+    const [images, setImages] = useState([]) as Array<any>
 
-    // Modal
-    useEffect(() => {
-        Modal.setAppElement("#root")
-    },[])
+    const nameRef = useRef(null) as any
+    const descriptionRef = useRef(null) as any
+
+    const [selectedDifficulty, setSelectedDifficulty] = useState(createdQuest.questDifficulty)
+    const [selectedCategory, setSelectedCategory] = useState(0)
+    const [privateQuest, setPrivateQuest] = useState(createdQuest.questPrivate)
+
     // Text
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
-
     useEffect(() => {
+        Modal.setAppElement("#root")
+
+        axios({
+            method: 'GET',
+            url: process.env.REACT_APP_API_SERVER_URL+'/quest/getimages?id='+createdQuest.questId,
+            withCredentials: true
+        }).then(function (response) {
+            let serverResponse = response.data.responseEntity.body;
+
+            if(serverResponse === 'OK'){
+                let images = response.data.data.map((image:any) => extractImage(image))
+                setImages(images)
+            }
+        })
+        const extractImage = (image:any) => {
+            let src = process.env.REACT_APP_IMAGE_SERVER_URL+image[0]
+            return {
+                src: src,
+                id: image[1]
+            }
+        }
 
         axios({
             method: 'GET',
@@ -149,10 +172,24 @@ const ModalEditQuest: React.FC<Props> = (props) => {
     const handlePrivateChange = () => {
         setPrivateQuest(!privateQuest)
     }
-    
+
     const handleSubmit = () => {
+        console.log(nameRef.current?.value)
+        console.log(descriptionRef.current?.value)
+        console.log(selectedDifficulty)
+        console.log(privateQuest)
+        console.log(selectedCategory)
+
+        console.log(images)
+
     }
 
+    const handleDifficultyChange = (e:any) => {
+        setSelectedDifficulty(e.value)
+    }
+    const handleCategoryChange = (e:any) => {
+        setSelectedCategory(e.value)
+    }
 
     // Template
     return (
@@ -176,19 +213,18 @@ const ModalEditQuest: React.FC<Props> = (props) => {
                     </span>
                 </div>
                 <div className="form">
-
-
                     <div className="form-name">
-                        <input type="text" value={createdQuest.questName} />
+                        <input ref={nameRef} type="text" defaultValue={createdQuest.questName} />
                     </div>
                     <div className="form-description">
-                        <textarea value={createdQuest.questDescription} />
+                        <textarea ref={descriptionRef}  defaultValue={createdQuest.questDescription} />
                     </div>
                     <div className="form-details">
                         <div className="form-difficulty">
                             <div className="label">{text.userQuest.difficultyLabel}</div>
                             <Select
                                 closeMenuOnSelect={true}
+                                onChange={handleDifficultyChange}
                                 options={difficulty}
                                 className={"customSelect"}
                                 defaultValue={difficulty[createdQuest.questDifficulty-1]}
@@ -214,6 +250,7 @@ const ModalEditQuest: React.FC<Props> = (props) => {
                             <Select
                                 closeMenuOnSelect={true}
                                 options={category}
+                                onChange={handleCategoryChange}
                                 className={"customSelect"}
                                 defaultValue={category[selectedCategory]}
                                 placeholder={""}
@@ -221,6 +258,11 @@ const ModalEditQuest: React.FC<Props> = (props) => {
                             />
                         </div>
                     </div>
+                    <div className="form-images">
+                        <ImageUpload defaultImages={images} setImages={setImages} />
+                    </div>
+
+                    <button onClick={handleSubmit}>{text.userQuest.edit}</button>
                 </div>
             </div>
 

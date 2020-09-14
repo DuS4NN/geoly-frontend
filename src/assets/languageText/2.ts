@@ -150,12 +150,17 @@ export const text = {
         deleteQuestDesc: 'Ste si istý, že chcete natvrvalo odstrániť túto úlohu?',
         difficultyLabel: 'Obtiažnosť',
         privateLabel: 'Súkromný',
-        categoryLabel: 'Kategória'
+        categoryLabel: 'Kategória',
+        edit: 'Upraviť'
     },
     stageStatus: {
         ON_STAGE: 'Vykonáva sa',
         FINISHED: 'Dokončené',
         CANCELED: 'Zrušené'
+    },
+    imageUploader: {
+        buttonText: 'Nahrať',
+        maxCount: 'Maximálny počet obrázkov je 5'
     },
     error: {
         // Login

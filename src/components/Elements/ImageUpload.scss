@@ -1,0 +1,71 @@
+.image-upload{
+  width: 100%;
+
+  .input-wrapper {
+    width: 20%;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: OpenSans;
+    background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
+    font-weight: normal;
+    font-size: 16px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    padding: 8px 15%;
+    border: none;
+    color: white;
+    background-size: 300% 100%;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer!important;
+  }
+
+  .file-input {
+    cursor: pointer!important;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    right: 0;
+    font-size:50px;
+  }
+  .hidden {
+    /*Opacity settings for all browsers*/
+    opacity: 0;
+    -moz-opacity: 0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0)
+  }
+  .input-wrapper:hover {
+    background-color: red!important;
+  }
+
+  .image-upload-preview{
+    width: 100%;
+    display: table;
+
+    .preview-image{
+      width: 20%;
+      padding-top: 20px;
+      display: table-cell;
+
+      img{
+        width: 50px;
+        height: 50px;
+      }
+
+      .preview-image-delete{
+        color: var(--light-mode-gray-text);
+        font-family: OpenSans;
+        font-size: 13px;
+      }
+      .delete-button:hover{
+        cursor: pointer;
+        color:black;
+      }
+    }
+  }
+}
