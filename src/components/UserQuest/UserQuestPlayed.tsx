@@ -63,7 +63,7 @@ const UserQuestPlayed: React.FC<Props> = (props) => {
                     </div>
 
                     <div className="container-table">
-                        {playedQuest.reverse().map((quest:any) => (
+                        {playedQuest.map((quest:any) => (
                             <UserQuestPlayedItem key={quest[0].questId} playedQuest={quest} />
                         ))}
                     </div>

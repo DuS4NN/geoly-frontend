@@ -60,6 +60,36 @@ const UserQuestList: React.FC = () => {
         return extractPlayedQuest
     }
 
+    const getCreatedQuests = (page:number) => {
+        axios({
+            method: 'GET',
+            url: process.env.REACT_APP_API_SERVER_URL+'/allcreatedquests?page='+page,
+            withCredentials: true
+        }).then(function (response) {
+            let statusCode = response.data.responseEntity.statusCode
+
+            if(statusCode === 'OK'){
+                let newCreatedQuest = response.data.data.map((createdQuest:any) => extractCreatedQuests(createdQuest))
+                setCreatedQuest(newCreatedQuest)
+            }else if(statusCode === 'NO_CONTENT'){
+                setCreatedQuest({})
+            }else{
+                alert.error(text.error.SOMETHING_WENT_WRONG)
+            }
+        })
+    }
+    const extractCreatedQuests = (createdQuest:any) => {
+        return {
+            questId: createdQuest[0],
+            questDate: createdQuest[1],
+            questDescription: createdQuest[2],
+            questDifficulty: createdQuest[3],
+            questPrivate: !!+createdQuest[4],
+            categoryName: createdQuest[5],
+            categoryImage: createdQuest[6],
+            questName: createdQuest[7]
+        }
+    }
 
     useEffect(() => {
         const getActiveQuest = () => {
@@ -89,39 +119,8 @@ const UserQuestList: React.FC = () => {
             }
         }
 
-        const getCreatedQuests = () => {
-            axios({
-                method: 'GET',
-                url: process.env.REACT_APP_API_SERVER_URL+'/allcreatedquests',
-                withCredentials: true
-            }).then(function (response) {
-                let statusCode = response.data.responseEntity.statusCode
-
-                if(statusCode === 'OK'){
-                    let newCreatedQuest = response.data.data.map((createdQuest:any) => extractCreatedQuests(createdQuest))
-                    setCreatedQuest(newCreatedQuest)
-                }else if(statusCode === 'NO_CONTENT'){
-                    setCreatedQuest({})
-                }else{
-                    alert.error(text.error.SOMETHING_WENT_WRONG)
-                }
-            })
-        }
-        const extractCreatedQuests = (createdQuest:any) => {
-            return {
-                questId: createdQuest[0],
-                questDate: createdQuest[1],
-                questDescription: createdQuest[2],
-                questDifficulty: createdQuest[3],
-                questPrivate: !!+createdQuest[4],
-                categoryName: createdQuest[5],
-                categoryImage: createdQuest[6],
-                questName: createdQuest[7]
-            }
-        }
-
         getActiveQuest()
-        getCreatedQuests()
+        getCreatedQuests(1)
         getAllPlayedQuests(1)
     }, [alert, text])
 
@@ -132,7 +131,7 @@ const UserQuestList: React.FC = () => {
         <div className="user-quest-list">
 
             <UserQuestActive activeQuest={activeQuest} setActiveQuest={setActiveQuest} playedQuest={playedQuest} setPlayedQuest={setPlayedQuest}/>
-            <UserQuestCreated createdQuest={createdQuest} setCreatedQuest={setCreatedQuest}  />
+            <UserQuestCreated createdQuest={createdQuest} setCreatedQuest={setCreatedQuest} getCreatedQuests={getCreatedQuests}  />
             <UserQuestPlayed playedQuest={playedQuest} getAllPlayedQuests={getAllPlayedQuests}/>
 
 
