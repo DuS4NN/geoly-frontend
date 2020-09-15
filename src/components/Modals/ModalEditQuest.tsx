@@ -31,7 +31,7 @@ const ModalEditQuest: React.FC<Props> = (props) => {
 
     const {showModal, setShowModal, createdQuests, createdQuest, setCreatedQuests} = props
 
-    const [category, setCategory] = useState([])
+    const [category, setCategory] = useState([]) as Array<any>
     const [images, setImages] = useState([]) as Array<any>
 
     const nameRef = useRef(null) as any
@@ -40,6 +40,9 @@ const ModalEditQuest: React.FC<Props> = (props) => {
     const [selectedDifficulty, setSelectedDifficulty] = useState(createdQuest.questDifficulty)
     const [selectedCategory, setSelectedCategory] = useState(0)
     const [privateQuest, setPrivateQuest] = useState(createdQuest.questPrivate)
+
+    const [deletedQuests, setDeletedQuests] = useState([]) as Array<any>
+    const [addedQuests, setAddedQuests] = useState([]) as Array<any>
 
     // Text
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
@@ -76,13 +79,15 @@ const ModalEditQuest: React.FC<Props> = (props) => {
         })
         const extractCategory = (category:any) => {
             if(category.name === createdQuest.categoryName){
-                setSelectedCategory(category.id-1)
+                setSelectedCategory(category.id)
             }
             return {
                 value: category.id,
                 label: text.category[category.name.toLowerCase()]
             }
         }
+
+
     }, [])
 
     // Methods
@@ -174,14 +179,92 @@ const ModalEditQuest: React.FC<Props> = (props) => {
     }
 
     const handleSubmit = () => {
-        console.log(nameRef.current?.value)
-        console.log(descriptionRef.current?.value)
-        console.log(selectedDifficulty)
-        console.log(privateQuest)
-        console.log(selectedCategory)
+        if(nameRef.current?.value.length === 0 || nameRef.current?.value.length > 50){
+            alert.error(text.error.INVALID_NAME_LENGTH_SIZE)
+            return
+        }
+        if(descriptionRef.current?.value.length === 0 || descriptionRef.current?.value.length > 500){
+            alert.error(text.error.INVALID_DESCRIPTION_LENGTH_SIZE)
+        }
 
-        console.log(images)
+        const extractCreatedQuests = (quest:any) => {
+            if(quest.questId !== createdQuest.questId){
+                return quest
+            }else{
 
+                let categoryName = ""
+
+
+                for(let i=0; i<category.length; i++){
+                    if(category[i].value === selectedCategory){
+                        categoryName = category[i].label
+                    }
+                }
+
+                return {
+                    ...quest,
+                    questName:  nameRef.current?.value,
+                    reviewRate: 'assets/images/categoryImages/'+'view'+'.svg',
+                    questDescription: descriptionRef.current?.value,
+                    questDifficulty: selectedDifficulty,
+                    questPrivate: privateQuest,
+                    categoryName: categoryName,
+                    categoryImage: 'assets/images/categoryImages/'+categoryName.toLowerCase()+'.svg'
+                }
+            }
+        }
+
+        axios({
+            method: 'POST',
+            url: process.env.REACT_APP_API_SERVER_URL+'/quest/editdetail?id='+createdQuest.questId,
+            withCredentials: true,
+            data: {
+                categoryId: selectedCategory,
+                description: descriptionRef.current?.value,
+                privateQuest: privateQuest,
+                difficulty: selectedDifficulty,
+                name: nameRef.current?.value
+            }
+        }).then(function (response) {
+            let serverResponse = response.data.responseEntity.body
+            let statusCode = response.data.responseEntity.statusCode
+
+            if(statusCode === 'ACCEPTED') {
+                alert.success((text.success[serverResponse]))
+
+                let newCreatedQuests = createdQuests.map((quest:any) => extractCreatedQuests(quest))
+                setCreatedQuests(newCreatedQuests)
+            }else{
+                alert.error(text.error.SOMETHING_WENT_WRONG)
+            }
+        })
+        if(deletedQuests.length > 0 || addedQuests.length > 0){
+            let data = new FormData()
+
+            for(let i=0; i<addedQuests.length; i++){
+                data.append('files', addedQuests[i].src)
+            }
+
+            axios({
+                method: 'POST',
+                url: process.env.REACT_APP_API_SERVER_URL+'/quest/editimage?id='+createdQuest.questId+'&deleted='+deletedQuests,
+                withCredentials: true,
+                data: data
+            }).then(function (response) {
+                let serverResponse = response.data.responseEntity.body
+                let statusCode = response.data.responseEntity.statusCode
+
+                if(statusCode === 'ACCEPTED'){
+                    alert.success(text.success[serverResponse])
+                    handleCloseModal()
+                }else if(serverResponse === 'IMAGE_SIZE_TOO_BIG' || serverResponse === 'UNSUPPORTED_IMAGE_TYPE' || serverResponse === 'TOO_MANY_IMAGES'){
+                    alert.error(text.error[serverResponse])
+                }else{
+                    alert.error(text.error.SOMETHING_WENT_WRONG)
+                }
+            })
+        }
+        handleCloseModal()
     }
 
     const handleDifficultyChange = (e:any) => {
@@ -252,14 +335,19 @@ const ModalEditQuest: React.FC<Props> = (props) => {
                                 options={category}
                                 onChange={handleCategoryChange}
                                 className={"customSelect"}
-                                defaultValue={category[selectedCategory]}
+                                defaultValue={category.filter((cat:any) => {return cat.value === selectedCategory})}
                                 placeholder={""}
                                 styles={customStyle}
                             />
                         </div>
                     </div>
                     <div className="form-images">
-                        <ImageUpload defaultImages={images} setImages={setImages} />
+                        <ImageUpload addedQuests={addedQuests}
+                                     setAddedQuests={setAddedQuests}
+                                     deletedQuests={deletedQuests}
+                                     setDeletedQuests={setDeletedQuests}
+                                     defaultImages={images}
+                                     setImages={setImages} />
                     </div>
 
                     <button onClick={handleSubmit}>{text.userQuest.edit}</button>

@@ -192,6 +192,13 @@ export const text = {
         USER_HAS_ACTIVE_QUEST: 'A user can have only one active quest',
         USER_CAN_NOT_PLAY_OWN_QUEST: 'A user cannot start their own quest',
 
+        // Edit Quest
+        INVALID_DESCRIPTION_LENGTH_SIZE: 'Quest description must be 1-500 characters long',
+        INVALID_NAME_LENGTH_SIZE: 'Quest name must be 1-50 characters long',
+        IMAGE_SIZE_TOO_BIG: 'The Image size is too large',
+        UNSUPPORTED_IMAGE_TYPE: 'Supported image types are PNG and JPG',
+        TOO_MANY_IMAGES: 'The maximum number of images is 5',
+
         // Other
         USER_NOT_FOUND: 'Account not found',
         QUEST_NOT_FOUND: 'Quest not found',
@@ -215,7 +222,9 @@ export const text = {
         QUEST_REPORT_CREATED: 'The quest has been reported',
         // Quest
         SIGNED_OUT_OF_QUEST: 'You have been signed out of quest',
-        QUEST_DISABLED: 'The quest has been deactivated'
+        QUEST_DISABLED: 'The quest has been deactivated',
+        IMAGES_SAVED: 'The images has been saved',
+        QUEST_EDITED: 'The quest details has been edited'
 
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka

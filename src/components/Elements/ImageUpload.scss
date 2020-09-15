@@ -1,7 +1,7 @@
 .image-upload{
   width: 100%;
 
-  .input-wrapper {
+  .input-wrapper{
     width: 20%;
     margin-right: auto;
     margin-left: auto;
@@ -22,11 +22,9 @@
     transition: all .4s ease-in-out;
     overflow: hidden;
     position: relative;
-    cursor: pointer!important;
   }
 
   .file-input {
-    cursor: pointer!important;
     height: 100%;
     position:absolute;
     top: 0;
@@ -34,13 +32,9 @@
     font-size:50px;
   }
   .hidden {
-    /*Opacity settings for all browsers*/
     opacity: 0;
     -moz-opacity: 0;
     filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0)
-  }
-  .input-wrapper:hover {
-    background-color: red!important;
   }
 
   .image-upload-preview{

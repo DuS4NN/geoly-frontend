@@ -194,6 +194,13 @@ export const text = {
         USER_HAS_ACTIVE_QUEST: 'Používateľ môže mať iba jednu aktívnu úlohu',
         USER_CAN_NOT_PLAY_OWN_QUEST: 'Používateľ nemôže začať vlastnú úlohu',
 
+        // Edit Quest
+        INVALID_DESCRIPTION_LENGTH_SIZE: 'Dĺžka popisu úlohy musí byť 1-500 znakov',
+        INVALID_NAME_LENGTH_SIZE: 'Dĺžka názvu úlohy musí byť 1-50 znakov',
+        IMAGE_SIZE_TOO_BIG: 'Veľkosť obrázku je moc veľká',
+        UNSUPPORTED_IMAGE_TYPE: 'Podporovaný typ obrázkov je PNG a JPG',
+        TOO_MANY_IMAGES: 'Maximálny počet obrázkov je 5',
+
         // Other
         USER_NOT_FOUND: 'Účet nenájdený',
         QUEST_NOT_FOUND: 'Úloha nenájdená',
@@ -217,6 +224,8 @@ export const text = {
         QUEST_REPORT_CREATED: 'Úloha bola nahlásená',
         // Quest
         SIGNED_OUT_OF_QUEST: 'Boli ste odhlásený z úlohy',
-        QUEST_DISABLED: 'Úloha bola deaktivovaná'
+        QUEST_DISABLED: 'Úloha bola deaktivovaná',
+        IMAGES_SAVED: 'Obrázky boli uložené',
+        QUEST_EDITED: 'Detaily úlohy boli upravené'
     }
 }
