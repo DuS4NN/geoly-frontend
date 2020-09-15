@@ -7,6 +7,14 @@
   .user-quest-played{
     width: 100%;
 
+    .pagination{
+      padding-top: 20px;
+      text-align: center;
+      display: flex;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
     .user-quest-played-container{
       width: 100%;
       margin-bottom: 50px;

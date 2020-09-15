@@ -97,7 +97,7 @@ const QuestReviewsList: React.FC<Props> = (props) => {
                 )
             ))
             }
-            {countReviews > 6 && (
+            {countReviews > 5 && (
                 <MuiThemeProvider theme={theme}>
                     <Pagination
                         className={classes.alignItemsAndJustifyContent}

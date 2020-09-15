@@ -288,11 +288,11 @@ const ModalEditQuest: React.FC<Props> = (props) => {
 
             <div className="modal-form">
                 <div className="title">
-                    <h3>{text.userQuest.deleteQuestTitle}</h3>
+                    <h3>{text.userQuest.editQuestTitle}</h3>
                 </div>
                 <div className="subtitle">
                     <span>
-                        {text.userQuest.deleteQuestDesc}
+                        {text.userQuest.editQuestSubTitle}
                     </span>
                 </div>
                 <div className="form">

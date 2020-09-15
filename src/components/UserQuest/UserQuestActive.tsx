@@ -10,11 +10,13 @@ import './UserQuestList.scss'
 interface Props {
     activeQuest: any
     setActiveQuest: (activeQuest:any) => void
+    playedQuest: any
+    setPlayedQuest: (playedQuest:any) => void
 }
 
 const UserQuestActive: React.FC<Props> = (props) => {
 
-    const {setActiveQuest, activeQuest} = props
+    const {setActiveQuest, activeQuest, playedQuest, setPlayedQuest} = props
 
     const [image, setImage] = useState("")
     const [category, setCategory] = useState("")
@@ -42,6 +44,29 @@ const UserQuestActive: React.FC<Props> = (props) => {
             let statusCode = response.data.responseEntity.statusCode
 
             if(statusCode === 'ACCEPTED'){
+
+                let newPlayedQuest = playedQuest.map((quest:any) => {
+                    if (activeQuest.questId === quest[0].questId){
+
+                        let newQuest = []
+
+                        for(let i=0; i<quest.length; i++){
+                            if(i===0){
+                                newQuest.push({
+                                    ...quest[i],
+                                    stageStatus: "CANCELED"
+                                })
+                            }else{
+                                newQuest.push(quest[i])
+                            }
+                        }
+                        return newQuest
+                    }else{
+                        return quest
+                    }
+                })
+                setPlayedQuest(newPlayedQuest)
+
                 setActiveQuest({})
                 alert.success(text.success[serverResponse])
             }else{

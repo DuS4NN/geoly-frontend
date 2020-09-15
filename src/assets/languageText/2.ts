@@ -151,7 +151,9 @@ export const text = {
         difficultyLabel: 'Obtiažnosť',
         privateLabel: 'Súkromný',
         categoryLabel: 'Kategória',
-        edit: 'Upraviť'
+        edit: 'Upraviť',
+        editQuestTitle: 'Upraviť úloha',
+        editQuestSubTitle: 'Rozhodli ste sa upraviť úlohu? Poďme na to!'
     },
     stageStatus: {
         ON_STAGE: 'Vykonáva sa',

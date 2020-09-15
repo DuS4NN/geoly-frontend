@@ -150,7 +150,9 @@ export const text = {
         difficultyLabel: 'Difficulty',
         privateLabel: 'Private',
         categoryLabel: 'Category',
-        edit: 'Edit'
+        edit: 'Edit',
+        editQuestTitle: 'Edit the quest',
+        editQuestSubTitle: 'Have we decided to edit the quest? Let\'s go!'
     },
     stageStatus: {
         ON_STAGE: 'In progress',

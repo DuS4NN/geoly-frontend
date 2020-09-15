@@ -24,7 +24,41 @@ const UserQuestList: React.FC = () => {
     const [createdQuest, setCreatedQuest] = useState({})
     const [playedQuest, setPlayedQuest] = useState({})
 
+    const getAllPlayedQuests = (page:number) => {
+        axios({
+            method: 'GET',
+            url: process.env.REACT_APP_API_SERVER_URL+'/allplayedquests?page='+page,
+            withCredentials: true
+        }).then(function (response) {
+            let statusCode = response.data.responseEntity.statusCode
+            if(statusCode === 'OK'){
+                let newPlayedQuest = response.data.data.reverse().map((playedQuest:any) => extractAPlayedQuest(playedQuest))
+                setPlayedQuest(newPlayedQuest)
+            }else if(statusCode === 'NO_CONTENT'){
+                setPlayedQuest({})
+            }else{
+                alert.error(text.error.SOMETHING_WENT_WRONG)
+            }
+        })
+    }
+    const extractAPlayedQuest = (playedQuest:any) => {
+        let extractPlayedQuest = []
 
+        for(let i=0; i<playedQuest.length; i++){
+
+            let quest = {
+                stageStatus: playedQuest[i][0],
+                stageId: playedQuest[i][1],
+                stageType: playedQuest[i][2],
+                questId: playedQuest[i][3],
+                questName: playedQuest[i][4],
+                categoryImage: playedQuest[i][5],
+                stageDate: playedQuest[i][6]
+            }
+            extractPlayedQuest.push(quest)
+        }
+        return extractPlayedQuest
+    }
 
 
     useEffect(() => {
@@ -86,55 +120,20 @@ const UserQuestList: React.FC = () => {
             }
         }
 
-        const getAllPlayedQuests = () => {
-            axios({
-                method: 'GET',
-                url: process.env.REACT_APP_API_SERVER_URL+'/allplayedquests',
-                withCredentials: true
-            }).then(function (response) {
-                let statusCode = response.data.responseEntity.statusCode
-                if(statusCode === 'OK'){
-                    let newPlayedQuest = response.data.data.reverse().map((playedQuest:any) => extractAPlayedQuest(playedQuest))
-                    setPlayedQuest(newPlayedQuest)
-                }else if(statusCode === 'NO_CONTENT'){
-                    setPlayedQuest({})
-                }else{
-                    alert.error(text.error.SOMETHING_WENT_WRONG)
-                }
-            })
-        }
-        const extractAPlayedQuest = (playedQuest:any) => {
-            let extractPlayedQuest = []
-
-            for(let i=0; i<playedQuest.length; i++){
-
-                let quest = {
-                    stageStatus: playedQuest[i][0],
-                    stageId: playedQuest[i][1],
-                    stageType: playedQuest[i][2],
-                    questId: playedQuest[i][3],
-                    questName: playedQuest[i][4],
-                    categoryName: playedQuest[i][5],
-                    categoryImage: playedQuest[i][6],
-                    stageDate: playedQuest[i][7]
-                }
-                extractPlayedQuest.push(quest)
-            }
-            return extractPlayedQuest
-        }
-
         getActiveQuest()
         getCreatedQuests()
-        getAllPlayedQuests()
+        getAllPlayedQuests(1)
     }, [alert, text])
+
+
 
     // Template
     return (
         <div className="user-quest-list">
 
-            <UserQuestActive activeQuest={activeQuest} setActiveQuest={setActiveQuest} />
+            <UserQuestActive activeQuest={activeQuest} setActiveQuest={setActiveQuest} playedQuest={playedQuest} setPlayedQuest={setPlayedQuest}/>
             <UserQuestCreated createdQuest={createdQuest} setCreatedQuest={setCreatedQuest}  />
-            <UserQuestPlayed playedQuest={playedQuest} />
+            <UserQuestPlayed playedQuest={playedQuest} getAllPlayedQuests={getAllPlayedQuests}/>
 
 
             {Object.keys(activeQuest).length === 0 && Object.keys(createdQuest).length === 0 && Object.keys(playedQuest).length === 0 && (
@@ -151,7 +150,6 @@ const UserQuestList: React.FC = () => {
                     <img src={require("../../assets/images/noData.svg")} alt="" />
                 </div>
             )}
-
         </div>
     )
 }
