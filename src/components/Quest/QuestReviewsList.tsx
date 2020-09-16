@@ -17,6 +17,8 @@ interface Props {
     setReviews: (review:any) => void
     setAddReview: (addReview:number) => void
     questId: any
+    page: number
+    setPage: (page:number) => void
 }
 
 // Component
@@ -28,9 +30,9 @@ const QuestReviewsList: React.FC<Props> = (props) => {
     // Text
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
-    const {reviews, getReviews, countReviews, setCountReviews, setReviews, questId, setAddReview} = props
+    const {reviews, page, setPage, getReviews, countReviews, setCountReviews, setReviews, questId, setAddReview} = props
 
-    const [page, setPage] = useState(1)
+
     const [deleteReviewId, setDeleteReviewId] = useState(0)
 
     const [showModalDeleteReview, setShowModalDeleteReview] = useState(false)

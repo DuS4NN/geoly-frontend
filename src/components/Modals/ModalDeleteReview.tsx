@@ -79,17 +79,11 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
                     getReviews(page-1)
                     setPage(page-1)
                 }else{
-                    getReviews(page)
+                    getReviews(1)
                 }
 
                 alert.success(text.success[serverResponse])
-                setReviews(reviews.filter(function (review:any) {
-                    return review.reviewId !== deleteReviewId
-                }))
                 setAddReview(1)
-
-                setCount(count-1)
-
                 handleCloseModal()
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)

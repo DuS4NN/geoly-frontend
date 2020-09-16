@@ -13,12 +13,14 @@ interface Props {
     setReviews: (review:any) => void
     addReview: number
     setAddReview: (addReview: any) => void
+    getReviews: (page:number) => void
+    setPage: (page:number) => void
 }
 
 // Component
 const QuestReviewsForm: React.FC<Props> = (props) => {
 
-    const {questId, reviews, setReviews, addReview, setAddReview} = props
+    const {questId, reviews, setReviews, getReviews, setPage, addReview, setAddReview} = props
     const alert = useAlert()
 
     const textareaRef = useRef(null)
@@ -47,18 +49,9 @@ const QuestReviewsForm: React.FC<Props> = (props) => {
             let statusCode = response.data.responseEntity.statusCode
 
             if(statusCode === 'OK'){
-                let newReview = {
-                    owner: response.data.data[0],
-                    reviewId: response.data.data[1],
-                    //@ts-ignore
-                    reviewText: textareaRef.current?.value,
-                    reviewRate: reviewRate,
-                    reviewDate: date.getDate()+" "+text.month[date.getMonth()]+" "+date.getFullYear(),
-                    userName: response.data.data[2],
-                    userImage: response.data.data[3],
-                    show: true
-                }
-                setReviews([newReview, ...reviews])
+                setPage(1)
+                getReviews(1)
+
                 setAddReview(0)
 
                 alert.success(text.success.REVIEW_ADDED)

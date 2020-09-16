@@ -76,11 +76,9 @@ const ModalDeleteGroup: React.FC<Props> = (props) => {
                 if(count > 1 && createdGroups.length === 1){
                     getCreatedGroups(page-1)
                     setPage(page-1)
+                }else{
+                    getCreatedGroups(page)
                 }
-
-                setCreatedGroups(createdGroups.filter(function (group:any) {
-                    return group.groupId !== deleteGroupId
-                }))
                 alert.success(text.success[serverResponse])
 
                 setCount(count-1)

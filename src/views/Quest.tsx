@@ -32,6 +32,8 @@ const Quest: React.FC = () => {
     const [countReviews, setCountReviews] = useState(0)
     const [addReview, setAddReview] = useState(0)
 
+    const [page, setPage] = useState(1)
+
     const getReviews = (page:number) => {
         axios({
             method: 'GET',
@@ -197,8 +199,8 @@ const Quest: React.FC = () => {
 
                     <QuestButton questId={id} />
 
-                    <QuestReviewsForm setAddReview={setAddReview} questId={id} reviews={reviews} setReviews={setReviews} addReview={addReview} />
-                    <QuestReviewsList questId={id} countReviews={countReviews} setCountReviews={setCountReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} setAddReview={setAddReview}/>
+                    <QuestReviewsForm setPage={setPage} getReviews={getReviews} setAddReview={setAddReview} questId={id} reviews={reviews} setReviews={setReviews} addReview={addReview} />
+                    <QuestReviewsList page={page} setPage={setPage} questId={id} countReviews={countReviews} setCountReviews={setCountReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} setAddReview={setAddReview}/>
                 </div>
             ) : (
                <div className="quest-private">
