@@ -79,11 +79,14 @@ const ModalDeleteQuest: React.FC<Props> = (props) => {
                 if(count > 1 && createdQuests.length === 1){
                     getCreatedQuests(page-1)
                     setPage(page-1)
+                }else{
+                    getCreatedQuests(page)
                 }
 
-                setCreatedQuests(createdQuests.filter(function (quest:any) {
+
+                /*setCreatedQuests(createdQuests.filter(function (quest:any) {
                     return quest.questId !== deleteQuestId
-                }))
+                }))*/
                 alert.success(text.success[serverResponse])
 
                 setCount(count-1)

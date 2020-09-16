@@ -78,6 +78,8 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
                 if(count > 1 && reviews.length === 1){
                     getReviews(page-1)
                     setPage(page-1)
+                }else{
+                    getReviews(page)
                 }
 
                 alert.success(text.success[serverResponse])

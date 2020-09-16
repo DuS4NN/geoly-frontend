@@ -56,7 +56,6 @@ const Quest: React.FC = () => {
             setCountReviews(response.data.data[0])
             setAddReview(response.data.data[1])
         })
-
     }
     const extractReview = (review:any) => {
         return {
@@ -177,7 +176,7 @@ const Quest: React.FC = () => {
     return (
         <div className="quest">
 
-            {details.questPrivate === 1 && details.questOwner === 0 ? (
+            {details.questPrivate === 0 || (details.questPrivate === 1 && details.questOwner === 0) ? (
                 <div>
                     <ModalReportQuest questId={id} showReportModal={showReportModal} setShowReportModal={setShowReportModal} />
 
