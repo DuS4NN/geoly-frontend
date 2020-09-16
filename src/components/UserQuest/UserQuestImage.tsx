@@ -1,6 +1,7 @@
 import React, {useContext} from "react"
 import {UserContext} from "../../UserContext"
-import './UserQuestImage.scss'
+
+import '../Elements/PageHeader.scss'
 
 // Props
 interface Props {
@@ -16,8 +17,8 @@ const UserQuestImage: React.FC = () => {
 
     // Template
     return (
-        <div className="user-quest-image">
-            <div className="user-quest-image-content">
+        <div className="image">
+            <div className="image-content">
                 <div className="content-text">
                     <div className="content-text-title">
                         <h2>{text.userQuest.title}</h2>
@@ -28,11 +29,11 @@ const UserQuestImage: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="content-image">
+                <div className="content-image content-image-user-quest">
                 </div>
             </div>
 
-            <div className="user-quest-image-background">
+            <div className="image-background">
                 <img src={require("../../assets/images/obliqueBottom.svg")} alt="" />
             </div>
         </div>

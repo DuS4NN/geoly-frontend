@@ -17,6 +17,7 @@ import UserQuest from "./views/UserQuest";
 import { UserContext } from "./UserContext"
 // Style
 import './App.scss'
+import Groups from "./views/Groups";
 
 
 // Component
@@ -58,6 +59,7 @@ function App() {
                         <Route path="/map" component={Map} />
                         <Route path="/quest/" component={Quest} />
                         <Route exact path="/quests" component={UserQuest} />
+                        <Route exact path="/groups" component={Groups} />
                     </Switch>
                 </main>
 

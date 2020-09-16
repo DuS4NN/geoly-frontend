@@ -1,10 +1,10 @@
-.user-quest-image{
-  width: 100%;
+.image{
+  width: 100vw;
   height: auto;
 
-  .user-quest-image-content{
+  .image-content{
     padding-top: 30px;
-    width: 100%;
+    width: 100vw;
     height: 400px;
     display: table;
     background-color: var(--background-light-green);
@@ -49,15 +49,23 @@
     .content-image{
       width: 50%;
       display: table-cell;
-
-      background-image: url("../../assets/images/userQuest.svg");
       background-repeat: no-repeat;
       background-size: contain;
       background-position: 10%;
     }
+    .content-image-user-quest{
+      background-image: url("../../assets/images/userQuest.svg");
+    }
+    .content-image-ranking{
+      background-image: url("../../assets/images/ranking.svg");
+    }
+    .content-image-groups{
+      background-image: url("../../assets/images/groups.svg");
+    }
+
   }
 
-  .user-quest-image-background{
-    width: 100%;
+  .image-background{
+    width: 100vw;
   }
 }

@@ -25,7 +25,7 @@ const Quest: React.FC = () => {
     const [images, setImages] = useState([])
     const [stages, setStages] = useState([])
     const [reviews, setReviews] = useState([])
-    const [details, setDetails] = useState({})
+    const [details, setDetails] = useState({}) as any
 
     const [showReportModal, setShowReportModal] = useState(false)
 
@@ -108,7 +108,9 @@ const Quest: React.FC = () => {
                 countFinish: detail[9],
                 countOnStage: detail[10],
                 countCancel: detail[11],
-                questDate: detail[12]
+                questDate: detail[12],
+                questPrivate: detail[13],
+                questOwner: detail[14]
             } as unknown
         }
 
@@ -174,27 +176,43 @@ const Quest: React.FC = () => {
     // Template
     return (
         <div className="quest">
-            <ModalReportQuest questId={id} showReportModal={showReportModal} setShowReportModal={setShowReportModal} />
 
-            <QuestTitle details={details} />
+            {details.questPrivate === 1 && details.questOwner === 0 ? (
+                <div>
+                    <ModalReportQuest questId={id} showReportModal={showReportModal} setShowReportModal={setShowReportModal} />
 
-            <QuestMap stages={stages} />
+                    <QuestTitle details={details} />
 
-            <div className="quest-report">
-                <img title={text.review.report} onClick={openReportModal} alt="" src={require("../assets/images/otherIcons/report.svg")} />
-            </div>
+                    <QuestMap stages={stages} />
 
-            <div className="quest-detail-content">
-                <QuestDetails details={details} />
-                <QuestStages stages={stages}/>
-            </div>
+                    <div className="quest-report">
+                    <img title={text.review.report} onClick={openReportModal} alt="" src={require("../assets/images/otherIcons/report.svg")} />
+                    </div>
 
-            <QuestGallery images={images} />
+                    <div className="quest-detail-content">
+                    <QuestDetails details={details} />
+                    <QuestStages stages={stages}/>
+                    </div>
 
-            <QuestButton questId={id} />
+                    <QuestGallery images={images} />
 
-            <QuestReviewsForm setAddReview={setAddReview} questId={id} reviews={reviews} setReviews={setReviews} addReview={addReview} />
-            <QuestReviewsList questId={id} countReviews={countReviews} setCountReviews={setCountReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} setAddReview={setAddReview}/>
+                    <QuestButton questId={id} />
+
+                    <QuestReviewsForm setAddReview={setAddReview} questId={id} reviews={reviews} setReviews={setReviews} addReview={addReview} />
+                    <QuestReviewsList questId={id} countReviews={countReviews} setCountReviews={setCountReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} setAddReview={setAddReview}/>
+                </div>
+            ) : (
+               <div className="quest-private">
+                   <div className="quest-private-title">
+                       <h2>{text.private.quest}</h2>
+                   </div>
+                   <div className="quest-private-img">
+                       <img src={require("../assets/images/private.svg")} alt=""/>
+                   </div>
+               </div>
+            )}
+
+
         </div>
     )
 }

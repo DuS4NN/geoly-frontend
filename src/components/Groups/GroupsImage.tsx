@@ -10,13 +10,11 @@ interface Props {
 }
 
 // Component
-const RankingImage: React.FC = () => {
+const GroupsImage: React.FC = () => {
     // Context
     const {userContext} = useContext(UserContext)
 
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
-
-    const bottomImage = require('../../assets/images/obliqueBottom.svg')
 
     // Template
     return (
@@ -25,24 +23,24 @@ const RankingImage: React.FC = () => {
             <div className="image-content">
                 <div className="content-text">
                     <div className="content-text-title">
-                        <h2>{text.ranking.title}</h2>
+                        <h2>{text.groups.title}</h2>
                     </div>
                     <br />
                     <div className="content-text-subtitle">
-                        <span>{text.ranking.subtitle}</span>
+                        <span>{text.groups.subtitle}</span>
                     </div>
                 </div>
 
-                <div className="content-image content-image-ranking">
+                <div className="content-image content-image-groups">
                 </div>
             </div>
 
             <div className="image-background">
-                <img src={bottomImage} alt="" />
+                <img src={require('../../assets/images/obliqueBottom.svg')} alt="" />
             </div>
 
         </div>
     )
 }
 
-export default RankingImage
+export default GroupsImage

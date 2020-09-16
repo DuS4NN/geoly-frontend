@@ -163,6 +163,22 @@ export const text = {
         buttonText: 'Upload',
         maxCount: 'The maximum number of images is 5'
     },
+    private: {
+      quest: 'The quest is private'
+    },
+    groups: {
+        title: 'Groups',
+        subtitle: 'Why do a tasks yourself when you can do them with friends? Create a group and invite them!',
+        createdGroups: 'Created groups',
+        editGroup: 'Edit',
+        deleteGroup: 'Delete',
+        manageUsers: 'Manage users',
+        deleteGroupTitle: 'Delete group',
+        deleteGroupDesc: 'Are you sure you want to permanently delete this group?',
+        editGroupTitle: 'Edit group',
+        editGroupDesc: 'Have we decided to edit the group? Let\'s go!',
+        create: 'Create group'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',
@@ -201,6 +217,9 @@ export const text = {
         UNSUPPORTED_IMAGE_TYPE: 'Supported image types are PNG and JPG',
         TOO_MANY_IMAGES: 'The maximum number of images is 5',
 
+        // Groups
+        GROUP_DOES_NOT_EXIST_OR_USER_IS_NOT_OWNER: 'The group does not exist or you are not the owner',
+
         // Other
         USER_NOT_FOUND: 'Account not found',
         QUEST_NOT_FOUND: 'Quest not found',
@@ -226,7 +245,9 @@ export const text = {
         SIGNED_OUT_OF_QUEST: 'You have been signed out of quest',
         QUEST_DISABLED: 'The quest has been deactivated',
         IMAGES_SAVED: 'The images has been saved',
-        QUEST_EDITED: 'The quest details has been edited'
+        QUEST_EDITED: 'The quest details has been edited',
+        // Group
+        GROUP_DELETED: 'The group has been deleted'
 
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka

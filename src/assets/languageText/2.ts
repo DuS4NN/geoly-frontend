@@ -164,6 +164,22 @@ export const text = {
         buttonText: 'Nahrať',
         maxCount: 'Maximálny počet obrázkov je 5'
     },
+    private: {
+        quest: 'Úloha je súkromná'
+    },
+    groups: {
+        title: 'Skupiny',
+        subtitle: 'Prečo plniť úlohy sám, keď ich môžete robiť s priateľmi? Založte skupinu a pozvite ich!',
+        createdGroups: 'Created groups',
+        editGroup: 'Upraviť',
+        deleteGroup: 'Odstrániť',
+        manageUsers: 'Spravovať používateľov',
+        deleteGroupTitle: 'Odstrániť skupinu',
+        deleteGroupDesc: 'Ste si istý, že chcete natvrvalo odstrániť túto skupinu?',
+        editGroupTitle: 'Upraviť skupinu',
+        editGroupDesc: 'Rozhodli ste sa upraviť skupinu? Poďme na to!',
+        create: 'Vytvoriť skupinu'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',
@@ -203,6 +219,9 @@ export const text = {
         UNSUPPORTED_IMAGE_TYPE: 'Podporovaný typ obrázkov je PNG a JPG',
         TOO_MANY_IMAGES: 'Maximálny počet obrázkov je 5',
 
+        // Groups
+        GROUP_DOES_NOT_EXIST_OR_USER_IS_NOT_OWNER: 'Skupina neexistuje alebo nie ste vlastníkom',
+
         // Other
         USER_NOT_FOUND: 'Účet nenájdený',
         QUEST_NOT_FOUND: 'Úloha nenájdená',
@@ -228,6 +247,8 @@ export const text = {
         SIGNED_OUT_OF_QUEST: 'Boli ste odhlásený z úlohy',
         QUEST_DISABLED: 'Úloha bola deaktivovaná',
         IMAGES_SAVED: 'Obrázky boli uložené',
-        QUEST_EDITED: 'Detaily úlohy boli upravené'
+        QUEST_EDITED: 'Detaily úlohy boli upravené',
+        // Group
+        GROUP_DELETED: 'Skupina bola odstránená'
     }
 }
