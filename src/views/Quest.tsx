@@ -194,7 +194,7 @@ const Quest: React.FC = () => {
             <QuestButton questId={id} />
 
             <QuestReviewsForm setAddReview={setAddReview} questId={id} reviews={reviews} setReviews={setReviews} addReview={addReview} />
-            <QuestReviewsList questId={id} countReviews={countReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} setAddReview={setAddReview}/>
+            <QuestReviewsList questId={id} countReviews={countReviews} setCountReviews={setCountReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} setAddReview={setAddReview}/>
         </div>
     )
 }

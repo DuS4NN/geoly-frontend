@@ -67,7 +67,7 @@ const UserQuestCreated: React.FC<Props> = (props) => {
 
                     <div className="container-table">
                         {createdQuest.map((quest:any) => (
-                            <UserQuestCreatedItem key={quest.questId} createdQuest={quest} createdQuests={createdQuest} setCreatedQuests={setCreatedQuest} />
+                            <UserQuestCreatedItem key={quest.questId} createdQuest={quest} createdQuests={createdQuest} setCreatedQuests={setCreatedQuest} count={count} setCount={setCount} page={page} setPage={setPage} getCreatedQuests={getCreatedQuests}/>
                         ))}
                     </div>
 

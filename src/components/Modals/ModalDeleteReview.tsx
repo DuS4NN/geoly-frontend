@@ -18,6 +18,11 @@ interface Props {
     setReviews: (review:any) => void
     setAddReview: (addReview:number) => void
     reviews: any
+    page: number
+    setPage: (page:number) => void
+    count: number
+    setCount: (count:number) => void
+    getReviews: (page:number) => void
 }
 
 // Components
@@ -27,7 +32,7 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
     const alert = useAlert()
 
     // Props state
-    const {showModal, setShowModal, deleteReviewId, reviews, setReviews, setAddReview} = props
+    const {showModal, setShowModal, deleteReviewId, reviews, setReviews, setAddReview, page, setPage, count, setCount, getReviews} = props
 
 
     // Modal
@@ -69,11 +74,20 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
             let statusCode = response.data.responseEntity.statusCode
 
             if(statusCode === 'ACCEPTED'){
+
+                if(count > 1 && reviews.length === 1){
+                    getReviews(page-1)
+                    setPage(page-1)
+                }
+
                 alert.success(text.success[serverResponse])
                 setReviews(reviews.filter(function (review:any) {
                     return review.reviewId !== deleteReviewId
                 }))
                 setAddReview(1)
+
+                setCount(count-1)
+
                 handleCloseModal()
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)

@@ -17,6 +17,11 @@ interface Props {
     deleteQuestId: number
     createdQuests: any
     setCreatedQuests: (createdQuests:any) =>void
+    count: number
+    setCount: (count:number) => void
+    page: number
+    setPage: (page:number) => void
+    getCreatedQuests: (page:number) => void
 }
 
 // Components
@@ -26,7 +31,7 @@ const ModalDeleteQuest: React.FC<Props> = (props) => {
     const alert = useAlert()
 
     // Props state
-    const {showModal, setShowModal, deleteQuestId, setCreatedQuests, createdQuests} = props
+    const {showModal, setShowModal, deleteQuestId, setCreatedQuests, createdQuests, count, setCount, page, setPage, getCreatedQuests} = props
 
 
     // Modal
@@ -70,10 +75,19 @@ const ModalDeleteQuest: React.FC<Props> = (props) => {
             let statusCode = response.data.responseEntity.statusCode
 
             if(statusCode === 'ACCEPTED'){
+
+                if(count > 1 && createdQuests.length === 1){
+                    getCreatedQuests(page-1)
+                    setPage(page-1)
+                }
+
                 setCreatedQuests(createdQuests.filter(function (quest:any) {
                     return quest.questId !== deleteQuestId
                 }))
                 alert.success(text.success[serverResponse])
+
+                setCount(count-1)
+
                 handleCloseModal()
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)

@@ -13,6 +13,7 @@ interface Props {
     reviews: any
     getReviews: (page:number) =>void
     countReviews: number
+    setCountReviews: (countReviews:number) =>void
     setReviews: (review:any) => void
     setAddReview: (addReview:number) => void
     questId: any
@@ -27,7 +28,7 @@ const QuestReviewsList: React.FC<Props> = (props) => {
     // Text
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
-    const {reviews, getReviews, countReviews, setReviews, questId, setAddReview} = props
+    const {reviews, getReviews, countReviews, setCountReviews, setReviews, questId, setAddReview} = props
 
     const [page, setPage] = useState(1)
     const [deleteReviewId, setDeleteReviewId] = useState(0)
@@ -80,7 +81,7 @@ const QuestReviewsList: React.FC<Props> = (props) => {
     return (
         <div className="quest-reviews-list">
 
-            <ModalDeleteReview setAddReview={setAddReview} setReviews={setReviews} reviews={reviews} deleteReviewId={deleteReviewId} showModal={showModalDeleteReview} setShowModal={setShowModalDeleteReview} />
+            <ModalDeleteReview page={page} setPage={setPage} count={countReviews} setCount={setCountReviews} getReviews={getReviews} setAddReview={setAddReview} setReviews={setReviews} reviews={reviews} deleteReviewId={deleteReviewId} showModal={showModalDeleteReview} setShowModal={setShowModalDeleteReview} />
 
             <ModalEditReview questId={questId} setReviewRate={setEditReviewRate} reviewText={editReviewText} reviewRate={editReviewRate} showModal={showModalEditReview} setShowModal={setShowModalEditReview} editReviewId={editReviewId} setReviews={setReviews} reviews={reviews} />
 

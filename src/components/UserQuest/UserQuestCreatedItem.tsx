@@ -12,11 +12,16 @@ interface Props {
     createdQuest: any
     createdQuests: any
     setCreatedQuests: (createdQuests:any) => void
+    count: number
+    setCount: (count:any) => void
+    page: number
+    setPage: (page:number) => void
+    getCreatedQuests: (page:number) => void
 }
 
 const UserQuestCreatedItem: React.FC<Props> = (props) => {
 
-    const {createdQuest, createdQuests, setCreatedQuests} = props
+    const {createdQuest, createdQuests, setCreatedQuests, count, setCount, page, setPage, getCreatedQuests} = props
 
     // Context
     const {userContext} = useContext(UserContext)
@@ -36,7 +41,7 @@ const UserQuestCreatedItem: React.FC<Props> = (props) => {
 
     return (
         <div className="user-quest-created">
-            <ModalDeleteQuest showModal={showDeleteModal} setShowModal={setShowDeleteModal} deleteQuestId={createdQuest.questId} createdQuests={createdQuests} setCreatedQuests={setCreatedQuests} />
+            <ModalDeleteQuest showModal={showDeleteModal} setShowModal={setShowDeleteModal} deleteQuestId={createdQuest.questId} createdQuests={createdQuests} setCreatedQuests={setCreatedQuests} count={count} setCount={setCount} page={page} setPage={setPage} getCreatedQuests={getCreatedQuests}/>
             <ModalEditQuest showModal={showEditModal} setShowModal={setShowEditModal} createdQuest={createdQuest} createdQuests={createdQuests} setCreatedQuests={setCreatedQuests} />
 
             {createdQuest !== {} && (
