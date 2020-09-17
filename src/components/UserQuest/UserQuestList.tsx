@@ -135,6 +135,7 @@ const UserQuestList: React.FC = () => {
             <UserQuestPlayed playedQuest={playedQuest} getAllPlayedQuests={getAllPlayedQuests}/>
 
 
+
             {Object.keys(activeQuest).length === 0 && Object.keys(createdQuest).length === 0 && Object.keys(playedQuest).length === 0 && (
                 <div className="user-quest-empty">
 

@@ -73,6 +73,7 @@ const UserQuestPlayed: React.FC<Props> = (props) => {
                         </div>
                     </div>
 
+
                     {count > 5 && (
                         <MuiThemeProvider theme={theme}>
                             <Pagination
@@ -84,7 +85,6 @@ const UserQuestPlayed: React.FC<Props> = (props) => {
                             />
                         </MuiThemeProvider>
                     )}
-
                 </div>
             )}
         </div>
