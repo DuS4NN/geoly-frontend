@@ -9,6 +9,7 @@ import Pagination from "@material-ui/lab/Pagination";
 import GroupsListCreatedItem from "./GroupsListCreatedItem";
 import ModalDeleteGroup from "../Modals/ModalDeleteGroup";
 import ModalEditGroup from "../Modals/ModalEditGroup";
+import ModalAddGroup from "../Modals/ModalAddGroup";
 
 // Props
 interface Props {
@@ -33,6 +34,8 @@ const GroupsListCreated: React.FC<Props> = (props) => {
 
     const [showEditModal, setShowEditModal] = useState(false)
     const [editGroup, setEditGroup] = useState({}) as any
+
+    const [showAddModal, setShowAddModal] = useState(false)
 
     const handleChangePage = (event:any, value:number) => {
         setPage(value)
@@ -65,15 +68,16 @@ const GroupsListCreated: React.FC<Props> = (props) => {
     }
 
     const handleShowAddModal = () => {
-
+        setShowAddModal(true)
     }
 
     // Template
     return (
         <div className="group-list-table">
 
-            <ModalDeleteGroup showModal={showDeleteModal} setShowModal={setShowDeleteModal} deleteGroupId={deleteGroupId} createdGroups={createdGroups} setCreatedGroups={setCreatedGroups} count={count} setCount={setCount} page={page} setPage={setPage} getCreatedGroups={getCreatedGroups} />
+            <ModalDeleteGroup showModal={showDeleteModal} setShowModal={setShowDeleteModal} deleteGroupId={deleteGroupId} createdGroups={createdGroups} count={count} setCount={setCount} page={page} setPage={setPage} getCreatedGroups={getCreatedGroups} />
             <ModalEditGroup showModal={showEditModal} setShowModal={setShowEditModal} editGroup={editGroup} createdGroups={createdGroups} setCreatedGroups={setCreatedGroups} />
+            <ModalAddGroup showModal={showAddModal} setShowModal={setShowAddModal} count={count} setCount={setCount} setPage={setPage} getCreatedGroups={getCreatedGroups} />
 
             <div className="group-list-container">
 

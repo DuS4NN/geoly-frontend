@@ -3,12 +3,9 @@ import {useAlert} from "react-alert"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
-//@ts-ignore
-import disableScroll from 'disable-scroll'
-// Context
 import {UserContext} from "../../UserContext";
 // Style
-import './ModalForgot.scss'
+import './Modal.scss'
 
 // Props
 interface Props {
@@ -45,16 +42,11 @@ const ModalForgot: React.FC<Props> = props => {
 
     const handleCloseModal = () => {
         setShowModal(false)
-        disableScroll.off()
 
         document.removeEventListener("keydown", handleKeyPress);
     }
 
     const onAfterOpenModal = () => {
-        disableScroll.on(null,{
-            disableKeys: false
-        })
-
         document.addEventListener("keydown", handleKeyPress);
     }
 
@@ -86,7 +78,7 @@ const ModalForgot: React.FC<Props> = props => {
     // Template
     return (
             <ReactModal
-                className="forgot-modal"
+                className="modal"
                 closeTimeoutMS={500}
                 isOpen={showModal}
                 onAfterOpen={onAfterOpenModal}>
@@ -94,7 +86,7 @@ const ModalForgot: React.FC<Props> = props => {
                     <img src={forgotPassword} alt="" />
                 </div>
 
-                <div className="forgot-form">
+                <div className="modal-form">
                     <div className="title">
                         <h3>{text.forgot.title}</h3>
                     </div>
@@ -105,9 +97,12 @@ const ModalForgot: React.FC<Props> = props => {
                     </div>
                     <div className="form">
                         <form onSubmit={handleSubmit}>
-                            <input type="email" name="email" value={email} onChange={handleChange} autoFocus required className="input-field-email" placeholder={text.forgot.inputEmailPlaceholder}/>
-                            <br /> <br />
-                            <button>{text.forgot.submitButton}</button>
+                            <div className="from-input-with-padding">
+                                <input type="email" name="email" value={email} onChange={handleChange} autoFocus required className="input-field-email" placeholder={text.forgot.inputEmailPlaceholder}/>
+                            </div>
+                            <div className="form-submit-button">
+                                <button >{text.forgot.submitButton}</button>
+                            </div>
                         </form>
                     </div>
                 </div>

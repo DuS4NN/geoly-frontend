@@ -3,10 +3,8 @@ import {useAlert} from "react-alert"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
-//@ts-ignore
-import disableScroll from 'disable-scroll'
 import {UserContext} from "../../UserContext";
-import './ModalReportQuest.scss'
+import './Modal.scss'
 
 interface Props {
     questId: any
@@ -49,16 +47,11 @@ const ModalReportQuest: React.FC<Props> = (props) => {
 
     const handleCloseModal = () => {
         setShowReportModal(false)
-        disableScroll.off()
 
         document.removeEventListener("keydown", handleKeyPress);
     }
 
     const onAfterOpenModal = () => {
-        disableScroll.on(null,{
-            disableKeys: false
-        })
-
         document.addEventListener("keydown", handleKeyPress);
     }
 
@@ -88,7 +81,7 @@ const ModalReportQuest: React.FC<Props> = (props) => {
 
     return (
         <ReactModal
-            className="forgot-report-quest"
+            className="modal"
             closeTimeoutMS={500}
             isOpen={showReportModal}
             onAfterOpen={onAfterOpenModal}>
@@ -96,7 +89,7 @@ const ModalReportQuest: React.FC<Props> = (props) => {
                 <img src={require("../../assets/images/report.svg")} alt="" />
             </div>
 
-            <div className="report-quest-form">
+            <div className="modal-form">
                 <div className="title">
                     <h3>{text.reportQuest.title}</h3>
                 </div>
@@ -109,13 +102,15 @@ const ModalReportQuest: React.FC<Props> = (props) => {
                     {reportReasons.map(reportReason => (
                         <div onClick={function () {
                             setSelectedReason(reportReason)
-                        }} key={reportReason} className={selectedReason === reportReason ? "form-item selected" : "form-item" } >
+                        }} key={reportReason} className={selectedReason === reportReason ? "form-bubble-item selected" : "form-bubble-item" } >
                             <span>{text.reportReasons[reportReason]}</span>
                         </div>
                     ))}
 
+                    <div className="form-submit-button">
+                        <button onClick={handleSubmit}>{text.reportQuest.button}</button>
+                    </div>
 
-                    <button onClick={handleSubmit}>{text.reportQuest.button}</button>
                 </div>
             </div>
 

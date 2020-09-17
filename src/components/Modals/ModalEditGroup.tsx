@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef} from "react"
+import React, {useContext, useEffect, useRef, useState} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
@@ -6,9 +6,10 @@ import axios from "axios"
 import disableScroll from 'disable-scroll'
 import {UserContext} from "../../UserContext";
 import {useAlert} from "react-alert";
+import {NavLink} from "react-router-dom"
 
 
-import './ModalEditGroup.scss'
+import './Modal.scss'
 
 // Props
 interface Props {
@@ -28,12 +29,39 @@ const ModalEditGroup: React.FC<Props> = (props) => {
     // Props state
     const {showModal, setShowModal, editGroup, setCreatedGroups, createdGroups} = props
 
+    const [questsInGroup, setQuestsInGroup] = useState([]) as Array<any>
+
     const nameRef = useRef(null) as any
 
-    // Modal
     useEffect(() => {
-        Modal.setAppElement("#root")
-    },[])
+        Modal.setAppElement("body")
+        if(editGroup.groupId){
+            axios({
+                method: 'GET',
+                url: process.env.REACT_APP_API_SERVER_URL+'/group/quests?id='+editGroup.groupId,
+                withCredentials: true
+            }).then(function (response) {
+                let statusCode = response.data.responseEntity.statusCode
+
+                if(statusCode === 'OK'){
+                    console.log(response.data.data)
+                    let newQuestsInGroup = response.data.data.map((quest:any) => {
+                        return {
+                            partyQuestId: quest[0],
+                            questId: quest[1],
+                            questName: quest[2],
+                            categoryImage: quest[3]
+                        }
+                    })
+                    setQuestsInGroup(newQuestsInGroup)
+                }else{
+                    alert.error(text.error.SOMETHING_WENT_WRONG)
+                }
+            })
+        }
+
+
+    },[editGroup])
     // Text
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
@@ -46,16 +74,10 @@ const ModalEditGroup: React.FC<Props> = (props) => {
 
     const handleCloseModal = () => {
         setShowModal(false)
-        disableScroll.off()
-
         document.removeEventListener("keydown", handleKeyPress);
     }
 
     const onAfterOpenModal = () => {
-        disableScroll.on(null,{
-            disableKeys: false
-        })
-
         document.addEventListener("keydown", handleKeyPress);
     }
 
@@ -90,6 +112,10 @@ const ModalEditGroup: React.FC<Props> = (props) => {
         })*/
     }
 
+    const handleQuestDelete = (partyQuestId:number) => {
+        
+    }
+
     // Template
     return (
         <ReactModal
@@ -112,12 +138,24 @@ const ModalEditGroup: React.FC<Props> = (props) => {
                     </span>
                 </div>
                 <div className="form">
-                    <div className="form-name">
+                    <div className="form-input">
                         <input maxLength={15} ref={nameRef} type="text" defaultValue={editGroup.groupName} />
                     </div>
 
                     <div className="form-list">
-
+                        {questsInGroup.map((quest:any) => (
+                            <div key={quest.partyQuestId} className="list-quest-item">
+                                <div className="item-image">
+                                    <img src={require("../../"+quest.categoryImage)} alt="" />
+                                </div>
+                                <div className="item-name">
+                                    <NavLink to={"/quest/"+quest.questId}>{quest.questName}</NavLink>
+                                </div>
+                                <div className="item-delete">
+                                    <img onClick={() => handleQuestDelete(quest.partyQuestId)} src={require("../../assets/images/otherIcons/delete.svg")} alt="" title={text.groups.deleteGroup} />
+                                </div>
+                            </div>
+                        ))}
                     </div>
 
                 </div>

@@ -177,7 +177,9 @@ export const text = {
         deleteGroupDesc: 'Are you sure you want to permanently delete this group?',
         editGroupTitle: 'Edit group',
         editGroupDesc: 'Have we decided to edit the group? Let\'s go!',
-        create: 'Create group'
+        create: 'Create group',
+        createButton: 'Create',
+        createModalDesc: 'Do you want to create a new group? Just enter a name!'
     },
     error: {
         // Login
@@ -219,6 +221,8 @@ export const text = {
 
         // Groups
         GROUP_DOES_NOT_EXIST_OR_USER_IS_NOT_OWNER: 'The group does not exist or you are not the owner',
+        INVALID_PARTY_NAME_FORMAT: 'A group name must be 1-15 characters long',
+        INVALID_PARTY_NAME_LENGTH: 'A group name can contain only A-Z, a-z, 0-9 and .-_',
 
         // Other
         USER_NOT_FOUND: 'Account not found',
@@ -247,7 +251,8 @@ export const text = {
         IMAGES_SAVED: 'The images has been saved',
         QUEST_EDITED: 'The quest details has been edited',
         // Group
-        GROUP_DELETED: 'The group has been deleted'
+        GROUP_DELETED: 'The group has been deleted',
+        GROUP_CREATED: 'The group has been added'
 
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka

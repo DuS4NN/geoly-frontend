@@ -4,12 +4,10 @@ import Modal from 'react-modal';
 //@ts-ignore
 import ReactStars from "react-rating-stars-component"
 import axios from "axios"
-//@ts-ignore
-import disableScroll from 'disable-scroll'
 import {UserContext} from "../../UserContext";
 import {useAlert} from "react-alert";
 
-import './ModalEditReview.scss'
+import './Modal.scss'
 
 // Props
 interface Props {
@@ -18,11 +16,9 @@ interface Props {
     editReviewId: number
     setReviews: (review:any) => void
     reviews: any
-
     questId: any
     reviewText: string
     reviewRate: number
-
     setReviewRate: (rate:number) => void
 }
 
@@ -51,16 +47,11 @@ const ModalEditReview: React.FC<Props> = (props) => {
 
     const handleCloseModal = () => {
         setShowModal(false)
-        disableScroll.off()
 
         document.removeEventListener("keydown", handleKeyPress);
     }
 
     const onAfterOpenModal = () => {
-        disableScroll.on(null,{
-            disableKeys: false
-        })
-
         document.addEventListener("keydown", handleKeyPress);
     }
 
@@ -112,7 +103,7 @@ const ModalEditReview: React.FC<Props> = (props) => {
     // Template
     return (
         <ReactModal
-            className="edit-review-modal"
+            className="modal"
             closeTimeoutMS={500}
             isOpen={showModal}
             onAfterOpen={onAfterOpenModal}>
@@ -121,7 +112,7 @@ const ModalEditReview: React.FC<Props> = (props) => {
                 <img src={require("../../assets/images/edit.svg")} alt="" />
             </div>
 
-            <div className="edit-review-form">
+            <div className="modal-form">
                 <div className="title">
                     <h3>{text.editReview.title}</h3>
                 </div>
@@ -150,7 +141,7 @@ const ModalEditReview: React.FC<Props> = (props) => {
                         <textarea maxLength={500} ref={textareaRef} defaultValue={reviewText} />
                     </div>
 
-                    <div className="form-button">
+                    <div className="form-submit-button">
                         <button onClick={handleSubmit}>{text.editReview.editButton}</button>
                     </div>
                 </div>

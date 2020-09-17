@@ -7,7 +7,7 @@ import disableScroll from 'disable-scroll'
 // Context
 import {UserContext} from "../../UserContext";
 // Style
-import './ModalDelete.scss'
+import './Modal.scss'
 import {useAlert} from "react-alert";
 
 // Props
@@ -94,7 +94,7 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
     // Template
     return (
         <ReactModal
-            className="delete-modal"
+            className="modal"
             closeTimeoutMS={500}
             isOpen={showModal}
             onAfterOpen={onAfterOpenModal}>
@@ -103,7 +103,7 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
                 <img src={require("../../assets/images/question.svg")} alt="" />
             </div>
 
-            <div className="delete-form">
+            <div className="modal-form">
                 <div className="title">
                     <h3>{text.deleteReview.title}</h3>
                 </div>

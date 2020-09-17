@@ -43,7 +43,6 @@
         width: 60%;
         margin-left: auto;
         margin-right: auto;
-        background: white;
 
         .content-item{
           border-right: 1px solid var(--light-mode-input-backgroud);
@@ -96,12 +95,9 @@
               height: 15px;
             }
           }
-
-
           .item-add{
             padding-top: 8px;
             text-align: center;
-
             .add-image{
               cursor: pointer;
               display: inline-block;
@@ -127,8 +123,6 @@
               }
             }
           }
-
-
 
         }
         .content-item:hover{

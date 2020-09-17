@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react"
+import React, {useContext, useEffect, useRef} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
@@ -12,23 +12,22 @@ import './Modal.scss'
 interface Props {
     showModal: boolean
     setShowModal: (show: boolean) => void
-    deleteQuestId: number
-    createdQuests: any
     count: number
     setCount: (count:number) => void
-    page: number
     setPage: (page:number) => void
-    getCreatedQuests: (page:number) => void
+    getCreatedGroups: (page:number) => void
 }
 
 // Components
-const ModalDeleteQuest: React.FC<Props> = (props) => {
+const ModalAddGroup: React.FC<Props> = (props) => {
     // Context
     const {userContext} = useContext(UserContext)
     const alert = useAlert()
 
     // Props state
-    const {showModal, setShowModal, deleteQuestId, createdQuests, count, setCount, page, setPage, getCreatedQuests} = props
+    const {showModal, setShowModal, count, setCount, setPage, getCreatedGroups} = props
+
+    const refName = useRef(null) as any
 
 
     // Modal
@@ -37,8 +36,6 @@ const ModalDeleteQuest: React.FC<Props> = (props) => {
     },[])
     // Text
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
-
-
 
     // Methods
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -59,26 +56,23 @@ const ModalDeleteQuest: React.FC<Props> = (props) => {
     const handleSubmit = () => {
         axios({
             method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/quest/disable?id='+deleteQuestId,
+            url: process.env.REACT_APP_API_SERVER_URL+'/group/create?name='+refName.current?.value,
             withCredentials: true
         }).then(function (response) {
             let serverResponse = response.data.responseEntity.body
             let statusCode = response.data.responseEntity.statusCode
-
             if(statusCode === 'ACCEPTED'){
 
-                if(count > 1 && createdQuests.length === 1){
-                    getCreatedQuests(page-1)
-                    setPage(page-1)
-                }else{
-                    getCreatedQuests(page)
-                }
+                getCreatedGroups(1)
+                setPage(1)
 
                 alert.success(text.success[serverResponse])
 
-                setCount(count-1)
+                setCount(count+1)
 
                 handleCloseModal()
+            }else if(serverResponse === 'INVALID_PARTY_NAME_FORMAT' || serverResponse === 'INVALID_PARTY_NAME_LENGTH'){
+                alert.error(text.error[serverResponse])
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
@@ -94,24 +88,27 @@ const ModalDeleteQuest: React.FC<Props> = (props) => {
             onAfterOpen={onAfterOpenModal}>
 
             <div className="image">
-                <img src={require("../../assets/images/question.svg")} alt="" />
+                <img src={require("../../assets/images/create.svg")} alt="" />
             </div>
 
             <div className="modal-form">
                 <div className="title">
-                    <h3>{text.userQuest.deleteQuestTitle}</h3>
+                    <h3>{text.groups.create}</h3>
                 </div>
                 <div className="subtitle">
                     <span>
-                        {text.userQuest.deleteQuestDesc}
+                        {text.groups.createModalDesc}
                     </span>
                 </div>
+
                 <div className="form">
-                    <div className="form-yes">
-                        <button onClick={handleSubmit}>{text.deleteReview.accept}</button>
+
+                    <div className="form-input">
+                        <input ref={refName} type="text" maxLength={15} placeholder="Group name" />
                     </div>
-                    <div className="form-no" >
-                        <button onClick={handleCloseModal}>{text.deleteReview.decline}</button>
+
+                    <div className="form-submit-button">
+                        <button onClick={handleSubmit}>{text.groups.createButton}</button>
                     </div>
                 </div>
             </div>
@@ -123,4 +120,4 @@ const ModalDeleteQuest: React.FC<Props> = (props) => {
     )
 }
 
-export default ModalDeleteQuest
+export default ModalAddGroup

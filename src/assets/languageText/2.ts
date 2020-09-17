@@ -178,7 +178,9 @@ export const text = {
         deleteGroupDesc: 'Ste si istý, že chcete natvrvalo odstrániť túto skupinu?',
         editGroupTitle: 'Upraviť skupinu',
         editGroupDesc: 'Rozhodli ste sa upraviť skupinu? Poďme na to!',
-        create: 'Vytvoriť skupinu'
+        create: 'Vytvoriť skupinu',
+        createButton: 'Vytvoriť',
+        createModalDesc: 'Chcete vytvoriť novú skupinu? Stačí zadať jej meno!'
     },
     error: {
         // Login
@@ -221,6 +223,8 @@ export const text = {
 
         // Groups
         GROUP_DOES_NOT_EXIST_OR_USER_IS_NOT_OWNER: 'Skupina neexistuje alebo nie ste vlastníkom',
+        INVALID_PARTY_NAME_FORMAT: 'Dĺžka názvu skupiny musí byť 1-15 znakov',
+        INVALID_PARTY_NAME_LENGTH: 'Názov skupiny môže obsahovať A-Z, a-z, 0-9 a -_.',
 
         // Other
         USER_NOT_FOUND: 'Účet nenájdený',
@@ -249,6 +253,7 @@ export const text = {
         IMAGES_SAVED: 'Obrázky boli uložené',
         QUEST_EDITED: 'Detaily úlohy boli upravené',
         // Group
-        GROUP_DELETED: 'Skupina bola odstránená'
+        GROUP_DELETED: 'Skupina bola odstránená',
+        GROUP_CREATED: 'Skupina bola vytvorená'
     }
 }

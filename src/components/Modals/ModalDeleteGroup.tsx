@@ -2,13 +2,11 @@ import React, {useContext, useEffect} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
-//@ts-ignore
-import disableScroll from 'disable-scroll'
 import {UserContext} from "../../UserContext";
 import {useAlert} from "react-alert";
 
 
-import './ModalDelete.scss'
+import './Modal.scss'
 
 // Props
 interface Props {
@@ -16,7 +14,6 @@ interface Props {
     setShowModal: (show: boolean) => void
     deleteGroupId: number
     createdGroups: any
-    setCreatedGroups: (createdQuests:any) =>void
     count: number
     setCount: (count:number) => void
     page: number
@@ -31,7 +28,7 @@ const ModalDeleteGroup: React.FC<Props> = (props) => {
     const alert = useAlert()
 
     // Props state
-    const {showModal, setShowModal, deleteGroupId, setCreatedGroups, createdGroups, count, setCount, page, setPage, getCreatedGroups} = props
+    const {showModal, setShowModal, deleteGroupId, createdGroups, count, setCount, page, setPage, getCreatedGroups} = props
 
 
     // Modal
@@ -50,16 +47,10 @@ const ModalDeleteGroup: React.FC<Props> = (props) => {
 
     const handleCloseModal = () => {
         setShowModal(false)
-        disableScroll.off()
-
         document.removeEventListener("keydown", handleKeyPress);
     }
 
     const onAfterOpenModal = () => {
-        disableScroll.on(null,{
-            disableKeys: false
-        })
-
         document.addEventListener("keydown", handleKeyPress);
     }
 
@@ -95,7 +86,7 @@ const ModalDeleteGroup: React.FC<Props> = (props) => {
     // Template
     return (
         <ReactModal
-            className="delete-modal"
+            className="modal"
             closeTimeoutMS={500}
             isOpen={showModal}
             onAfterOpen={onAfterOpenModal}>
@@ -104,7 +95,7 @@ const ModalDeleteGroup: React.FC<Props> = (props) => {
                 <img src={require("../../assets/images/question.svg")} alt="" />
             </div>
 
-            <div className="delete-form">
+            <div className="modal-form">
                 <div className="title">
                     <h3>{text.groups.deleteGroupTitle}</h3>
                 </div>

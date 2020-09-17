@@ -2,17 +2,14 @@ import React, {useContext, useEffect, useRef, useState} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
-//@ts-ignore
-import disableScroll from 'disable-scroll'
 import {UserContext} from "../../UserContext";
 import {useAlert} from "react-alert";
-
-
-import './ModalEditQuest.scss'
 import Toggle from "react-toggle";
 import Select from "react-select";
 import chroma from "chroma-js";
 import ImageUpload from "../Elements/ImageUpload";
+
+import './Modal.scss'
 
 // Props
 interface Props {
@@ -99,16 +96,11 @@ const ModalEditQuest: React.FC<Props> = (props) => {
 
     const handleCloseModal = () => {
         setShowModal(false)
-        disableScroll.off()
 
         document.removeEventListener("keydown", handleKeyPress);
     }
 
     const onAfterOpenModal = () => {
-        disableScroll.on(null,{
-            disableKeys: false
-        })
-
         document.addEventListener("keydown", handleKeyPress);
     }
 
@@ -296,10 +288,10 @@ const ModalEditQuest: React.FC<Props> = (props) => {
                     </span>
                 </div>
                 <div className="form">
-                    <div className="form-name">
+                    <div className="form-input">
                         <input ref={nameRef} type="text" defaultValue={createdQuest.questName} />
                     </div>
-                    <div className="form-description">
+                    <div className="form-textarea">
                         <textarea ref={descriptionRef}  defaultValue={createdQuest.questDescription} />
                     </div>
                     <div className="form-details">
@@ -350,7 +342,10 @@ const ModalEditQuest: React.FC<Props> = (props) => {
                                      setImages={setImages} />
                     </div>
 
-                    <button onClick={handleSubmit}>{text.userQuest.edit}</button>
+                    <div className="form-submit-button">
+                        <button onClick={handleSubmit}>{text.userQuest.edit}</button>
+                    </div>
+
                 </div>
             </div>
 

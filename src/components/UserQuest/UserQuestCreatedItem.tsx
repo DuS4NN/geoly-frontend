@@ -41,7 +41,7 @@ const UserQuestCreatedItem: React.FC<Props> = (props) => {
 
     return (
         <div className="user-quest-created">
-            <ModalDeleteQuest showModal={showDeleteModal} setShowModal={setShowDeleteModal} deleteQuestId={createdQuest.questId} createdQuests={createdQuests} setCreatedQuests={setCreatedQuests} count={count} setCount={setCount} page={page} setPage={setPage} getCreatedQuests={getCreatedQuests}/>
+            <ModalDeleteQuest showModal={showDeleteModal} setShowModal={setShowDeleteModal} deleteQuestId={createdQuest.questId} createdQuests={createdQuests} count={count} setCount={setCount} page={page} setPage={setPage} getCreatedQuests={getCreatedQuests}/>
             <ModalEditQuest showModal={showEditModal} setShowModal={setShowEditModal} createdQuest={createdQuest} createdQuests={createdQuests} setCreatedQuests={setCreatedQuests} />
 
             {createdQuest !== {} && (
