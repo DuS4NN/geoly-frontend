@@ -59,8 +59,6 @@ const ModalEditGroup: React.FC<Props> = (props) => {
                 }
             })
         }
-
-
     },[editGroup])
     // Text
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
@@ -82,38 +80,59 @@ const ModalEditGroup: React.FC<Props> = (props) => {
     }
 
     const handleSubmit = () => {
-        /*axios({
-            method: 'DELETE',
-            url: process.env.REACT_APP_API_SERVER_URL+'/group/delete?id='+deleteGroupId,
+        axios({
+            method: 'GET',
+            url: process.env.REACT_APP_API_SERVER_URL+'/group/edit?partyId='+editGroup.groupId+'&name='+nameRef.current?.value,
             withCredentials: true
         }).then(function (response) {
             let serverResponse = response.data.responseEntity.body
             let statusCode = response.data.responseEntity.statusCode
+
             if(statusCode === 'ACCEPTED'){
 
-                if(count > 1 && createdGroups.length === 1){
-                    getCreatedGroups(page-1)
-                    setPage(page-1)
-                }
-
-                setCreatedGroups(createdGroups.filter(function (group:any) {
-                    return group.groupId !== deleteGroupId
+                setCreatedGroups(createdGroups.map((group:any) => {
+                    if(group.groupId == editGroup.groupId){
+                        return {
+                            ...group,
+                            groupName: nameRef.current?.value
+                        }
+                    }else{
+                        return group
+                    }
                 }))
+
                 alert.success(text.success[serverResponse])
 
-                setCount(count-1)
-
                 handleCloseModal()
-            }else if(statusCode === 'METHOD_NOT_ALLOWED'){
+            }else if(serverResponse === 'INVALID_PARTY_NAME_FORMAT' || serverResponse === 'INVALID_PARTY_NAME_LENGTH'){
                 alert.error(text.error[serverResponse])
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
-        })*/
+        })
     }
 
-    const handleQuestDelete = (partyQuestId:number) => {
-        
+    const handleQuestDelete = (questId:number) => {
+        axios({
+            method: 'GET',
+            url: process.env.REACT_APP_API_SERVER_URL+'/group/deletequest?partyId='+editGroup.groupId+'&questId='+questId,
+            withCredentials: true
+        }).then(function (response) {
+            let serverResponse = response.data.responseEntity.body
+            let statusCode = response.data.responseEntity.statusCode
+
+            if(statusCode === 'ACCEPTED'){
+
+                setQuestsInGroup(questsInGroup.filter(function (quest:any) {
+                    return quest.questId !== questId
+                }))
+
+
+                alert.success(text.success[serverResponse])
+            }else{
+                alert.error(text.error.SOMETHING_WENT_WRONG)
+            }
+        })
     }
 
     // Template
@@ -152,10 +171,15 @@ const ModalEditGroup: React.FC<Props> = (props) => {
                                     <NavLink to={"/quest/"+quest.questId}>{quest.questName}</NavLink>
                                 </div>
                                 <div className="item-delete">
-                                    <img onClick={() => handleQuestDelete(quest.partyQuestId)} src={require("../../assets/images/otherIcons/delete.svg")} alt="" title={text.groups.deleteGroup} />
+                                    <img onClick={() => handleQuestDelete(quest.questId)} src={require("../../assets/images/otherIcons/delete.svg")} alt="" title={text.groups.deleteGroup} />
                                 </div>
                             </div>
                         ))}
+
+                        <div className="form-submit-button">
+                            <button onClick={handleSubmit}>{text.groups.editGroup}</button>
+                        </div>
+
                     </div>
 
                 </div>

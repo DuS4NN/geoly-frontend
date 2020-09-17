@@ -252,7 +252,9 @@ export const text = {
         QUEST_EDITED: 'The quest details has been edited',
         // Group
         GROUP_DELETED: 'The group has been deleted',
-        GROUP_CREATED: 'The group has been added'
+        GROUP_CREATED: 'The group has been added',
+        QUEST_DELETED: 'The quest has been deleted',
+        GROUP_EDITED: 'The group has been edited'
 
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka

@@ -254,6 +254,8 @@ export const text = {
         QUEST_EDITED: 'Detaily úlohy boli upravené',
         // Group
         GROUP_DELETED: 'Skupina bola odstránená',
-        GROUP_CREATED: 'Skupina bola vytvorená'
+        GROUP_CREATED: 'Skupina bola vytvorená',
+        QUEST_DELETED: 'Úloha bola odstránená',
+        GROUP_EDITED: 'Skupina bola upravená'
     }
 }
