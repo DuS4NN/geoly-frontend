@@ -180,7 +180,12 @@ export const text = {
         editGroupDesc: 'Rozhodli ste sa upraviť skupinu? Poďme na to!',
         create: 'Vytvoriť skupinu',
         createButton: 'Vytvoriť',
-        createModalDesc: 'Chcete vytvoriť novú skupinu? Stačí zadať jej meno!'
+        createModalDesc: 'Chcete vytvoriť novú skupinu? Stačí zadať jej meno!',
+        kick: 'Vyhodiť',
+        kickGroupTitle: 'Spravovať používateľov',
+        kickGroupDesc: 'Chcete pridať alebo vyhodiť používateľa? Poďme na to!',
+        search: 'Vyhľadať používateľa',
+        invite: 'Pozvať'
     },
     error: {
         // Login
@@ -225,6 +230,8 @@ export const text = {
         GROUP_DOES_NOT_EXIST_OR_USER_IS_NOT_OWNER: 'Skupina neexistuje alebo nie ste vlastníkom',
         INVALID_PARTY_NAME_FORMAT: 'Dĺžka názvu skupiny musí byť 1-15 znakov',
         INVALID_PARTY_NAME_LENGTH: 'Názov skupiny môže obsahovať A-Z, a-z, 0-9 a -_.',
+        CAN_NOT_KICK_OWNER: 'Zakladateľ skupiny nemôže byť vyhodený',
+        USER_IS_ALREADY_IN_GROUP: 'Používateľ už je v skupine',
 
         // Other
         USER_NOT_FOUND: 'Účet nenájdený',
@@ -256,6 +263,8 @@ export const text = {
         GROUP_DELETED: 'Skupina bola odstránená',
         GROUP_CREATED: 'Skupina bola vytvorená',
         QUEST_DELETED: 'Úloha bola odstránená',
-        GROUP_EDITED: 'Skupina bola upravená'
+        GROUP_EDITED: 'Skupina bola upravená',
+        USER_KICKED: 'Používateľ bol vyhodený',
+        USER_INVITED: 'Používateľ bol pozvaný'
     }
 }

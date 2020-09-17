@@ -114,9 +114,6 @@
           background-repeat: no-repeat;
           background-position: 15px;
         }
-
-
-
         input::placeholder {
           color: var(--light-mode-gray-text);
         }
@@ -124,11 +121,10 @@
         input:focus::placeholder {
           color: var(--light-mode-dark-green);
         }
-
-
       }
 
       .form-submit-button{
+        padding-bottom: 5px;
         margin-top: 15px;
 
         button{
@@ -180,12 +176,13 @@
             display: table-cell;
             vertical-align: middle;
             img{
+              border-radius: 50%;
               width: 30px;
               height: 30px;
             }
           }
           .item-name{
-            max-width: 0px;
+            max-width: 0;
             text-align: left;
             display: table-cell;
             overflow: hidden;
@@ -328,6 +325,30 @@
           -o-transition: all .4s ease-in-out;
           -webkit-transition: all .4s ease-in-out;
           transition: all .4s ease-in-out;
+        }
+      }
+
+      //Search user
+      .form-search-result{
+        width: 67%;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        border-top: 1px solid var(--light-mode-input-backgroud);
+        border-left: 1px solid var(--light-mode-input-backgroud);
+        border-right: 1px solid var(--light-mode-input-backgroud);
+
+        .result-item{
+          width: calc(100% + 2px);
+          height: 33px;
+          border-bottom: 1px solid var(--light-mode-input-backgroud);
+          font-family: OpenSans;
+          font-size: 15px;
+          padding-top: 12px;
+        }
+        .result-item:hover{
+          color: var(--button-dark-green);
+          cursor: pointer;
         }
       }
     }

@@ -2,8 +2,6 @@ import React, {useContext, useEffect, useRef, useState} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
-//@ts-ignore
-import disableScroll from 'disable-scroll'
 import {UserContext} from "../../UserContext";
 import {useAlert} from "react-alert";
 import {NavLink} from "react-router-dom"

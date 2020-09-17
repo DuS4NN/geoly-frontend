@@ -11,6 +11,7 @@ interface Props {
     group: any
     handleShowDeleteModal: (id:number) => void
     handleShowEditModal: (id:number) => void
+    handleShowManageModal: (id:number) => void
 }
 
 // Component
@@ -19,7 +20,7 @@ const GroupsListCreatedItem: React.FC<Props> = (props) => {
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
     const [date, setDate] = useState(new Date())
 
-    const {group, handleShowDeleteModal, handleShowEditModal} = props
+    const {group, handleShowDeleteModal, handleShowEditModal, handleShowManageModal} = props
 
 
     useEffect(() => {
@@ -32,7 +33,7 @@ const GroupsListCreatedItem: React.FC<Props> = (props) => {
         handleShowEditModal(group)
     }
     const handleManageUsers = () => {
-
+        handleShowManageModal(group.groupId)
     }
     const handleDeleteGroup = () => {
         handleShowDeleteModal(group.groupId)

@@ -10,6 +10,7 @@ import GroupsListCreatedItem from "./GroupsListCreatedItem";
 import ModalDeleteGroup from "../Modals/ModalDeleteGroup";
 import ModalEditGroup from "../Modals/ModalEditGroup";
 import ModalAddGroup from "../Modals/ModalAddGroup";
+import ModalManageGroup from "../Modals/ModalManageGroup";
 
 // Props
 interface Props {
@@ -36,6 +37,9 @@ const GroupsListCreated: React.FC<Props> = (props) => {
     const [editGroup, setEditGroup] = useState({}) as any
 
     const [showAddModal, setShowAddModal] = useState(false)
+
+    const [showManageModal, setShowManageModal] = useState(false)
+    const [manageGroupId, setManageGroupId] = useState(0)
 
     const handleChangePage = (event:any, value:number) => {
         setPage(value)
@@ -66,9 +70,12 @@ const GroupsListCreated: React.FC<Props> = (props) => {
         setEditGroup(editGroup)
         setShowEditModal(true)
     }
-
     const handleShowAddModal = () => {
         setShowAddModal(true)
+    }
+    const handleShowManageModal = (manageGroupId:number) => {
+        setManageGroupId(manageGroupId)
+        setShowManageModal(true)
     }
 
     // Template
@@ -78,6 +85,8 @@ const GroupsListCreated: React.FC<Props> = (props) => {
             <ModalDeleteGroup showModal={showDeleteModal} setShowModal={setShowDeleteModal} deleteGroupId={deleteGroupId} createdGroups={createdGroups} count={count} setCount={setCount} page={page} setPage={setPage} getCreatedGroups={getCreatedGroups} />
             <ModalEditGroup showModal={showEditModal} setShowModal={setShowEditModal} editGroup={editGroup} createdGroups={createdGroups} setCreatedGroups={setCreatedGroups} />
             <ModalAddGroup showModal={showAddModal} setShowModal={setShowAddModal} count={count} setCount={setCount} setPage={setPage} getCreatedGroups={getCreatedGroups} />
+            <ModalManageGroup showModal={showManageModal} setShowModal={setShowManageModal} groupId={manageGroupId} />
+
 
             <div className="group-list-container">
 
@@ -92,6 +101,7 @@ const GroupsListCreated: React.FC<Props> = (props) => {
                             group={group}
                             handleShowDeleteModal={handleShowDeleteModal}
                             handleShowEditModal={handleShowEditModal}
+                            handleShowManageModal={handleShowManageModal}
                         />
                     ))}
                     <div className="content-item">

@@ -179,7 +179,12 @@ export const text = {
         editGroupDesc: 'Have we decided to edit the group? Let\'s go!',
         create: 'Create group',
         createButton: 'Create',
-        createModalDesc: 'Do you want to create a new group? Just enter a name!'
+        createModalDesc: 'Do you want to create a new group? Just enter a name!',
+        kick: 'Kick',
+        kickGroupTitle: 'Manage users',
+        kickGroupDesc: 'Do you want kick or add a user? Here we go!',
+        search: 'Search user',
+        invite: 'Invite'
     },
     error: {
         // Login
@@ -223,6 +228,8 @@ export const text = {
         GROUP_DOES_NOT_EXIST_OR_USER_IS_NOT_OWNER: 'The group does not exist or you are not the owner',
         INVALID_PARTY_NAME_FORMAT: 'A group name must be 1-15 characters long',
         INVALID_PARTY_NAME_LENGTH: 'A group name can contain only A-Z, a-z, 0-9 and .-_',
+        CAN_NOT_KICK_OWNER: 'The founder of the group cannot be kicked out',
+        USER_IS_ALREADY_IN_GROUP: 'The user is already in the group',
 
         // Other
         USER_NOT_FOUND: 'Account not found',
@@ -254,7 +261,9 @@ export const text = {
         GROUP_DELETED: 'The group has been deleted',
         GROUP_CREATED: 'The group has been added',
         QUEST_DELETED: 'The quest has been deleted',
-        GROUP_EDITED: 'The group has been edited'
+        GROUP_EDITED: 'The group has been edited',
+        USER_KICKED: 'The user has been kicked out',
+        USER_INVITED: 'The user has been invited'
 
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka
