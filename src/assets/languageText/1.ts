@@ -152,7 +152,9 @@ export const text = {
         categoryLabel: 'Category',
         edit: 'Edit',
         editQuestTitle: 'Edit the quest',
-        editQuestSubTitle: 'Have we decided to edit the quest? Let\'s go!'
+        editQuestSubTitle: 'Have we decided to edit the quest? Let\'s go!',
+
+        addToGroup: 'Add to group'
     },
     stageStatus: {
         ON_STAGE: 'In progress',
@@ -184,7 +186,12 @@ export const text = {
         kickGroupTitle: 'Manage users',
         kickGroupDesc: 'Do you want kick or add a user? Here we go!',
         search: 'Search user',
-        invite: 'Invite'
+        add: 'Add',
+        invite: 'Invite',
+        noGroupLeft: 'No group left',
+
+        addQuestTitle: 'Add quest to group',
+        addQuestDesc: 'Do you want to add the quest in to a group? No problem!'
     },
     error: {
         // Login
@@ -230,6 +237,8 @@ export const text = {
         INVALID_PARTY_NAME_LENGTH: 'A group name can contain only A-Z, a-z, 0-9 and .-_',
         CAN_NOT_KICK_OWNER: 'The founder of the group cannot be kicked out',
         USER_IS_ALREADY_IN_GROUP: 'The user is already in the group',
+        QUEST_IS_PRIVATE: 'The quest cannot be added because it is private',
+        QUEST_ALREADY_IN_GROUP: 'The quest is already in the group',
 
         // Other
         USER_NOT_FOUND: 'Account not found',
@@ -263,7 +272,8 @@ export const text = {
         QUEST_DELETED: 'The quest has been deleted',
         GROUP_EDITED: 'The group has been edited',
         USER_KICKED: 'The user has been kicked out',
-        USER_INVITED: 'The user has been invited'
+        USER_INVITED: 'The user has been invited',
+        QUEST_ADDED_TO_GROUP: 'The quest has been added'
 
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka

@@ -153,7 +153,9 @@ export const text = {
         categoryLabel: 'Kategória',
         edit: 'Upraviť',
         editQuestTitle: 'Upraviť úloha',
-        editQuestSubTitle: 'Rozhodli ste sa upraviť úlohu? Poďme na to!'
+        editQuestSubTitle: 'Rozhodli ste sa upraviť úlohu? Poďme na to!',
+
+        addToGroup: 'Pridať do skupiny',
     },
     stageStatus: {
         ON_STAGE: 'Vykonáva sa',
@@ -185,7 +187,12 @@ export const text = {
         kickGroupTitle: 'Spravovať používateľov',
         kickGroupDesc: 'Chcete pridať alebo vyhodiť používateľa? Poďme na to!',
         search: 'Vyhľadať používateľa',
-        invite: 'Pozvať'
+        add: 'Pridať',
+        invite: 'Pozvať',
+        noGroupLeft: 'Žiadne ďalšie kategórie',
+
+        addQuestTitle: 'Pridať úlohu do skupiny',
+        addQuestDesc: 'Chcete pridať úlohu do skupiny? Žiaden problém!'
     },
     error: {
         // Login
@@ -232,6 +239,8 @@ export const text = {
         INVALID_PARTY_NAME_LENGTH: 'Názov skupiny môže obsahovať A-Z, a-z, 0-9 a -_.',
         CAN_NOT_KICK_OWNER: 'Zakladateľ skupiny nemôže byť vyhodený',
         USER_IS_ALREADY_IN_GROUP: 'Používateľ už je v skupine',
+        QUEST_IS_PRIVATE: 'Úloha sa nedá pridať, pretože je súkromná',
+        QUEST_ALREADY_IN_GROUP: 'Úloha už je v skupine',
 
         // Other
         USER_NOT_FOUND: 'Účet nenájdený',
@@ -265,6 +274,7 @@ export const text = {
         QUEST_DELETED: 'Úloha bola odstránená',
         GROUP_EDITED: 'Skupina bola upravená',
         USER_KICKED: 'Používateľ bol vyhodený',
-        USER_INVITED: 'Používateľ bol pozvaný'
+        USER_INVITED: 'Používateľ bol pozvaný',
+        QUEST_ADDED_TO_GROUP: 'Úloha bola pridaná do skupiny'
     }
 }

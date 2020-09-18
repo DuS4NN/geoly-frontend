@@ -10,6 +10,7 @@ import QuestGallery from "../components/Quest/QuestGallery";
 import QuestTitle from "../components/Quest/QuestTitle";
 import {UserContext} from "../UserContext";
 import ModalReportQuest from "../components/Modals/ModalReportQuest";
+import ModalAddQuestToGroup from "../components/Modals/ModalAddQuestToGroup";
 
 // Props
 interface Props {
@@ -28,6 +29,7 @@ const Quest: React.FC = () => {
     const [details, setDetails] = useState({}) as any
 
     const [showReportModal, setShowReportModal] = useState(false)
+    const [showAddModal, setShowAddModal] = useState(false)
 
     const [countReviews, setCountReviews] = useState(0)
     const [addReview, setAddReview] = useState(0)
@@ -74,6 +76,10 @@ const Quest: React.FC = () => {
 
     const openReportModal = () => {
         setShowReportModal(true)
+    }
+
+    const openAddModal = () => {
+        setShowAddModal(true)
     }
 
     useEffect(() => {
@@ -181,13 +187,15 @@ const Quest: React.FC = () => {
             {details.questPrivate === 0 || (details.questPrivate === 1 && details.questOwner === 0) ? (
                 <div>
                     <ModalReportQuest questId={id} showReportModal={showReportModal} setShowReportModal={setShowReportModal} />
+                    <ModalAddQuestToGroup showModal={showAddModal} setShowModal={setShowAddModal} questId={id} />
 
                     <QuestTitle details={details} />
 
                     <QuestMap stages={stages} />
 
                     <div className="quest-report">
-                    <img title={text.review.report} onClick={openReportModal} alt="" src={require("../assets/images/otherIcons/report.svg")} />
+                        <img title={text.review.report} onClick={openReportModal} alt="" src={require("../assets/images/otherIcons/report.svg")} />
+                        <img title={text.userQuest.addToGroup} className="add" onClick={openAddModal} alt="" src={require("../assets/images/otherIcons/add-black.svg")} />
                     </div>
 
                     <div className="quest-detail-content">

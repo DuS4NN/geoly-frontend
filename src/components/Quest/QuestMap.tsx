@@ -22,8 +22,6 @@ const QuestMap: React.FC<Props> = (props) => {
         }
     )
 
-
-
     useEffect(() => {
         if(map && stages.length > 0){
             const findCenter = () => {
