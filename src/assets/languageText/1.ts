@@ -189,6 +189,10 @@ export const text = {
         add: 'Add',
         invite: 'Invite',
         noGroupLeft: 'No group left',
+        leave: 'Leave',
+        joinedGroups: 'Joined groups',
+        leaveGroupTitle: 'Leave group',
+        leaveGroupDesc: 'Are you sure you want to leave this group?',
 
         addQuestTitle: 'Add quest to group',
         addQuestDesc: 'Do you want to add the quest in to a group? No problem!'
@@ -239,6 +243,7 @@ export const text = {
         USER_IS_ALREADY_IN_GROUP: 'The user is already in the group',
         QUEST_IS_PRIVATE: 'The quest cannot be added because it is private',
         QUEST_ALREADY_IN_GROUP: 'The quest is already in the group',
+        CAN_NOT_LEAVE_OWN_GROUP: 'Owner cannot leave group',
 
         // Other
         USER_NOT_FOUND: 'Account not found',
@@ -273,7 +278,8 @@ export const text = {
         GROUP_EDITED: 'The group has been edited',
         USER_KICKED: 'The user has been kicked out',
         USER_INVITED: 'The user has been invited',
-        QUEST_ADDED_TO_GROUP: 'The quest has been added'
+        QUEST_ADDED_TO_GROUP: 'The quest has been added',
+        GROUP_LEAVED: 'The group has been left'
 
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka

@@ -15,7 +15,7 @@ interface Props {
 }
 
 // Component
-const GroupsListCreatedItem: React.FC<Props> = (props) => {
+const GroupListCreatedItem: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
     const [date, setDate] = useState(new Date())
@@ -58,4 +58,4 @@ const GroupsListCreatedItem: React.FC<Props> = (props) => {
     )
 }
 
-export default GroupsListCreatedItem
+export default GroupListCreatedItem

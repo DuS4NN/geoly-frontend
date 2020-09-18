@@ -190,6 +190,9 @@ export const text = {
         add: 'Pridať',
         invite: 'Pozvať',
         noGroupLeft: 'Žiadne ďalšie kategórie',
+        joinedGroups: 'Ostatné skupiny',
+        leaveGroupTitle: 'Opustiť skupinu',
+        leaveGroupDesc: 'Ste si istý, že chcete opustitť túto skupinu?',
 
         addQuestTitle: 'Pridať úlohu do skupiny',
         addQuestDesc: 'Chcete pridať úlohu do skupiny? Žiaden problém!'
@@ -241,6 +244,7 @@ export const text = {
         USER_IS_ALREADY_IN_GROUP: 'Používateľ už je v skupine',
         QUEST_IS_PRIVATE: 'Úloha sa nedá pridať, pretože je súkromná',
         QUEST_ALREADY_IN_GROUP: 'Úloha už je v skupine',
+        CAN_NOT_LEAVE_OWN_GROUP: 'Majiteľ nemôže opustiť skupinu',
 
         // Other
         USER_NOT_FOUND: 'Účet nenájdený',
@@ -275,6 +279,7 @@ export const text = {
         GROUP_EDITED: 'Skupina bola upravená',
         USER_KICKED: 'Používateľ bol vyhodený',
         USER_INVITED: 'Používateľ bol pozvaný',
-        QUEST_ADDED_TO_GROUP: 'Úloha bola pridaná do skupiny'
+        QUEST_ADDED_TO_GROUP: 'Úloha bola pridaná do skupiny',
+        GROUP_LEAVED: 'Skupina bola opustená'
     }
 }

@@ -123,6 +123,22 @@
               }
             }
           }
+          .item-buttons-entered{
+            width: 15px;
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: right;
+            vertical-align: middle;
+            display: table-cell;
+            border-left: 1px solid var(--light-mode-input-backgroud);
+
+            img{
+              padding: 5px;
+              cursor: pointer;
+              width: 15px;
+              height: 15px;
+            }
+          }
 
         }
         .content-item:hover{

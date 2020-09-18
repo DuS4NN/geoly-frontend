@@ -6,7 +6,7 @@ import {UserContext} from "../../UserContext"
 import './GroupsList.scss'
 import {createMuiTheme, makeStyles, MuiThemeProvider} from "@material-ui/core/styles";
 import Pagination from "@material-ui/lab/Pagination";
-import GroupsListCreatedItem from "./GroupsListCreatedItem";
+import GroupsListCreatedItem from "./GroupListCreatedItem";
 import ModalDeleteGroup from "../Modals/ModalDeleteGroup";
 import ModalEditGroup from "../Modals/ModalEditGroup";
 import ModalAddGroup from "../Modals/ModalAddGroup";
@@ -82,55 +82,58 @@ const GroupsListCreated: React.FC<Props> = (props) => {
     return (
         <div className="group-list-table">
 
-            <ModalDeleteGroup showModal={showDeleteModal} setShowModal={setShowDeleteModal} deleteGroupId={deleteGroupId} createdGroups={createdGroups} count={count} setCount={setCount} page={page} setPage={setPage} getCreatedGroups={getCreatedGroups} />
-            <ModalEditGroup showModal={showEditModal} setShowModal={setShowEditModal} editGroup={editGroup} createdGroups={createdGroups} setCreatedGroups={setCreatedGroups} />
-            <ModalAddGroup showModal={showAddModal} setShowModal={setShowAddModal} count={count} setCount={setCount} setPage={setPage} getCreatedGroups={getCreatedGroups} />
-            <ModalManageGroup showModal={showManageModal} setShowModal={setShowManageModal} groupId={manageGroupId} />
+            {createdGroups.length > 0 && (
+                <div>
+                    <ModalDeleteGroup showModal={showDeleteModal} setShowModal={setShowDeleteModal} deleteGroupId={deleteGroupId} createdGroups={createdGroups} count={count} setCount={setCount} page={page} setPage={setPage} getCreatedGroups={getCreatedGroups} />
+                    <ModalEditGroup showModal={showEditModal} setShowModal={setShowEditModal} editGroup={editGroup} createdGroups={createdGroups} setCreatedGroups={setCreatedGroups} />
+                    <ModalAddGroup showModal={showAddModal} setShowModal={setShowAddModal} count={count} setCount={setCount} setPage={setPage} getCreatedGroups={getCreatedGroups} />
+                    <ModalManageGroup showModal={showManageModal} setShowModal={setShowManageModal} groupId={manageGroupId} />
 
 
-            <div className="group-list-container">
+                    <div className="group-list-container">
 
-                <div className="container-title">
-                    <h2>{text.groups.createdGroups}</h2>
-                </div>
+                        <div className="container-title">
+                            <h2>{text.groups.createdGroups}</h2>
+                        </div>
 
-                <div className="container-content">
-                    {createdGroups.map((group:any) => (
-                        <GroupsListCreatedItem
-                            key={group.groupId}
-                            group={group}
-                            handleShowDeleteModal={handleShowDeleteModal}
-                            handleShowEditModal={handleShowEditModal}
-                            handleShowManageModal={handleShowManageModal}
-                        />
-                    ))}
-                    <div className="content-item">
-                        <div className="item-add">
-                            <div className="add-image" onClick={handleShowAddModal}>
-                                <img src={require("../../assets/images/otherIcons/add.svg")} alt="" />
-                            </div>
-                            <div className="add-title" onClick={handleShowAddModal}>
-                                <h2>{text.groups.create}</h2>
+                        <div className="container-content">
+                            {createdGroups.map((group:any) => (
+                                <GroupsListCreatedItem
+                                    key={group.groupId}
+                                    group={group}
+                                    handleShowDeleteModal={handleShowDeleteModal}
+                                    handleShowEditModal={handleShowEditModal}
+                                    handleShowManageModal={handleShowManageModal}
+                                />
+                            ))}
+                            <div className="content-item">
+                                <div className="item-add">
+                                    <div className="add-image" onClick={handleShowAddModal}>
+                                        <img src={require("../../assets/images/otherIcons/add.svg")} alt="" />
+                                    </div>
+                                    <div className="add-title" onClick={handleShowAddModal}>
+                                        <h2>{text.groups.create}</h2>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
+                        {count > 5 && (
+                            <MuiThemeProvider theme={theme}>
+                                <Pagination
+                                    className={classes.alignItemsAndJustifyContent + " pagination"}
+                                    count={Math.ceil(count/5)}
+                                    page={page}
+                                    color="primary"
+                                    onChange={handleChangePage}
+                                />
+                            </MuiThemeProvider>
+                        )}
+
                     </div>
                 </div>
-
-                {count > 5 && (
-                    <MuiThemeProvider theme={theme}>
-                        <Pagination
-                            className={classes.alignItemsAndJustifyContent + " pagination"}
-                            count={Math.ceil(count/5)}
-                            page={page}
-                            color="primary"
-                            onChange={handleChangePage}
-                        />
-                    </MuiThemeProvider>
-                )}
-
-            </div>
-
+            )}
 
         </div>
     )

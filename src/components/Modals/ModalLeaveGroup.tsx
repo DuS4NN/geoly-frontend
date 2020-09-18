@@ -2,6 +2,8 @@ import React, {useContext} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
+//@ts-ignore
+import disableScroll from 'disable-scroll'
 // Context
 import {UserContext} from "../../UserContext";
 // Style
@@ -12,33 +14,29 @@ import {useAlert} from "react-alert";
 interface Props {
     showModal: boolean
     setShowModal: (show: boolean) => void
-    deleteReviewId: number
-    setReviews: (review:any) => void
-    setAddReview: (addReview:number) => void
-    reviews: any
+    leaveGroupId: number
+    groups: any
     page: number
     setPage: (page:number) => void
     count: number
     setCount: (count:number) => void
-    getReviews: (page:number) => void
+    getEnteredGroups: (page:number) => void
 }
 
 // Components
-const ModalDeleteReview: React.FC<Props> = (props) => {
+const ModalLeaveGroup: React.FC<Props> = (props) => {
     // Context
     const {userContext} = useContext(UserContext)
     const alert = useAlert()
 
     // Props state
-    const {showModal, setShowModal, deleteReviewId, reviews, setReviews, setAddReview, page, setPage, count, setCount, getReviews} = props
+    const {showModal, setShowModal, leaveGroupId, groups, page, setPage, count, setCount, getEnteredGroups} = props
 
 
     // Modal
     Modal.setAppElement("#root")
     // Text
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
-
-
 
     // Methods
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -53,13 +51,13 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
     }
 
     const onAfterOpenModal = () => {
-        document.addEventListener("keydown", handleKeyPress);
+           document.addEventListener("keydown", handleKeyPress);
     }
 
     const handleSubmit = () => {
         axios({
-            method: 'DELETE',
-            url: process.env.REACT_APP_API_SERVER_URL+'/quest/review?reviewId='+deleteReviewId,
+            method: 'GET',
+            url: process.env.REACT_APP_API_SERVER_URL+'/group/leave?id='+leaveGroupId,
             withCredentials: true
         }).then(function (response) {
             let serverResponse = response.data.responseEntity.body
@@ -67,17 +65,17 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
 
             if(statusCode === 'ACCEPTED'){
 
-                if(count > 1 && reviews.length === 1){
-                    getReviews(page-1)
+                if(count > 1 && groups.length === 1){
+                    getEnteredGroups(page-1)
                     setPage(page-1)
                 }else{
-                    getReviews(page)
+                    getEnteredGroups(page)
                 }
-
                 setCount(count-1)
                 alert.success(text.success[serverResponse])
-                setAddReview(1)
                 handleCloseModal()
+            }else if(serverResponse === 'CAN_NOT_LEAVE_OWN_GROUP'){
+                alert.error(text.error[serverResponse])
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
@@ -98,11 +96,11 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
 
             <div className="modal-form">
                 <div className="title">
-                    <h3>{text.deleteReview.title}</h3>
+                    <h3>{text.groups.leaveGroupTitle}</h3>
                 </div>
                 <div className="subtitle">
                     <span>
-                        {text.deleteReview.subTitle}
+                        {text.groups.leaveGroupDesc}
                     </span>
                 </div>
                 <div className="form">
@@ -122,4 +120,4 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
     )
 }
 
-export default ModalDeleteReview
+export default ModalLeaveGroup
