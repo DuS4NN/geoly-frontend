@@ -42,7 +42,6 @@ const ModalEditGroup: React.FC<Props> = (props) => {
                 let statusCode = response.data.responseEntity.statusCode
 
                 if(statusCode === 'OK'){
-                    console.log(response.data.data)
                     let newQuestsInGroup = response.data.data.map((quest:any) => {
                         return {
                             partyQuestId: quest[0],

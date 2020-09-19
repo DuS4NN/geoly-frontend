@@ -197,6 +197,10 @@ export const text = {
         addQuestTitle: 'Add quest to group',
         addQuestDesc: 'Do you want to add the quest in to a group? No problem!'
     },
+    group: {
+        created: 'Created: ',
+        noQuest: 'The group has no quests'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',
@@ -244,6 +248,7 @@ export const text = {
         QUEST_IS_PRIVATE: 'The quest cannot be added because it is private',
         QUEST_ALREADY_IN_GROUP: 'The quest is already in the group',
         CAN_NOT_LEAVE_OWN_GROUP: 'Owner cannot leave group',
+        GROUP_IS_FULL: 'The group is full',
 
         // Other
         USER_NOT_FOUND: 'Account not found',

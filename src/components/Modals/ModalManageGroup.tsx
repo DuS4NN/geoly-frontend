@@ -91,7 +91,7 @@ const ModalManageGroup: React.FC<Props> = (props) => {
             if(statusCode === 'ACCEPTED'){
                 setSearchInput("")
                 alert.success(text.success[serverResponse])
-            }else if(serverResponse === 'USER_IS_ALREADY_IN_GROUP' || serverResponse === 'USER_NOT_FOUND'){
+            }else if(serverResponse === 'USER_IS_ALREADY_IN_GROUP' || serverResponse === 'GROUP_IS_FULL' || serverResponse === 'USER_NOT_FOUND'){
                 alert.error(text.error[serverResponse])
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)

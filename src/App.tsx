@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Switch, Route} from "react-router-dom"
+import { UserContext } from "./UserContext"
 
 //Children
 import Verify from "./components/Account/Verify/Verify"
@@ -12,12 +13,12 @@ import Map from "./views/Map"
 import Quest from "./views/Quest"
 import Ranking from "./views/Ranking";
 import UserQuest from "./views/UserQuest";
+import Groups from "./views/Groups";
+import Group from "./views/Group";
 
-// Context
-import { UserContext } from "./UserContext"
 // Style
 import './App.scss'
-import Groups from "./views/Groups";
+
 
 
 // Component
@@ -60,6 +61,7 @@ function App() {
                         <Route path="/quest/" component={Quest} />
                         <Route exact path="/quests" component={UserQuest} />
                         <Route exact path="/groups" component={Groups} />
+                        <Route path={"/group/"} component={Group} />
                     </Switch>
                 </main>
 

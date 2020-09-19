@@ -199,8 +199,8 @@ const Quest: React.FC = () => {
                     </div>
 
                     <div className="quest-detail-content">
-                    <QuestDetails details={details} />
-                    <QuestStages stages={stages}/>
+                        <QuestDetails details={details} />
+                        <QuestStages stages={stages}/>
                     </div>
 
                     <QuestGallery images={images} />

@@ -197,6 +197,10 @@ export const text = {
         addQuestTitle: 'Pridať úlohu do skupiny',
         addQuestDesc: 'Chcete pridať úlohu do skupiny? Žiaden problém!'
     },
+    group: {
+        created: 'Vytvorené: ',
+        noQuest: 'Skupina nemá žiadne úlohy'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',
@@ -245,6 +249,7 @@ export const text = {
         QUEST_IS_PRIVATE: 'Úloha sa nedá pridať, pretože je súkromná',
         QUEST_ALREADY_IN_GROUP: 'Úloha už je v skupine',
         CAN_NOT_LEAVE_OWN_GROUP: 'Majiteľ nemôže opustiť skupinu',
+        GROUP_IS_FULL: 'Skupina je plná',
 
         // Other
         USER_NOT_FOUND: 'Účet nenájdený',
