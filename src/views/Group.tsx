@@ -17,7 +17,7 @@ const Group: React.FC<Props> = (props) => {
     const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
 
     const [id] = useState(window.location.href.split('/').pop())
-    const [selectedQuest, setSelectedQuest] = useState(0)
+    const [selectedQuest, setSelectedQuest] = useState({})
     const [details, setDetails] = useState({}) as Array<any>
     const [users, setUsers] = useState([]) as Array<any>
     const [quests, setQuests] = useState([]) as Array<any>
@@ -47,7 +47,7 @@ const Group: React.FC<Props> = (props) => {
                 }))
 
                 setQuests(response.data.data[2].map((quest:any, index:number) => {
-                    if(index===1) setSelectedQuest(quest[5])
+                    if(index===1) setSelectedQuest(quest)
                     return {
                         questDescription: quest[0],
                         questDifficulty: quest[1],

@@ -1,5 +1,145 @@
 .group{
-  .group-quest-details{
+  .group-quest-detail{
+    border-left: 1px solid var(--light-mode-input-backgroud);
+    vertical-align: top;
+    height: 100%;
+    display: inline-block;
+    width: calc(70% - 1px);
 
+    .quest-detail-title{
+      padding-top: 30px;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-bottom: 20px;
+
+      a{
+        text-decoration: none;
+        margin: 0;
+        color: var(--light-mode-dark-green);
+        font-family: Nexa;
+        font-weight: bold;
+        font-size: 25px;
+        letter-spacing: 0.8px;
+      }
+    }
+
+    .quest-detail-map{
+      width: 100%;
+      height: 300px;
+
+      .gmnoprint, .gm-style-cc, .gm-control-active, .gm-fullscreen-control {
+        display: none;
+      }
+    }
+
+    .quest-detail-stages{
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      width: 90%;
+
+      .stage-item:hover{
+        background: var(--light-mode-input-backgroud);
+      }
+      .stage-item{
+        width: 100%;
+        display: table;
+        height: 55px;
+        border-bottom: 1px solid var(--light-mode-input-backgroud);
+
+        .item-image{
+          width: 35px;
+          padding-left: 15px;
+          padding-right: 15px;
+          display: table-cell;
+          vertical-align: middle;
+          img{
+            vertical-align: middle;
+            width: 35px;
+          }
+        }
+        .item-name{
+          width: inherit;
+          font-family: OpenSans;
+          font-size: 15px;
+          display: table-cell;
+          vertical-align: middle;
+        }
+        .item-arrow{
+          padding-right: 30px;
+          width: 50px;
+          display: table-cell;
+          vertical-align: middle;
+          text-align: right;
+          img{
+            vertical-align: middle;
+            width: 15px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .stage-user-item{
+        height: 45px;
+        width: 90%;
+        float: right;
+        display: table;
+        border-bottom: 1px solid var(--light-mode-input-backgroud);
+
+        .user-image{
+          width: 30px;
+          padding-right: 15px;
+          padding-left: 15px;
+          display: table-cell;
+          vertical-align: middle;
+          img {
+            width: 30px;
+            vertical-align: middle;
+            border-radius: 50%;
+          }
+        }
+        .user-name{
+          text-align: left;
+          display: table-cell;
+          vertical-align: middle;
+          a{
+            color: black;
+            text-decoration: none;
+            font-family: OpenSans;
+            font-size: 14px;
+          }
+        }
+        .user-time{
+          text-align: right;
+          display: table-cell;
+          vertical-align: middle;
+          color: var(--light-mode-gray-text);
+          font-family: Nexa;
+          font-size: 13px;
+          letter-spacing: 0.2px;
+        }
+        .user-status{
+          width: 20px;
+          padding-left: 15px;
+          padding-right: 15px;
+          display: table-cell;
+          vertical-align: middle;
+          img{
+            vertical-align: middle;
+            width: 20px;
+          }
+        }
+      }
+
+      .user-info.expanded{
+        width: 100%;
+        display: table;
+      }
+      .user-info{
+        width: 100%;
+        display: none;
+      }
+    }
   }
 }

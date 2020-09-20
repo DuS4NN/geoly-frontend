@@ -6,12 +6,11 @@
     margin-right: auto;
     width: 90%;
     max-width: 1500px;
-    display: table;
     border: 1px solid var(--light-mode-input-backgroud);
 
     .group-quest-list{
-      border-right: 1px solid var(--light-mode-input-backgroud);
-      display: table-cell;
+      height: 100%;
+      display: inline-block;
       width: 30%;
 
       .quest-list-item:hover{
@@ -45,11 +44,6 @@
         }
 
       }
-    }
-
-    .group-quest-details{
-      display: table-cell;
-      width: 70%;
     }
   }
 

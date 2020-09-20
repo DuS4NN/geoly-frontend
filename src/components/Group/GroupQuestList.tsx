@@ -1,8 +1,5 @@
 import React, {useContext} from 'react'
 import {UserContext} from "../../UserContext"
-import {NavLink} from "react-router-dom"
-
-// Style
 
 // Props
 interface Props {
@@ -17,15 +14,15 @@ const GroupQuestList: React.FC<Props> = (props) => {
 
     const {quests, setSelectedQuest} = props
 
-    const handleClickOnQuest = (questId:number) => {
-        setSelectedQuest(questId)
+    const handleClickOnQuest = (quest:number) => {
+        setSelectedQuest(quest)
     }
 
     // Template
     return (
         <div className="group-quest-list">
             {quests.map((quest:any) => (
-                <div key={quest.questId} className="quest-list-item" onClick={() => handleClickOnQuest(quest.questId)}>
+                <div key={quest.questId} className="quest-list-item" onClick={() => handleClickOnQuest(quest)}>
                     <div className="quest-category">
                         <img alt="" src={require("../../"+quest.categoryImage)} />
                     </div>
