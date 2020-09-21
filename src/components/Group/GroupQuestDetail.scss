@@ -32,12 +32,54 @@
       }
     }
 
+    .quest-detail-desc{
+
+      .quest-detail-desc-title{
+        font-family: Nexa;
+        font-weight: bold;
+        color: var(--light-mode-dark-green);
+        padding-bottom: 10px;
+        font-size: 17px;
+        letter-spacing: 0.2px;
+        text-transform: uppercase;
+      }
+
+      padding: 20px;
+      font-family: OpenSansText;
+      font-weight: inherit;
+      font-size: 15px;
+      letter-spacing: 0.1px;
+    }
+
+    .quest-detail-gallery{
+      margin-top: 10px;
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .quest-detail-stages{
       margin-right: auto;
       margin-left: auto;
       margin-top: 30px;
       margin-bottom: 30px;
       width: 90%;
+
+      .quest-detail-stages-title{
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        border-top: 1px solid var(--light-mode-input-backgroud);
+        font-family: Nexa;
+        font-weight: bold;
+        color: var(--light-mode-dark-green);
+        font-size: 17px;
+        letter-spacing: 0.2px;
+        text-transform: uppercase;
+        text-align: center;
+      }
 
       .stage-item:hover{
         background: var(--light-mode-input-backgroud);
@@ -152,7 +194,8 @@
       margin-right: auto;
       width: 100%;
       text-align: center;
-      margin-bottom: 30px;
+      margin-top: 10px;
+      margin-bottom: 50px;
 
       button {
         font-size: 16px;

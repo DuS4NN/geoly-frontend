@@ -1,13 +1,15 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect, useRef, useState} from 'react'
 import {UserContext} from "../../UserContext"
 import axios from 'axios'
 import {NavLink} from "react-router-dom"
 import {useGoogleMaps} from "react-hook-google-maps/dist";
+import GroupQuestDetailStageItem from "./GroupQuestDetailStageItem";
+import {useAlert} from "react-alert";
+import Chart from "chart.js";
 
 // Style
 import './GroupQuestDetail.scss'
-import GroupQuestDetailStageItem from "./GroupQuestDetailStageItem";
-import {useAlert} from "react-alert";
+import ImageGallery from "react-image-gallery";
 
 // Props
 interface Props {
@@ -24,7 +26,9 @@ const GroupQuestDetail: React.FC<Props> = (props) => {
     const [stages, setStages] = useState([]) as Array<any>
     const [userInfo, setUserInfo] = useState([]) as Array<any>
     const [active, setActive] = useState(false) as Array<any>
+    const [images, setImages] = useState([]) as Array<any>
     const [markers] = useState([]) as Array<any>
+
 
     const {selectedQuest, id} = props
     const {ref, map, google} = useGoogleMaps(
@@ -34,6 +38,8 @@ const GroupQuestDetail: React.FC<Props> = (props) => {
             zoom: 12
         }
     )
+
+
 
     useEffect(() => {
         if(selectedQuest.questId){
@@ -66,12 +72,21 @@ const GroupQuestDetail: React.FC<Props> = (props) => {
 
                     setActive(response.data.data[2][0]>0)
 
+                    setImages(response.data.data[3].map((image:any) => {
+                        return {
+                            original: process.env.REACT_APP_IMAGE_SERVER_URL+image,
+                            thumbnail: process.env.REACT_APP_IMAGE_SERVER_URL+image
+                        }
+                    }))
+
                 }else{
                     alert.error(text.error.SOMETHING_WENT_WRONG)
                 }
             })
+
         }
     }, [selectedQuest])
+
     useEffect(() => {
         if(map && stages.length > 0) {
             markers.map((marker:any) => {
@@ -165,6 +180,7 @@ const GroupQuestDetail: React.FC<Props> = (props) => {
 
     }, [map, stages])
 
+
     const handleSubmit = () => {
         if(!active){
             axios({
@@ -212,7 +228,26 @@ const GroupQuestDetail: React.FC<Props> = (props) => {
             <div ref={ref} className="quest-detail-map">
             </div>
 
+            <div className="quest-detail-desc">
+                <div className="quest-detail-desc-title">
+                    {text.group.details}
+                </div>
+                {selectedQuest.questDescription}
+            </div>
+
+            {images.length>0 && (
+                <div className="quest-detail-gallery">
+                    <ImageGallery
+                        items={images}
+                        showPlayButton={false}
+                    />
+                </div>
+            )}
+
             <div className="quest-detail-stages">
+                <div className="quest-detail-stages-title">
+                    {text.group.stages}
+                </div>
                 {([].concat(stages).reverse()).map((stage:any) => (
                     <GroupQuestDetailStageItem key={stage.stageId} stage={stage} userInfo={userInfo} />
                 ))}

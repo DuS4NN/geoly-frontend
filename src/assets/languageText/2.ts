@@ -201,7 +201,11 @@ export const text = {
         created: 'Vytvorené: ',
         noQuest: 'Skupina nemá žiadne úlohy',
         signUp: 'Prihlásiť sa',
-        signOut: 'Odhlásiť sa'
+        signOut: 'Odhlásiť sa',
+        USER_HAS_ACTIVE_QUEST: 'Používateľ môže mať iba jednu aktívnu úlohu',
+        USER_ALREADY_FINISHED_QUEST: 'Úlohu je možné dokončiť iba raz',
+        details: 'Detaily',
+        stages: 'Etapy'
     },
     error: {
         // Login
