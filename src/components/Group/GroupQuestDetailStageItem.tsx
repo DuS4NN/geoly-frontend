@@ -1,10 +1,10 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {UserContext} from "../../UserContext"
 import {NavLink} from "react-router-dom";
 
 // Props
 interface Props {
-   stage: any
+    stage: any
     userInfo: any
 }
 
@@ -16,10 +16,15 @@ const GroupQuestDetailStageItem: React.FC<Props> = (props) => {
     const {stage, userInfo} = props
 
     const [expanded, setExpanded] = useState(false) as Array<any>
+    const [filteredUserInfo, setFilteredUserInfo] = useState([]) as Array<any>
 
     const handleExpand = () => {
         setExpanded(!expanded)
     }
+
+    useEffect(() => {
+        setFilteredUserInfo(userInfo.filter(function (info:any) {return info.userQuestStageId === stage.stageId}))
+    }, [userInfo])
 
     // Template
     return (
@@ -31,15 +36,13 @@ const GroupQuestDetailStageItem: React.FC<Props> = (props) => {
                 <div className="item-name">
                     <span>{text.stageType[stage.stageType]}</span>
                 </div>
-                <div className="item-arrow">
+                <div className={filteredUserInfo.length > 0 ? "item-arrow" : "item-arrow hide"}>
                     <img onClick={handleExpand} alt="" src={require("../../assets/images/otherIcons/arrow-down.svg")} />
                 </div>
             </div>
 
             <div className={expanded ? "user-info expanded" : "user-info"}>
-                {userInfo.filter(function (info:any) {
-                    return info.userQuestStageId === stage.stageId
-                }).map((info:any) => (
+                {filteredUserInfo.map((info:any) => (
                     <div key={info.userQuestId} className="stage-user-item">
                         <div className="user-image">
                             <img src={process.env.REACT_APP_IMAGE_SERVER_URL+info.userImage} alt="" />

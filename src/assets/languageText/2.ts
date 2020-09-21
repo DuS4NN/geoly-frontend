@@ -199,7 +199,9 @@ export const text = {
     },
     group: {
         created: 'Vytvorené: ',
-        noQuest: 'Skupina nemá žiadne úlohy'
+        noQuest: 'Skupina nemá žiadne úlohy',
+        signUp: 'Prihlásiť sa',
+        signOut: 'Odhlásiť sa'
     },
     error: {
         // Login

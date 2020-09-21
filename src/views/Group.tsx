@@ -47,8 +47,7 @@ const Group: React.FC<Props> = (props) => {
                 }))
 
                 setQuests(response.data.data[2].map((quest:any, index:number) => {
-                    if(index===1) setSelectedQuest(quest)
-                    return {
+                    let q = {
                         questDescription: quest[0],
                         questDifficulty: quest[1],
                         categoryImage: quest[2],
@@ -56,6 +55,10 @@ const Group: React.FC<Props> = (props) => {
                         questName: quest[4],
                         questId: quest[5]
                     }
+                    if(index === 0){
+                        setSelectedQuest(q)
+                    }
+                    return q
                 }))
 
             }else{

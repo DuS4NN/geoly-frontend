@@ -1,5 +1,4 @@
-import React, {useContext} from 'react'
-import {UserContext} from "../../UserContext"
+import React from 'react'
 
 // Props
 interface Props {
@@ -9,9 +8,6 @@ interface Props {
 
 // Component
 const GroupQuestList: React.FC<Props> = (props) => {
-    const {userContext} = useContext(UserContext)
-    const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
-
     const {quests, setSelectedQuest} = props
 
     const handleClickOnQuest = (quest:number) => {

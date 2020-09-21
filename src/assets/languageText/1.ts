@@ -199,7 +199,11 @@ export const text = {
     },
     group: {
         created: 'Created: ',
-        noQuest: 'The group has no quests'
+        noQuest: 'The group has no quests',
+        signUp: 'Sign Up',
+        signOut: 'Sign Out',
+        USER_HAS_ACTIVE_QUEST: 'You have already signed up for this quest',
+        USER_ALREADY_FINISHED_QUEST: 'A quest can be completed only once'
     },
     error: {
         // Login

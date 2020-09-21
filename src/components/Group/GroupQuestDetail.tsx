@@ -7,6 +7,7 @@ import {useGoogleMaps} from "react-hook-google-maps/dist";
 // Style
 import './GroupQuestDetail.scss'
 import GroupQuestDetailStageItem from "./GroupQuestDetailStageItem";
+import {useAlert} from "react-alert";
 
 // Props
 interface Props {
@@ -18,9 +19,11 @@ interface Props {
 const GroupQuestDetail: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
+    const alert = useAlert()
 
     const [stages, setStages] = useState([]) as Array<any>
     const [userInfo, setUserInfo] = useState([]) as Array<any>
+    const [active, setActive] = useState(false) as Array<any>
     const [markers] = useState([]) as Array<any>
 
     const {selectedQuest, id} = props
@@ -39,26 +42,33 @@ const GroupQuestDetail: React.FC<Props> = (props) => {
                 url: process.env.REACT_APP_API_SERVER_URL+'/group/questdetails?partyId='+id+'&questId='+selectedQuest.questId,
                 withCredentials: true
             }).then(function (response) {
+                let statusCode = response.data.responseEntity.statusCode
+                if(statusCode === 'OK'){
+                    setStages(response.data.data[0].map((stage:any) => {
+                        return {
+                            stageId: stage[0],
+                            stageType: stage[1],
+                            stageLat: stage[2],
+                            stageLon: stage[3]
+                        }
+                    }))
 
-                setStages(response.data.data[0].map((stage:any) => {
-                    return {
-                        stageId: stage[0],
-                        stageType: stage[1],
-                        stageLat: stage[2],
-                        stageLon: stage[3]
-                    }
-                }))
+                    setUserInfo(response.data.data[1].map((userInfo:any) => {
+                        return {
+                            userQuestId: userInfo[0],
+                            userQuestStatus: userInfo[1],
+                            userQuestStageId: userInfo[2],
+                            userName: userInfo[3],
+                            userImage: userInfo[4],
+                            userDate: new Date(userInfo[5])
+                        }
+                    }))
 
-                setUserInfo(response.data.data[1].map((userInfo:any) => {
-                    return {
-                        userQuestId: userInfo[0],
-                        userQuestStatus: userInfo[1],
-                        userQuestStageId: userInfo[2],
-                        userName: userInfo[3],
-                        userImage: userInfo[4],
-                        userDate: new Date(userInfo[5])
-                    }
-                }))
+                    setActive(response.data.data[2][0]>0)
+
+                }else{
+                    alert.error(text.error.SOMETHING_WENT_WRONG)
+                }
             })
         }
     }, [selectedQuest])
@@ -155,6 +165,43 @@ const GroupQuestDetail: React.FC<Props> = (props) => {
 
     }, [map, stages])
 
+    const handleSubmit = () => {
+        if(!active){
+            axios({
+                method: 'GET',
+                url: process.env.REACT_APP_API_SERVER_URL+'/group/signin?partyId='+id+'&questId='+selectedQuest.questId,
+                withCredentials: true
+            }).then(function (response) {
+                let serverResponse = response.data.responseEntity.body
+                let statusCode = response.data.responseEntity.statusCode
+                if(statusCode === 'ACCEPTED'){
+                    setActive(true)
+                    alert.success(text.success[serverResponse])
+                }else if(serverResponse === 'USER_HAS_ACTIVE_QUEST' || serverResponse === 'USER_ALREADY_FINISHED_QUEST'){
+                    alert.error(text.group[serverResponse])
+                }else{
+                    alert.error(text.error.SOMETHING_WENT_WRONG)
+                }
+            })
+        }else{
+            axios({
+                method: 'GET',
+                url: process.env.REACT_APP_API_SERVER_URL+'/group/signout?partyId='+id+'&questId='+selectedQuest.questId,
+                withCredentials: true
+            }).then(function (response) {
+                let serverResponse = response.data.responseEntity.body
+                let statusCode = response.data.responseEntity.statusCode
+
+                if(statusCode === 'ACCEPTED'){
+                    alert.success(text.success[serverResponse])
+                    setActive(false)
+                }else{
+                    alert.error(text.error.SOMETHING_WENT_WRONG)
+                }
+            })
+        }
+    }
+
     // Template
     return (
         <div className="group-quest-detail">
@@ -169,6 +216,10 @@ const GroupQuestDetail: React.FC<Props> = (props) => {
                 {([].concat(stages).reverse()).map((stage:any) => (
                     <GroupQuestDetailStageItem key={stage.stageId} stage={stage} userInfo={userInfo} />
                 ))}
+            </div>
+
+            <div className="quest-detail-button">
+                <button onClick={handleSubmit} className={active ? "" : "active"}>{active ? text.group.signOut : text.group.signUp}</button>
             </div>
         </div>
     )
