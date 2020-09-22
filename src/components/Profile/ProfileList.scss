@@ -1,0 +1,17 @@
+.profile{
+  .profile-list{
+    background: white;
+    margin-top: -30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 2000px;
+    border: 1px solid var(--light-mode-input-backgroud);
+
+    .badges{
+      width: 100%;
+      height: 150px;
+    }
+
+  }
+}

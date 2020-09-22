@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react"
 import axios from 'axios'
-import ProfileHeader from "../components/Profile/ProfileHeader";
-// Children
 
+// Children
+import ProfileHeader from "../components/Profile/ProfileHeader";
+import ProfileList from "../components/Profile/ProfileList";
 
 // Props
 interface Props {
@@ -73,7 +74,7 @@ const Profile: React.FC<Props> = (props) => {
         <div className="profile">
             <ProfileHeader user={user} createdLength={createdQuests.length} playedLength={playedQuests.length} />
 
-            <
+            <ProfileList badges={badges} />
         </div>
     )
 }
