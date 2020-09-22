@@ -207,6 +207,13 @@ export const text = {
         details: 'Details',
         stages: 'Stages'
     },
+    profile: {
+        since: 'Since:',
+        createdCount: 'Created quests: ',
+        finishedCount: 'Finished quests: ',
+        bestSeason: 'Best season: ',
+        thisSeason: 'This season: '
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',

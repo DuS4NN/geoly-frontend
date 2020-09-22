@@ -1,10 +1,10 @@
-.group{
+.profile{
   width: 100%;
 
   .header{
     width: 100%;
     height: 400px;
-    background-color: var(--background-light-green);
+    background: var(--background-light-green);
 
     .header-main{
       width: 100%;
@@ -22,14 +22,32 @@
         height: 400px;
         display: table-cell;
 
-        .header-name{
-          padding-top: 100px;
+        .header-user{
           width: 80%;
-          margin-right: 20px;
-          text-align: right;
-          height: 220px;
+          padding-top: 50px;
+          height: 300px;
+          margin-left: auto;
+          text-align: center;
+          float: left;
 
-          h2{
+          .user-info{
+            width: border-box;
+            float: right;
+          }
+
+          .user-image{
+            text-align: center;
+            padding-bottom: 5px;
+            padding-top: 70px;
+            img{
+              width: 90px;
+              height: 90px;
+              border-radius: 50%;
+            }
+          }
+
+          .user-nick{
+            text-align: center;
             font-size: 32px;
             letter-spacing: 0.8px;
             text-transform: uppercase;
@@ -41,16 +59,18 @@
 
         .header-create-date{
           font-family: Nexa;
-          font-weight: normal;
           padding-left: 20px;
+          font-weight: normal;
+          display: table;
+          width: 95%;
           font-size: 14px;
           color: var(--light-mode-gray-text);
           letter-spacing: 0.2px;
-          height: 40px;
+          padding-bottom: 10px;
         }
       }
 
-      .header-user-list{
+      .header-list{
         background-image: url("../../assets/images/waveRight/backgroundBottomRight.svg");
         background-position: bottom right;
         background-repeat: no-repeat;
@@ -59,26 +79,27 @@
         width: 45%;
         display: table-cell;
 
-        .list-left{
-          padding: 10px;
-          display: table-cell;
-        }
-
-        .list-right{
-          padding: 10px;
-          display: table-cell;
-        }
-
-
-        .user-list-item{
+        .list-item{
+          margin-left: 10%;
+          width: 50%;
+          max-width: 250px;
           border: 1px solid var(--light-mode-input-backgroud);
           min-width: 190px;
           margin-bottom: 10px;
-          display: table;
           border-radius: 20px;
           background: white;
           padding: 10px;
 
+          .item-text{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: center;
+            font-family: OpenSans;
+            font-size: 15px;
+            display: table-cell;
+            vertical-align: middle;
+          }
           .item-image{
             width: 20px;
             display: table-cell;
@@ -88,38 +109,13 @@
               vertical-align: middle;
               width: 20px;
               height: 20px;
-              border-radius: 50%;
             }
           }
 
-          .leader{
-            a{
-              color: var(--button-dark-green)!important;
-            }
-          }
-          .item-name{
-            max-width: 100px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            text-align: center;
-            font-family: OpenSans;
-            font-size: 15px;
-            display: table-cell;
-            vertical-align: middle;
 
-            img{
-              width: 16px;
-              padding-left: 3px;
-            }
-
-            a{
-              color:black;
-              cursor: pointer;
-              text-decoration: none;
-            }
-          }
         }
+
+
       }
     }
   }

@@ -207,6 +207,13 @@ export const text = {
         details: 'Detaily',
         stages: 'Etapy'
     },
+    profile: {
+        since: 'Od:',
+        createdCount: 'Vytvorené úlohy: ',
+        finishedCount: 'Dokončené úlohy: ',
+        bestSeason: 'Najlepšia sezóna: ',
+        thisSeason: 'Aktuálna sezóna: '
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',
