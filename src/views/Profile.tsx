@@ -33,14 +33,13 @@ const Profile: React.FC<Props> = (props) => {
                     about: response.data.data[0][0][4],
                     date: new Date(response.data.data[0][0][5]),
                     best: response.data.data[0][0][6],
-                    this: response.data.data[0][0][7],
+                    this: response.data.data[0][0][7]
                 })
-
                 setBadges(response.data.data[1].map((badge:any) => {
                     return {
                         image: badge[0],
                         name: badge[1],
-                        date: badge[2],
+                        date: badge[2]
                     }
                 }))
                 setCreatedQuests(response.data.data[2].map((quest:any) => {
@@ -49,7 +48,7 @@ const Profile: React.FC<Props> = (props) => {
                         categoryName: quest[1],
                         questDifficulty: quest[2],
                         questId: quest[3],
-                        questReview: quest[4],
+                        questReview: quest[4]
                     }
                 }))
                 setPlayedQuests(response.data.data[3].map((quest:any) => {
@@ -58,7 +57,7 @@ const Profile: React.FC<Props> = (props) => {
                         categoryName: quest[1],
                         questDifficulty: quest[2],
                         questId: quest[3],
-                        questReview: quest[4],
+                        questReview: quest[4]
                     }
                 }))
             }else{
@@ -73,8 +72,7 @@ const Profile: React.FC<Props> = (props) => {
     return (
         <div className="profile">
             <ProfileHeader user={user} createdLength={createdQuests.length} playedLength={playedQuests.length} />
-
-            <ProfileList badges={badges} />
+            <ProfileList badges={badges} user={user} />
         </div>
     )
 }

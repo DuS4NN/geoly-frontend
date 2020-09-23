@@ -161,6 +161,29 @@ export const text = {
         FINISHED: 'Finished',
         CANCELED: 'Canceled'
     },
+    badge: {
+        FIRST_IN_SEASON: 'Finish first in the season',
+        SECOND_IN_SEASON: 'Finish second in the season',
+        THIRD_IN_SEASON: 'Finish third in the season',
+        TOP_10_IN_SEASON: 'Finish in the top 10 of the season',
+        TOP_50_IN_SEASON: 'Finish in the top 50 of the season',
+        QUESTION_200: 'Complete 200 times the Answer a question stage',
+        QUESTION_100: 'Complete 100 times the Answer a question stage',
+        QUESTION_50: 'Complete 50 times the Answer a question stage',
+        QUESTION_10: 'Complete 10 times the Answer a question stage',
+        QRCODE_100: 'Complete 100 times the Scan a QR code stage',
+        QRCODE_50: 'Complete 50 times the Scan a QR code stage',
+        QRCODE_10: 'Complete 10 times the scan a QR code stage',
+        QRCODE_5: 'Complete 5 times the Scan a QR code stage',
+        PLACE_300: 'Complete 300 times the Go to a place stage',
+        PLACE_150: 'Complete 150 times the Go to a place stage',
+        PLACE_50: 'Complete 50 times the Go to a place stage',
+        PLACE_20: 'Complete 20 times the Go to a place stage',
+        FINISH_500: 'Complete 500 times a quest',
+        FINISH_250: 'Complete 250 times a quest',
+        FINISH_100: 'Complete 100 times a quest',
+        FINISH_50: 'Complete 50 times a quest',
+    },
     imageUploader: {
         buttonText: 'Upload',
         maxCount: 'The maximum number of images is 5'
@@ -212,7 +235,9 @@ export const text = {
         createdCount: 'Created quests: ',
         finishedCount: 'Finished quests: ',
         bestSeason: 'Best season: ',
-        thisSeason: 'This season: '
+        thisSeason: 'This season: ',
+        achievements: 'Achievements',
+        about: 'About user:',
     },
     error: {
         // Login

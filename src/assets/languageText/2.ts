@@ -97,7 +97,7 @@ export const text = {
         culture: 'Kultúra'
     },
     stageType: {
-        GO_TO_PLACE: 'Ísť na miesto',
+        GO_TO_PLACE: 'Prísť na miesto',
         ANSWER_QUESTION: 'Odpovedať na otázku',
         SCAN_QR_CODE: 'Naskenovať QR kód'
     },
@@ -162,6 +162,29 @@ export const text = {
         FINISHED: 'Dokončené',
         CANCELED: 'Zrušené'
     },
+    badge: {
+        FIRST_IN_SEASON: 'Skončite ako prvý v sezóne',
+        SECOND_IN_SEASON: 'Skončite ako druhý v sezóne',
+        THIRD_IN_SEASON: 'Skončite ako tretí v sezóne',
+        TOP_10_IN_SEASON: 'Skončite v top 10 v sezóne',
+        TOP_50_IN_SEASON: 'Skončite v top 50 v sezóne',
+        QUESTION_200: 'Dokončite 200 krát etapu Odpovedať na otázku',
+        QUESTION_100: 'Dokončite 100 krát etapu Odpovedať na otázku',
+        QUESTION_50: 'Dokončite 50 krát etapu Odpovedať na otázku',
+        QUESTION_10: 'Dokončite 10 krát etapu Odpovedať na otázku',
+        QRCODE_100: 'Dokončite 100 krát etapu Naskenovať QR kód',
+        QRCODE_50: 'Dokončite 50 krát etapu Naskenovať QR kód',
+        QRCODE_10: 'Dokončite 10 krát etapu Naskenovať QR kód',
+        QRCODE_5: 'Dokončite 50 krát etapu Naskenovať QR kód',
+        PLACE_300: 'Dokončite 300 krát etapu Prísť na miesto',
+        PLACE_150: 'Dokončite 150 krát etapu Prísť na miesto',
+        PLACE_50: 'Dokončite 50 krát etapu Prísť na miesto',
+        PLACE_20: 'Dokončite 20 krát etapu Prísť na miesto',
+        FINISH_500: 'Dokončite 500 krát úlohu',
+        FINISH_250: 'Dokončite 250 krát úlohu',
+        FINISH_100: 'Dokončite 100 krát úlohu',
+        FINISH_50: 'Dokončite 50 krát úlohu',
+    },
     imageUploader: {
         buttonText: 'Nahrať',
         maxCount: 'Maximálny počet obrázkov je 5'
@@ -212,7 +235,9 @@ export const text = {
         createdCount: 'Vytvorené úlohy: ',
         finishedCount: 'Dokončené úlohy: ',
         bestSeason: 'Najlepšia sezóna: ',
-        thisSeason: 'Aktuálna sezóna: '
+        thisSeason: 'Aktuálna sezóna: ',
+        achievements: 'Ocenenia:',
+        about: 'O používateľovi:',
     },
     error: {
         // Login

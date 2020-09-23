@@ -1,11 +1,11 @@
 .group{
   .group-content{
-    background: white;
+    background: #ffffff;
     margin-top: -30px;
     margin-left: auto;
     margin-right: auto;
     width: 90%;
-    max-width: 2000px;
+    max-width: 1700px;
     border: 1px solid var(--light-mode-input-backgroud);
 
     .group-quest-list{
@@ -49,7 +49,7 @@
   }
 
   .group-no-quest{
-    background: white;
+    background: #ffffff;;
     margin-left: auto;
     margin-right: auto;
     margin-top: -30px;
@@ -60,7 +60,7 @@
     border: 1px solid var(--light-mode-input-backgroud);
 
     .title{
-      background: white;
+      background: #ffffff;;
       border-bottom: 1px solid var(--light-mode-input-backgroud);
       h2{
         font-family: Nexa;
