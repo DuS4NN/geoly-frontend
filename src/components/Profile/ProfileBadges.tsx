@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useRef, useState} from "react"
 import useSmoothScroll from 'react-smooth-scroll-hook';
 import './ProfileList.scss'
 import {UserContext} from "../../UserContext";
+import ReactTooltip from "react-tooltip";
 
 // Props
 interface Props {
@@ -74,7 +75,8 @@ const ProfileBadges: React.FC<Props> = (props) => {
                 <div ref={ref} className="badge-item-container" id="badge-item-container">
                     {badges.map((badge:any) => (
                         <div key={badge.name} className="badge-item">
-                            <img title={text.badge[badge.name]}  alt="" src={require("../../"+badge.image)} />
+                            <img data-tip={text.badge[badge.name]} alt="" src={require("../../"+badge.image)} />
+                            <ReactTooltip />
                         </div>
                     ))}
                 </div>

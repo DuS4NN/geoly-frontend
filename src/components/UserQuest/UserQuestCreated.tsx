@@ -7,6 +7,7 @@ import UserQuestCreatedItem from "./UserQuestCreatedItem";
 import {createMuiTheme, makeStyles, MuiThemeProvider} from "@material-ui/core/styles";
 import Pagination from "@material-ui/lab/Pagination";
 import axios from "axios";
+import ReactTooltip from "react-tooltip";
 
 // Props
 interface Props {

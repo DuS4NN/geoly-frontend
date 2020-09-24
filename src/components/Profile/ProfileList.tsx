@@ -2,11 +2,8 @@ import React, {useContext, useEffect, useState} from "react"
 import './ProfileList.scss'
 import {UserContext} from "../../UserContext";
 import ProfileBadges from "./ProfileBadges";
-
-
 //@ts-ignore
 import CalendarHeatmap from 'react-calendar-heatmap';
-
 import ReactTooltip from "react-tooltip";
 
 import '../Elements/CalendarHeatMap.scss'
@@ -72,7 +69,6 @@ const ProfileList: React.FC<Props> = (props) => {
             {badges.length > 1 && (
                 <ProfileBadges badges={badges} />
             )}
-
         </div>
 
     )

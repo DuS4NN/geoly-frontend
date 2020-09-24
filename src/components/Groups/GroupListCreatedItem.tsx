@@ -5,6 +5,7 @@ import {UserContext} from "../../UserContext"
 // Style
 import '../Elements/PageHeader.scss'
 import {NavLink} from "react-router-dom";
+import ReactTooltip from "react-tooltip";
 
 // Props
 interface Props {
@@ -50,10 +51,12 @@ const GroupListCreatedItem: React.FC<Props> = (props) => {
                 <span>{date.getDate()+" "+text.month[date.getMonth()]+" "+date.getFullYear()}</span>
             </div>
             <div className="item-buttons">
-                <img title={text.groups.editGroup} onClick={handleEditGroup}  alt="" src={require("../../assets/images/otherIcons/edit.svg")} />
-                <img title={text.groups.manageUsers} onClick={handleManageUsers} alt="" src={require("../../assets/images/otherIcons/manage-users.svg")} />
-                <img title={text.groups.deleteGroup} onClick={handleDeleteGroup} alt="" src={require("../../assets/images/otherIcons/delete.svg")} />
+                <img data-tip={text.groups.editGroup} onClick={handleEditGroup}  alt="" src={require("../../assets/images/otherIcons/edit.svg")} />
+                <img data-tip={text.groups.manageUsers} onClick={handleManageUsers} alt="" src={require("../../assets/images/otherIcons/manage-users.svg")} />
+                <img data-tip={text.groups.deleteGroup} onClick={handleDeleteGroup} alt="" src={require("../../assets/images/otherIcons/delete.svg")} />
             </div>
+
+            <ReactTooltip />
         </div>
     )
 }

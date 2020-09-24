@@ -5,6 +5,7 @@ import {UserContext} from "../../UserContext"
 // Style
 import '../Elements/PageHeader.scss'
 import {NavLink} from "react-router-dom";
+import ReactTooltip from "react-tooltip";
 
 // Props
 interface Props {
@@ -39,8 +40,10 @@ const GroupListEnteredItem: React.FC<Props> = (props) => {
                 <span>{date.getDate()+" "+text.month[date.getMonth()]+" "+date.getFullYear()}</span>
             </div>
             <div className="item-buttons-entered">
-                <img title={text.groups.leave} alt="" onClick={() => handleShowLeaveModal(group.groupId)} src={require("../../assets/images/otherIcons/leave.svg")} />
+                <img data-tip={text.groups.leave} alt="" onClick={() => handleShowLeaveModal(group.groupId)} src={require("../../assets/images/otherIcons/leave.svg")} />
             </div>
+
+            <ReactTooltip />
         </div>
     )
 }

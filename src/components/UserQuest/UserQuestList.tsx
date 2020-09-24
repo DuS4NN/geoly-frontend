@@ -53,7 +53,8 @@ const UserQuestList: React.FC = () => {
                 questId: playedQuest[i][3],
                 questName: playedQuest[i][4],
                 categoryImage: playedQuest[i][5],
-                stageDate: playedQuest[i][6]
+                stageDate: playedQuest[i][6],
+                categoryName: playedQuest[i][7]
             }
             extractPlayedQuest.push(quest)
         }

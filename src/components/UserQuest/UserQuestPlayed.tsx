@@ -5,6 +5,7 @@ import UserQuestPlayedItem from "./UserQuestPlayedItem";
 import './UserQuestList.scss'
 import {createMuiTheme, makeStyles, MuiThemeProvider} from "@material-ui/core/styles";
 import Pagination from "@material-ui/lab/Pagination";
+import ReactTooltip from "react-tooltip";
 
 // Props
 interface Props {
@@ -67,6 +68,7 @@ const UserQuestPlayed: React.FC<Props> = (props) => {
                             <UserQuestPlayedItem key={quest[0].questId} playedQuest={quest} />
                         ))}
                     </div>
+                    <ReactTooltip />
 
                     <div className="user-quest-played-container-bottom">
                         <div className="user-quest-played-container-bottom-border">

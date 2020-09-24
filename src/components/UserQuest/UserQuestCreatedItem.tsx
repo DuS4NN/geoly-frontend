@@ -6,6 +6,7 @@ import {UserContext} from "../../UserContext"
 import './UserQuestList.scss'
 import ModalDeleteQuest from "../Modals/ModalDeleteQuest";
 import ModalEditQuest from "../Modals/ModalEditQuest";
+import ReactTooltip from "react-tooltip";
 
 // Props
 interface Props {
@@ -47,17 +48,18 @@ const UserQuestCreatedItem: React.FC<Props> = (props) => {
             {createdQuest !== {} && (
                 <div className="container-table-item">
                     <div className="item-category-image">
-                        <img alt="" src={createdQuest.questId ? require("../../"+createdQuest.categoryImage) : "" } />
+                        <img data-tip={text.category[(createdQuest.categoryName).toLowerCase()]} alt="" src={createdQuest.questId ? require("../../"+createdQuest.categoryImage) : "" } />
                     </div>
                     <div className="item-quest-name">
                         <NavLink to={"./quest/"+createdQuest.questId}>{createdQuest.questName}</NavLink>
                     </div>
                     <div className="item-quest-buttons">
-                        <img title={text.userQuest.editQuest} onClick={handleEditQuest}  alt="" src={require("../../assets/images/otherIcons/edit.svg")} />
-                        <img title={text.userQuest.deleteQuest} onClick={handleDeleteQuest} alt="" src={require("../../assets/images/otherIcons/delete.svg")} />
+                        <img data-tip={text.userQuest.editQuest} onClick={handleEditQuest}  alt="" src={require("../../assets/images/otherIcons/edit.svg")} />
+                        <img data-tip={text.userQuest.deleteQuest} onClick={handleDeleteQuest} alt="" src={require("../../assets/images/otherIcons/delete.svg")} />
                     </div>
                 </div>
             )}
+            <ReactTooltip />
         </div>
     )
 }
