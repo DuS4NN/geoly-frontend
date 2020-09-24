@@ -26,45 +26,49 @@ const ProfileList: React.FC<Props> = (props) => {
     // Template
     return (
         <div className="profile-list">
-
             <div className="about">
-                <div className="about-title">
-                    <span>{text.profile.about}</span>
-                </div>
-                <div className="about-text">
-                    <span>{user.about}</span>
-                </div>
+                    {user.about && user.about.length>0 && (
+                        <div>
+                            <div className="about-title">
+                                <span>{text.profile.about}</span>
+                            </div>
+                            <div className="about-text">
+                                <span>{user.about}</span>
+                            </div>
+                        </div>
+                    )}
 
-                <div className="heat-map">
 
-                    <div className="heat-map-title">
-                        <span>{text.profile.activity}</span>
+                    <div className="heat-map">
+
+                        <div className="heat-map-title">
+                            <span>{text.profile.activity}</span>
+                        </div>
+
+                        <CalendarHeatmap
+                            startDate={new Date(date.getFullYear()-1,date.getMonth(),date.getDate()-1)}
+                            endDate={new Date()}
+                            gutterSize={4}
+                            //@ts-ignore
+                            tooltipDataAttrs={(value) => {
+
+                                let date = value.date?.split('-')
+
+                                return {
+                                    "data-tip": date == null ? `` : ``+date[2]+' '+text.month[date[1]]+' '+date[0]
+                                };
+                            }}
+                            classForValue={(value:any) => {
+                                if (!value) {
+                                    return 'color-github-0';
+                                }
+                                return `color-github-${value.count}`;
+                            }}
+                            values={activity}
+                        />
+                        <ReactTooltip />
                     </div>
-
-                    <CalendarHeatmap
-                        startDate={new Date(date.getFullYear()-1,date.getMonth(),date.getDate()-1)}
-                        endDate={new Date()}
-                        gutterSize={4}
-                        //@ts-ignore
-                        tooltipDataAttrs={(value) => {
-
-                            let date = value.date?.split('-')
-
-                            return {
-                                "data-tip": date == null ? `` : ``+date[2]+' '+text.month[date[1]]+' '+date[0]
-                            };
-                        }}
-                        classForValue={(value:any) => {
-                            if (!value) {
-                                return 'color-github-0';
-                            }
-                            return `color-github-${value.count}`;
-                        }}
-                        values={activity}
-                    />
-                    <ReactTooltip />
                 </div>
-            </div>
 
             {badges.length > 1 && (
                 <ProfileBadges badges={badges} />

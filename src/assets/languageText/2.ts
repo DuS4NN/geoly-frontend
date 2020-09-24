@@ -190,7 +190,8 @@ export const text = {
         maxCount: 'Maximálny počet obrázkov je 5'
     },
     private: {
-        quest: 'Úloha je súkromná'
+        quest: 'Úloha je súkromná',
+        profile: 'Profil je súkromný'
     },
     groups: {
         title: 'Skupiny',

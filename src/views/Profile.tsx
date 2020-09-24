@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import axios from 'axios'
 
 // Children
 import ProfileHeader from "../components/Profile/ProfileHeader";
 import ProfileList from "../components/Profile/ProfileList";
+import {UserContext} from "../UserContext";
 
 // Props
 interface Props {
@@ -11,6 +12,8 @@ interface Props {
 
 // Component
 const Profile: React.FC<Props> = (props) => {
+    const {userContext} = useContext(UserContext)
+    const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
 
     const [nick] = useState(window.location.href.split('/').pop())
     const [user, setUser] = useState({}) as Array<any>
@@ -23,9 +26,11 @@ const Profile: React.FC<Props> = (props) => {
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/profile?nickName='+nick,
+            withCredentials: true
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
             if(statusCode === 'OK'){
+                console.log(response.data.data[0][0][8])
                 setUser({
                     id: response.data.data[0][0][0],
                     private: response.data.data[0][0][1],
@@ -34,7 +39,8 @@ const Profile: React.FC<Props> = (props) => {
                     about: response.data.data[0][0][4],
                     date: new Date(response.data.data[0][0][5]),
                     best: response.data.data[0][0][6],
-                    this: response.data.data[0][0][7]
+                    this: response.data.data[0][0][7],
+                    owner: response.data.data[0][0][8]
                 })
                 setBadges(response.data.data[1].map((badge:any) => {
                     return {
@@ -80,8 +86,22 @@ const Profile: React.FC<Props> = (props) => {
     // Template
     return (
         <div className="profile">
-            <ProfileHeader user={user} createdLength={createdQuests.length} playedLength={playedQuests.length} />
-            <ProfileList badges={badges} user={user} activity={activity} />
+            {user.private === 0 || user.owner === 1 ? (
+                <div>
+                    <ProfileHeader user={user} createdLength={createdQuests.length} playedLength={playedQuests.length} />
+                    <ProfileList badges={badges} user={user} activity={activity} />
+                </div>
+            ) : (
+                <div className="quest-private">
+                    <div className="quest-private-title">
+                        <h2>{text.private.profile}</h2>
+                    </div>
+                    <div className="quest-private-img">
+                        <img src={require("../assets/images/private.svg")} alt=""/>
+                    </div>
+                </div>
+            )}
+
         </div>
     )
 }

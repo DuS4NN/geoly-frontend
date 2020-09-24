@@ -189,7 +189,8 @@ export const text = {
         maxCount: 'The maximum number of images is 5'
     },
     private: {
-      quest: 'The quest is private'
+        quest: 'The quest is private',
+        profile: 'The profile is private'
     },
     groups: {
         title: 'Groups',
