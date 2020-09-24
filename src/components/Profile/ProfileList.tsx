@@ -14,6 +14,7 @@ import '../Elements/CalendarHeatMap.scss'
 interface Props {
     badges: any
     user:any
+    activity: any
 }
 
 // Component
@@ -21,10 +22,9 @@ const ProfileList: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
-    const {badges, user} = props
+    const {badges, user, activity} = props
 
     const [date, setDate] = useState(new Date())
-
 
     // Template
     return (
@@ -37,15 +37,24 @@ const ProfileList: React.FC<Props> = (props) => {
                 <div className="about-text">
                     <span>{user.about}</span>
                 </div>
+
                 <div className="heat-map">
+
+                    <div className="heat-map-title">
+                        <span>{text.profile.activity}</span>
+                    </div>
+
                     <CalendarHeatmap
                         startDate={new Date(date.getFullYear()-1,date.getMonth(),date.getDate()-1)}
                         endDate={new Date()}
                         gutterSize={4}
                         //@ts-ignore
                         tooltipDataAttrs={(value) => {
+
+                            let date = value.date?.split('-')
+
                             return {
-                                "data-tip": value.date == null ? `` : ``+value.date
+                                "data-tip": date == null ? `` : ``+date[2]+' '+text.month[date[1]]+' '+date[0]
                             };
                         }}
                         classForValue={(value:any) => {
@@ -54,20 +63,13 @@ const ProfileList: React.FC<Props> = (props) => {
                             }
                             return `color-github-${value.count}`;
                         }}
-                        values={[
-                            { date: '2020-01-01', count: 1 },
-                            { date: '2020-01-22', count: 2 },
-                            { date: '2020-01-30', count: 3 },
-                            // ...and so on
-                        ]}
+                        values={activity}
                     />
                     <ReactTooltip />
                 </div>
             </div>
 
-
-
-            {badges.length > 0 && (
+            {badges.length > 1 && (
                 <ProfileBadges badges={badges} />
             )}
 

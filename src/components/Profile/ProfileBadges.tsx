@@ -60,7 +60,8 @@ const ProfileBadges: React.FC<Props> = (props) => {
     // Template
     return (
         <div className="badges-container">
-            <img alt="" className="oblique-top" src={require("../../assets/images/obliqueTop.svg")} />
+
+            <img alt="" className="oblique-top" src={require("../../assets/images/obliqueTopSmall.svg")} />
 
             <div className="badges-title">
                 <span>{text.profile.achievements}</span>
@@ -82,7 +83,7 @@ const ProfileBadges: React.FC<Props> = (props) => {
                 </div>
             </div>
 
-            <img alt="" src={require("../../assets/images/obliqueBottom.svg")} />
+            <img alt="" className="oblique-bottom" src={require("../../assets/images/obliqueBottomSmall.svg")} />
         </div>
     )
 }

@@ -12,15 +12,25 @@
       width: 100%;
 
       .oblique-top{
-        width: 100%;
-        margin-bottom: -4px;
+        background-image: url("../../assets/images/obliqueTopSmall.svg");
+        background-repeat: no-repeat;
+        background-size: 99% 100%;
+        display: block;
+      }
+      .oblique-bottom{
+        background-image: url("../../assets/images/obliqueBottomSmall.svg");
+        background-repeat: no-repeat;
+        background-size: 99% 100%;
+
+        background-position: top right;
+        display: block;
       }
 
       .badges-title{
         background: var(--background-light-green);
         font-family: Nexa;
         font-weight: bold;
-        font-size: 24px;
+        font-size: 17px;
         letter-spacing: 0.2px;
         text-transform: uppercase;
         color: var(--light-mode-dark-green);
@@ -84,22 +94,21 @@
     }
 
     .heat-map{
-
-
-
+      padding-top: 10px;
 
       .heat-map-title{
-        padding-top: 20px;
+        border-top: 1px solid var(--light-mode-input-backgroud);
+        text-align: center;
+        padding-top: 10px;
         padding-bottom: 10px;
         font-family: Nexa;
         font-weight: bold;
-        font-size: 24px;
+        font-size: 17px;
         letter-spacing: 0.2px;
         text-transform: uppercase;
         color: var(--light-mode-dark-green);
         padding-left: 30px;
         padding-right: 30px;
-        padding-bottom: 10px;
       }
 
     }
@@ -110,12 +119,11 @@
       .about-title{
         font-family: Nexa;
         font-weight: bold;
-        font-size: 24px;
+        font-size: 17px;
         letter-spacing: 0.2px;
         text-transform: uppercase;
         color: var(--light-mode-dark-green);
         padding-left: 30px;
-
         padding-bottom: 10px;
       }
 
@@ -129,10 +137,11 @@
       }
 
       .about-text{
-        font-family: OpenSansText;
-        font-size: 15px;
         padding-left: 50px;
         padding-right: 50px;
+        font-family: OpenSansText;
+        font-size: 15px;
+        letter-spacing: 0.1px;
       }
     }
   }

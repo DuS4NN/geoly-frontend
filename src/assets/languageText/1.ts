@@ -237,7 +237,8 @@ export const text = {
         bestSeason: 'Best season: ',
         thisSeason: 'This season: ',
         achievements: 'Achievements',
-        about: 'About user:',
+        about: 'About user',
+        activity: 'Activity'
     },
     error: {
         // Login

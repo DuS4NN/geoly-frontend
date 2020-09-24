@@ -236,8 +236,9 @@ export const text = {
         finishedCount: 'Dokončené úlohy: ',
         bestSeason: 'Najlepšia sezóna: ',
         thisSeason: 'Aktuálna sezóna: ',
-        achievements: 'Ocenenia:',
-        about: 'O používateľovi:',
+        achievements: 'Ocenenia',
+        about: 'O používateľovi',
+        activity: 'Aktivita'
     },
     error: {
         // Login

@@ -17,6 +17,7 @@ const Profile: React.FC<Props> = (props) => {
     const [badges, setBadges] = useState([]) as Array<any>
     const [createdQuests, setCreatedQuests] = useState([]) as Array<any>
     const [playedQuests, setPlayedQuests] = useState([]) as Array<any>
+    const [activity, setActivity] = useState([]) as Array<any>
 
     useEffect(() => {
         axios({
@@ -60,6 +61,14 @@ const Profile: React.FC<Props> = (props) => {
                         questReview: quest[4]
                     }
                 }))
+
+                setActivity(response.data.data[4].map((activity:any) => {
+                    let date = new Date(activity[0])
+                    return {
+                        date: date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate(),
+                        count: activity[0] < 4 ? 4 :activity[1]
+                    }
+                }))
             }else{
                 throw Object.assign(
                     new Error("404"), {code: 404}
@@ -72,7 +81,7 @@ const Profile: React.FC<Props> = (props) => {
     return (
         <div className="profile">
             <ProfileHeader user={user} createdLength={createdQuests.length} playedLength={playedQuests.length} />
-            <ProfileList badges={badges} user={user} />
+            <ProfileList badges={badges} user={user} activity={activity} />
         </div>
     )
 }
