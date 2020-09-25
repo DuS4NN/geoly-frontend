@@ -3,8 +3,9 @@ import axios from 'axios'
 
 // Children
 import ProfileHeader from "../components/Profile/ProfileHeader";
-import ProfileList from "../components/Profile/ProfileList";
+import ProfileInfo from "../components/Profile/ProfileInfo";
 import {UserContext} from "../UserContext";
+import ProfileQuest from "../components/Profile/ProfileQuest";
 
 // Props
 interface Props {
@@ -22,6 +23,9 @@ const Profile: React.FC<Props> = (props) => {
     const [playedQuests, setPlayedQuests] = useState([]) as Array<any>
     const [activity, setActivity] = useState([]) as Array<any>
 
+    const [playedLength, setPlayedLength] = useState(0) as Array<any>
+    const [createdLength, setCreatedLength] = useState(0) as Array<any>
+
     useEffect(() => {
         axios({
             method: 'GET',
@@ -30,7 +34,6 @@ const Profile: React.FC<Props> = (props) => {
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
             if(statusCode === 'OK'){
-                console.log(response.data.data[0][0][8])
                 setUser({
                     id: response.data.data[0][0][0],
                     private: response.data.data[0][0][1],
@@ -50,12 +53,16 @@ const Profile: React.FC<Props> = (props) => {
                     }
                 }))
                 setCreatedQuests(response.data.data[2].map((quest:any) => {
+                    console.log(quest)
                     return {
                         categoryImage: quest[0],
                         categoryName: quest[1],
                         questDifficulty: quest[2],
                         questId: quest[3],
-                        questReview: quest[4]
+                        userName: quest[4],
+                        userImage: quest[5],
+                        questDate: new Date(quest[6]),
+                        questName: quest[7]
                     }
                 }))
                 setPlayedQuests(response.data.data[3].map((quest:any) => {
@@ -64,10 +71,12 @@ const Profile: React.FC<Props> = (props) => {
                         categoryName: quest[1],
                         questDifficulty: quest[2],
                         questId: quest[3],
-                        questReview: quest[4]
+                        userName: quest[4],
+                        userImage: quest[5],
+                        questDate: new Date(quest[6]),
+                        questName: quest[7]
                     }
                 }))
-
                 setActivity(response.data.data[4].map((activity:any) => {
                     let date = new Date(activity[0])
                     return {
@@ -75,6 +84,8 @@ const Profile: React.FC<Props> = (props) => {
                         count: activity[0] < 4 ? 4 :activity[1]
                     }
                 }))
+                setPlayedLength(response.data.data[5][0])
+                setCreatedLength(response.data.data[6][0])
             }else{
                 throw Object.assign(
                     new Error("404"), {code: 404}
@@ -88,8 +99,9 @@ const Profile: React.FC<Props> = (props) => {
         <div className="profile">
             {user.private === 0 || user.owner === 1 ? (
                 <div>
-                    <ProfileHeader user={user} createdLength={createdQuests.length} playedLength={playedQuests.length} />
-                    <ProfileList badges={badges} user={user} activity={activity} />
+                    <ProfileHeader user={user} createdLength={createdLength} playedLength={playedLength} />
+                    <ProfileInfo badges={badges} user={user} activity={activity} />
+                    <ProfileQuest playedQuests={playedQuests} createdQuests={createdQuests} createdLength={createdLength} playedLength={playedLength} nick={nick} />
                 </div>
             ) : (
                 <div className="quest-private">
@@ -101,7 +113,6 @@ const Profile: React.FC<Props> = (props) => {
                     </div>
                 </div>
             )}
-
         </div>
     )
 }

@@ -239,7 +239,9 @@ export const text = {
         thisSeason: 'Aktuálna sezóna: ',
         achievements: 'Ocenenia',
         about: 'O používateľovi',
-        activity: 'Aktivita'
+        activity: 'Aktivita',
+        createdQuests: 'Vytvorené úlohy',
+        finishedQuests: 'Dokončené úlohy'
     },
     error: {
         // Login

@@ -18,7 +18,6 @@ const ProfileHeader: React.FC<Props> = (props) => {
 
     const {user, createdLength, playedLength} = props
 
-
     // Template
     return (
         <div className="header">

@@ -6,7 +6,9 @@
     margin-right: auto;
     width: 90%;
     max-width: 1700px;
-    border: 1px solid var(--light-mode-input-backgroud);
+    border-top: 1px solid var(--light-mode-input-backgroud);
+    border-left: 1px solid var(--light-mode-input-backgroud);
+    border-right: 1px solid var(--light-mode-input-backgroud);
 
     .badges-container{
       width: 100%;

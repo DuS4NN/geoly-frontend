@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react"
-import './ProfileList.scss'
+import './ProfileInfo.scss'
 import {UserContext} from "../../UserContext";
 import ProfileBadges from "./ProfileBadges";
 //@ts-ignore
@@ -15,7 +15,7 @@ interface Props {
 }
 
 // Component
-const ProfileList: React.FC<Props> = (props) => {
+const ProfileInfo: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
@@ -78,4 +78,4 @@ const ProfileList: React.FC<Props> = (props) => {
     )
 }
 
-export default ProfileList
+export default ProfileInfo

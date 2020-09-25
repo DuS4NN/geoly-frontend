@@ -239,7 +239,9 @@ export const text = {
         thisSeason: 'This season: ',
         achievements: 'Achievements',
         about: 'About user',
-        activity: 'Activity'
+        activity: 'Activity',
+        createdQuests: 'Created quests',
+        finishedQuests: 'Finished quests'
     },
     error: {
         // Login

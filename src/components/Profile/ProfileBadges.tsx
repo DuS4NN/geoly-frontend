@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useRef, useState} from "react"
 import useSmoothScroll from 'react-smooth-scroll-hook';
-import './ProfileList.scss'
+import './ProfileInfo.scss'
 import {UserContext} from "../../UserContext";
 import ReactTooltip from "react-tooltip";
 
