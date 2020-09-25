@@ -241,7 +241,9 @@ export const text = {
         about: 'About user',
         activity: 'Activity',
         createdQuests: 'Created quests',
-        finishedQuests: 'Finished quests'
+        finishedQuests: 'Finished quests',
+        noCreatedQuests: 'User has no created quests',
+        noFinishedQuests: 'User has no finished quests'
     },
     error: {
         // Login

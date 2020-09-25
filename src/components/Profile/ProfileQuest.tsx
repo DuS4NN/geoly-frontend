@@ -133,8 +133,9 @@ const ProfileQuest: React.FC<Props> = (props) => {
                   )}
               </div>
               ) : (
-              <div>
-                  
+              <div className="no-data">
+                <div className="title">{selected === 0 ? ""+text.profile.noCreatedQuests : ""+text.profile.noFinishedQuests}</div>
+                  <img src={require("../../assets/images/noData.svg")} alt="" />
               </div>
               )}
       </div>

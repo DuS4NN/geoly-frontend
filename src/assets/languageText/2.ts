@@ -241,7 +241,9 @@ export const text = {
         about: 'O používateľovi',
         activity: 'Aktivita',
         createdQuests: 'Vytvorené úlohy',
-        finishedQuests: 'Dokončené úlohy'
+        finishedQuests: 'Dokončené úlohy',
+        noCreatedQuests: 'Používateľ nemá žiadne vytvorené úlohy',
+        noFinishedQuests: 'Používateľ nemá žiadne ukončené úlohy'
     },
     error: {
         // Login

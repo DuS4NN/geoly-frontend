@@ -18,7 +18,8 @@ const QuestMap: React.FC<Props> = (props) => {
         process.env.REACT_APP_GOOGLE_API_KEY+"",
         {
             center: { lat:68.7163857, lng: 21.2610746 },
-            zoom: 12
+            zoom: 16,
+            maxZoom: 16
         }
     )
 
