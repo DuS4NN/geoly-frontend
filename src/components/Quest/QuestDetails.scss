@@ -8,32 +8,33 @@
   height: 100%;
 
   .quest-report{
-    width: 90%;
-    margin-top: 10px;
+    height: 18px;
+    padding-top: 4px;
+    width: calc(100% - 20px);
+    margin-right: 30px;
     text-align: right;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1500px;
 
     .add{
-      width: 25px;
-      padding-left: 10px;
+      padding-left: 12px;
     }
 
     img{
-      width: 30px;
+      width: 18px;
       cursor: pointer;
-      height: 30px;
+      height: 18px;
     }
   }
 
   .quest-button{
-    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     width: 90%;
-    max-width: 2000px;
+    max-width: 1700px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    border-left: 1px solid var(--light-mode-input-backgroud);
+    border-right: 1px solid var(--light-mode-input-backgroud);
 
     button{
       margin-top: 10px;
@@ -64,92 +65,126 @@
   }
 
   .quest-detail-content{
+    background: #ffffff;
+    border-top: 1px solid var(--light-mode-input-backgroud);
+    border-left: 1px solid var(--light-mode-input-backgroud);
+    border-right: 1px solid var(--light-mode-input-backgroud);
     margin-left: auto;
     margin-right: auto;
     width: 90%;
-    max-width: 1500px;
-    display: table;
+    margin-top: -30px;
+    max-width: 1700px;
+
+  }
+
+  .details-title{
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 15px;
+    width: 70%;
+    margin-top: 30px;
+    border-top: 1px solid var(--light-mode-input-backgroud);
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: Nexa;
+    font-weight: bold;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: var(--light-mode-dark-green);
   }
 
   .quest-details-title{
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: var(--light-mode-dark-green);
+    margin-left: 30px;
+    padding-bottom: 10px;
     font-family: Nexa;
     font-weight: bold;
-    margin-bottom: 12px;
-    margin-top: 30px;
-    font-size: 30px;
-    color: var(--light-mode-dark-green);
-    padding-bottom: 7px;
-    border-bottom: 1px solid var(--light-mode-gray-text);
   }
 
   .quest-details{
-    display: table-cell;
-    width: 70%;
+    padding-bottom: 10px;
+    width: 100%;
 
     .quest-details-description{
-      width: 100%;
-      padding-top: 10px;
-      font-family: Nexa;
-      font-size: 18px;
-      letter-spacing: 0.5px;
+      padding-left: 50px;
+      padding-right: 50px;
+      font-family: OpenSansText;
+      font-size: 15px;
+      letter-spacing: 0.1px;
+      width: calc(100% - 100px);
     }
 
-    .quest-details-graph{
-      display: table;
-      width: 100%;
-      margin-top: 40px;
-      margin-bottom: 50px;
-      text-align: center;
+
+    .details-container{
+      width: 90%;
       margin-right: auto;
       margin-left: auto;
+      display: table;
 
-      .quest-detail-graph-label{
-        text-align: center;
-        font-family: OpenSans;
-        font-size: 13px;
-        margin-bottom: 10px;
-      }
+      .quest-details-graph{
+        min-height: 100px;
+        padding-right: 30px;
+        float: right;
+        display: table;
+        width: 50%;
 
-      .quest-detail-graph-difficulty{
-        width: 33%;
-        display: table-cell;
-
-        canvas{
-          margin-left: auto;
-          margin-right: auto;
-          width: 96%;
-          max-height: 90px;
-          max-width: 180px;
+        .quest-detail-graph-label{
+          text-align: center;
+          font-family: OpenSans;
+          font-size: 13px;
+          margin-bottom: 10px;
         }
-      }
-      .quest-detail-graph-review{
-        width: 33%;
-        display: table-cell;
 
-        canvas{
-          margin-left: auto;
-          margin-right: auto;
-          width: 96%;
-          max-height: 90px;
-          max-width: 180px;
+        .quest-detail-graph-difficulty{
+          width: 33%;
+          display: table-cell;
+
+          canvas{
+            margin-left: auto;
+            margin-right: auto;
+            width: 96%;
+            max-height: 90px;
+            max-width: 180px;
+            min-height: 90px;
+            min-width: 180px;
+          }
         }
-      }
-      .quest-detail-graph-success{
-        width: 33%;
-        text-align: center;
-        display: table-cell;
+        .quest-detail-graph-review{
+          width: 33%;
+          display: table-cell;
 
-        canvas{
-          margin-left: auto;
-          margin-right: auto;
-          width: 96%;
-          max-height: 90px;
-          max-width: 180px;
+          canvas{
+            margin-left: auto;
+            margin-right: auto;
+            width: 96%;
+            max-height: 90px;
+            max-width: 180px;
+            min-height: 90px;
+            min-width: 180px;
+          }
+        }
+        .quest-detail-graph-success{
+          width: 33%;
+          text-align: center;
+          display: table-cell;
+
+          canvas{
+            margin-left: auto;
+            margin-right: auto;
+            width: 96%;
+            max-height: 90px;
+            max-width: 180px;
+            min-height: 90px;
+            min-width: 180px;
+          }
         }
       }
     }
-
-
   }
 }
 

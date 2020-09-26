@@ -19,6 +19,7 @@ const QuestGallery: React.FC<Props> = (props) => {
             {images.length > 0 && (
                 <div>
                     <ImageGallery
+                        additionalClass={"gallery"}
                         items={images}
                         showPlayButton={false}
                     />

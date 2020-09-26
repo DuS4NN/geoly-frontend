@@ -1,30 +1,32 @@
 .quest{
   .quest-stages{
+    padding-left: 30px;
+    width: 50%;
+    min-width: 240px;
     vertical-align: middle;
     display: table-cell;
-    width: 30%;
-    height: 100%;
   }
 
   .quest-stages-item{
-    margin-left: 10%;
-    width: 80%;
-    margin-bottom: 15px;
+    min-width: 200px;
+    max-width: 500px;
+    width: 100%;
+    margin-top: 7px;
+    margin-bottom: 7px;
     border: 1px solid var(--light-mode-input-backgroud);
     border-radius: 50px;
-    display: table;
     padding-top: 5px;
     padding-bottom: 5px;
 
     .item-image{
-      width: 40px;
+      width: 20px;
       padding-left: 10px;
       padding-right: 10px;
       display: table-cell;
 
       img{
-        width: 40px;
-        height: 40px;
+        width: 20px;
+        height: 20px;
       }
     }
 

@@ -11,6 +11,7 @@ import QuestTitle from "../components/Quest/QuestTitle";
 import {UserContext} from "../UserContext";
 import ModalReportQuest from "../components/Modals/ModalReportQuest";
 import ModalAddQuestToGroup from "../components/Modals/ModalAddQuestToGroup";
+import ReactTooltip from "react-tooltip";
 
 // Props
 interface Props {
@@ -191,16 +192,14 @@ const Quest: React.FC = () => {
 
                     <QuestTitle details={details} />
 
-                    <QuestMap stages={stages} />
-
-                    <div className="quest-report">
-                        <img title={text.review.report} onClick={openReportModal} alt="" src={require("../assets/images/otherIcons/report.svg")} />
-                        <img title={text.userQuest.addToGroup} className="add" onClick={openAddModal} alt="" src={require("../assets/images/otherIcons/add-black.svg")} />
-                    </div>
 
                     <div className="quest-detail-content">
-                        <QuestDetails details={details} />
-                        <QuestStages stages={stages}/>
+                        <div className="quest-report">
+                            <img data-tip={text.review.report} onClick={openReportModal} alt="" src={require("../assets/images/otherIcons/report.svg")} />
+                            <img data-tip={text.userQuest.addToGroup} className="add" onClick={openAddModal} alt="" src={require("../assets/images/otherIcons/add-black.svg")} />
+                        </div>
+                        <ReactTooltip />
+                        <QuestDetails details={details} stages={stages} />
                     </div>
 
                     <QuestGallery images={images} />

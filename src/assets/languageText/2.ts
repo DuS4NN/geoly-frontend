@@ -123,7 +123,8 @@ export const text = {
         reviewPlaceholder: 'Bolo to skvelé!',
         signUp: 'Prihlásiť sa',
         details: 'Popis',
-        report: 'Nahlásiť úlohu'
+        report: 'Nahlásiť úlohu',
+        description: 'Popis'
     },
     reportQuest: {
         title: 'Nahlásiť úlohu',
@@ -243,7 +244,9 @@ export const text = {
         createdQuests: 'Vytvorené úlohy',
         finishedQuests: 'Dokončené úlohy',
         noCreatedQuests: 'Používateľ nemá žiadne vytvorené úlohy',
-        noFinishedQuests: 'Používateľ nemá žiadne ukončené úlohy'
+        noFinishedQuests: 'Používateľ nemá žiadne ukončené úlohy',
+        report: 'Nahlásiť používateľa',
+        reportTitle: 'Nahlásiť používateľa'
     },
     error: {
         // Login
@@ -316,6 +319,7 @@ export const text = {
         USER_SIGNED_UP_ON_QUEST: 'Boli ste prihlásený na úlohu',
         // Report
         QUEST_REPORT_CREATED: 'Úloha bola nahlásená',
+        USER_REPORT_CREATED: 'Používateľ bol nahlásený',
         // Quest
         SIGNED_OUT_OF_QUEST: 'Boli ste odhlásený z úlohy',
         QUEST_DISABLED: 'Úloha bola deaktivovaná',

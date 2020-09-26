@@ -2,10 +2,13 @@ import React, {useContext, useEffect, useRef} from "react"
 import "./QuestDetails.scss"
 import {UserContext} from "../../UserContext";
 import Chart from "chart.js";
+import QuestMap from "./QuestMap";
+import QuestStages from "./QuestStages";
 
 // Props
 interface Props {
     details: any
+    stages: any
 }
 
 // Component
@@ -18,7 +21,7 @@ const QuestDetails: React.FC<Props> = (props) => {
     const reviewChartContainer = useRef(null)
     const successChartContainer = useRef(null)
 
-    const {details} = props
+    const {details, stages} = props
 
 
 
@@ -327,37 +330,47 @@ const QuestDetails: React.FC<Props> = (props) => {
     return (
         <div className="quest-details">
             <div className="quest-details-title">
-                <span>{text.review.details}</span>
+                <span>{text.review.description}</span>
             </div>
 
             <div className="quest-details-description">
                 <span>{details.questDescription}</span>
             </div>
 
-            <div className="quest-details-graph">
+            <QuestMap stages={stages} />
 
-                <div className="quest-detail-graph-difficulty">
-                    <div className="quest-detail-graph-label">
-                        <span>{text.mapFilter.difficulty}</span>
-                    </div>
-                    <canvas ref={difficultyChartContainer}>
-                    </canvas>
-                </div>
-                <div className="quest-detail-graph-review">
-                    <div className="quest-detail-graph-label">
-                        <span>{text.mapFilter.review}</span>
-                    </div>
-                    <canvas ref={reviewChartContainer}>
-                    </canvas>
-                </div>
-                <div className="quest-detail-graph-success">
-                    <div className="quest-detail-graph-label">
-                        <span>{text.mapFilter.success}</span>
-                    </div>
-                    <canvas ref={successChartContainer}>
-                    </canvas>
-                </div>
+            <div className="details-title">
+                <span>{text.review.details}</span>
             </div>
+
+            <div className="details-container">
+                <div className="quest-details-graph">
+
+                    <div className="quest-detail-graph-difficulty">
+                        <div className="quest-detail-graph-label">
+                            <span>{text.mapFilter.difficulty}</span>
+                        </div>
+                        <canvas ref={difficultyChartContainer}>
+                        </canvas>
+                    </div>
+                    <div className="quest-detail-graph-review">
+                        <div className="quest-detail-graph-label">
+                            <span>{text.mapFilter.review}</span>
+                        </div>
+                        <canvas ref={reviewChartContainer}>
+                        </canvas>
+                    </div>
+                    <div className="quest-detail-graph-success">
+                        <div className="quest-detail-graph-label">
+                            <span>{text.mapFilter.success}</span>
+                        </div>
+                        <canvas ref={successChartContainer}>
+                        </canvas>
+                    </div>
+                </div>
+                <QuestStages stages={stages}/>
+            </div>
+
 
         </div>
     )

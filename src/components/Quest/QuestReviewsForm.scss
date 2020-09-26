@@ -1,7 +1,10 @@
 .quest-review-form{
-  width: 100%;
+  width: 90%;
+  max-width: 1700px;
   margin-left: auto;
   margin-right: auto;
+  border-left: 1px solid var(--light-mode-input-backgroud);
+  border-right: 1px solid var(--light-mode-input-backgroud);
 
   .quest-review-form-container{
     width: 100%;
@@ -24,16 +27,18 @@
 
 
     .form-title{
+      padding-top: 10px;
+      padding-bottom: 7px;
+      font-family: Nexa;
+      font-weight: bold;
+      font-size: 17px;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+      color: var(--light-mode-dark-green);
       max-width: 1200px;
       margin-right: auto;
       margin-left: auto;
       width: 70%;
-      font-family: Nexa;
-      font-weight: bold;
-      margin-bottom: 12px;
-      font-size: 30px;
-      color: var(--light-mode-dark-green);
-      padding-bottom: 7px;
       border-bottom: 1px solid var(--light-mode-gray-text);
     }
 
@@ -54,9 +59,9 @@
         min-height: 100px;
         width: 98%;
         resize: vertical;
-        font-size: 16px;
-        font-family: Nexa;
-        letter-spacing: 0.2px;
+        font-size: 14px;
+        font-family: OpenSansText;
+        letter-spacing: 0.1px;
         border: 1px solid var(--light-mode-gray-text);
         padding: 10px;
         border-radius: 12px;

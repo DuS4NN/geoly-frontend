@@ -122,7 +122,8 @@ export const text = {
         reviewPlaceholder: 'It was great!',
         signUp: 'Sign Up',
         details: 'Details',
-        report: 'Report the quest'
+        report: 'Report the quest',
+        description: 'Description'
     },
     reportQuest: {
         title: 'Report a quest',
@@ -133,7 +134,10 @@ export const text = {
         INAPPROPRIATE_DESCRIPTION: 'Inappropriate description',
         INAPPROPRIATE_NAME: 'Inappropriate name',
         INAPPROPRIATE_IMAGE: 'Inappropriate image',
-        IMPOSSIBLE_QUEST: 'Impossible quest'
+        INAPPROPRIATE_PROFILE_IMAGE: 'Inappropriate profile image',
+        INAPPROPRIATE_ABOUT: 'Inappropriate description',
+        IMPOSSIBLE_QUEST: 'Impossible quest',
+        IMPOSSIBLE_QUESTS: 'Impossible quests',
     },
     userQuest: {
         title: 'Quests',
@@ -243,7 +247,9 @@ export const text = {
         createdQuests: 'Created quests',
         finishedQuests: 'Finished quests',
         noCreatedQuests: 'User has no created quests',
-        noFinishedQuests: 'User has no finished quests'
+        noFinishedQuests: 'User has no finished quests',
+        report: 'Report the user',
+        reportTitle: 'Report a user'
     },
     error: {
         // Login
@@ -315,6 +321,7 @@ export const text = {
         USER_SIGNED_UP_ON_QUEST: 'You have been signed up for the quest',
         // Report
         QUEST_REPORT_CREATED: 'The quest has been reported',
+        USER_REPORT_CREATED: 'The user has been reported',
         // Quest
         SIGNED_OUT_OF_QUEST: 'You have been signed out of quest',
         QUEST_DISABLED: 'The quest has been deactivated',

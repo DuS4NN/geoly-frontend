@@ -20,13 +20,20 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
 }
 
 .quest-gallery{
-  width: 60%;
-  max-width: 1000px;
+  width: 90%;
+  max-width: 1700px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 50px;
+  padding-top: 50px;
+  border-left: 1px solid var(--light-mode-input-backgroud);
+  border-right: 1px solid var(--light-mode-input-backgroud);
 }
 
+.gallery{
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 // SVG ICON STYLES
 .image-gallery-icon {

@@ -2,29 +2,33 @@
   width: 100%;
   height: 400px;
   background-color: var(--background-light-green);
-  background-image: url("../../assets/images/waveRight/backgroundTopRight.svg"), url("../../assets/images/waveLeft/backgroundTopLeft.svg");
-  background-position: top right, top left;
+  background-image: url("../../assets/images/waveRight/backgroundBottomRight.svg"), url("../../assets/images/waveLeft/backgroundTopLeft.svg");
+  background-position: bottom right, top left;
   background-repeat: no-repeat;
-  background-size: 25%;
+  background-size: 30%;
   display: table;
-  border-bottom: 1px solid var(--light-mode-input-backgroud);
 
   .quest-title-category{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 1700px;
     height: 50px;
     padding-left: 30px;
     padding-top: 10px;
     display: table;
 
     .date{
+      width: 100%;
       display: table-cell;
       vertical-align: middle;
       font-family: Nexa;
       font-size: 13px;
-      padding-left: 10px;
       color: var(--light-mode-gray-text)
     }
 
     .category-image{
+      width: 40px;
       display: table-cell;
       vertical-align: middle;
       img{
@@ -34,24 +38,29 @@
     }
 
     .category-name{
+      display: table-cell;
       vertical-align: middle;
+      padding-right: 20px;
       padding-left: 10px;
       text-transform: uppercase;
       font-family: Nexa;
       font-weight: bold;
       font-size: 17px;
       letter-spacing: 1px;
-      display: table-cell;
     }
   }
 
   .quest-title-name{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 1700px;
     vertical-align: bottom;
     padding-top: 100px;
     padding-left: 5%;
-    height: 200px;
+    height: 160px;
     text-align: left;
-    font-size: 50px;
+    font-size: 40px;
     letter-spacing: 0.8px;
     text-transform: uppercase;
     font-weight: bold;
@@ -60,8 +69,11 @@
   }
 
   .quest-title-user{
-    height: 50px;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 1700px;
+    height: 80px;
 
     .quest-title-user-box{
       float: right;

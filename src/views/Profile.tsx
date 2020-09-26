@@ -53,7 +53,6 @@ const Profile: React.FC<Props> = (props) => {
                     }
                 }))
                 setCreatedQuests(response.data.data[2].map((quest:any) => {
-                    console.log(quest)
                     return {
                         categoryImage: quest[0],
                         categoryName: quest[1],
