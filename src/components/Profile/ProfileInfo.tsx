@@ -5,8 +5,9 @@ import ProfileBadges from "./ProfileBadges";
 //@ts-ignore
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from "react-tooltip";
-
 import '../Elements/CalendarHeatMap.scss'
+import ModalReportUser from "../Modals/ModalReportUser";
+
 // Props
 interface Props {
     badges: any
@@ -22,10 +23,21 @@ const ProfileInfo: React.FC<Props> = (props) => {
     const {badges, user, activity} = props
 
     const [date, setDate] = useState(new Date())
+    const [showModal, setShowModal] = useState(false)
+
+    const handleReportUser = () => {
+        setShowModal(true)
+    }
 
     // Template
     return (
         <div className="profile-list">
+
+            <ModalReportUser userId={user.id} showReportModal={showModal} setShowReportModal={setShowModal} />
+
+            <div className="report">
+                <img data-tip={text.profile.report} onClick={handleReportUser} alt="" src={require("../../assets/images/otherIcons/report.svg")} />
+            </div>
             <div className="about">
                     {user.about && user.about.length>0 && (
                         <div>
