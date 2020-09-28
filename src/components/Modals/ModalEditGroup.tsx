@@ -8,6 +8,7 @@ import {NavLink} from "react-router-dom"
 
 
 import './Modal.scss'
+import ReactTooltip from "react-tooltip";
 
 // Props
 interface Props {
@@ -168,7 +169,8 @@ const ModalEditGroup: React.FC<Props> = (props) => {
                                     <NavLink to={"/quest/"+quest.questId}>{quest.questName}</NavLink>
                                 </div>
                                 <div className="item-delete">
-                                    <img onClick={() => handleQuestDelete(quest.questId)} src={require("../../assets/images/otherIcons/delete.svg")} alt="" title={text.groups.deleteGroup} />
+                                    <img onClick={() => handleQuestDelete(quest.questId)} src={require("../../assets/images/otherIcons/delete.svg")} alt="" data-tip={text.groups.deleteGroup} />
+                                    <ReactTooltip />
                                 </div>
                             </div>
                         ))}

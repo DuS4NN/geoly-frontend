@@ -2,8 +2,6 @@ import React, {useContext} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
-//@ts-ignore
-import disableScroll from 'disable-scroll'
 // Context
 import {UserContext} from "../../UserContext";
 // Style

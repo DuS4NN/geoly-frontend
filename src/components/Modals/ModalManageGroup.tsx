@@ -10,6 +10,7 @@ import {debounce} from "lodash-es";
 import {FadeIn} from "react-anim-kit"
 
 import './Modal.scss'
+import ReactTooltip from "react-tooltip";
 
 // Props
 interface Props {
@@ -206,8 +207,9 @@ const ModalManageGroup: React.FC<Props> = (props) => {
                                 </div>
                                 <div className="item-delete">
                                     {!user.owner && (
-                                        <img onClick={() => handleKick(user.userId)} alt="" title={text.groups.kick} src={require("../../assets/images/otherIcons/kick.svg")} />
+                                        <img onClick={() => handleKick(user.userId)} alt="" data-tip={text.groups.kick} src={require("../../assets/images/otherIcons/kick.svg")} />
                                     )}
+                                    <ReactTooltip />
                                 </div>
                             </div>
                         ))}
