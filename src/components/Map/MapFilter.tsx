@@ -18,11 +18,13 @@ interface Props {
     mapRef: any
     setDifficulty: (difficulty:any) => void
     setReview: (review:any) => void
+    setPremium: (premium:any) => void
     setNoReviewed: (category:any) => void
     setCategory: (category:any) => void
     setStageType: (stageType:any) => void
 
     noReviewed: boolean
+    premium: boolean
     review: any
     difficulty: any
 
@@ -42,9 +44,9 @@ const MapFilter: React.FC<Props> = (props) => {
 
     //@ts-ignore
     const {userContext} = useContext(UserContext)
-    const {mapRef, setDifficulty, setReview, setNoReviewed, setCategory, setStageType, noReviewed, review, difficulty, handleSearchClick, handleAddressChangeClick} = props
+    const {mapRef, setDifficulty, setReview, setNoReviewed, setCategory, setStageType, noReviewed, review, premium, setPremium, difficulty, handleSearchClick, handleAddressChangeClick} = props
 
-    const [rollFilter, setRollFilter] = useState(true)
+    const [rollFilter, setRollFilter] = useState(false)
     const [categoryList, setCategoryList] = useState([])
     const [stageTypesList, setStageTypesList] = useState([])
     const [address, setAddress] = useState("")
@@ -172,6 +174,10 @@ const MapFilter: React.FC<Props> = (props) => {
 
     const handleNotReviewedChange = () => {
         setNoReviewed(!noReviewed)
+    }
+
+    const handlePremiumChange = () => {
+        setPremium(!premium)
     }
 
     const handleRollChange = () => {
@@ -386,6 +392,18 @@ const MapFilter: React.FC<Props> = (props) => {
                     <Toggle
                         defaultChecked={true}
                         onChange={handleNotReviewedChange}
+                        icons={{
+                            checked: null,
+                            unchecked: null,
+                        }}
+                    />
+                </div>
+
+                <div  className= "map-filter-toggle">
+                    <div className="map-filter-label">{text.mapFilter.premium}</div>
+                    <Toggle
+                        defaultChecked={true}
+                        onChange={handlePremiumChange}
                         icons={{
                             checked: null,
                             unchecked: null,

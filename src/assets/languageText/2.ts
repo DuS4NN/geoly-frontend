@@ -78,6 +78,7 @@ export const text = {
         difficultyLabel: 'Obtiažnosť:',
         reviewLabel: 'Hodnotenie:',
         unreviewLabel: 'Neohodnotené',
+        premium: 'Prémiové úlohy',
         findButton: 'Hľadať',
         difficulty: 'Obťiažnosť:',
         review: 'Hodnotenie:',

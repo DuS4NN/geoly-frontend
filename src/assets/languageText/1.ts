@@ -78,6 +78,7 @@ export const text = {
         difficultyLabel: 'Difficulty:',
         reviewLabel: 'Review:',
         unreviewLabel: 'Not rated:',
+        premium: 'Premium quests',
         findButton: 'Search',
         difficulty: 'Difficulty:',
         review: 'Review:',
@@ -252,7 +253,7 @@ export const text = {
         reportTitle: 'Report a user'
     },
     premium: {
-        mainTitle: 'Get you Premium just for 4,99 €/month!',
+        mainTitle: 'Get you Premium just for 2,90 €/month!',
         show: 'Show',
         title1: 'Experience an above-standard adventure',
         text1: 'Enjoy premium quests full of adventure, which are well compiled and processed by our team',

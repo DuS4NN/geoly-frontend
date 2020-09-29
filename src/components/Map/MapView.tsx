@@ -45,6 +45,7 @@ const MapView: React.FC<Props> = () => {
     const [review, setReview] = useState([1,5])
     const [noReviewed, setNoReviewed] = useState(true)
     const [stageType, setStageType] = useState([])
+    const [premium, setPremium] = useState(true)
 
     const [markers] = useState([]) as Array<any>
     const [bounds, setBounds] = useState({})
@@ -98,6 +99,7 @@ const MapView: React.FC<Props> = () => {
                 stageType: stageType,
                 difficulty: difficulty,
                 review: review,
+                premium: premium,
                 unreviewed: noReviewed,
                 coordinatesNw: boundsNw,
                 coordinatesSe: boundsSe
@@ -164,7 +166,12 @@ const MapView: React.FC<Props> = () => {
 
     const findNewBoundsAndStartSearch = () => {
         let boundsNew = map.getBounds()
-        handleSearch([boundsNew.Va.i, boundsNew.Va.j],[boundsNew.ab.i, boundsNew.ab.j])
+        let keys = Object.keys(boundsNew)
+
+        let coordinates1 = boundsNew[keys[0]]
+        let coordinates2 = boundsNew[keys[1]]
+
+        handleSearch([coordinates2.i, coordinates2.j],[coordinates1.i, coordinates1.j])
         setBounds(map.getBounds())
     }
 
@@ -183,6 +190,7 @@ const MapView: React.FC<Props> = () => {
                 setDifficulty={setDifficulty}
                 setReview={setReview}
                 setNoReviewed={setNoReviewed}
+                setPremium={setPremium}
                 setCategory={setCategory}
                 setStageType={setStageType}
 
@@ -190,6 +198,7 @@ const MapView: React.FC<Props> = () => {
                 handleAddressChangeClick={handleAddressChange}
 
                 noReviewed={noReviewed}
+                premium={premium}
                 review={review}
                 difficulty={difficulty}
             />
