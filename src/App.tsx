@@ -19,6 +19,7 @@ import Group from "./views/Group";
 // Style
 import './App.scss'
 import Profile from "./views/Profile";
+import Premium from "./views/Premium";
 
 
 
@@ -64,6 +65,7 @@ function App() {
                         <Route exact path="/groups" component={Groups} />
                         <Route path={"/group/"} component={Group} />
                         <Route path={"/profile/"} component={Profile} />
+                        <Route exact path={"/premium"} component={Premium} />
                     </Switch>
                 </main>
 

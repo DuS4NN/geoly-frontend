@@ -248,6 +248,18 @@ export const text = {
         report: 'Nahlásiť používateľa',
         reportTitle: 'Nahlásiť používateľa'
     },
+    premium: {
+        mainTitle: 'Získajte Prémiový účet len za 2,90€ mesačne!',
+        show: 'Ukázať',
+        title1: 'Zažite nadštandardné dobrodružstvo',
+        text1: 'Užívajte si prémiové úlohy plné dobrodružstva, ktoré sú kvalitne zostavené a spracované našim tímom.',
+        title2: 'Prémiové úlohy',
+        text2: 'Zaručené tipy pre výlety na každý deň bez námahy.',
+        title3: 'Myslíme na všetko!',
+        text3: 'Prémiové úlohy sú zostavené tak, aby ste sa mohli vydať na spoznávací výlet s celou rodinou. Nechýbajú spoznávacie etapy, zábavné etapy, etapy pre občerstvenie a ďalšie!',
+        footerTitle: 'Získajte Prémium teraz',
+        getPremium: 'Získať Prémium'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',

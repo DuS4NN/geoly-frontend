@@ -251,6 +251,18 @@ export const text = {
         report: 'Report the user',
         reportTitle: 'Report a user'
     },
+    premium: {
+        mainTitle: 'Get you Premium just for 4,99 €/month!',
+        show: 'Show',
+        title1: 'Experience an above-standard adventure',
+        text1: 'Enjoy premium quests full of adventure, which are well compiled and processed by our team',
+        title2: 'Premium quests',
+        text2: 'Guaranteed tips for effortless trips for every day',
+        title3: 'We think of everything!',
+        text3: 'Premium quests are set up so you can go on a sightseeing trip with the whole family. Quests includes sightseeing stages, fun stages, stages for refreshments and more!',
+        footerTitle: 'Get your Premium now',
+        getPremium: 'Get Premium'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',
