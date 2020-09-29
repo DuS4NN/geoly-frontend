@@ -1,8 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
-import QuestMap from "../components/Quest/QuestMap";
 import axios from "axios";
 import QuestDetails from "../components/Quest/QuestDetails";
-import QuestStages from "../components/Quest/QuestStages";
 import QuestReviewsList from "../components/Quest/QuestReviewsList";
 import QuestReviewsForm from "../components/Quest/QuestReviewsForm";
 import QuestButton from "../components/Quest/QuestButton";

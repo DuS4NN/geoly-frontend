@@ -312,6 +312,11 @@ export const text = {
         CAN_NOT_LEAVE_OWN_GROUP: 'Owner cannot leave group',
         GROUP_IS_FULL: 'The group is full',
 
+        // Premium
+        USER_ALREADY_HAS_PREMIUM: 'The user already has a premium',
+        PREMIUM_PURCHASE_FAILED: 'The purchase failed',
+        PAYMENT_WAS_CANCELED: 'Payment has been canceled',
+
         // Other
         USER_NOT_FOUND: 'Account not found',
         QUEST_NOT_FOUND: 'Quest not found',
@@ -347,7 +352,9 @@ export const text = {
         USER_KICKED: 'The user has been kicked out',
         USER_INVITED: 'The user has been invited',
         QUEST_ADDED_TO_GROUP: 'The quest has been added',
-        GROUP_LEAVED: 'The group has been left'
+        GROUP_LEAVED: 'The group has been left',
+        // Premium
+        SIGNED_UP_PREMIUM: 'Congratulation! The Premium has been purchased',
 
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka

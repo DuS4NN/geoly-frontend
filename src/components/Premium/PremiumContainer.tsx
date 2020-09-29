@@ -2,6 +2,8 @@ import React, {useContext, useRef} from 'react'
 import {UserContext} from "../../UserContext";
 import useSmoothScroll from 'react-smooth-scroll-hook';
 import './PremiumContainer.scss'
+import axios from 'axios'
+import {useAlert} from "react-alert";
 
 // Props
 interface Props {
@@ -12,7 +14,7 @@ const PremiumContainer: React.FC = () => {
 
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
-
+    const alert = useAlert()
     const ref = useRef<HTMLElement>(document.documentElement);
 
     const { scrollTo } = useSmoothScroll({
@@ -21,7 +23,22 @@ const PremiumContainer: React.FC = () => {
     });
 
     const handleSubmit = () => {
+        axios({
+            method: 'GET',
+            url: process.env.REACT_APP_API_SERVER_URL+'/premium',
+            withCredentials: true
+        }).then(function (response) {
+            let serverResponse = response.data.responseEntity.body
+            let statusCode = response.data.responseEntity.statusCode
 
+            if(statusCode === 'OK'){
+                window.open(response.data.data[0])
+            }else if(statusCode === 'METHOD_NOT_ALLOWED'){
+                alert.error(text.error[serverResponse])
+            }else{
+                alert.error(text.error.SOMETHING_WENT_WRONG)
+            }
+        })
     }
 
     // Template

@@ -310,6 +310,11 @@ export const text = {
         CAN_NOT_LEAVE_OWN_GROUP: 'Majiteľ nemôže opustiť skupinu',
         GROUP_IS_FULL: 'Skupina je plná',
 
+        // Premium
+        USER_ALREADY_HAS_PREMIUM: 'Používateľ už má zakúpené Prémium',
+        PREMIUM_PURCHASE_FAILED: 'Nákup zlyhal',
+        PAYMENT_WAS_CANCELED: 'Platba bola zrušená',
+
         // Other
         USER_NOT_FOUND: 'Účet nenájdený',
         QUEST_NOT_FOUND: 'Úloha nenájdená',
@@ -345,6 +350,8 @@ export const text = {
         USER_KICKED: 'Používateľ bol vyhodený',
         USER_INVITED: 'Používateľ bol pozvaný',
         QUEST_ADDED_TO_GROUP: 'Úloha bola pridaná do skupiny',
-        GROUP_LEAVED: 'Skupina bola opustená'
+        GROUP_LEAVED: 'Skupina bola opustená',
+        // Premium
+        SIGNED_UP_PREMIUM: 'Gratulujeme! Prémium bolo zakúpené',
     }
 }

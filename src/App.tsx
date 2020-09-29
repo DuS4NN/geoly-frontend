@@ -20,6 +20,7 @@ import Group from "./views/Group";
 import './App.scss'
 import Profile from "./views/Profile";
 import Premium from "./views/Premium";
+import PremiumResponse from "./components/Premium/PremiumResponse";
 
 
 
@@ -66,6 +67,7 @@ function App() {
                         <Route path={"/group/"} component={Group} />
                         <Route path={"/profile/"} component={Profile} />
                         <Route exact path={"/premium"} component={Premium} />
+                        <Route path={"/premiumresponse/"} component={PremiumResponse} />
                     </Switch>
                 </main>
 
