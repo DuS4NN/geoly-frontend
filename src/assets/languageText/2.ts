@@ -289,10 +289,11 @@ export const text = {
         // Add Review
         REVIEW_ALREADY_EXIST: 'Používatel môže pridať iba jednu recenziu',
         USER_DOESNT_PLAY_QUEST: 'Používateľ môže pridať recenziu iba v prípade, ak úlohu hral',
-        // Sign Up On Review
+        // Sign Up On Quest
         USER_ALREADY_FINISHED_QUEST: 'Úlohu je možné dokončiť iba raz',
         USER_HAS_ACTIVE_QUEST: 'Používateľ môže mať iba jednu aktívnu úlohu',
         USER_CAN_NOT_PLAY_OWN_QUEST: 'Používateľ nemôže začať vlastnú úlohu',
+        USER_DOESNT_HAVE_PREMIUM: 'Na začatie tejto úlohy potrebujete prémiový účet',
 
         // Edit Quest
         INVALID_DESCRIPTION_LENGTH_SIZE: 'Dĺžka popisu úlohy musí byť 1-500 znakov',

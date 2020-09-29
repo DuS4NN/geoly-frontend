@@ -291,10 +291,11 @@ export const text = {
         // Add Review
         REVIEW_ALREADY_EXIST: 'A user can only add one review',
         USER_DOESNT_PLAY_QUEST: 'A user can add a review only if the quest was played',
-        // Sign Up On Review
+        // Sign Up On Quest
         USER_ALREADY_FINISHED_QUEST: 'A quest can be completed only once',
         USER_HAS_ACTIVE_QUEST: 'A user can have only one active quest',
         USER_CAN_NOT_PLAY_OWN_QUEST: 'A user cannot start their own quest',
+        USER_DOESNT_HAVE_PREMIUM: 'You need a premium account to start this task',
 
         // Edit Quest
         INVALID_DESCRIPTION_LENGTH_SIZE: 'Quest description must be 1-500 characters long',
