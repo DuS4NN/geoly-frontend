@@ -250,7 +250,8 @@ export const text = {
         noCreatedQuests: 'User has no created quests',
         noFinishedQuests: 'User has no finished quests',
         report: 'Report the user',
-        reportTitle: 'Report a user'
+        reportTitle: 'Report a user',
+        premiumQuest: 'Premium quest'
     },
     premium: {
         mainTitle: 'Get you Premium just for 2,90 €/month!',

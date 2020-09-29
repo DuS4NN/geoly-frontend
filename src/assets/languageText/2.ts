@@ -247,7 +247,8 @@ export const text = {
         noCreatedQuests: 'Používateľ nemá žiadne vytvorené úlohy',
         noFinishedQuests: 'Používateľ nemá žiadne ukončené úlohy',
         report: 'Nahlásiť používateľa',
-        reportTitle: 'Nahlásiť používateľa'
+        reportTitle: 'Nahlásiť používateľa',
+        premiumQuest: 'Prémiová úloha'
     },
     premium: {
         mainTitle: 'Získajte Prémiový účet len za 2,90€ mesačne!',

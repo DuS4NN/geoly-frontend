@@ -48,24 +48,55 @@
       font-size: 17px;
       letter-spacing: 1px;
     }
+
+    .premium{
+      padding-right: 30px;
+      float: right;
+      width: max-content;
+      display: table-cell;
+      vertical-align: middle;
+
+      .premium-text{
+        text-align: right;
+        font-family: Nexa;
+        font-weight: bold;
+        font-size: 17px;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        padding-left: 10px;
+      }
+
+      img{
+        vertical-align: middle;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+    }
   }
 
   .quest-title-name{
+    max-width: 1700px;
     margin-left: auto;
     margin-right: auto;
     width: 90%;
-    max-width: 1700px;
-    vertical-align: bottom;
     padding-top: 100px;
-    padding-left: 5%;
     height: 160px;
     text-align: left;
-    font-size: 40px;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-family: Nexa;
-    color: var(--light-mode-dark-green);
+
+
+    .title-name-text{
+      display: inline-block;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      font-size: 40px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-family: Nexa;
+      color: var(--light-mode-dark-green);
+    }
+
   }
 
   .quest-title-user{

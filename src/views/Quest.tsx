@@ -116,7 +116,8 @@ const Quest: React.FC = () => {
                 countCancel: detail[11],
                 questDate: detail[12],
                 questPrivate: detail[13],
-                questOwner: detail[14]
+                questOwner: detail[14],
+                questPremium: detail[15]
             } as unknown
         }
 

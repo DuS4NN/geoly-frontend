@@ -3,6 +3,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import './QuestTitle.scss'
 import {UserContext} from "../../UserContext";
 import {NavLink} from "react-router-dom";
+import ReactTooltip from "react-tooltip";
 
 // Props
 interface Props {
@@ -45,10 +46,16 @@ const QuestTitle: React.FC<Props> = (props) => {
                 <div className="date">
                     <span>{date.getDate()+" "+text.month[date.getMonth()]+" "+date.getFullYear()}</span>
                 </div>
+                {details.questPremium === 1 && (
+                    <div className="premium">
+                        <img alt="" src={require("../../assets/images/otherIcons/premium.svg")} />
+                        <span className="premium-text">{text.profile.premiumQuest}</span>
+                    </div>
+                )}
             </div>
 
             <div className="quest-title-name">
-                <span>{details.questName}</span>
+                <div className="title-name-text">{details.questName}</div>
             </div>
 
             <div className="quest-title-user">
