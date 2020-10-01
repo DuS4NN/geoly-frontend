@@ -281,6 +281,10 @@ export const text = {
         welcomeText5: 'With Geoly you have no shortage of tips for trips, just open the map and start exploring.',
         footerTitle: 'Sign up for free and start discovering!'
     },
+    settings: {
+      title: 'Settings',
+        subtitle: 'Change profile settings, password, or appearance settings'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',

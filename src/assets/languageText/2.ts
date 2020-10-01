@@ -278,6 +278,10 @@ export const text = {
         welcomeText5: 'S Geoly nemáte núdzu o tipy na výlety, stačí otvoriť mapu a začať preskúmavať.',
         footerTitle: 'Zaregistrujte sa zadarmo a začnite objavovať!'
     },
+    settings: {
+        title: 'Nastavenia',
+        subtitle: 'Zmeňte nastavenia profilu, heslo alebo nastavenia výzoru'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',

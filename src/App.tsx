@@ -22,6 +22,7 @@ import Profile from "./views/Profile";
 import Premium from "./views/Premium";
 import PremiumResponse from "./components/Premium/PremiumResponse";
 import Welcome from "./views/Welcome";
+import Settings from "./views/Settings";
 
 
 
@@ -70,6 +71,7 @@ function App() {
                         <Route exact path={"/premium"} component={Premium} />
                         <Route path={"/premiumresponse/"} component={PremiumResponse} />
                         <Route exact path={"/"} component={Welcome} />
+                        <Route exact path={"/settings"} component={Settings} />
                     </Switch>
                 </main>
 

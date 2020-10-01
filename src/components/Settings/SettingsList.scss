@@ -1,0 +1,24 @@
+.settings{
+  .settings-list{
+    width: 60vw;
+    margin-left: 20vw;
+    border: 1px solid var(--light-mode-input-backgroud);
+    background: white;
+    top: 540px;
+    padding-bottom: 20px;
+    position: absolute;
+
+    .list-header{
+      display: table;
+
+      .list-item{
+        width: 33%;
+        display: table-cell;
+      }
+
+    }
+
+
+
+  }
+}
