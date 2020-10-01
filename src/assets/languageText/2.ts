@@ -262,6 +262,22 @@ export const text = {
         footerTitle: 'Získajte Prémium teraz',
         getPremium: 'Získať Prémium'
     },
+    welcome: {
+        title: 'Objavujte svoje',
+        title2: 'okolie',
+        startNow: 'Začať',
+        welcomeTitle1: 'Objavujte krásy okolo seba',
+        welcomeText1: 'S Geoly môžete objavovať pamiatky, historické budovy, prírodu či iné zaujímavé miesta okolo Vás.',
+        welcomeTitle2: 'Plánovanie výletu',
+        welcomeText2: 'Plánovanie výletov nikdy nebolo jednoduchšie. Stačí si vybrať!',
+        welcomeTitle3: 'Plnte úlohy a buďte najlepší',
+        welcomeText3: 'Tí najväčší dobrodruhovia sú umietnení v rebríčku najlepších hráčov!',
+        welcomeTitle4: 'Hrajte s priateľmi',
+        welcomeText4: 'Založte si skupinu a hrajte so svojimi priateľmi úlohy, ktoré máte radi.',
+        welcomeTitle5: 'Tipy na výlety pre každý deň',
+        welcomeText5: 'S Geoly nemáte núdzu o tipy na výlety, stačí otvoriť mapu a začať preskúmavať.',
+        footerTitle: 'Zaregistrujte sa zadarmo a začnite objavovať!'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',

@@ -80,7 +80,7 @@ const SignInForm: React.FC<Props> = () => {
                 darkMode: response.data.darkMode
             }
             setUserContext(newUser)
-            history.push("/")
+            history.push("/map")
         }).catch(function (error) {
             alert.error(text.error.BAD_CREDENTIALS)
             setPassword("")

@@ -21,6 +21,7 @@ import './App.scss'
 import Profile from "./views/Profile";
 import Premium from "./views/Premium";
 import PremiumResponse from "./components/Premium/PremiumResponse";
+import Welcome from "./views/Welcome";
 
 
 
@@ -68,6 +69,7 @@ function App() {
                         <Route path={"/profile/"} component={Profile} />
                         <Route exact path={"/premium"} component={Premium} />
                         <Route path={"/premiumresponse/"} component={PremiumResponse} />
+                        <Route exact path={"/"} component={Welcome} />
                     </Switch>
                 </main>
 

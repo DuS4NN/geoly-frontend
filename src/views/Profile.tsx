@@ -34,6 +34,13 @@ const Profile: React.FC<Props> = (props) => {
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
             if(statusCode === 'OK'){
+
+                if(response.data.data[0][0][0] === null){
+                    throw Object.assign(
+                        new Error("404"), {code: 404}
+                    )
+                }
+
                 setUser({
                     id: response.data.data[0][0][0],
                     private: response.data.data[0][0][1],
@@ -41,8 +48,8 @@ const Profile: React.FC<Props> = (props) => {
                     image: response.data.data[0][0][3],
                     about: response.data.data[0][0][4],
                     date: new Date(response.data.data[0][0][5]),
-                    best: response.data.data[0][0][6],
-                    this: response.data.data[0][0][7],
+                    best: response.data.data[0][0][6] === null ? 0 : response.data.data[0][0][6],
+                    this: response.data.data[0][0][7] === null ? 0 : response.data.data[0][0][7],
                     owner: response.data.data[0][0][8]
                 })
                 setBadges(response.data.data[1].map((badge:any) => {
@@ -96,7 +103,7 @@ const Profile: React.FC<Props> = (props) => {
     // Template
     return (
         <div className="profile">
-            {user.private === 0 || user.owner === 1 ? (
+            {(user.private === 0 || user.owner === 1) ? (
                 <div>
                     <ProfileHeader user={user} createdLength={createdLength} playedLength={playedLength} />
                     <ProfileInfo badges={badges} user={user} activity={activity} />

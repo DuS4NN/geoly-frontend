@@ -1,0 +1,167 @@
+.welcome{
+  width: 100%;
+  height: 100%;
+
+  .welcome-main{
+    background-color: var(--background-light-green);
+    width: 100%;
+    height:920px;
+    background-image: url("../../assets/images/welcome.svg");
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: center bottom;
+
+    .main-title{
+      width: fit-content;
+      margin-right: auto;
+      margin-left: auto;
+      padding-top: 50px;
+      padding-bottom: 5px;
+      text-align: center;
+      font-family: Nexa;
+      font-weight: bold;
+      font-size: 50px;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+      border-bottom: 5px solid var(--button-dark-green);
+
+      .first-line{
+        color: var(--light-mode-dark-green);
+      }
+      .second-line{
+        color: var(--button-dark-green);
+      }
+    }
+      .main-button{
+        text-align: center;
+        margin-top: 2vw;
+      }
+  }
+
+  .welcome-content{
+    margin-top: 20px;
+    width: 100%;
+
+    .oblique-image{
+      display: block;
+    }
+
+    .welcome-container-white{
+      height: 400px;
+      width: 100%;
+      display: table;
+
+      .container-image{
+        background-position: right;
+      }
+      .container-info{
+        text-align: left;
+        padding-right: 30px;
+        padding-left: 10%;
+      }
+    }
+    .welcome-container-green{
+      height: 400px;
+      background-color: var(--background-light-green);
+      width: 100%;
+      display: table;
+
+      .container-image{
+        background-position: left;
+      }
+      .container-info{
+        text-align: right;
+        padding-left: 30px;
+        padding-right: 10%;
+      }
+    }
+
+    .container-image{
+      width: 40%;
+      display: table-cell;
+      vertical-align: middle;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .welcome1{
+      background-image: url("../../assets/images/Welcome/welcome1.svg");
+    }
+    .welcome2{
+      background-image: url("../../assets/images/Welcome/welcome2.svg");
+    }
+    .welcome3{
+      background-image: url("../../assets/images/Welcome/welcome3.svg");
+    }
+    .welcome4{
+      background-image: url("../../assets/images/Welcome/welcome4.svg");
+    }
+    .welcome5{
+      background-image: url("../../assets/images/Welcome/welcome5.svg");
+    }
+
+    .container-info{
+      width: 50%;
+      display: table-cell;
+      vertical-align: middle;
+      .info-text{
+        padding-top: 20px;
+        font-family: OpenSansText;
+      }
+    }
+  }
+
+  .welcome-footer{
+    height: 300px;
+    padding-top: 50px;
+    text-align: center;
+    width: 100%;
+    background-color: var(--background-light-green);
+    background-image: url("../../assets/images/waveRight/backgroundTopRight.svg"), url("../../assets/images/waveLeft/backgroundBottomLeft.svg");
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position: top right, bottom left;
+  }
+
+  h1{
+    margin: 0;
+    font-family: Nexa;
+    font-weight: bold;
+    padding: 50px;
+    font-size: 50px;
+    letter-spacing: 0.8px;
+    color: var(--light-mode-dark-green);
+  }
+  h2{
+    margin: 0;
+    font-family: Nexa;
+    font-weight: bold;
+    font-size: 35px;
+    letter-spacing: 0.8px;
+    color: var(--light-mode-dark-green);
+  }
+  button{
+    font-size: 16px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    padding: 8px 2%;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-family: OpenSans;
+    font-weight: normal;
+    background-size: 300% 100%;
+    background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+  button:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+}

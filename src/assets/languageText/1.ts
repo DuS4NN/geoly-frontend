@@ -265,6 +265,22 @@ export const text = {
         footerTitle: 'Get your Premium now',
         getPremium: 'Get Premium'
     },
+    welcome: {
+        title: 'Discover your',
+        title2: 'surroundings',
+        startNow: 'Start now',
+        welcomeTitle1: 'Discover the beauty around you',
+        welcomeText1: 'With Geoly you can discover monuments, historic buildings, nature or other interesting places around you.',
+        welcomeTitle2: 'Trip planning',
+        welcomeText2: 'Planning trips has never been easier. Just choose!',
+        welcomeTitle3: 'Complete tasks and be the best!',
+        welcomeText3: 'The greatest adventurers are placed in the ranking of the best players!',
+        welcomeTitle4: 'Play with friends',
+        welcomeText4: 'Create a group and play the tasks you love with your friends.',
+        welcomeTitle5: 'Tips for trips for every day',
+        welcomeText5: 'With Geoly you have no shortage of tips for trips, just open the map and start exploring.',
+        footerTitle: 'Sign up for free and start discovering!'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',
