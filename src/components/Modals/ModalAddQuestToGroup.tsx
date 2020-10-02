@@ -33,6 +33,7 @@ const ModalAddQuestToGroup: React.FC<Props> = (props) => {
         //@ts-ignore
         control: (styles, state) => ({ ...styles,
             backgroundColor: 'white',
+            fontFamily: 'OpenSans',
             color: state.isFocused ? '#023a1c' : '',
             width: '100%',
             boxShadow: 'none',
@@ -49,6 +50,7 @@ const ModalAddQuestToGroup: React.FC<Props> = (props) => {
             const color = chroma('#2bb673');
             return {
                 ...styles,
+                fontFamily: 'OpenSans',
                 backgroundColor: isDisabled
                     ? null
                     : isSelected

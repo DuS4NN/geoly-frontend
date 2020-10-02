@@ -1,0 +1,175 @@
+.settings{
+
+  .settings-label{
+    color: var(--light-mode-gray-text);
+    padding-bottom: 10px;
+    font-family: Nexa;
+    font-size: 15px;
+  }
+
+  .settings-profile {
+    border-left: 1px solid var(--light-mode-input-backgroud);
+    border-right: 1px solid var(--light-mode-input-backgroud);
+    border-bottom: 1px solid var(--light-mode-input-backgroud);
+    padding-bottom: 30px;
+
+    .settings-image {
+      width: 70%;
+      padding-top: 30px;
+      margin-right: auto;
+      margin-left: auto;
+
+
+      .image-delete {
+        display: table-cell;
+        vertical-align: middle;
+        padding-left: 50px;
+
+        button {
+          background-image: linear-gradient(to right, var(--button-light-red), var(--button-dark-red), var(--button-dark-red), var(--button-light-red));
+          box-shadow: 0 4px 15px 0 rgba(191, 52, 75, 0.75);
+          padding-left: 30px;
+          padding-right: 30px;
+        }
+      }
+
+      .input-wrapper {
+        width: 0;
+        display: table-cell;
+        vertical-align: middle;
+        font-family: OpenSans;
+        background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
+        box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
+        font-weight: normal;
+        font-size: 16px;
+        text-decoration: none;
+        letter-spacing: 2px;
+        border-radius: 50px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border: none;
+        color: white;
+        background-size: 300% 100%;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .file-input {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 50px;
+      }
+
+      .hidden {
+        opacity: 0;
+        -moz-opacity: 0;
+        filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0)
+      }
+
+      .image-show {
+        width: 80px;
+        vertical-align: middle;
+        display: table-cell;
+
+        img {
+          vertical-align: middle;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .settings-about {
+      width: 70%;
+      margin-top: 30px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .settings-language {
+      width: 70%;
+      margin-top: 30px;
+      margin-right: auto;
+      margin-left: auto;
+
+      .map-filter-select{
+        display: table;
+        .map-filter-select-image{
+          width: 30px;
+          padding-left: 10px;
+          padding-right: 15px;
+          display: table-cell;
+          vertical-align: middle;
+          img{
+            vertical-align: middle;
+            width: 30px;
+            height: 30px;
+          }
+        }
+        .map-filter-select-label{
+          display: table-cell;
+          vertical-align: middle;
+          font-family: OpenSans;
+          font-size: 17px;
+        }
+      }
+    }
+
+    .settings-private{
+      width: 70%;
+      margin-top: 30px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .settings-submit{
+      width: 70%;
+      text-align: center;
+      margin-top: 30px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+
+
+  button{
+    font-size: 16px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    padding: 8px 7%;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-family: OpenSans;
+    font-weight: normal;
+    background-size: 300% 100%;
+    background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+  button:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+  textarea{
+    width: 100%;
+    min-height: 70px;
+    resize: vertical;
+    font-size: 16px;
+    font-family: Nexa;
+    letter-spacing: 0.2px;
+    border: 1px solid var(--light-mode-input-backgroud);
+    padding: 7px;
+  }
+}

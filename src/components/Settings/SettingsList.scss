@@ -2,23 +2,51 @@
   .settings-list{
     width: 60vw;
     margin-left: 20vw;
-    border: 1px solid var(--light-mode-input-backgroud);
+    border-top: 1px solid var(--light-mode-input-backgroud);
     background: white;
     top: 540px;
-    padding-bottom: 20px;
     position: absolute;
 
     .list-header{
       display: table;
+      border-left: 1px solid var(--light-mode-input-backgroud);
+      border-bottom: 1px solid var(--light-mode-input-backgroud);
 
-      .list-item{
-        width: 33%;
-        display: table-cell;
+      .list-header-item:hover{
+        background: var(--light-mode-input-backgroud);
+        cursor: pointer;
       }
 
+      .selected{
+        color: var(--button-dark-green)
+      }
+
+      .list-header-item{
+        width: 1%;
+        display: table-cell;
+        height: 50px;
+        border-right: 1px solid var(--light-mode-input-backgroud);
+        vertical-align: middle;
+
+        .item-image{
+          display: table-cell;
+          width: 30px;
+          padding-left: 15px;
+          padding-right: 15px;
+          vertical-align: middle;
+          img{
+            vertical-align: middle;
+            width: 30px;
+            height: 30px;
+          }
+        }
+        .item-name{
+          display: table-cell;
+          vertical-align: middle;
+          font-family: OpenSans;
+          font-size: 15px;
+        }
+      }
     }
-
-
-
   }
 }
