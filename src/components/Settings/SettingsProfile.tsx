@@ -82,8 +82,31 @@ const SettingsProfile: React.FC<Props> = (props) => {
             }
         })
 
+        if(newImage === null) return
+
+        let data = new FormData()
+        data.append('file', newImage)
+
         axios({
-            
+            method: 'POST',
+            url: process.env.REACT_APP_API_SERVER_URL+'/settings/setimage',
+            withCredentials: true,
+            data: data
+        }).then(function (response) {
+            let serverResponse = response.data.responseEntity.body
+            let statusCode = response.data.responseEntity.statusCode
+
+            if(statusCode === 'ACCEPTED'){
+                alert.success(text.success[serverResponse])
+                setUserContext({
+                    ...userContext,
+                    profileImage: 'static/images/user/'+settings.userId+'/'+settings.userId+'.jpg'
+                })
+            }else if(statusCode === 'METHOD_NOT_ALLOWED'){
+                alert.error(text.error[serverResponse])
+            }else{
+                alert.error(text.error.SOMETHING_WENT_WRONG)
+            }
         })
 
     }

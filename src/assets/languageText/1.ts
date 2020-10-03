@@ -397,6 +397,7 @@ export const text = {
         SIGNED_UP_PREMIUM: 'Gratulujeme! Prémium bolo zakúpené',
         // Settings
         PROFILE_IMAGE_DELETED: 'Profilový obrázok bol odstránený',
-        SETTINGS_UPDATED: 'Nastavenia boli uložené'
+        SETTINGS_UPDATED: 'Nastavenia boli uložené',
+        PROFILE_IMAGE_SET: 'Profilový obrázok bol zmenený'
     }
 }

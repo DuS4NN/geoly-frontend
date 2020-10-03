@@ -399,7 +399,8 @@ export const text = {
         SIGNED_UP_PREMIUM: 'Congratulation! The Premium has been purchased',
         // Settings
         PROFILE_IMAGE_DELETED: 'The profile image has been deleted',
-        SETTINGS_UPDATED: 'Settings has been updated'
+        SETTINGS_UPDATED: 'The Settings has been updated',
+        PROFILE_IMAGE_SET: 'The profile image has been changed'
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka
     // NOT_FOUND - Nenašlo sa, pravdepodobne BAD_REQUEST
