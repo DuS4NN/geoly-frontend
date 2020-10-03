@@ -292,7 +292,12 @@ export const text = {
         textAreaPlaceholder: 'Napíšte niečo o sebe..',
         language: 'Jazyk',
         private: 'Súkromný profil',
-        save: 'Uložiť'
+        save: 'Uložiť',
+        cancelSubscription: 'Zrušiť Prémium',
+        cancelSubscriptionDesc: 'Ste si istý, že chcete zrušiť predplatné Prémium?',
+        newPassword: 'Nové heslo',
+        oldPassword: 'Staré heslo',
+        repeatPassword: 'Opakovať heslo'
     },
     language: {
         Slovak: 'Slovenčina',
@@ -356,6 +361,8 @@ export const text = {
 
         // Settings
         INVALID_ABOUT_LENGTH_SIZE: 'Dĺžka popisu úlohy musí byť 0-500 znakov',
+        SUBSCRIPTION_CAN_NOT_BE_CANCELED: 'Zrušenie predplatného sa nepodarilo',
+        INCORRECT_OLD_PASSWORD: 'Staré heslo je nesprávne',
 
         // Other
         USER_NOT_FOUND: 'Účet nenájdený',
@@ -398,6 +405,8 @@ export const text = {
         // Settings
         PROFILE_IMAGE_DELETED: 'Profilový obrázok bol odstránený',
         SETTINGS_UPDATED: 'Nastavenia boli uložené',
-        PROFILE_IMAGE_SET: 'Profilový obrázok bol zmenený'
+        PROFILE_IMAGE_SET: 'Profilový obrázok bol zmenený',
+        SUBSCRIPTION_CANCELED: 'Predplatné bolo zrušené',
+        PASSWORD_CHANGED: 'Heslo bolo zmenené'
     }
 }

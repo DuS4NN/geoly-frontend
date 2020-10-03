@@ -128,7 +128,55 @@
       margin-left: auto;
     }
 
+    .settings-subscription{
+      width: 70%;
+      margin-top: 30px;
+      margin-right: auto;
+      margin-left: auto;
+
+      button{
+        background-image: linear-gradient(to right, var(--button-light-red), var(--button-dark-red), var(--button-dark-red), var(--button-light-red));
+        box-shadow: 0 4px 15px 0 rgba(191, 52, 75, 0.75);
+      }
+    }
+
     .settings-submit{
+      width: 70%;
+      text-align: center;
+      margin-top: 30px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+
+  .settings-password{
+    border-left: 1px solid var(--light-mode-input-backgroud);
+    border-right: 1px solid var(--light-mode-input-backgroud);
+    border-bottom: 1px solid var(--light-mode-input-backgroud);
+    padding-bottom: 30px;
+
+    .password-input{
+      width: 70%;
+      text-align: left;
+      margin-top: 30px;
+      margin-right: auto;
+      margin-left: auto;
+
+      .input-field-password{
+        width: calc(100% - 60px);
+        background-color: var(--light-mode-input-backgroud);
+        background-size: 15px 15px;
+        border: none;
+        font-family: OpenSans;
+        font-weight: normal;
+        letter-spacing: 1px;
+        height: 50px;
+        padding-right: 20px;
+        padding-left: 40px;
+      }
+    }
+
+    .submit-button{
       width: 70%;
       text-align: center;
       margin-top: 30px;
@@ -171,5 +219,20 @@
     letter-spacing: 0.2px;
     border: 1px solid var(--light-mode-input-backgroud);
     padding: 7px;
+  }
+
+  input::placeholder{
+    color: var(--light-mode-gray-text);
+  }
+
+  input:focus::placeholder{
+    color: var(--light-mode-dark-green);
+  }
+
+  .input-field-password{
+    background-image: url("../../assets/images/inputImages/password.svg");
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+    background-position: center left 15px;
   }
 }

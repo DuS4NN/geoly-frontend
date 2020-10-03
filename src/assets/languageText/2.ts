@@ -295,7 +295,12 @@ export const text = {
         textAreaPlaceholder: 'Write something about you..',
         language: 'Language',
         private: 'Private profile',
-        save: 'Save'
+        save: 'Save',
+        cancelSubscription: 'Cancel Premium',
+        cancelSubscriptionDesc: 'Are you sure you want to cancel your subscription?',
+        newPassword: 'New password',
+        oldPassword: 'Old password',
+        repeatPassword: 'Repeat password'
     },
     language: {
         Slovak: 'Slovak',
@@ -358,6 +363,8 @@ export const text = {
 
         // Settings
         INVALID_ABOUT_LENGTH_SIZE: 'About must be 0-500 characters long',
+        SUBSCRIPTION_CAN_NOT_BE_CANCELED: 'Unsubscribing failed',
+        INCORRECT_OLD_PASSWORD: 'The old password is incorrect',
 
         // Other
         USER_NOT_FOUND: 'Account not found',
@@ -400,7 +407,9 @@ export const text = {
         // Settings
         PROFILE_IMAGE_DELETED: 'The profile image has been deleted',
         SETTINGS_UPDATED: 'The Settings has been updated',
-        PROFILE_IMAGE_SET: 'The profile image has been changed'
+        PROFILE_IMAGE_SET: 'The profile image has been changed',
+        SUBSCRIPTION_CANCELED: 'The subscription has been canceled',
+        PASSWORD_CHANGED: 'The password has been changed'
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka
     // NOT_FOUND - Nenašlo sa, pravdepodobne BAD_REQUEST

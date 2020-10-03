@@ -8,6 +8,7 @@ import axios from 'axios'
 
 import './SettingsItems.scss'
 import {useAlert} from "react-alert";
+import ModalCancelSubscription from "../Modals/ModalCancelSubscription";
 
 // Props
 interface Props {
@@ -29,6 +30,7 @@ const SettingsProfile: React.FC<Props> = (props) => {
     const [newImage, setNewImage] = useState(null) as Array<any>
 
     const [showModal, setShowModal] = useState(false) as Array<any>
+    const [showCancelModal, setShowCancelModal] = useState(false) as Array<any>
 
     const handleChangeImage = (e:any) => {
         let image = e.target.files[0]
@@ -51,6 +53,10 @@ const SettingsProfile: React.FC<Props> = (props) => {
             ...settings,
             privateProfile: !settings.privateProfile
         })
+    }
+
+    const handleCancelSubscription = () => {
+        setShowCancelModal(true)
     }
 
     const handleSubmit = () => {
@@ -169,7 +175,7 @@ const SettingsProfile: React.FC<Props> = (props) => {
         <div className="settings-profile">
 
             <ModalDeleteProfilePicture showModal={showModal} setShowModal={setShowModal} setSettings={setSettings} settings={settings} />
-
+            <ModalCancelSubscription showModal={showCancelModal} setShowModal={setShowCancelModal} settings={settings} setSettings={setSettings} />
 
             <div className="settings-image">
                 <div className="settings-label">
@@ -228,6 +234,13 @@ const SettingsProfile: React.FC<Props> = (props) => {
                     />
                 )}
             </div>
+
+
+            {settings.premium > 0 && (
+                <div className="settings-subscription">
+                    <button onClick={handleCancelSubscription}>{text.settings.cancelSubscription}</button>
+                </div>
+            )}
 
             <div className="settings-submit">
                 <button onClick={handleSubmit}>{text.settings.save}</button>

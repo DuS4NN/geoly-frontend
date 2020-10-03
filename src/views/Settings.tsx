@@ -35,7 +35,8 @@ const Settings: React.FC = () => {
                     privateProfile: !!+response.data.data[0][2],
                     profileImage: response.data.data[0][3],
                     about: response.data.data[0][4],
-                    userId: response.data.data[0][5]
+                    userId: response.data.data[0][5],
+                    premium: response.data.data[0][6]
                 })
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -58,7 +59,6 @@ const Settings: React.FC = () => {
         })
     }, [])
 
-    //Cancel subscription
 
     // Template
     return (
