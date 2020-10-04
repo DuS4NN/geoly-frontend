@@ -407,6 +407,7 @@ export const text = {
         SETTINGS_UPDATED: 'Nastavenia boli uložené',
         PROFILE_IMAGE_SET: 'Profilový obrázok bol zmenený',
         SUBSCRIPTION_CANCELED: 'Predplatné bolo zrušené',
-        PASSWORD_CHANGED: 'Heslo bolo zmenené'
+        PASSWORD_CHANGED: 'Heslo bolo zmenené',
+        THEME_CHANGED: 'Téma bola zmenená'
     }
 }

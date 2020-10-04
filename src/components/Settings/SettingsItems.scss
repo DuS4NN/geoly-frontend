@@ -158,7 +158,7 @@
     .password-input{
       width: 70%;
       text-align: left;
-      margin-top: 30px;
+      padding-top: 30px;
       margin-right: auto;
       margin-left: auto;
 
@@ -182,6 +182,42 @@
       margin-top: 30px;
       margin-right: auto;
       margin-left: auto;
+    }
+  }
+
+  .settings-appearance{
+    border-left: 1px solid var(--light-mode-input-backgroud);
+    border-right: 1px solid var(--light-mode-input-backgroud);
+    border-bottom: 1px solid var(--light-mode-input-backgroud);
+    padding-bottom: 30px;
+    padding-top: 30px;
+
+    .selected{
+      border: 1px solid var(--button-light-green)!important;
+      background: var(--background-light-green);
+    }
+
+    .theme-item{
+      cursor: pointer;
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      border: 1px solid var(--light-mode-input-backgroud);
+
+      .item-image{
+        img{
+          width: 100%;
+        }
+      }
+      .item-name{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+        font-family: OpenSans;
+        font-size: 15px;
+      }
     }
   }
 
@@ -212,7 +248,7 @@
   }
   textarea{
     width: 100%;
-    min-height: 70px;
+    min-height: 100px;
     resize: vertical;
     font-size: 16px;
     font-family: Nexa;

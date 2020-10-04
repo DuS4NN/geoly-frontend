@@ -2,14 +2,14 @@ import React, {useContext, useEffect, useState} from "react"
 import { useGoogleMaps } from "react-hook-google-maps";
 import {debounce} from "lodash-es";
 import axios from "axios";
+import {useAlert} from "react-alert";
+import {UserContext} from "../../UserContext";
+import MapQuestDetail from "./MapQuestDetail";
 // Children
 import MapFilter from "./MapFilter";
 // Style
 import './MapView.scss'
 import './MapFilter.scss'
-import {useAlert} from "react-alert";
-import {UserContext} from "../../UserContext";
-import MapQuestDetail from "./MapQuestDetail";
 
 interface questDetail{
     questId: number
@@ -60,7 +60,8 @@ const MapView: React.FC<Props> = () => {
         {
             center: { lat:48.864716, lng: 2.349014 },
             zoom: 12,
-            minZoom: 12
+            minZoom: 12,
+            styles: require('../../assets/mapThemes/'+userContext['mapTheme']+'.ts').mapTheme
         }
     )
     // On start
@@ -69,6 +70,7 @@ const MapView: React.FC<Props> = () => {
             setMapRef(map)
             handleMapClick()
             setBounds(map.getBounds())
+
         }
     }, [map])
 

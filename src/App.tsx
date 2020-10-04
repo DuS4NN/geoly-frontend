@@ -32,7 +32,7 @@ function App() {
     let nickName = localStorage.getItem("nickName") ? localStorage.getItem("nickName") : null
     let profileImage = localStorage.getItem("profileImage") ? localStorage.getItem("profileImage") : null
     let languageId = localStorage.getItem("languageId") ? localStorage.getItem("languageId") : '1'
-    let mapTheme = localStorage.getItem("mapTheme") ? localStorage.getItem("MapTheme") : '1'
+    let mapTheme = localStorage.getItem("mapTheme") ? localStorage.getItem("mapTheme") : '1'
     let darkMode = localStorage.getItem("darkMode") ? localStorage.getItem("darkMode") : 'false'
 
     let userFromStorage = {
