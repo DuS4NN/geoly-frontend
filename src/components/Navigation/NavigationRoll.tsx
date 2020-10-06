@@ -30,12 +30,6 @@ const NavigationRoll: React.FC<Props> = (props) => {
     // Text
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
-    // Image
-    const profileIcon = require("../../assets/images/navigationIcons/profile.svg")
-    const settingsIcon = require("../../assets/images/navigationIcons/settings.svg")
-    const logoutIcon = require("../../assets/images/navigationIcons/logout.svg")
-    const darkModeIcon = require("../../assets/images/navigationIcons/darkmode.svg")
-
     // Methods
     const handleClick = () => {
         setShowRoll(false)
@@ -90,10 +84,10 @@ const NavigationRoll: React.FC<Props> = (props) => {
                     <article className="navigation-roll-item">
 
                         <div className="navigation-roll-item-icon">
-                            <img src={darkModeIcon} alt="" />
+                            <img src={require("../../assets/images/navigationIcons/darkmode.svg")} alt="" />
                         </div>
                         <div className="navigation-roll-item-name">
-                            <span>Dark Mode</span>
+                            <span>{text.navigation.darkMode}</span>
                         </div>
                         <div className="navigation-roll-item-slider">
                                 <Toggle
@@ -108,30 +102,39 @@ const NavigationRoll: React.FC<Props> = (props) => {
                         </div>
                     </article>
 
-                    <Link onClick={handleClick} to={'/profile/'+userContext['nickName']} className="navigation-roll-item profile">
+                    <Link onClick={handleClick} to={'/daily'} className="navigation-roll-item daily">
                         <div className="navigation-roll-item-icon">
-                            <img src={profileIcon} alt="" />
+                            <img src={require("../../assets/images/navigationIcons/daily.svg")} alt="" />
                         </div>
                         <div className="navigation-roll-item-title">
-                            <span>Profile</span>
+                            <span>{text.navigation.dailyQuest}</span>
+                        </div>
+                    </Link>
+
+                    <Link onClick={handleClick} to={'/profile/'+userContext['nickName']} className="navigation-roll-item profile">
+                        <div className="navigation-roll-item-icon">
+                            <img src={require("../../assets/images/navigationIcons/profile.svg")} alt="" />
+                        </div>
+                        <div className="navigation-roll-item-title">
+                            <span>{text.navigation.profile}</span>
                         </div>
                     </Link>
 
                     <Link onClick={handleClick} to={"/settings"} className="navigation-roll-item settings">
                         <div className="navigation-roll-item-icon">
-                            <img src={settingsIcon} alt="" />
+                            <img src={require("../../assets/images/navigationIcons/settings.svg")} alt="" />
                         </div>
                         <div className="navigation-roll-item-title">
-                            <span>Settings</span>
+                            <span>{text.navigation.settings}</span>
                         </div>
                     </Link>
 
                     <Link onClick={handleClick} to={"/logout"} className="navigation-roll-item logout">
                         <div className="navigation-roll-item-icon">
-                            <img    src={logoutIcon} alt="" />
+                            <img src={require("../../assets/images/navigationIcons/logout.svg")} alt="" />
                         </div>
                         <div className="navigation-roll-item-title">
-                            <span>Log out</span>
+                            <span>{text.navigation.logOut}</span>
                         </div>
                     </Link>
                 </FadeIn>

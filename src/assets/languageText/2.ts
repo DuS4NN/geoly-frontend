@@ -43,7 +43,13 @@ export const text = {
         quests: 'Quests',
         groups: 'Groups',
         premium: 'Premium',
-        logIn: 'Log In'
+        app: 'App',
+        logIn: 'Log In',
+        darkMode: 'Dark mode',
+        dailyQuest: 'Daily quest',
+        profile: 'Profile',
+        settings: 'Settings',
+        logOut: 'Log out'
     },
     ranking: {
         title: 'Ranking',
@@ -306,6 +312,13 @@ export const text = {
         Slovak: 'Slovak',
         English: 'English'
     },
+    daily: {
+        title: 'New day, new adventure',
+        signIn: 'Sign in',
+        whatIs: 'What is daily quest?',
+        description: 'The daily quest is a unique quest that brings new challenges every day! The essence of the quest is to get to a randomly generated place in your area. The coordinates change every day, and if you do not complete the quest, it will be canceled automatically.',
+        end: 'The daily quest ends in:'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',
@@ -337,6 +350,8 @@ export const text = {
         USER_HAS_ACTIVE_QUEST: 'A user can have only one active quest',
         USER_CAN_NOT_PLAY_OWN_QUEST: 'A user cannot start their own quest',
         USER_DOESNT_HAVE_PREMIUM: 'You need a premium account to start this task',
+        USER_ADDRESS_NULL: 'We can\'t create a daily quest because we don\'t have a record of your location',
+        USER_HAS_ACTIVE_DAILY_QUEST: 'The daily quest is already active',
 
         // Edit Quest
         INVALID_DESCRIPTION_LENGTH_SIZE: 'Quest description must be 1-500 characters long',
@@ -384,7 +399,7 @@ export const text = {
         REVIEW_DELETED: 'The review has been deleted',
         REVIEW_EDITED: 'The review has been edited',
         REVIEW_ADDED: 'The review has been added',
-        USER_SIGNED_UP_ON_QUEST: 'You have been signed up for the quest',
+        USER_SIGNED_UP_ON_QUEST: 'You have been signed up for the quest. Download Geoly App and play!',
         // Report
         QUEST_REPORT_CREATED: 'The quest has been reported',
         USER_REPORT_CREATED: 'The user has been reported',

@@ -43,7 +43,13 @@ export const text = {
         quests: 'Úlohy',
         groups: 'Skupiny',
         premium: 'Prémium',
-        logIn: 'Prihlásiť sa'
+        app: 'Aplikácia',
+        logIn: 'Prihlásiť sa',
+        darkMode: 'Tmavý režim',
+        dailyQuest: 'Denná úloha',
+        profile: 'Profil',
+        settings: 'Nastavenia',
+        logOut: 'Odlásiť sa'
     },
     ranking: {
         title: 'Rebríček',
@@ -303,6 +309,13 @@ export const text = {
         Slovak: 'Slovenčina',
         English: 'Angličtina'
     },
+    daily: {
+        title: 'Nový deň, nové dobrodružstvo',
+        signIn: 'Prihlásiť sa',
+        whatIs: 'Čo je denná úloha?',
+        description: 'Denná úloha je unikátna úloha, ktorá prináša každý deň nové výzvy! Podstata úlohy je dostať sa na náhodne vygenerované miesto vo Vašom okolí. Každý deň sa súradnice menia, a ak úlohu nestihnete dokončiť, sama sa automaticky zruší.',
+        end: 'Denná úloha končí o:'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',
@@ -335,6 +348,8 @@ export const text = {
         USER_HAS_ACTIVE_QUEST: 'Používateľ môže mať iba jednu aktívnu úlohu',
         USER_CAN_NOT_PLAY_OWN_QUEST: 'Používateľ nemôže začať vlastnú úlohu',
         USER_DOESNT_HAVE_PREMIUM: 'Na začatie tejto úlohy potrebujete prémiový účet',
+        USER_ADDRESS_NULL: 'Nemôžeme vytvoriť dennú úlohu, pretože nemáme záznam o Vašej polohe',
+        USER_HAS_ACTIVE_DAILY_QUEST: 'Denná úloha je už aktívna',
 
         // Edit Quest
         INVALID_DESCRIPTION_LENGTH_SIZE: 'Dĺžka popisu úlohy musí byť 1-500 znakov',
@@ -382,7 +397,7 @@ export const text = {
         REVIEW_DELETED: 'Recenzia bola odstránená',
         REVIEW_EDITED: 'Recenzia bola upravená',
         REVIEW_ADDED: 'Recenzia bola pridaná',
-        USER_SIGNED_UP_ON_QUEST: 'Boli ste prihlásený na úlohu',
+        USER_SIGNED_UP_ON_QUEST: 'Boli ste prihlásený na úlohu. Stiahnite si Geoly aplikáciu a hrajte!',
         // Report
         QUEST_REPORT_CREATED: 'Úloha bola nahlásená',
         USER_REPORT_CREATED: 'Používateľ bol nahlásený',

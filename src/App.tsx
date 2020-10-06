@@ -15,16 +15,15 @@ import Ranking from "./views/Ranking";
 import UserQuest from "./views/UserQuest";
 import Groups from "./views/Groups";
 import Group from "./views/Group";
-
-// Style
-import './App.scss'
 import Profile from "./views/Profile";
 import Premium from "./views/Premium";
 import PremiumResponse from "./components/Premium/PremiumResponse";
 import Welcome from "./views/Welcome";
 import Settings from "./views/Settings";
+import DailyQuest from "./views/DailyQuest";
 
-
+// Style
+import './App.scss'
 
 // Component
 function App() {
@@ -72,6 +71,7 @@ function App() {
                         <Route path={"/premiumresponse/"} component={PremiumResponse} />
                         <Route exact path={"/"} component={Welcome} />
                         <Route exact path={"/settings"} component={Settings} />
+                        <Route exact path={"/daily"} component={DailyQuest} />
                     </Switch>
                 </main>
 

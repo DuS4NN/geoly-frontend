@@ -33,6 +33,7 @@
     "react-anim-kit": "^1.0.19",
     "react-animate-height": "^2.0.23",
     "react-calendar-heatmap": "^1.8.1",
+    "react-countdown": "^2.2.2",
     "react-dom": "^16.13.1",
     "react-hook-google-maps": "0.0.3",
     "react-image-gallery": "^1.0.8",

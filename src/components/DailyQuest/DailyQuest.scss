@@ -1,0 +1,112 @@
+.daily-quest{
+  .header-container{
+    width: 100%;
+    height: 500px;
+    background-color: var(--background-light-green);
+    background-image: url("../../assets/images/waveLeft/backgroundTopLeft.svg"), url("../../assets/images/waveRight/backgroundBottomRight.svg");
+    background-repeat: no-repeat;
+    background-position: top left, bottom right;
+    background-size: 35%;
+
+    .header-text{
+      text-align: center;
+      vertical-align: middle;
+      width: 100vw;
+      height: 500px;
+      display: table-cell;
+
+      h1{
+        margin: 0;
+        font-family: Nexa;
+        font-weight: bold;
+        padding: 50px;
+        font-size: 50px;
+        letter-spacing: 0.8px;
+        color: var(--light-mode-dark-green);
+      }
+    }
+  }
+
+  .daily-quest-info{
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+    max-width: 1900px;
+    text-align: center;
+    padding-top: 30px;
+    h2{
+      margin: 0;
+      font-family: Nexa;
+      font-weight: bold;
+      font-size: 35px;
+      letter-spacing: 0.8px;
+      color: var(--light-mode-dark-green);
+    }
+
+    .countdown{
+      padding-top: 10px;
+      font-family: Nexa;
+      font-weight: bold;
+      font-size: 35px;
+      letter-spacing: 0.8px;
+      color: var(--light-mode-dark-green);
+    }
+
+    .info-description{
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1200px;
+      padding-top: 30px;
+      padding-bottom: 20px;
+      font-family: OpenSansText;
+      font-size: 16px;
+    }
+
+    h3{
+      margin: 0;
+      font-family: Nexa;
+      font-weight: bold;
+      font-size: 20px;
+      letter-spacing: 0.8px;
+      padding-bottom: 10px;
+    }
+  }
+
+  .daily-quest-map{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 70%;
+    height: 400px;
+
+    .gmnoprint, .gm-style-cc, .gm-control-active, .gm-fullscreen-control {
+      display: none;
+    }
+  }
+
+  button{
+    font-size: 16px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    padding: 8px 4vw;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-family: OpenSans;
+    font-weight: normal;
+    background-size: 300% 100%;
+    background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+  button:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+}

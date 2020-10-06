@@ -1,6 +1,6 @@
 .navigation-roll{
   border: 1px solid var(--light-mode-input-backgroud);
-  position: fixed;
+  position: absolute;
   right: 30px;
   top: 94px;
   width: 280px;
@@ -8,10 +8,10 @@
 
   .navigation-triangle{
     width: 0;
-    top: 79px;
-    right: 55px;
+    top: -15px;
+    right: 25px;
     height: 0;
-    position: fixed;
+    position: absolute;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
     border-bottom: 15px solid var(--light-mode-input-backgroud);
