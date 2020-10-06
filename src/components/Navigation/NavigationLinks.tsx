@@ -36,6 +36,7 @@ const NavigationLinks: React.FC<Props> = () => {
                 <NavLink to="/quests" >{text.navigation.quests}</NavLink>
                 <NavLink to="/groups" >{text.navigation.groups}</NavLink>
                 <NavLink to="/premium" >{text.navigation.premium}</NavLink>
+                <a href="https://play.google.com/store" >{text.navigation.app}</a>
             </div>
         </div>
 
