@@ -319,6 +319,12 @@ export const text = {
         description: 'The daily quest is a unique quest that brings new challenges every day! The essence of the quest is to get to a randomly generated place in your area. The coordinates change every day, and if you do not complete the quest, it will be canceled automatically.',
         end: 'The daily quest ends in:'
     },
+    notifications: {
+        welcome: 'Welcome to Geoly!',
+        addReview1: 'User',
+        addReview2: 'has posted a review of your',
+        addReview3: 'quest'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',

@@ -2,7 +2,7 @@ import React, {useState} from "react"
 // Children
 import NavigationLinks from "../components/Navigation/NavigationLinks"
 import NavigationProfile from "../components/Navigation/NavigationProfile"
-import NavigationRoll from "../components/Navigation/NavigationRoll"
+import NavigationRoll from "../components/Navigation/NavigationRoll";
 
 // Props
 interface Props {

@@ -316,6 +316,12 @@ export const text = {
         description: 'Denná úloha je unikátna úloha, ktorá prináša každý deň nové výzvy! Podstata úlohy je dostať sa na náhodne vygenerované miesto vo Vašom okolí. Každý deň sa súradnice menia, a ak úlohu nestihnete dokončiť, sama sa automaticky zruší.',
         end: 'Denná úloha končí o:'
     },
+    notifications: {
+        welcome: 'Vitajte v Geoly!',
+        addReview1: 'Používateľ',
+        addReview2: 'uverejnil rezenciu na Vašu',
+        addReview3: 'úlohu'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',

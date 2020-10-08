@@ -5,6 +5,8 @@ import {useHistory} from "react-router-dom"
 import {UserContext} from "../../UserContext"
 // Style
 import './NavigationProfile.scss'
+import NavigationNotifications from "./NavigationNotifications";
+import NavigationInvitations from "./NavigationInvitations";
 
 
 // Props
@@ -24,10 +26,6 @@ const NavigationProfile: React.FC<Props> = (props) => {
     // Redirect
     const history = useHistory()
 
-    // Image
-    const messageIcon = require('../../assets/images/inputImages/message.svg')
-    const notificationIcon = require('../../assets/images/inputImages/notification.svg')
-
     // Methods
     const handleClick = () => {
         history.push("/login")
@@ -46,8 +44,8 @@ const NavigationProfile: React.FC<Props> = (props) => {
                 ) : (
                 <div className="navigation-profile-user">
                     <div className="notification-icons">
-                        <img src={messageIcon} alt="" />
-                        <img src={notificationIcon} alt="" />
+                        <NavigationInvitations />
+                        <NavigationNotifications />
                     </div>
                     <div className="profile-image">
                         <img onClick={handleRoll} src={process.env.REACT_APP_IMAGE_SERVER_URL+userContext['profileImage']} alt="" />

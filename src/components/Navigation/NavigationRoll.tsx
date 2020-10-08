@@ -79,7 +79,7 @@ const NavigationRoll: React.FC<Props> = (props) => {
         <div className="navigation-roll" ref={navigationRoll} id="navigation-roll">
             <div className="navigation-triangle">
             </div>
-                <FadeIn left by={70} delayBy={0.05}>
+                <FadeIn right by={70} delayBy={0.05}>
 
                     <article className="navigation-roll-item">
 
