@@ -63,6 +63,21 @@
   vertical-align: middle;
   width: inherit;
 
+  .invitations-count{
+    background: red;
+    position: absolute;
+    margin-left: 40px;
+    margin-top: -35px;
+    font-family: OpenSans;
+    font-size: 12px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-radius: 5px;
+    color: white;
+  }
+
   img{
     vertical-align: middle;
     margin-left: 10px;

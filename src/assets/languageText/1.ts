@@ -322,6 +322,10 @@ export const text = {
         addReview2: 'uverejnil rezenciu na Vašu',
         addReview3: 'úlohu'
     },
+    invitations: {
+      user: 'Používateľ',
+      sentInvite: 'Vám poslal pozvánku do skupiny'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',

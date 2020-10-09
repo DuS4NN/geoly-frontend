@@ -93,6 +93,10 @@ const NotificationsRoll: React.FC<Props> = (props) => {
                                 <span>null</span>
                             )}
 
+                            <div className="date">
+                                <span>{notification.date.getDate()+" "+text.month[notification.date.getMonth()]+" "+notification.date.getFullYear()+" "+notification.date.getHours()+":"+notification.date.getMinutes()}</span>
+                            </div>
+
                         </div>
                     </div>
                 ))}

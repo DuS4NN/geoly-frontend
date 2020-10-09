@@ -25,11 +25,19 @@
 
   .roll-item{
     width: 100%;
-    height: 50px;
+    height: 60px;
     border-bottom: 1px solid var(--light-mode-input-backgroud);
-    display: table;
+
+    .date{
+      text-align: left;
+      width: 100%;
+      font-size: 12px;
+      font-family: Nexa;
+      color: var(--light-mode-gray-text)
+    }
 
     .item-icon{
+      height: 60px;
       width: 30px;
       display: table-cell;
       vertical-align: middle;
@@ -42,6 +50,8 @@
     }
 
     .item-text{
+      padding-top: 5px;
+      padding-bottom: 5px;
       display: table-cell;
       vertical-align: middle;
       text-align: left;

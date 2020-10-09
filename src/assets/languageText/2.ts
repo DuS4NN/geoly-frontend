@@ -325,6 +325,10 @@ export const text = {
         addReview2: 'has posted a review of your',
         addReview3: 'quest'
     },
+    invitations: {
+        user: 'User',
+        sentInvite: 'has sent you an invitation to the group'
+    },
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',

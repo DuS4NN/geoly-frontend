@@ -25,6 +25,7 @@ const NavigationProfile: React.FC<Props> = (props) => {
     const [userToken, setUserToken] = useState(null) as Array<any>
 
     const [notifications, setNotifications] = useState([]) as Array<any>
+    const [invitations, setInvitations] = useState([]) as Array<any>
 
     // State
     const {showRoll, setShowRoll} = props
@@ -48,8 +49,8 @@ const NavigationProfile: React.FC<Props> = (props) => {
             cluster: process.env.REACT_APP_PUSHER_CLUSTER+""
         })
 
-        const channel = pusher.subscribe("notifications-"+userToken)
-        channel.bind("ADD_REVIEW", function (data:any) {
+        const channelNotifications = pusher.subscribe("notifications-"+userToken)
+        channelNotifications.bind("ADD_REVIEW", function (data:any) {
             setUnseenCountNotifications(unseenCountNotifications+1)
               let notification = {
                 date: new Date(),
@@ -64,8 +65,22 @@ const NavigationProfile: React.FC<Props> = (props) => {
             setNotifications([notification, ...notifications])
         })
 
-    }, [userToken])
+        const channelInvitations = pusher.subscribe("invitations-"+userToken)
+        channelInvitations.bind("PARTY_INVITE", function (data:any) {
+            setUnseenCountInvitations(unseenCountInvitations+1)
+            let invitation = {
+                invitationId: data.invitationId,
+                partyId: data.partyId,
+                partyName: data.partyName,
+                userNick: data.userNick
+            }
 
+            console.log(invitation)
+
+            setInvitations([invitation, ...invitations])
+        })
+
+    }, [userToken])
 
     useEffect(() => {
         axios({
@@ -92,8 +107,8 @@ const NavigationProfile: React.FC<Props> = (props) => {
                 ) : (
                 <div className="navigation-profile-user">
                     <div className="notification-icons">
-                        <NavigationInvitations />
-                        <NavigationNotifications notifications={notifications} setNotifications={setNotifications} userToken={userToken} setUnseenCount={setUnseenCountNotifications} unseenCount={unseenCountNotifications} />
+                        <NavigationInvitations invitations={invitations} setInvitations={setInvitations} setUnseenCount={setUnseenCountInvitations} unseenCount={unseenCountInvitations} />
+                        <NavigationNotifications notifications={notifications} setNotifications={setNotifications} setUnseenCount={setUnseenCountNotifications} unseenCount={unseenCountNotifications} />
                     </div>
                     <div className="profile-image">
                         <img onClick={handleRoll} src={process.env.REACT_APP_IMAGE_SERVER_URL+userContext['profileImage']} alt="" />
