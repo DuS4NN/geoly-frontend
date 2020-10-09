@@ -6,25 +6,39 @@ import {UserContext} from "../../UserContext"
 
 // Style
 import './NotificationRoll.scss'
+import {debounce} from "lodash-es";
 
 // Props
 interface Props {
     notifications:any
     setShowRoll: (showRoll:boolean) => void
+    getNotifications: () => void
 }
 
 // Component
 const NotificationsRoll: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
 
-    const {notifications, setShowRoll} = props
+    const {notifications, setShowRoll, getNotifications} = props
+
     const notificationRoll = useRef(null)
-
-
+    const ref = useRef(null) as any
 
     // Text
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
+    useEffect(() => {
+        document.getElementById("roll-items")?.addEventListener('scroll', handleScroll);
+        return () => document.getElementById("roll-items")?.removeEventListener('scroll', handleScroll);
+    })
+
+    const handleScroll = debounce((e:any) => {
+        if(ref){
+            if((100/ref.current?.scrollTopMax) * e.target.scrollTop >= 70){
+                getNotifications()
+            }
+        }
+    },100)
 
     // Click outside of component
     function useClickOutside(ref: any) {
@@ -50,8 +64,8 @@ const NotificationsRoll: React.FC<Props> = (props) => {
             <div className="navigation-triangle">
             </div>
 
-            <div className="roll-items">
-                {notifications.map((notification:any) => (
+            <div  id="roll-items" className="roll-items" ref={ref}>
+                {notifications[0].id && notifications.length>0 && notifications.map((notification:any) => (
                     <div key={notification.id} className="roll-item">
                         <div className="item-icon">
                             <img alt="" src={require("../../assets/images/notificationImages/"+notification.type+".svg")} />
@@ -84,7 +98,6 @@ const NotificationsRoll: React.FC<Props> = (props) => {
                 ))}
             </div>
         </div>
-
     )
 }
 

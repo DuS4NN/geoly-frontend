@@ -8,25 +8,25 @@ interface Props {
 }
 
 // Component
-const NavigationNotifications: React.FC<Props> = (props) => {
+const NavigationNotifications: React.FC<Props> = () => {
 
     const [unseenCount, setUnseenCount] = useState(0) as Array<any>
     const [showNotificationsRoll, setShowNotificationsRoll] = useState(false) as Array<any>
     const [notifications, setNotifications] = useState([]) as Array<any>
-    const [count, setCount] = useState(0) as Array<any>
+    const [isEmpty, setIsEmpty] = useState(false)
 
 
-    const getNotifications = (page:number) => {
+    const getNotifications = () => {
+        if(isEmpty) return
+
         axios({
             method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/notification?page='+page,
+            url: process.env.REACT_APP_API_SERVER_URL+'/notification?count='+notifications.length,
             withCredentials: true
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
-
             if(statusCode === 'OK'){
                 let newNotifications = response.data.data.map((notification:any) => {
-                    console.log(JSON.parse(notification[2]))
                     return {
                         id: notification[0],
                         date: notification[1],
@@ -36,8 +36,13 @@ const NavigationNotifications: React.FC<Props> = (props) => {
                         userId: notification[5],
                     }
                 })
-                setNotifications(...notifications, newNotifications)
-                setCount(newNotifications.length)
+
+                if(newNotifications.length === 0){
+                    setIsEmpty(true)
+                }
+
+                notifications.push(...newNotifications)
+                setNotifications(Array().concat(notifications))
             }
         })
     }
@@ -51,7 +56,7 @@ const NavigationNotifications: React.FC<Props> = (props) => {
             setUnseenCount(response.data > 99 ? 99 : response.data)
         })
 
-        getNotifications(0)
+        getNotifications()
     }, [])
 
     const handleShowRoll = () => {
@@ -71,7 +76,7 @@ const NavigationNotifications: React.FC<Props> = (props) => {
             )}
 
             {showNotificationsRoll && (
-                <NotificationsRoll setShowRoll={setShowNotificationsRoll} notifications={notifications} />
+                <NotificationsRoll getNotifications={getNotifications} setShowRoll={setShowNotificationsRoll} notifications={notifications} />
             )}
 
         </div>
