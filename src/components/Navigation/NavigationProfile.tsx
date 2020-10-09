@@ -1,13 +1,12 @@
 import React, {useContext, useEffect, useState} from "react"
 import {useHistory} from "react-router-dom"
-
-// Context
 import {UserContext} from "../../UserContext"
-// Style
+import NavigationNotifications from "./NavigationNotifications"
+import NavigationInvitations from "./NavigationInvitations"
+import axios from "axios"
+import Pusher from "pusher-js"
+
 import './NavigationProfile.scss'
-import NavigationNotifications from "./NavigationNotifications";
-import NavigationInvitations from "./NavigationInvitations";
-import axios from "axios";
 
 
 // Props
@@ -25,6 +24,8 @@ const NavigationProfile: React.FC<Props> = (props) => {
     const [unseenCountInvitations, setUnseenCountInvitations] = useState(0) as Array<any>
     const [userToken, setUserToken] = useState(null) as Array<any>
 
+    const [notifications, setNotifications] = useState([]) as Array<any>
+
     // State
     const {showRoll, setShowRoll} = props
 
@@ -39,6 +40,32 @@ const NavigationProfile: React.FC<Props> = (props) => {
     const handleRoll = () => {
         setShowRoll(!showRoll)
     }
+
+    useEffect(() => {
+        if(userToken === null) return
+
+        const pusher = new Pusher(process.env.REACT_APP_PUSHER_KEY+"", {
+            cluster: process.env.REACT_APP_PUSHER_CLUSTER+""
+        })
+
+        const channel = pusher.subscribe("notifications-"+userToken)
+        channel.bind("ADD_REVIEW", function (data:any) {
+            setUnseenCountNotifications(unseenCountNotifications+1)
+              let notification = {
+                date: new Date(),
+                id: data.notificationId,
+                type: "ADD_REVIEW",
+                data: {
+                    questId: data.questId,
+                    reviewId: data.reviewId,
+                    userNick: data.userNick
+                }
+            }
+            setNotifications([notification, ...notifications])
+        })
+
+    }, [userToken])
+
 
     useEffect(() => {
         axios({
@@ -66,7 +93,7 @@ const NavigationProfile: React.FC<Props> = (props) => {
                 <div className="navigation-profile-user">
                     <div className="notification-icons">
                         <NavigationInvitations />
-                        <NavigationNotifications setUnseenCount={setUnseenCountNotifications} unseenCount={unseenCountNotifications} />
+                        <NavigationNotifications notifications={notifications} setNotifications={setNotifications} userToken={userToken} setUnseenCount={setUnseenCountNotifications} unseenCount={unseenCountNotifications} />
                     </div>
                     <div className="profile-image">
                         <img onClick={handleRoll} src={process.env.REACT_APP_IMAGE_SERVER_URL+userContext['profileImage']} alt="" />

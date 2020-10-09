@@ -27,6 +27,7 @@
     "disable-scroll": "^0.5.1",
     "lodash-es": "^4.17.15",
     "node-sass": "^4.14.1",
+    "pusher-js": "^7.0.0",
     "react": "^16.13.1",
     "react-alert": "^7.0.2",
     "react-alert-template-basic": "^1.0.0",

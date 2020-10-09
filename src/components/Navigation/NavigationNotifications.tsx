@@ -6,15 +6,18 @@ import NotificationsRoll from "./NotificationsRoll";
 interface Props {
     unseenCount: number
     setUnseenCount: (count:number) => void
+    userToken: string
+    notifications: any
+    setNotifications: (notification:any) => void
 }
 
 // Component
 const NavigationNotifications: React.FC<Props> = (props) => {
 
-    const {setUnseenCount, unseenCount} = props
+    const {setUnseenCount, unseenCount, userToken, notifications, setNotifications} = props
 
     const [showNotificationsRoll, setShowNotificationsRoll] = useState(false) as Array<any>
-    const [notifications, setNotifications] = useState([]) as Array<any>
+
     const [isEmpty, setIsEmpty] = useState(false)
 
 
@@ -34,11 +37,9 @@ const NavigationNotifications: React.FC<Props> = (props) => {
                         date: notification[1],
                         data: JSON.parse(notification[2]),
                         type: notification[3],
-                        seen: notification[4],
-                        userId: notification[5],
                     }
                 })
-
+                
                 if(newNotifications.length === 0){
                     setIsEmpty(true)
                 }
@@ -54,6 +55,13 @@ const NavigationNotifications: React.FC<Props> = (props) => {
     }, [])
 
     const handleShowRoll = () => {
+        if(unseenCount>0 && !isEmpty && notifications.length<=10){
+            axios({
+                method: 'GET',
+                url: process.env.REACT_APP_API_SERVER_URL+'/setunseen',
+                withCredentials: true
+            })
+        }
         setUnseenCount(0)
         setShowNotificationsRoll(true)
     }
