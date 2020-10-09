@@ -4,13 +4,15 @@ import NotificationsRoll from "./NotificationsRoll";
 
 // Props
 interface Props {
-
+    unseenCount: number
+    setUnseenCount: (count:number) => void
 }
 
 // Component
-const NavigationNotifications: React.FC<Props> = () => {
+const NavigationNotifications: React.FC<Props> = (props) => {
 
-    const [unseenCount, setUnseenCount] = useState(0) as Array<any>
+    const {setUnseenCount, unseenCount} = props
+
     const [showNotificationsRoll, setShowNotificationsRoll] = useState(false) as Array<any>
     const [notifications, setNotifications] = useState([]) as Array<any>
     const [isEmpty, setIsEmpty] = useState(false)
@@ -48,14 +50,6 @@ const NavigationNotifications: React.FC<Props> = () => {
     }
 
     useEffect(() => {
-        axios({
-            method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/notification/count',
-            withCredentials: true
-        }).then(function (response) {
-            setUnseenCount(response.data > 99 ? 99 : response.data)
-        })
-
         getNotifications()
     }, [])
 
