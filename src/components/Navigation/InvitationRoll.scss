@@ -18,7 +18,7 @@
   }
 
   .roll-items{
-    max-height: 202px;
+    max-height: 250px;
     overflow-y: scroll;
   }
 
@@ -30,6 +30,7 @@
 
     .item-buttons{
       padding-top: 5px;
+      padding-bottom: 15px;
       width: 100%;
       text-align: center;
 
@@ -63,6 +64,18 @@
       }
     }
 
+    .item-image{
+      width: 40px;
+      text-align: center;
+      display: table-cell;
+      vertical-align: middle;
+
+      img{
+        width: 50px;
+        height: 50px;
+      }
+    }
+
     .item-text{
       vertical-align: middle;
       text-align: center;
@@ -74,6 +87,17 @@
         text-decoration: none;
         color: var(--light-mode-dark-green)
       }
+    }
+  }
+
+  .no-content{
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    .item{
+      text-align: center;
+      font-family: OpenSans;
+      font-size: 15px;
     }
   }
 

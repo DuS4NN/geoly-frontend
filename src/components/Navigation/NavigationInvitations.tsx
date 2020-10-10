@@ -74,7 +74,7 @@ const NavigationInvitations: React.FC<Props> = (props) => {
             )}
 
             {showInvitationsRoll && (
-                <InvitationsRoll invitations={invitations} setShowRoll={setShowInvitationsRoll} getInvitations={getInvitations} />
+                <InvitationsRoll setInvitations={setInvitations} invitations={invitations} setShowRoll={setShowInvitationsRoll} getInvitations={getInvitations} />
             )}
 
         </div>

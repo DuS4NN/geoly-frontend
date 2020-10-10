@@ -327,7 +327,10 @@ export const text = {
     },
     invitations: {
         user: 'User',
-        sentInvite: 'has sent you an invitation to the group'
+        sentInvite: 'has sent you an invitation to the group',
+        accept: 'Accept',
+        deny: 'Deny',
+        noContent: 'No new invitations'
     },
     error: {
         // Login
@@ -435,7 +438,10 @@ export const text = {
         PROFILE_IMAGE_SET: 'The profile image has been changed',
         SUBSCRIPTION_CANCELED: 'The subscription has been canceled',
         PASSWORD_CHANGED: 'The password has been changed',
-        THEME_CHANGED: 'The theme has been changed'
+        THEME_CHANGED: 'The theme has been changed',
+        // Notifications
+        INVITE_ACCEPTED: 'The invitation has been accepted',
+        INVITE_DENIED: 'The invitation has been denied'
     }
     // NOT_ACCEPTABLE - Nie je splnená nejaká podmienka
     // NOT_FOUND - Nenašlo sa, pravdepodobne BAD_REQUEST

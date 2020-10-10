@@ -323,8 +323,11 @@ export const text = {
         addReview3: 'úlohu'
     },
     invitations: {
-      user: 'Používateľ',
-      sentInvite: 'Vám poslal pozvánku do skupiny'
+        user: 'Používateľ',
+        sentInvite: 'Vám poslal pozvánku do skupiny',
+        accept: 'Prijať',
+        deny: 'Odmietnuť',
+        noContent: 'Žiadne nové pozvánky'
     },
     error: {
         // Login
@@ -433,6 +436,9 @@ export const text = {
         PROFILE_IMAGE_SET: 'Profilový obrázok bol zmenený',
         SUBSCRIPTION_CANCELED: 'Predplatné bolo zrušené',
         PASSWORD_CHANGED: 'Heslo bolo zmenené',
-        THEME_CHANGED: 'Téma bola zmenená'
+        THEME_CHANGED: 'Téma bola zmenená',
+        // Notifications
+        INVITE_ACCEPTED: 'Pozvánka bola prijatá',
+        INVITE_DENIED: 'Pozvánka bola odmietnutá'
     }
 }
