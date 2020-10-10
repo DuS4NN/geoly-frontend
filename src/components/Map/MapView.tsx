@@ -29,15 +29,13 @@ interface questDetail{
 
 // Props
 interface Props {
-
+    center: any
 }
 
 // Component
-const MapView: React.FC<Props> = () => {
-
-    //@ts-ignore
+const MapView: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
-
+    const {center} = props
     const [mapRef, setMapRef] = useState(null)
 
     const [category, setCategory] = useState([])
@@ -58,7 +56,7 @@ const MapView: React.FC<Props> = () => {
     const {ref, map, google} = useGoogleMaps(
         process.env.REACT_APP_GOOGLE_API_KEY+"",
         {
-            center: { lat:48.864716, lng: 2.349014 },
+            center: center,
             zoom: 12,
             minZoom: 12,
             styles: require('../../assets/mapThemes/'+userContext['mapTheme']+'.ts').mapTheme
@@ -70,9 +68,14 @@ const MapView: React.FC<Props> = () => {
             setMapRef(map)
             handleMapClick()
             setBounds(map.getBounds())
-
         }
     }, [map])
+
+    useEffect(() => {
+        if(map){
+            map.setCenter(center)
+        }
+    }, [map, center])
 
     // Methods
     const handleMapClick = debounce(() => {
