@@ -16,10 +16,6 @@ const UserQuestPlayedItem: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
-    useEffect(() => {
-        console.log(playedQuest)
-    }, [playedQuest])
-
     return (
         <div>
             <div className="container-table-item">
