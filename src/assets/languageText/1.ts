@@ -395,7 +395,8 @@ export const text = {
         // Other
         USER_NOT_FOUND: 'Účet nenájdený',
         QUEST_NOT_FOUND: 'Úloha nenájdená',
-        SELECT_REASON: 'Vyberte dôvod'
+        SELECT_REASON: 'Vyberte dôvod',
+        UNAUTHORIZED: 'Pre vstup na túto stránku sa musíte prihlásiť'
     },
     success: {
         // Register

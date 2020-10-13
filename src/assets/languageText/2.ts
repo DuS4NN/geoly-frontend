@@ -397,7 +397,8 @@ export const text = {
         // Other
         USER_NOT_FOUND: 'Account not found',
         QUEST_NOT_FOUND: 'Quest not found',
-        SELECT_REASON: 'Select a reason'
+        SELECT_REASON: 'Select a reason',
+        UNAUTHORIZED: 'You must be logged in to access this page'
     },
     success: {
         // Register

@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Switch, Route} from "react-router-dom"
 import { UserContext } from "./UserContext"
+import axios from "axios"
 
 //Children
 import Verify from "./components/Account/Verify/Verify"
@@ -40,9 +41,33 @@ function App() {
         languageId: languageId,
         mapTheme: mapTheme,
         darkMode: darkMode
-    }
+    } as any
 
     const [userContext, setUserContext] = useState(userFromStorage)
+
+    useEffect(() => {
+        if(localStorage.getItem("nickName")){
+            axios({
+                method: "GET",
+                url: process.env.REACT_APP_API_SERVER_URL+"/checkUser",
+                withCredentials: true
+            }).then(function (response) {
+                let statusCode = response.data.responseEntity.statusCode
+                if(statusCode === 'OK'){
+                    let data = response.data.data[0]
+
+                    let newUser = {
+                        nickName: data[0],
+                        profileImage: data[1],
+                        mapTheme: data[2],
+                        darkMode: data[3],
+                        languageId: data[4]
+                    } as any
+                    setUserContext(newUser)
+                }
+            })
+        }
+    }, [])
 
     // Template
     return (

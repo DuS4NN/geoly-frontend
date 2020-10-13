@@ -26,7 +26,7 @@ const GroupListEnteredItem: React.FC<Props> = (props) => {
         if(group.groupDate){
             setDate(new Date(group.groupDate))
         }
-    }, [])
+    }, [group])
 
 
     // Template
