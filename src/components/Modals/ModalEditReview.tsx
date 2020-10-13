@@ -1,4 +1,4 @@
-import React, {useContext, useRef} from "react"
+import React, {useContext, useEffect, useRef, useState} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 //@ts-ignore
@@ -8,6 +8,7 @@ import {UserContext} from "../../UserContext";
 import {useAlert} from "react-alert";
 
 import './Modal.scss'
+import {Picker} from "emoji-mart";
 
 // Props
 interface Props {
@@ -32,11 +33,19 @@ const ModalEditReview: React.FC<Props> = (props) => {
     const {showModal, setShowModal, editReviewId, reviews, setReviews, questId, reviewText, reviewRate, setReviewRate} = props
 
     const textareaRef = useRef(null)
+    const emojiPicker = useRef(null)
+
+    const [reviewValue, setReviewValue] = useState("") as Array<any>
+    const [showEmojiPicker, setShowEmojiPicker] = useState(false) as Array<any>
 
     // Modal
     Modal.setAppElement("#root")
     // Text
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
+
+    useEffect(() => {
+        setReviewValue(reviewText)
+    }, [reviewText])
 
     // Methods
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -100,6 +109,36 @@ const ModalEditReview: React.FC<Props> = (props) => {
         setReviewRate(e)
     }
 
+    const handleShowEmojiPicker = () => {
+        setShowEmojiPicker(true)
+    }
+
+    const handleEmojiSelect = (e:any) => {
+        if(reviewValue.length>=500) return
+        setReviewValue(reviewValue + e.native)
+    }
+
+    const handleValueChange = (e:any) => {
+        setReviewValue(e.target.value)
+    }
+
+    function useClickOutside(ref: any) {
+        useEffect(() => {
+            function handleClickOutside(e: MouseEvent) {
+
+                if (showEmojiPicker && ref.current && !ref.current.contains(e.target)) {
+                    setShowEmojiPicker(false)
+                }
+            }
+
+            document.addEventListener("click", handleClickOutside);
+            return () => {
+                document.removeEventListener("click", handleClickOutside);
+            };
+        }, [emojiPicker, showEmojiPicker]);
+    }
+    useClickOutside(emojiPicker)
+
     // Template
     return (
         <ReactModal
@@ -138,7 +177,18 @@ const ModalEditReview: React.FC<Props> = (props) => {
                     </div>
 
                     <div className="form-textarea">
-                        <textarea maxLength={500} ref={textareaRef} defaultValue={reviewText} />
+                        <textarea onChange={handleValueChange} maxLength={500} value={reviewValue} ref={textareaRef} />
+                            <span onClick={handleShowEmojiPicker} className="emoji-picker-button"><img alt="" src={require("../../assets/images/otherIcons/emojiPicker.svg")} /></span>
+                            {showEmojiPicker && (
+                                <span ref={emojiPicker} className="emoji-picker">
+                                    <div className="emoji-triangle">
+                                    </div>
+                                    <Picker
+                                        onSelect={handleEmojiSelect}
+                                        set={"facebook"}
+                                    />
+                            </span>
+                        )}
                     </div>
 
                     <div className="form-submit-button">

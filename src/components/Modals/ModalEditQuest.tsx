@@ -8,8 +8,10 @@ import Toggle from "react-toggle";
 import Select from "react-select";
 import chroma from "chroma-js";
 import ImageUpload from "../Elements/ImageUpload";
+import {Picker} from "emoji-mart";
 
 import './Modal.scss'
+import '../Elements/EmojiPicker.scss'
 
 // Props
 interface Props {
@@ -41,8 +43,16 @@ const ModalEditQuest: React.FC<Props> = (props) => {
     const [deletedQuests, setDeletedQuests] = useState([]) as Array<any>
     const [addedQuests, setAddedQuests] = useState([]) as Array<any>
 
+    const emojiPicker = useRef(null) as any
+    const [showEmojiPicker, setShowEmojiPicker] = useState(false) as Array<any>
+    const [descriptionValue, setDescriptionValue] = useState("")
+
     // Text
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
+
+    useEffect(() => {
+       setDescriptionValue(createdQuest.questDescription)
+    },[createdQuest.questDescription])
 
     useEffect(() => {
         Modal.setAppElement("#root")
@@ -268,6 +278,35 @@ const ModalEditQuest: React.FC<Props> = (props) => {
         setSelectedCategory(e.value)
     }
 
+    const handleShowEmojiPicker = () => {
+        setShowEmojiPicker(true)
+    }
+    const handleEmojiSelect = (e:any) => {
+        if(descriptionValue.length>=500) return
+        setDescriptionValue(descriptionValue + e.native)
+    }
+
+    const handleDescriptionChange = (e:any) => {
+        setDescriptionValue(e.target.value)
+    }
+
+    function useClickOutside(ref: any) {
+        useEffect(() => {
+            function handleClickOutside(e: MouseEvent) {
+
+                if (showEmojiPicker && ref.current && !ref.current.contains(e.target)) {
+                    setShowEmojiPicker(false)
+                }
+            }
+
+            document.addEventListener("click", handleClickOutside);
+            return () => {
+                document.removeEventListener("click", handleClickOutside);
+            };
+        }, [emojiPicker, showEmojiPicker]);
+    }
+    useClickOutside(emojiPicker)
+
     // Template
     return (
         <ReactModal
@@ -294,7 +333,18 @@ const ModalEditQuest: React.FC<Props> = (props) => {
                         <input ref={nameRef} type="text" defaultValue={createdQuest.questName} />
                     </div>
                     <div className="form-textarea">
-                        <textarea ref={descriptionRef}  defaultValue={createdQuest.questDescription} />
+                        <textarea ref={descriptionRef} maxLength={500}  value={descriptionValue} onChange={handleDescriptionChange}/>
+                        <span onClick={handleShowEmojiPicker} className="emoji-picker-button"><img alt="" src={require("../../assets/images/otherIcons/emojiPicker.svg")} /></span>
+                        {showEmojiPicker && (
+                            <span ref={emojiPicker} className="emoji-picker">
+                                <div className="emoji-triangle">
+                                </div>
+                                <Picker
+                                    onSelect={handleEmojiSelect}
+                                    set={"facebook"}
+                                />
+                            </span>
+                        )}
                     </div>
                     <div className="form-details">
                         <div className="form-difficulty">

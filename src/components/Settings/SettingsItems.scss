@@ -90,6 +90,35 @@
       margin-top: 30px;
       margin-right: auto;
       margin-left: auto;
+
+      .emoji-picker{
+        margin-top: 40px;
+        margin-left: -320px;
+      }
+
+      .emoji-triangle{
+        top: -15px;
+        margin-left: 290px;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid #d9d9d9;
+      }
+
+      .emoji-picker-button{
+        position: absolute;
+        margin-left: -23px;
+        margin-top: 5px;
+
+        img{
+          cursor: pointer;
+          width: 18px;
+          height: 18px;
+        }
+      }
+
     }
 
     .settings-language {
@@ -254,7 +283,11 @@
     font-family: Nexa;
     letter-spacing: 0.2px;
     border: 1px solid var(--light-mode-input-backgroud);
-    padding: 7px;
+    overflow-y: hidden;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 7px;
+    padding-right: 25px;
   }
 
   input::placeholder{

@@ -79,6 +79,8 @@
         padding-top: 15px;
 
         textarea{
+          overflow-y: hidden;
+          padding-right: 25px;
           width: 80%;
           min-height: 40px;
           resize: vertical;
@@ -86,7 +88,9 @@
           font-family: Nexa;
           letter-spacing: 0.2px;
           border: 1px solid var(--light-mode-input-backgroud);
-          padding: 7px;
+          padding-left: 7px;
+          padding-top: 7px;
+          padding-bottom: 7px;
         }
       }
 
@@ -357,6 +361,23 @@
           cursor: pointer;
         }
       }
+
+      .emoji-picker{
+        margin-top: 40px;
+        margin-left: -320px;
+      }
+
+      .emoji-triangle{
+        top: -15px;
+        margin-left: 290px;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid #d9d9d9;
+      }
+
     }
   }
 

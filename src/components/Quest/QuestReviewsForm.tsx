@@ -1,10 +1,11 @@
-import React, {useContext, useRef, useState} from "react"
+import React, {useContext, useEffect, useRef, useState} from "react"
 import axios from "axios"
 import {UserContext} from "../../UserContext"
 //@ts-ignore
 import ReactStars from "react-rating-stars-component"
 import './QuestReviewsForm.scss'
 import {useAlert} from "react-alert";
+import {Picker} from "emoji-mart";
 
 // Props
 interface Props {
@@ -27,6 +28,10 @@ const QuestReviewsForm: React.FC<Props> = (props) => {
     const [date] = useState(new Date())
     const [reviewRate, setReviewRate] = useState(1)
     const {userContext} = useContext(UserContext)
+    const [value, setValue] = useState("") as Array<any>
+    const [showEmojiPicker, setShowEmojiPicker] = useState(false) as Array<any>
+
+    const emojiPicker = useRef(null) as any
 
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
@@ -66,6 +71,36 @@ const QuestReviewsForm: React.FC<Props> = (props) => {
         })
     }
 
+    const handleValueChange = (e:any) => {
+        setValue(e.target.value)
+    }
+
+    const handleEmojiSelect = (e:any) => {
+        if(value.length>=500) return
+        setValue(value + e.native)
+    }
+
+    const handleShowEmojiPicker = () => {
+        setShowEmojiPicker(true)
+    }
+
+    function useClickOutside(ref: any) {
+        useEffect(() => {
+            function handleClickOutside(e: MouseEvent) {
+
+                if (showEmojiPicker && ref.current && !ref.current.contains(e.target)) {
+                    setShowEmojiPicker(false)
+                }
+            }
+
+            document.addEventListener("click", handleClickOutside);
+            return () => {
+                document.removeEventListener("click", handleClickOutside);
+            };
+        }, [emojiPicker, showEmojiPicker]);
+    }
+    useClickOutside(emojiPicker)
+
     // Template
     return (
         <div className="quest-review-form">
@@ -94,7 +129,18 @@ const QuestReviewsForm: React.FC<Props> = (props) => {
                             />
                         </div>
                         <div className="form-textarea">
-                            <textarea ref={textareaRef} placeholder={text.review.reviewPlaceholder} maxLength={500} />
+                            <textarea ref={textareaRef} value={value} onChange={handleValueChange} placeholder={text.review.reviewPlaceholder} maxLength={500} />
+                            <span onClick={handleShowEmojiPicker} className="emoji-picker-button"><img alt="" src={require("../../assets/images/otherIcons/emojiPicker.svg")} /></span>
+                            {showEmojiPicker && (
+                                <span ref={emojiPicker} className="emoji-picker">
+                    <div className="emoji-triangle">
+                    </div>
+                    <Picker
+                        onSelect={handleEmojiSelect}
+                        set={"facebook"}
+                    />
+                </span>
+                            )}
                         </div>
 
                         <div className="form-button">

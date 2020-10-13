@@ -1,15 +1,16 @@
-import React, {useContext, useRef, useState} from "react"
+import React, {useContext, useEffect, useRef, useState} from "react"
 import {UserContext} from "../../UserContext";
 import ModalDeleteProfilePicture from "../Modals/ModalDeleteProfilePicture";
 import Select, {components} from "react-select";
 import chroma from "chroma-js";
 import Toggle from "react-toggle";
 import axios from 'axios'
-
-import './SettingsItems.scss'
+import { Picker } from 'emoji-mart'
 import {useAlert} from "react-alert";
 import ModalCancelSubscription from "../Modals/ModalCancelSubscription";
 
+import './SettingsItems.scss'
+import '../Elements/EmojiPicker.scss'
 // Props
 interface Props {
     settings: any
@@ -26,11 +27,17 @@ const SettingsProfile: React.FC<Props> = (props) => {
     const alert = useAlert()
 
     const ref = useRef(null) as any
+    const emojiPicker = useRef(null) as any
 
     const [newImage, setNewImage] = useState(null) as Array<any>
-
+    const [showEmojiPicker, setShowEmojiPicker] = useState(false) as Array<any>
     const [showModal, setShowModal] = useState(false) as Array<any>
     const [showCancelModal, setShowCancelModal] = useState(false) as Array<any>
+    const [aboutValue, setAboutValue] = useState("")
+
+    useEffect(() => {
+        setAboutValue(settings.about)
+    }, [settings.about])
 
     const handleChangeImage = (e:any) => {
         let image = e.target.files[0]
@@ -117,6 +124,19 @@ const SettingsProfile: React.FC<Props> = (props) => {
 
     }
 
+    const handleShowEmojiPicker = () => {
+        setShowEmojiPicker(true)
+    }
+
+    const handleEmojiSelect = (e:any) => {
+        if(aboutValue.length>=500) return
+        setAboutValue(aboutValue + e.native)
+    }
+
+    const handleAboutChange = (e:any) => {
+        setAboutValue(e.target.value)
+    }
+
     const customStyle = {
         //@ts-ignore
         control: (styles, state) => ({ ...styles,
@@ -170,6 +190,23 @@ const SettingsProfile: React.FC<Props> = (props) => {
         </Option>
     )
 
+    function useClickOutside(ref: any) {
+        useEffect(() => {
+            function handleClickOutside(e: MouseEvent) {
+
+                if (showEmojiPicker && ref.current && !ref.current.contains(e.target)) {
+                    setShowEmojiPicker(false)
+                }
+            }
+
+            document.addEventListener("click", handleClickOutside);
+            return () => {
+                document.removeEventListener("click", handleClickOutside);
+            };
+        }, [emojiPicker, showEmojiPicker]);
+    }
+    useClickOutside(emojiPicker)
+
     // Template
     return (
         <div className="settings-profile">
@@ -198,7 +235,21 @@ const SettingsProfile: React.FC<Props> = (props) => {
                 <div className="settings-label">
                     <span>{text.settings.about}</span>
                 </div>
-                <textarea maxLength={500} ref={ref} defaultValue={settings.about} placeholder={text.settings.textAreaPlaceholder} />
+
+
+                <textarea maxLength={500} ref={ref} defaultValue={settings.about} value={aboutValue} onChange={handleAboutChange} placeholder={text.settings.textAreaPlaceholder} />
+                <span onClick={handleShowEmojiPicker} className="emoji-picker-button"><img alt="" src={require("../../assets/images/otherIcons/emojiPicker.svg")} /></span>
+                {showEmojiPicker && (
+                    <span ref={emojiPicker} className="emoji-picker">
+                    <div className="emoji-triangle">
+                    </div>
+                    <Picker
+                        onSelect={handleEmojiSelect}
+                        set={"facebook"}
+                    />
+                </span>
+                )}
+
             </div>
 
             <div className="settings-language">
