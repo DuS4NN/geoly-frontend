@@ -64,6 +64,15 @@ function App() {
                         languageId: data[4]
                     } as any
                     setUserContext(newUser)
+                }else{
+                    let newUser = {
+                        nickName: null,
+                        profileImage: null,
+                        languageId: languageId,
+                        mapTheme: mapTheme,
+                        darkMode: darkMode
+                    } as any
+                    setUserContext(newUser)
                 }
             })
         }
