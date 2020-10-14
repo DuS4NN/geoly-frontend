@@ -1,15 +1,12 @@
-import React, {useContext, useEffect, useRef, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {UserContext} from "../../UserContext"
 import axios from 'axios'
 import {NavLink} from "react-router-dom"
 import {useGoogleMaps} from "react-hook-google-maps/dist";
 import GroupQuestDetailStageItem from "./GroupQuestDetailStageItem";
 import {useAlert} from "react-alert";
-import Chart from "chart.js";
-
-// Style
-import './GroupQuestDetail.scss'
 import ImageGallery from "react-image-gallery";
+import './GroupQuestDetail.scss'
 
 // Props
 interface Props {

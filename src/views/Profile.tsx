@@ -6,6 +6,8 @@ import ProfileHeader from "../components/Profile/ProfileHeader";
 import ProfileInfo from "../components/Profile/ProfileInfo";
 import {UserContext} from "../UserContext";
 import ProfileQuest from "../components/Profile/ProfileQuest";
+import {useAlert} from "react-alert";
+import {useHistory} from "react-router-dom";
 
 // Props
 interface Props {

@@ -186,17 +186,27 @@ const Quest: React.FC = () => {
 
             {details.questPrivate === 0 || (details.questPrivate === 1 && details.questOwner === 0) ? (
                 <div>
-                    <ModalReportQuest questId={id} showReportModal={showReportModal} setShowReportModal={setShowReportModal} />
-                    <ModalAddQuestToGroup showModal={showAddModal} setShowModal={setShowAddModal} questId={id} />
+                    {userContext['nickName'] && (
+                        <div>
+                            <ModalReportQuest questId={id} showReportModal={showReportModal} setShowReportModal={setShowReportModal} />
+                            <ModalAddQuestToGroup showModal={showAddModal} setShowModal={setShowAddModal} questId={id} />
+                        </div>
+
+                    )}
+
 
                     <QuestTitle details={details} />
 
 
                     <div className="quest-detail-content">
                         <div className="quest-report">
-                            <img data-tip={text.review.report} onClick={openReportModal} alt="" src={require("../assets/images/otherIcons/report.svg")} />
-                            <img data-tip={text.userQuest.addToGroup} className="add" onClick={openAddModal} alt="" src={require("../assets/images/otherIcons/add-black.svg")} />
-                        </div>
+                            {userContext['nickName'] && (
+                                <div>
+                                    <img data-tip={text.review.report} onClick={openReportModal} alt="" src={require("../assets/images/otherIcons/report.svg")} />
+                                    <img data-tip={text.userQuest.addToGroup} className="add" onClick={openAddModal} alt="" src={require("../assets/images/otherIcons/add-black.svg")} />
+                                </div>
+                            )}
+                         </div>
                         <ReactTooltip />
                         <QuestDetails details={details} stages={stages} />
                     </div>

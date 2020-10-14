@@ -1,8 +1,9 @@
-import React, {useContext} from "react"
+import React, {useContext, useEffect} from "react"
 import {useHistory} from "react-router-dom"
 import {UserContext} from "../UserContext"
 import UserQuestImage from "../components/UserQuest/UserQuestImage";
 import UserQuestList from "../components/UserQuest/UserQuestList";
+import {useAlert} from "react-alert";
 
 // Props
 interface Props {
@@ -10,22 +11,28 @@ interface Props {
 
 // Component
 const UserQuest: React.FC = () => {
-    // Context
     const {userContext} = useContext(UserContext)
-
-    // Redirect
+    const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
+    const alert = useAlert()
     const history = useHistory()
 
-    // Do on start
-    if(!userContext['nickName']){
-        history.push("/login")
-    }
+    useEffect(() => {
+        if(!userContext['nickName']){
+            alert.error(text.error.UNAUTHORIZED)
+            history.push("/login")
+            return
+        }
+    }, [])
 
     // Template
     return (
         <div className="user-quest">
-            <UserQuestImage />
-            <UserQuestList />
+            {userContext['nickName'] && (
+                <div>
+                    <UserQuestImage />
+                    <UserQuestList />
+                </div>
+            )}
         </div>
     )
 }

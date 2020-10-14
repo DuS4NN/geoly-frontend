@@ -22,7 +22,7 @@ const ProfileInfo: React.FC<Props> = (props) => {
 
     const {badges, user, activity} = props
 
-    const [date, setDate] = useState(new Date())
+    const [date] = useState(new Date())
     const [showModal, setShowModal] = useState(false)
 
     const handleReportUser = () => {
@@ -35,9 +35,14 @@ const ProfileInfo: React.FC<Props> = (props) => {
 
             <ModalReportUser userId={user.id} showReportModal={showModal} setShowReportModal={setShowModal} />
 
-            <div className="report">
-                <img data-tip={text.profile.report} onClick={handleReportUser} alt="" src={require("../../assets/images/otherIcons/report.svg")} />
-            </div>
+
+                <div className="report">
+                    {userContext['nickName'] && (
+                        <img data-tip={text.profile.report} onClick={handleReportUser} alt="" src={require("../../assets/images/otherIcons/report.svg")} />
+                    )}
+                </div>
+
+
             <div className="about">
                     {user.about && user.about.length>0 && (
                         <div>

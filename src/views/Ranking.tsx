@@ -26,7 +26,6 @@ const Ranking: React.FC = () => {
 
 
     useEffect( () => {
-
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/top'

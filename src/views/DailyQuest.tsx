@@ -4,6 +4,7 @@ import axios from "axios"
 import Countdown from 'react-countdown';
 import {useGoogleMaps} from "react-hook-google-maps/dist";
 import {useAlert} from "react-alert";
+import {useHistory} from "react-router-dom"
 
 import '../components/DailyQuest/DailyQuest.scss'
 
@@ -14,6 +15,15 @@ const DailyQuest: React.FC = () => {
     const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
     const [timeLeft, setTimeLeft] = useState(0) as Array<any>
     const alert = useAlert()
+    const history = useHistory()
+
+    useEffect(() => {
+        if(!userContext['nickName']){
+            alert.error(text.error.UNAUTHORIZED)
+            history.push("/login")
+            return
+        }
+    }, [])
 
     const {ref, map, google} = useGoogleMaps(
         process.env.REACT_APP_GOOGLE_API_KEY+"",
@@ -87,31 +97,35 @@ const DailyQuest: React.FC = () => {
     // Template
     return (
         <div className="daily-quest">
-            <div className="header-container">
-                <div className="header-text">
-                    <h1>{text.daily.title}</h1>
-                    <button onClick={handleSubmit}>{text.daily.signIn}</button>
+            {userContext['nickName'] && (
+                <div>
+                    <div className="header-container">
+                        <div className="header-text">
+                            <h1>{text.daily.title}</h1>
+                            <button onClick={handleSubmit}>{text.daily.signIn}</button>
+                        </div>
+                    </div>
+
+                    <div className="daily-quest-info">
+                        <h2>{text.daily.whatIs}</h2>
+                        <div className="info-description">
+                            <span>{text.daily.description}</span>
+                        </div>
+
+                        <h3>{text.daily.end}</h3>
+
+                        {timeLeft != 0 && (
+                            <Countdown
+                                date={Date.now() + timeLeft}
+                                renderer={renderer}
+                            />
+                        )}
+                    </div>
+
+                    <div className="daily-quest-map" ref={ref}>
+                    </div>
                 </div>
-            </div>
-
-            <div className="daily-quest-info">
-                <h2>{text.daily.whatIs}</h2>
-                <div className="info-description">
-                    <span>{text.daily.description}</span>
-                </div>
-
-                <h3>{text.daily.end}</h3>
-
-                {timeLeft != 0 && (
-                    <Countdown
-                        date={Date.now() + timeLeft}
-                        renderer={renderer}
-                    />
-                )}
-            </div>
-
-            <div className="daily-quest-map" ref={ref}>
-            </div>
+            )}
         </div>
     )
 }

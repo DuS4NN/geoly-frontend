@@ -1,13 +1,10 @@
 import React, {useContext, useEffect, useState} from 'react'
 import axios from 'axios'
 import {UserContext} from "../../UserContext"
-
-// Style
 import './GroupsList.scss'
 import GroupsListCreated from "./GroupListCreated";
 import {useAlert} from "react-alert";
 import GroupsListEntered from "./GroupListEntered";
-import {useHistory} from "react-router-dom";
 
 // Props
 interface Props {
@@ -18,7 +15,6 @@ const GroupsList: React.FC = () => {
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
     const alert = useAlert()
-    const history = useHistory()
 
     const [createdGroups, setCreatedGroups] = useState([]) as Array<any>
     const [createdGroupsCount, setCreatedGroupsCount] = useState(0)
@@ -48,12 +44,6 @@ const GroupsList: React.FC = () => {
                 setCreatedGroups([])
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
-            }
-        }).catch(function (error) {
-            let statusCode = error.response.status
-            if(statusCode === 401){
-                alert.error(text.error.UNAUTHORIZED)
-                history.push("/login")
             }
         })
     }
@@ -86,21 +76,27 @@ const GroupsList: React.FC = () => {
     }
 
     useEffect(() => {
-        axios({
-            method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/countcreatedgroups',
-            withCredentials: true
-        }).then(function (response) {
-            setCreatedGroupsCount(response.data)
-        })
+        const getCountOfCreatedGroups = () => {
+            axios({
+                method: 'GET',
+                url: process.env.REACT_APP_API_SERVER_URL+'/countcreatedgroups',
+                withCredentials: true
+            }).then(function (response) {
+                setCreatedGroupsCount(response.data)
+            })
+        }
+        const getCountOfEnteredGroups = () => {
+            axios({
+                method: 'GET',
+                url: process.env.REACT_APP_API_SERVER_URL+'/countenteredgroups',
+                withCredentials: true
+            }).then(function (response) {
+                setEnteredGroupsCount(response.data)
+            })
+        }
 
-        axios({
-            method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/countenteredgroups',
-            withCredentials: true
-        }).then(function (response) {
-            setEnteredGroupsCount(response.data)
-        })
+        getCountOfCreatedGroups()
+        getCountOfEnteredGroups()
 
         getCreatedGroups(1)
         getEnteredGroups(1)

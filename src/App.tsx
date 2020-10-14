@@ -29,8 +29,8 @@ import './App.scss'
 // Component
 function App() {
     // User Context
-    let nickName = localStorage.getItem("nickName") ? localStorage.getItem("nickName") : null
-    let profileImage = localStorage.getItem("profileImage") ? localStorage.getItem("profileImage") : null
+    let nickName = null
+    let profileImage = null
     let languageId = localStorage.getItem("languageId") ? localStorage.getItem("languageId") : '1'
     let mapTheme = localStorage.getItem("mapTheme") ? localStorage.getItem("mapTheme") : '1'
     let darkMode = localStorage.getItem("darkMode") ? localStorage.getItem("darkMode") : 'false'
@@ -62,15 +62,6 @@ function App() {
                         mapTheme: data[2],
                         darkMode: data[3],
                         languageId: data[4]
-                    } as any
-                    setUserContext(newUser)
-                }else{
-                    let newUser = {
-                        nickName: null,
-                        profileImage: null,
-                        languageId: languageId,
-                        mapTheme: mapTheme,
-                        darkMode: darkMode
                     } as any
                     setUserContext(newUser)
                 }

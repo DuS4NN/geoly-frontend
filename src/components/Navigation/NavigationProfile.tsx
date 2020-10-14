@@ -75,27 +75,26 @@ const NavigationProfile: React.FC<Props> = (props) => {
                 userNick: data.userNick
             }
 
-            console.log(invitation)
-
             setInvitations([invitation, ...invitations])
         })
 
     }, [userToken])
 
     useEffect(() => {
-        axios({
-            method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/headercountinfo',
-            withCredentials: true
-        }).then(function (response) {
-            let statusCode = response.data.responseEntity.statusCode
-            if(statusCode === 'OK'){
-                setUnseenCountInvitations(response.data.data[0][0] > 99 ? 99 : response.data.data[0][0])
-                setUnseenCountNotifications(response.data.data[0][1] > 99 ? 99 : response.data.data[0][1])
-                setUserToken(response.data.data[1])
-            }
-        })
-
+        if(userContext['nickName']){
+            axios({
+                method: 'GET',
+                url: process.env.REACT_APP_API_SERVER_URL+'/headercountinfo',
+                withCredentials: true
+            }).then(function (response) {
+                let statusCode = response.data.responseEntity.statusCode
+                if(statusCode === 'OK'){
+                    setUnseenCountInvitations(response.data.data[0][0] > 99 ? 99 : response.data.data[0][0])
+                    setUnseenCountNotifications(response.data.data[0][1] > 99 ? 99 : response.data.data[0][1])
+                    setUserToken(response.data.data[1])
+                }
+            })
+        }
     }, [])
 
     // Template

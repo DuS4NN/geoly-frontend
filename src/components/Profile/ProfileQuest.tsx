@@ -30,7 +30,6 @@ const ProfileQuest: React.FC<Props> = (props) => {
     useEffect(() => {
         if(createdQuests.length>0){
             setQuests(createdQuests)
-            console.log("ds" +createdLength)
         }
     }, [createdQuests])
 

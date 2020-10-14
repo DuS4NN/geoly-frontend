@@ -3,9 +3,10 @@ import GroupHeader from "../components/Group/GroupHeader"
 import axios from 'axios'
 import GroupQuestDetail from "../components/Group/GroupQuestDetail";
 import GroupQuestList from "../components/Group/GroupQuestList";
-
 import '../components/Group/GroupQuestList.scss'
 import {UserContext} from "../UserContext";
+import {useHistory} from "react-router-dom";
+import {useAlert} from "react-alert";
 
 // Props
 interface Props {
@@ -15,6 +16,8 @@ interface Props {
 const Group: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
     const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
+    const history = useHistory()
+    const alert = useAlert()
 
     const [id] = useState(window.location.href.split('/').pop())
     const [selectedQuest, setSelectedQuest] = useState({})
@@ -22,8 +25,13 @@ const Group: React.FC<Props> = (props) => {
     const [users, setUsers] = useState([]) as Array<any>
     const [quests, setQuests] = useState([]) as Array<any>
 
-
     useEffect(() => {
+        if(!userContext['nickName']){
+            alert.error(text.error.UNAUTHORIZED)
+            history.push("/login")
+            return
+        }
+
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/group?id='+id,
@@ -72,24 +80,27 @@ const Group: React.FC<Props> = (props) => {
     // Template
     return (
         <div className="group">
-            <GroupHeader details={details} users={users}/>
+            {userContext['nickName'] && (
+                <div>
+                    <GroupHeader details={details} users={users}/>
 
-            {quests && quests.length > 0 ? (
-                <div className="group-content">
-                    <GroupQuestList quests={quests} setSelectedQuest={setSelectedQuest}/>
-                    <GroupQuestDetail selectedQuest={selectedQuest} id={id}/>
-                </div>
-                ) : (
-                <div className="group-no-quest">
-                    <div className="title">
-                        <h2>{text.group.noQuest}</h2>
-                    </div>
-                    <div className="img">
-                        <img src={require("../assets/images/noData.svg")} alt=""/>
-                    </div>
+                    {quests && quests.length > 0 ? (
+                        <div className="group-content">
+                            <GroupQuestList quests={quests} setSelectedQuest={setSelectedQuest}/>
+                            <GroupQuestDetail selectedQuest={selectedQuest} id={id}/>
+                        </div>
+                    ) : (
+                        <div className="group-no-quest">
+                            <div className="title">
+                                <h2>{text.group.noQuest}</h2>
+                            </div>
+                            <div className="img">
+                                <img src={require("../assets/images/noData.svg")} alt=""/>
+                            </div>
+                        </div>
+                    )}
                 </div>
             )}
-
         </div>
     )
 }
