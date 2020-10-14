@@ -2,6 +2,7 @@ import React, {useContext} from "react"
 import axios from "axios"
 import {UserContext} from "../../UserContext";
 import {useAlert} from "react-alert";
+import {useHistory} from "react-router-dom"
 
 // Props
 interface Props {
@@ -11,6 +12,7 @@ interface Props {
 // Component
 const QuestButton: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
+    const history = useHistory()
     const alert = useAlert()
 
     const {questId} = props
@@ -34,6 +36,9 @@ const QuestButton: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 

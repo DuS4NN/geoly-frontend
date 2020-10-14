@@ -1,8 +1,8 @@
-import React, {ChangeEvent, useContext, useRef, useState} from "react"
+import React, {ChangeEvent, useContext, useState} from "react"
 import {UserContext} from "../../UserContext";
 import {useAlert} from "react-alert";
 import axios from 'axios'
-
+import {useHistory} from "react-router-dom"
 import './SettingsItems.scss'
 
 // Props
@@ -14,6 +14,7 @@ const SettingsPassword: React.FC = () => {
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
     const alert = useAlert()
+    const history = useHistory()
 
     const [newPassword, setNewPassword] = useState("") as Array<any>
     const [repeatPassword, setRepeatPassword] = useState("") as Array<any>
@@ -62,6 +63,9 @@ const SettingsPassword: React.FC = () => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
 
     }

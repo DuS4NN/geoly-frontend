@@ -1,11 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react'
 import {UserContext} from "../../UserContext"
+import {useHistory} from "react-router-dom"
 import axios from 'axios'
 // Style
 import './ProfileQuest.scss'
 import ProfileQuestItem from "./ProfileQuestItem";
 import {createMuiTheme, makeStyles, MuiThemeProvider} from "@material-ui/core/styles";
 import Pagination from "@material-ui/lab/Pagination";
+import {useAlert} from "react-alert";
 
 // Props
 interface Props {
@@ -20,6 +22,8 @@ interface Props {
 const ProfileQuest: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
+    const history = useHistory()
+    const alert = useAlert()
 
     const {playedQuests, createdQuests, createdLength, playedLength, nick} = props
 
@@ -60,6 +64,9 @@ const ProfileQuest: React.FC<Props> = (props) => {
                     }
                 }))
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 

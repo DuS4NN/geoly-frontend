@@ -4,9 +4,10 @@ import React, {useContext, useEffect, useState} from 'react'
 import RankingImage from "../components/Ranking/RankingImage"
 import RankingList from "../components/Ranking/RankingList"
 import axios from "axios";
-
+import {useHistory} from "react-router-dom"
 import {RankingPlayer} from '../types'
 import {UserContext} from "../UserContext";
+import {useAlert} from "react-alert";
 
 // Props
 interface Props {
@@ -15,11 +16,15 @@ interface Props {
 // Component
 const Ranking: React.FC = () => {
 
+    const {userContext} = useContext(UserContext)
+    const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
+
     // State
     const [top, setTop] = useState([]) as Array<any>
     const [user, setUser] = useState({})
 
-    const {userContext} = useContext(UserContext)
+    const history = useHistory()
+    const alert = useAlert()
 
     var position = 0
 
@@ -39,6 +44,9 @@ const Ranking: React.FC = () => {
             }else{
                 setTop([])
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
 
         if(!userContext['nickName']) return
@@ -56,6 +64,9 @@ const Ranking: React.FC = () => {
                     setUser(player)
                 }
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
 
         const extractPlayer = (player:any) => {

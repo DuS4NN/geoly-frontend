@@ -7,7 +7,8 @@ import UserQuestCreatedItem from "./UserQuestCreatedItem";
 import {createMuiTheme, makeStyles, MuiThemeProvider} from "@material-ui/core/styles";
 import Pagination from "@material-ui/lab/Pagination";
 import axios from "axios";
-import ReactTooltip from "react-tooltip";
+import {useHistory} from "react-router-dom"
+import {useAlert} from "react-alert";
 
 // Props
 interface Props {
@@ -17,6 +18,12 @@ interface Props {
 }
 
 const UserQuestCreated: React.FC<Props> = (props) => {
+
+    const {userContext} = useContext(UserContext)
+    const history = useHistory()
+    const alert = useAlert()
+
+    const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
     const {createdQuest, setCreatedQuest, getCreatedQuests} = props
 
@@ -30,12 +37,13 @@ const UserQuestCreated: React.FC<Props> = (props) => {
             withCredentials: true
         }).then(function (response) {
             setCount(response.data)
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }, [])
 
-    // Context
-    const {userContext} = useContext(UserContext)
-    const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
+
 
     const handleChangePage = (event:any, value:number) => {
         setPage(value)

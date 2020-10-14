@@ -9,7 +9,7 @@ import Select from "react-select";
 import chroma from "chroma-js";
 import ImageUpload from "../Elements/ImageUpload";
 import {Picker} from "emoji-mart";
-
+import {useHistory} from "react-router-dom"
 import './Modal.scss'
 import '../Elements/EmojiPicker.scss'
 
@@ -27,6 +27,7 @@ const ModalEditQuest: React.FC<Props> = (props) => {
     // Context
     const {userContext} = useContext(UserContext)
     const alert = useAlert()
+    const history = useHistory()
 
     const {showModal, setShowModal, createdQuests, createdQuest, setCreatedQuests} = props
 
@@ -68,6 +69,9 @@ const ModalEditQuest: React.FC<Props> = (props) => {
                 let images = response.data.data.map((image:any) => extractImage(image))
                 setImages(images)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
         const extractImage = (image:any) => {
             let src = process.env.REACT_APP_IMAGE_SERVER_URL+image[0]
@@ -83,6 +87,9 @@ const ModalEditQuest: React.FC<Props> = (props) => {
         }).then(function (response) {
             let category = response.data.map((category:any) => extractCategory(category))
             setCategory(category)
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
         const extractCategory = (category:any) => {
             if(category.name === createdQuest.categoryName){
@@ -241,7 +248,11 @@ const ModalEditQuest: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
+
         if(deletedQuests.length > 0 || addedQuests.length > 0){
             let data = new FormData()
 
@@ -266,6 +277,9 @@ const ModalEditQuest: React.FC<Props> = (props) => {
                 }else{
                     alert.error(text.error.SOMETHING_WENT_WRONG)
                 }
+            }).catch(function () {
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             })
         }
         handleCloseModal()

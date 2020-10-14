@@ -3,6 +3,7 @@ import {UserContext} from "../../UserContext"
 import axios from 'axios'
 import {NavLink} from "react-router-dom"
 import {useGoogleMaps} from "react-hook-google-maps/dist";
+import {useHistory} from "react-router-dom"
 import GroupQuestDetailStageItem from "./GroupQuestDetailStageItem";
 import {useAlert} from "react-alert";
 import ImageGallery from "react-image-gallery";
@@ -19,6 +20,7 @@ const GroupQuestDetail: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
     const alert = useAlert()
+    const history = useHistory()
 
     const [stages, setStages] = useState([]) as Array<any>
     const [userInfo, setUserInfo] = useState([]) as Array<any>
@@ -79,6 +81,9 @@ const GroupQuestDetail: React.FC<Props> = (props) => {
                 }else{
                     alert.error(text.error.SOMETHING_WENT_WRONG)
                 }
+            }).catch(function () {
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             })
 
         }
@@ -195,6 +200,9 @@ const GroupQuestDetail: React.FC<Props> = (props) => {
                 }else{
                     alert.error(text.error.SOMETHING_WENT_WRONG)
                 }
+            }).catch(function () {
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             })
         }else{
             axios({
@@ -211,6 +219,9 @@ const GroupQuestDetail: React.FC<Props> = (props) => {
                 }else{
                     alert.error(text.error.SOMETHING_WENT_WRONG)
                 }
+            }).catch(function () {
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             })
         }
     }

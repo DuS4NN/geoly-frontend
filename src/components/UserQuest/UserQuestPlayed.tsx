@@ -6,6 +6,8 @@ import './UserQuestList.scss'
 import {createMuiTheme, makeStyles, MuiThemeProvider} from "@material-ui/core/styles";
 import Pagination from "@material-ui/lab/Pagination";
 import ReactTooltip from "react-tooltip";
+import {useHistory} from "react-router-dom"
+import {useAlert} from "react-alert";
 
 // Props
 interface Props {
@@ -22,6 +24,9 @@ const UserQuestPlayed: React.FC<Props> = (props) => {
     const [page, setPage] = useState(1)
     const [count, setCount] = useState(0)
 
+    const history = useHistory()
+    const alert = useAlert()
+
 
     useEffect(() => {
         axios({
@@ -30,6 +35,9 @@ const UserQuestPlayed: React.FC<Props> = (props) => {
             withCredentials: true
         }).then(function (response) {
             setCount(response.data)
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }, [])
 

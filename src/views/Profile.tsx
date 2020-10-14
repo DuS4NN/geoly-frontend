@@ -18,6 +18,9 @@ const Profile: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
     const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
 
+    const history = useHistory()
+    const alert = useAlert()
+
     const [nick] = useState(window.location.href.split('/').pop())
     const [user, setUser] = useState({}) as Array<any>
     const [badges, setBadges] = useState([]) as Array<any>
@@ -99,6 +102,9 @@ const Profile: React.FC<Props> = (props) => {
                     new Error("404"), {code: 404}
                 )
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }, [])
 

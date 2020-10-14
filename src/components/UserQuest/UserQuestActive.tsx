@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom"
 import axios from "axios"
 import {UserContext} from "../../UserContext"
 import {useAlert} from "react-alert";
-
+import {useHistory} from "react-router-dom"
 import './UserQuestList.scss'
 
 // Props
@@ -24,7 +24,7 @@ const UserQuestActive: React.FC<Props> = (props) => {
     // Context
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
-
+    const history = useHistory()
     const alert = useAlert()
 
     useEffect(() => {
@@ -72,6 +72,9 @@ const UserQuestActive: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
 
     }

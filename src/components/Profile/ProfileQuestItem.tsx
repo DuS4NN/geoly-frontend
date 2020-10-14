@@ -5,6 +5,7 @@ import ReactTooltip from "react-tooltip"
 import axios from "axios"
 import {useAlert} from "react-alert";
 import {useGoogleMaps} from "react-hook-google-maps/dist";
+import {useHistory} from "react-router-dom"
 
 // Props
 interface Props {
@@ -16,6 +17,7 @@ const ProfileQuestItem: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
     const alert = useAlert()
+    const history = useHistory()
 
     const [open, setOpen] = useState(false) as Array<any>
     const [stages, setStages] = useState([]) as Array<any>
@@ -140,6 +142,9 @@ const ProfileQuestItem: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 

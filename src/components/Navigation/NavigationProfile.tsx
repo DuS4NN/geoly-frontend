@@ -7,6 +7,7 @@ import axios from "axios"
 import Pusher from "pusher-js"
 
 import './NavigationProfile.scss'
+import {useAlert} from "react-alert";
 
 
 // Props
@@ -27,11 +28,15 @@ const NavigationProfile: React.FC<Props> = (props) => {
     const [notifications, setNotifications] = useState([]) as Array<any>
     const [invitations, setInvitations] = useState([]) as Array<any>
 
+    const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
+
     // State
     const {showRoll, setShowRoll} = props
 
     // Redirect
     const history = useHistory()
+    const alert = useAlert()
+
 
     // Methods
     const handleClick = () => {
@@ -93,6 +98,9 @@ const NavigationProfile: React.FC<Props> = (props) => {
                     setUnseenCountNotifications(response.data.data[0][1] > 99 ? 99 : response.data.data[0][1])
                     setUserToken(response.data.data[1])
                 }
+            }).catch(function () {
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             })
         }
     }, [])

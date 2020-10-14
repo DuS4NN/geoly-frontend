@@ -10,6 +10,8 @@ import {UserContext} from "../UserContext";
 import ModalReportQuest from "../components/Modals/ModalReportQuest";
 import ModalAddQuestToGroup from "../components/Modals/ModalAddQuestToGroup";
 import ReactTooltip from "react-tooltip";
+import {useAlert} from "react-alert";
+import {useHistory} from "react-router-dom"
 
 // Props
 interface Props {
@@ -20,6 +22,9 @@ const Quest: React.FC = () => {
     const {userContext} = useContext(UserContext)
 
     const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
+
+    const history = useHistory()
+    const alert = useAlert()
 
     const [id] = useState(window.location.href.split('/').pop())
     const [images, setImages] = useState([])
@@ -49,6 +54,9 @@ const Quest: React.FC = () => {
             }else if(statusCode === 'NO_CONTENT'){
                 setReviews([])
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
 
         axios({
@@ -58,6 +66,9 @@ const Quest: React.FC = () => {
         }).then(function (response) {
             setCountReviews(response.data.data[0])
             setAddReview(response.data.data[1])
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
     const extractReview = (review:any) => {
@@ -98,6 +109,9 @@ const Quest: React.FC = () => {
                         new Error("404"), {code: 404}
                     )
                 }
+            }).catch(function () {
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             })
         }
         const extractDetails = (detail:any) => {
@@ -136,6 +150,9 @@ const Quest: React.FC = () => {
                         new Error("404"), {code: 404}
                     )
                 }
+            }).catch(function () {
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             })
         }
         const extractStage = (stage:any) => {
@@ -164,6 +181,9 @@ const Quest: React.FC = () => {
                 }else if(statusCode === 'NO_CONTENT'){
                     setImages([])
                 }
+            }).catch(function () {
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             })
         }
         const extractImage = (image:any) => {

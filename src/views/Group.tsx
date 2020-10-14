@@ -74,6 +74,9 @@ const Group: React.FC<Props> = (props) => {
                     new Error("404"), {code: 404}
                 )
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }, [])
 

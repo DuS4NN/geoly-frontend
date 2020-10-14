@@ -2,7 +2,7 @@ import React, {useContext} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
-// Context
+import {useHistory} from "react-router-dom"
 import {UserContext} from "../../UserContext";
 // Style
 import './Modal.scss'
@@ -28,6 +28,7 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
     // Context
     const {userContext} = useContext(UserContext)
     const alert = useAlert()
+    const history = useHistory()
 
     // Props state
     const {showModal, setShowModal, deleteReviewId, reviews, setReviews, setAddReview, page, setPage, count, setCount, getReviews} = props
@@ -81,6 +82,9 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 

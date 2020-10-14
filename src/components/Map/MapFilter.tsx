@@ -9,6 +9,7 @@ import Select, {components} from "react-select";
 import {debounce} from "lodash-es";
 import {useAlert} from "react-alert";
 import {UserContext} from "../../UserContext";
+import {useHistory} from "react-router-dom"
 // Style
 import '../Elements/Toggle.scss'
 import './MapFilter.scss'
@@ -54,6 +55,7 @@ const MapFilter: React.FC<Props> = (props) => {
     const {Option} = components;
 
     const alert = useAlert()
+    const history = useHistory()
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
 
@@ -86,6 +88,9 @@ const MapFilter: React.FC<Props> = (props) => {
                 let categories:Category[] = response.data.map((category:any) => extractCategoriesFromResponse(category))
                 //@ts-ignore
                 setCategoryList(categories)
+            }).catch(function () {
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             })
         }
         const extractCategoriesFromResponse = (category:any) => {
@@ -104,6 +109,9 @@ const MapFilter: React.FC<Props> = (props) => {
             }).then(function (response) {
                 let stageTypes = response.data.map((stageType:any) => extractStageTypesFromResponse(stageType))
                 setStageTypesList(stageTypes)
+            }).catch(function () {
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             })
         }
         const extractStageTypesFromResponse = (stageType:any) => {

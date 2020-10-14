@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import axios from "axios"
 import NotificationsRoll from "./NotificationsRoll";
-
+import {useHistory} from "react-router-dom"
+import {UserContext} from "../../UserContext";
+import {useAlert} from "react-alert";
 // Props
 interface Props {
     unseenCount: number
@@ -13,11 +15,16 @@ interface Props {
 // Component
 const NavigationNotifications: React.FC<Props> = (props) => {
 
+    const {userContext} = useContext(UserContext)
     const {setUnseenCount, unseenCount, notifications, setNotifications} = props
 
     const [showNotificationsRoll, setShowNotificationsRoll] = useState(false) as Array<any>
-
     const [isEmpty, setIsEmpty] = useState(false)
+
+    const history = useHistory()
+    const alert = useAlert()
+
+    const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
 
     const getNotifications = () => {
@@ -46,6 +53,9 @@ const NavigationNotifications: React.FC<Props> = (props) => {
                 notifications.push(...newNotifications)
                 setNotifications(Array().concat(notifications))
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 
@@ -59,6 +69,9 @@ const NavigationNotifications: React.FC<Props> = (props) => {
                 method: 'GET',
                 url: process.env.REACT_APP_API_SERVER_URL+'/notification/setunseen',
                 withCredentials: true
+            }).catch(function () {
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             })
         }
         setUnseenCount(0)

@@ -5,7 +5,7 @@ import axios from "axios"
 import {UserContext} from "../../UserContext";
 import {useAlert} from "react-alert";
 import {NavLink} from "react-router-dom"
-
+import {useHistory} from "react-router-dom"
 
 import './Modal.scss'
 import ReactTooltip from "react-tooltip";
@@ -24,6 +24,7 @@ const ModalEditGroup: React.FC<Props> = (props) => {
     // Context
     const {userContext} = useContext(UserContext)
     const alert = useAlert()
+    const history = useHistory()
 
     // Props state
     const {showModal, setShowModal, editGroup, setCreatedGroups, createdGroups} = props
@@ -55,6 +56,9 @@ const ModalEditGroup: React.FC<Props> = (props) => {
                 }else{
                     alert.error(text.error.SOMETHING_WENT_WRONG)
                 }
+            }).catch(function () {
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             })
         }
     },[editGroup])
@@ -107,6 +111,9 @@ const ModalEditGroup: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 
@@ -130,6 +137,9 @@ const ModalEditGroup: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 

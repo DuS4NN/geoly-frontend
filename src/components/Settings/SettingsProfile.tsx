@@ -8,7 +8,7 @@ import axios from 'axios'
 import { Picker } from 'emoji-mart'
 import {useAlert} from "react-alert";
 import ModalCancelSubscription from "../Modals/ModalCancelSubscription";
-
+import {useHistory} from "react-router-dom"
 import './SettingsItems.scss'
 import '../Elements/EmojiPicker.scss'
 // Props
@@ -25,7 +25,7 @@ const SettingsProfile: React.FC<Props> = (props) => {
     const {userContext, setUserContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
     const alert = useAlert()
-
+    const history = useHistory()
     const ref = useRef(null) as any
     const emojiPicker = useRef(null) as any
 
@@ -93,6 +93,9 @@ const SettingsProfile: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
 
         if(newImage === null) return
@@ -120,6 +123,9 @@ const SettingsProfile: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
 
     }

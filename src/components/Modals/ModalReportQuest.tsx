@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import axios from "axios"
 import {UserContext} from "../../UserContext";
 import './Modal.scss'
+import {useHistory} from "react-router-dom"
 
 interface Props {
     questId: any
@@ -23,6 +24,7 @@ const ModalReportQuest: React.FC<Props> = (props) => {
 
     // Alerts
     const alert = useAlert()
+    const history = useHistory()
     // Modal
     Modal.setAppElement("#root")
     // Text
@@ -35,6 +37,9 @@ const ModalReportQuest: React.FC<Props> = (props) => {
             url: process.env.REACT_APP_API_SERVER_URL+'/quest/reportreason'
         }).then(function (response) {
             setReportReason(response.data)
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }, [])
 
@@ -76,6 +81,9 @@ const ModalReportQuest: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 

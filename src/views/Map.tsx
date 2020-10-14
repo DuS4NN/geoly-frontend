@@ -1,8 +1,11 @@
-import React, {useEffect, useState} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import axios from "axios"
+import {useHistory} from "react-router-dom"
 
 // Children
 import MapView from "../components/Map/MapView"
+import {UserContext} from "../UserContext";
+import {useAlert} from "react-alert";
 
 // Props
 interface Props {
@@ -11,7 +14,12 @@ interface Props {
 // Component
 const Map: React.FC<Props> = (props) => {
 
+    const {userContext} = useContext(UserContext)
     const [center, setCenter] = useState({lat:48.864716, lng: 2.349014}) as Array<any>
+    const history = useHistory()
+    const alert = useAlert()
+
+    const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
 
     useEffect(() => {
         axios({
@@ -27,6 +35,9 @@ const Map: React.FC<Props> = (props) => {
                     lng: parseFloat(coordinates[1])
                 })
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }, [])
 

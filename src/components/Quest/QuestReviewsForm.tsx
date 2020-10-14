@@ -1,5 +1,6 @@
 import React, {useContext, useEffect, useRef, useState} from "react"
 import axios from "axios"
+import {useHistory} from "react-router-dom"
 import {UserContext} from "../../UserContext"
 //@ts-ignore
 import ReactStars from "react-rating-stars-component"
@@ -23,9 +24,9 @@ const QuestReviewsForm: React.FC<Props> = (props) => {
 
     const {questId, reviews, setReviews, getReviews, setPage, addReview, setAddReview} = props
     const alert = useAlert()
+    const history = useHistory()
 
     const textareaRef = useRef(null)
-    const [date] = useState(new Date())
     const [reviewRate, setReviewRate] = useState(1)
     const {userContext} = useContext(UserContext)
     const [value, setValue] = useState("") as Array<any>
@@ -68,6 +69,9 @@ const QuestReviewsForm: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 

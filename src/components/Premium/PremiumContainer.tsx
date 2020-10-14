@@ -4,6 +4,7 @@ import useSmoothScroll from 'react-smooth-scroll-hook';
 import './PremiumContainer.scss'
 import axios from 'axios'
 import {useAlert} from "react-alert";
+import {useHistory} from "react-router-dom"
 
 // Props
 interface Props {
@@ -15,6 +16,7 @@ const PremiumContainer: React.FC = () => {
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
     const alert = useAlert()
+    const history = useHistory()
     const ref = useRef<HTMLElement>(document.documentElement);
 
     const { scrollTo } = useSmoothScroll({
@@ -38,6 +40,9 @@ const PremiumContainer: React.FC = () => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 

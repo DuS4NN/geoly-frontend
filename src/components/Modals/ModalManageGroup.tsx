@@ -6,6 +6,7 @@ import {UserContext} from "../../UserContext";
 import {useAlert} from "react-alert";
 import {NavLink} from "react-router-dom"
 import {debounce} from "lodash-es";
+import {useHistory} from "react-router-dom"
 //@ts-ignore
 import {FadeIn} from "react-anim-kit"
 
@@ -23,6 +24,7 @@ interface Props {
 const ModalManageGroup: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
     const alert = useAlert()
+    const history = useHistory()
 
     const {showModal, setShowModal, groupId} = props
 
@@ -56,6 +58,9 @@ const ModalManageGroup: React.FC<Props> = (props) => {
                 }else{
                     alert.error(text.error.SOMETHING_WENT_WRONG)
                 }
+            }).catch(function () {
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             })
         }
 

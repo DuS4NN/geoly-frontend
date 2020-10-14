@@ -38,6 +38,9 @@ const Verify: React.FC = () => {
                 alert.error(text.error[serverResponse])
             }
             history.push("/login")
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }, [alert, history, text, token])
 

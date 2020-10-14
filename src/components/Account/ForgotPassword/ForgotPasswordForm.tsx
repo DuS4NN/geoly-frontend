@@ -63,6 +63,9 @@ const ForgotPasswordForm: React.FC = () => {
             }else{
                 alert.error(text.error[serverResponse])
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 

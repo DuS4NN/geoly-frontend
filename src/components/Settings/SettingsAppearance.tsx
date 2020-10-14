@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from "react"
 import {UserContext} from "../../UserContext";
 import axios from "axios"
-
+import {useHistory} from "react-router-dom"
 import './SettingsItems.scss'
 import ReactTooltip from "react-tooltip";
 import {useAlert} from "react-alert";
@@ -15,7 +15,7 @@ const SettingsAppearance: React.FC = () => {
     const {userContext, setUserContext} = useContext(UserContext)
     const alert = useAlert()
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
-
+    const history = useHistory()
     const [themes, setThemes] = useState([]) as Array<any>
     const [selected, setSelected] = useState(userContext['mapTheme']) as Array<any>
 
@@ -54,6 +54,9 @@ const SettingsAppearance: React.FC = () => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 

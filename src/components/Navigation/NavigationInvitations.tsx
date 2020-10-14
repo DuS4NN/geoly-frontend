@@ -1,6 +1,9 @@
-import React, {useEffect, useState} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import axios from "axios"
 import InvitationsRoll from "./InvitationsRoll";
+import {useHistory} from "react-router-dom"
+import {UserContext} from "../../UserContext";
+import {useAlert} from "react-alert";
 
 // Props
 interface Props {
@@ -13,9 +16,15 @@ interface Props {
 // Component
 const NavigationInvitations: React.FC<Props> = (props) => {
     const {setInvitations, invitations, unseenCount, setUnseenCount} = props
+    const {userContext} = useContext(UserContext)
 
     const [showInvitationsRoll, setShowInvitationsRoll] = useState(false) as Array<any>
     const [isEmpty, setIsEmpty] = useState(false)
+
+    const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
+
+    const history = useHistory()
+    const alert = useAlert()
 
     const getInvitations = () => {
         if(isEmpty) return
@@ -43,6 +52,9 @@ const NavigationInvitations: React.FC<Props> = (props) => {
                 invitations.push(...newInvitations)
                 setInvitations(Array().concat(invitations))
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 
@@ -56,6 +68,9 @@ const NavigationInvitations: React.FC<Props> = (props) => {
                 method: 'GET',
                 url: process.env.REACT_APP_API_SERVER_URL+'/invite/setunseen',
                 withCredentials: true
+            }).catch(function () {
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             })
         }
         setUnseenCount(0)

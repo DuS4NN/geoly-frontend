@@ -5,7 +5,7 @@ import axios from "axios"
 import {UserContext} from "../../UserContext";
 import {useAlert} from "react-alert";
 import Select from "react-select";
-
+import {useHistory} from "react-router-dom"
 import './Modal.scss'
 import chroma from "chroma-js";
 
@@ -21,6 +21,7 @@ const ModalAddQuestToGroup: React.FC<Props> = (props) => {
     // Context
     const {userContext} = useContext(UserContext)
     const alert = useAlert()
+    const history = useHistory()
 
     const [groups, setGroups] = useState([]) as Array<any>
 
@@ -95,6 +96,9 @@ const ModalAddQuestToGroup: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
 
     },[])
@@ -133,6 +137,9 @@ const ModalAddQuestToGroup: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 

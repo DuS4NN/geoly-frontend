@@ -78,6 +78,9 @@ const SignUpForm: React.FC = () => {
             }else{
                 returnAlert(serverResponse)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 

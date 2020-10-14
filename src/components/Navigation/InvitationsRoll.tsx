@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom"
 import axios from "axios"
 import {debounce} from "lodash-es";
 import {UserContext} from "../../UserContext"
-
+import {useHistory} from "react-router-dom"
 // Style
 import './InvitationRoll.scss'
 import {useAlert} from "react-alert";
@@ -23,6 +23,7 @@ const InvitationsRoll: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
     const alert = useAlert()
+    const history = useHistory()
 
     const invitationsRoll = useRef(null)
     const ref = useRef(null) as any
@@ -76,6 +77,9 @@ const InvitationsRoll: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 
@@ -98,6 +102,9 @@ const InvitationsRoll: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 

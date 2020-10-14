@@ -9,7 +9,7 @@ import {useAlert} from "react-alert"
 import {Link} from "react-router-dom"
 import './NavigationRoll.scss'
 import '../Elements/Toggle.scss'
-
+import {useHistory} from "react-router-dom"
 
 // Props
 interface Props {
@@ -27,6 +27,7 @@ const NavigationRoll: React.FC<Props> = (props) => {
     const {setShowRoll} = props
     // Alerts
     const alert = useAlert()
+    const history = useHistory()
     // Text
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
@@ -54,6 +55,9 @@ const NavigationRoll: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 

@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from 'react'
 import {useHistory} from "react-router-dom"
 import axios from "axios"
 import {UserContext} from "../../../UserContext"
+import {useAlert} from "react-alert";
 
 // Props
 interface Props {
@@ -10,8 +11,9 @@ interface Props {
 // Component
 const LogOut: React.FC = () => {
     const {userContext, setUserContext} = useContext(UserContext)
+    const text = require('../../../assets/languageText/'+userContext['languageId']+'.ts').text
 
-    // Redirect
+    const alert = useAlert()
     const history = useHistory()
 
     useEffect(() => {
@@ -33,6 +35,9 @@ const LogOut: React.FC = () => {
             setUserContext(newUser)
 
             history.push("/login")
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }, [history, setUserContext, userContext])
 

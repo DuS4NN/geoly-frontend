@@ -5,7 +5,7 @@ import {useAlert} from "react-alert";
 import UserQuestActive from "./UserQuestActive";
 import UserQuestCreated from "./UserQuestCreated";
 import UserQuestPlayed from "./UserQuestPlayed";
-
+import {useHistory} from "react-router-dom"
 import './UserQuestList.scss'
 
 // Props
@@ -19,6 +19,7 @@ const UserQuestList: React.FC = () => {
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
     const alert = useAlert()
+    const history = useHistory()
 
     const [activeQuest, setActiveQuest] = useState({})
     const [createdQuest, setCreatedQuest] = useState({})
@@ -39,6 +40,9 @@ const UserQuestList: React.FC = () => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
     const extractAPlayedQuest = (playedQuest:any) => {
@@ -77,6 +81,9 @@ const UserQuestList: React.FC = () => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
     const extractCreatedQuests = (createdQuest:any) => {
@@ -109,6 +116,9 @@ const UserQuestList: React.FC = () => {
                 }else{
                     alert.error(text.error.SOMETHING_WENT_WRONG)
                 }
+            }).catch(function () {
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             })
         }
         const extractActiveQuest = (activeQuest:any) => {

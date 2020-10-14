@@ -5,7 +5,7 @@ import axios from "axios";
 import {useAlert} from "react-alert";
 import {UserContext} from "../../UserContext";
 import MapQuestDetail from "./MapQuestDetail";
-// Children
+import {useHistory} from "react-router-dom"
 import MapFilter from "./MapFilter";
 // Style
 import './MapView.scss'
@@ -51,6 +51,7 @@ const MapView: React.FC<Props> = (props) => {
     const [questDetail, setQuestDetail] = useState(null)
 
     const alert = useAlert()
+    const history = useHistory()
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
     const {ref, map, google} = useGoogleMaps(
@@ -117,6 +118,9 @@ const MapView: React.FC<Props> = (props) => {
             }else if(statusCode === 'NO_CONTENT'){
                 deleteAllMarkers()
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
     const createMarker = (quest:any) => {
@@ -149,6 +153,9 @@ const MapView: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.QUEST_NOT_FOUND)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
     const extractQuestDetailFromResponse = (questDetail:any) => {

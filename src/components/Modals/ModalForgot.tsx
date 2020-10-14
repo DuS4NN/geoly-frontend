@@ -4,7 +4,7 @@ import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
 import {UserContext} from "../../UserContext";
-// Style
+import {useHistory} from "react-router-dom"
 import './Modal.scss'
 
 // Props
@@ -25,6 +25,7 @@ const ModalForgot: React.FC<Props> = props => {
 
     // Alerts
     const alert = useAlert()
+    const history = useHistory()
     // Modal
     Modal.setAppElement("#root")
     // Text
@@ -68,6 +69,9 @@ const ModalForgot: React.FC<Props> = props => {
                 alert.error(text.error[serverResponse])
                 setEmail("")
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 

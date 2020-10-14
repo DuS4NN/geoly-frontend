@@ -49,6 +49,9 @@ const Settings: React.FC = () => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
 
         axios({
@@ -64,6 +67,9 @@ const Settings: React.FC = () => {
                 }
             })
             setLanguages(newLanguages)
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }, [])
 
