@@ -204,7 +204,7 @@ export const text = {
     groups: {
         title: 'Skupiny',
         subtitle: 'Prečo plniť úlohy sám, keď ich môžete robiť s priateľmi? Založte skupinu a pozvite ich!',
-        createdGroups: 'Created groups',
+        createdGroups: 'Vytvorené úlohy',
         editGroup: 'Upraviť',
         deleteGroup: 'Odstrániť',
         manageUsers: 'Spravovať používateľov',

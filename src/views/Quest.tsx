@@ -104,10 +104,8 @@ const Quest: React.FC = () => {
                     let newDetails = response.data.data.map((detail:any) => extractDetails(detail))
                     setDetails(newDetails[0])
                 }else{
-                    setDetails([])
-                    throw Object.assign(
-                        new Error("404"), {code: 404}
-                    )
+                    history.push("/welcome")
+                    alert.error(text.error.SOMETHING_WENT_WRONG)
                 }
             }).catch(function () {
                 history.push("/welcome")

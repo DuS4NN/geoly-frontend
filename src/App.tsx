@@ -29,8 +29,8 @@ import './App.scss'
 // Component
 function App() {
     // User Context
-    let nickName = null
-    let profileImage = null
+    let nickName = localStorage.getItem("nickName") ? localStorage.getItem("nickName") : null
+    let profileImage = localStorage.getItem("profileImage") ? localStorage.getItem("profileImage") : null
     let languageId = localStorage.getItem("languageId") ? localStorage.getItem("languageId") : '1'
     let mapTheme = localStorage.getItem("mapTheme") ? localStorage.getItem("mapTheme") : '1'
     let darkMode = localStorage.getItem("darkMode") ? localStorage.getItem("darkMode") : 'false'
@@ -44,9 +44,10 @@ function App() {
     } as any
 
     const [userContext, setUserContext] = useState(userFromStorage)
+    const [loaded, setLoaded] = useState(nickName===null)
 
     useEffect(() => {
-        if(localStorage.getItem("nickName")){
+        if(localStorage.getItem("nickName") !== null){
             axios({
                 method: "GET",
                 url: process.env.REACT_APP_API_SERVER_URL+"/checkUser",
@@ -64,43 +65,58 @@ function App() {
                         languageId: data[4]
                     } as any
                     setUserContext(newUser)
+                }else{
+                    setUserContext({
+                        ...userContext,
+                        nickName: null,
+                        profileImage: null
+                    })
+                    localStorage.removeItem("nickName")
+                    localStorage.removeItem("profileImage")
                 }
+
+                setLoaded(true)
             })
         }
     }, [])
 
+
+
     // Template
     return (
         <div className="app">
-            <UserContext.Provider value={{userContext, setUserContext}}>
+            {loaded && (
+                <UserContext.Provider value={{userContext, setUserContext}}>
 
-                <header>
-                    <Navigation />
-                </header>
+                    <header>
+                        <Navigation />
+                    </header>
 
-                <main className="content">
-                    <Switch>
-                        <Route exact path="/login" component={SignIn} />
-                        <Route exact path="/register" component={SignUp} />
-                        <Route path="/forgot" component={ForgotPassword} />
-                        <Route path="/verify" component={Verify} />
-                        <Route path="/logout" component={Logout} />
-                        <Route path="/ranking" component={Ranking} />
-                        <Route path="/map" component={Map} />
-                        <Route path="/quest/" component={Quest} />
-                        <Route exact path="/quests" component={UserQuest} />
-                        <Route exact path="/groups" component={Groups} />
-                        <Route path={"/group/"} component={Group} />
-                        <Route path={"/profile/"} component={Profile} />
-                        <Route exact path={"/premium"} component={Premium} />
-                        <Route path={"/premiumresponse/"} component={PremiumResponse} />
-                        <Route exact path={"/"} component={Welcome} />
-                        <Route exact path={"/settings"} component={Settings} />
-                        <Route exact path={"/daily"} component={DailyQuest} />
-                    </Switch>
-                </main>
+                    <main className="content">
+                        <Switch>
+                            <Route exact path="/login" component={SignIn} />
+                            <Route exact path="/register" component={SignUp} />
+                            <Route path="/forgot" component={ForgotPassword} />
+                            <Route path="/verify" component={Verify} />
+                            <Route path="/logout" component={Logout} />
+                            <Route path="/ranking" component={Ranking} />
+                            <Route path="/map" component={Map} />
+                            <Route path="/quest/" component={Quest} />
+                            <Route exact path="/quests" component={UserQuest} />
+                            <Route exact path="/groups" component={Groups} />
+                            <Route path={"/group/"} component={Group} />
+                            <Route path={"/profile/"} component={Profile} />
+                            <Route exact path={"/premium"} component={Premium} />
+                            <Route path={"/premiumresponse/"} component={PremiumResponse} />
+                            <Route exact path={"/"} component={Welcome} />
+                            <Route exact path={"/welcome"} component={Welcome} />
+                            <Route exact path={"/settings"} component={Settings} />
+                            <Route exact path={"/daily"} component={DailyQuest} />
+                        </Switch>
+                    </main>
 
-            </UserContext.Provider>
+                </UserContext.Provider>
+            )}
         </div>
     );
 }

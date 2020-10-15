@@ -70,9 +70,8 @@ const Group: React.FC<Props> = (props) => {
                 }))
 
             }else{
-                throw Object.assign(
-                    new Error("404"), {code: 404}
-                )
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             }
         }).catch(function () {
             history.push("/welcome")

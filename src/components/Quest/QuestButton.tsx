@@ -45,7 +45,9 @@ const QuestButton: React.FC<Props> = (props) => {
     // Template
     return (
         <div className="quest-button">
-            <button onClick={handleSubmit}>{text.review.signUp}</button>
+            {userContext['nickName'] && (
+                <button onClick={handleSubmit}>{text.review.signUp}</button>
+            )}
         </div>
     )
 }
