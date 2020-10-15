@@ -1,4 +1,4 @@
-import React, {useContext, useRef} from 'react'
+import React, {useContext, useRef, useState} from 'react'
 import {UserContext} from "../../UserContext";
 import useSmoothScroll from 'react-smooth-scroll-hook';
 import './PremiumContainer.scss'
@@ -19,12 +19,15 @@ const PremiumContainer: React.FC = () => {
     const history = useHistory()
     const ref = useRef<HTMLElement>(document.documentElement);
 
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
+
     const { scrollTo } = useSmoothScroll({
         ref,
         speed: 30
     });
 
     const handleSubmit = () => {
+        setLoadingSubmit(true)
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/premium',
@@ -40,6 +43,7 @@ const PremiumContainer: React.FC = () => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+            setLoadingSubmit(false)
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -103,7 +107,7 @@ const PremiumContainer: React.FC = () => {
 
             <div className="premium-footer">
                 <h1>{text.premium.footerTitle}</h1>
-                <button onClick={handleSubmit}>{text.premium.getPremium}</button>
+                <button onClick={handleSubmit}>{loadingSubmit && (<img alt="" src={require("../../assets/images/otherIcons/loading-button.svg")} />)}{text.premium.getPremium}</button>
             </div>
 
         </div>

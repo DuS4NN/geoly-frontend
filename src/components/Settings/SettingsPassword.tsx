@@ -20,6 +20,8 @@ const SettingsPassword: React.FC = () => {
     const [repeatPassword, setRepeatPassword] = useState("") as Array<any>
     const [oldPassword, setOldPassword] = useState("") as Array<any>
 
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
+
     const handleChangeNP = (e: ChangeEvent<HTMLInputElement>) => {
         setNewPassword(e.target.value)
     }
@@ -40,6 +42,7 @@ const SettingsPassword: React.FC = () => {
             return
         }
 
+        setLoadingSubmit(true)
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/settings/changepassword?newPassword='+newPassword+'&oldPassword='+oldPassword,
@@ -63,6 +66,7 @@ const SettingsPassword: React.FC = () => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+            setLoadingSubmit(false)
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -96,7 +100,7 @@ const SettingsPassword: React.FC = () => {
             </div>
 
             <div className="submit-button">
-                <button onClick={handleSubmit}>{text.settings.save}</button>
+                <button onClick={handleSubmit}>{loadingSubmit && (<img alt="" src={require("../../assets/images/otherIcons/loading-button.svg")} />)}{text.settings.save}</button>
             </div>
 
         </div>

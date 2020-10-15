@@ -29,6 +29,9 @@ const SettingsProfile: React.FC<Props> = (props) => {
     const ref = useRef(null) as any
     const emojiPicker = useRef(null) as any
 
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
+    const [loadingSubmitImage, setLoadingSubmitImage] = useState(false)
+
     const [newImage, setNewImage] = useState(null) as Array<any>
     const [showEmojiPicker, setShowEmojiPicker] = useState(false) as Array<any>
     const [showModal, setShowModal] = useState(false) as Array<any>
@@ -67,6 +70,7 @@ const SettingsProfile: React.FC<Props> = (props) => {
     }
 
     const handleSubmit = () => {
+        setLoadingSubmit(true)
         axios({
             method: 'POST',
             url: process.env.REACT_APP_API_SERVER_URL+'/settings?language='+settings.languageId,
@@ -93,6 +97,7 @@ const SettingsProfile: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+            setLoadingSubmit(false)
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -103,6 +108,7 @@ const SettingsProfile: React.FC<Props> = (props) => {
         let data = new FormData()
         data.append('file', newImage)
 
+        setLoadingSubmitImage(true)
         axios({
             method: 'POST',
             url: process.env.REACT_APP_API_SERVER_URL+'/settings/setimage',
@@ -123,11 +129,11 @@ const SettingsProfile: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+            setLoadingSubmitImage(false)
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
         })
-
     }
 
     const handleShowEmojiPicker = () => {
@@ -300,7 +306,7 @@ const SettingsProfile: React.FC<Props> = (props) => {
             )}
 
             <div className="settings-submit">
-                <button onClick={handleSubmit}>{text.settings.save}</button>
+                <button onClick={handleSubmit}>{(loadingSubmit || loadingSubmitImage) && (<img alt="" src={require("../../assets/images/otherIcons/loading-button.svg")} />)}{text.settings.save}</button>
             </div>
 
         </div>

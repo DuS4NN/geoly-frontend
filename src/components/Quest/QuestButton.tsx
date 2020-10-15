@@ -1,4 +1,4 @@
-import React, {useContext} from "react"
+import React, {useContext, useState} from "react"
 import axios from "axios"
 import {UserContext} from "../../UserContext";
 import {useAlert} from "react-alert";
@@ -14,13 +14,14 @@ const QuestButton: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
     const history = useHistory()
     const alert = useAlert()
-
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
     const {questId} = props
 
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
 
     const handleSubmit = () => {
+        setLoadingSubmit(true)
         axios({
             method: 'POST',
             url: process.env.REACT_APP_API_SERVER_URL+'/quest/signin?id='+questId,
@@ -36,6 +37,7 @@ const QuestButton: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+            setLoadingSubmit(false)
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -46,7 +48,7 @@ const QuestButton: React.FC<Props> = (props) => {
     return (
         <div className="quest-button">
             {userContext['nickName'] && (
-                <button onClick={handleSubmit}>{text.review.signUp}</button>
+                <button onClick={handleSubmit}>{loadingSubmit && (<img alt="" src={require("../../assets/images/otherIcons/loading-button.svg")} />)}{text.review.signUp}</button>
             )}
         </div>
     )

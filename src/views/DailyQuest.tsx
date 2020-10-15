@@ -14,6 +14,7 @@ const DailyQuest: React.FC = () => {
     const {userContext} = useContext(UserContext)
     const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
     const [timeLeft, setTimeLeft] = useState(0) as Array<any>
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
     const alert = useAlert()
     const history = useHistory()
 
@@ -70,6 +71,7 @@ const DailyQuest: React.FC = () => {
 
 
     const handleSubmit = () => {
+        setLoadingSubmit(true)
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/signindaily',
@@ -85,6 +87,7 @@ const DailyQuest: React.FC = () => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+            setLoadingSubmit(false)
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -108,7 +111,7 @@ const DailyQuest: React.FC = () => {
                     <div className="header-container">
                         <div className="header-text">
                             <h1>{text.daily.title}</h1>
-                            <button onClick={handleSubmit}>{text.daily.signIn}</button>
+                            <button onClick={handleSubmit}>{loadingSubmit && (<img alt="" src={require("../assets/images/otherIcons/loading-button.svg")} />)}{text.daily.signIn}</button>
                         </div>
                     </div>
 
