@@ -22,6 +22,7 @@ const ModalForgot: React.FC<Props> = props => {
     const {showModal, setShowModal} = props
     // State
     const [email, setEmail] = useState("")
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
 
     // Alerts
     const alert = useAlert()
@@ -53,6 +54,7 @@ const ModalForgot: React.FC<Props> = props => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        setLoadingSubmit(true)
 
         axios({
             method: 'GET',
@@ -69,6 +71,7 @@ const ModalForgot: React.FC<Props> = props => {
                 alert.error(text.error[serverResponse])
                 setEmail("")
             }
+            setLoadingSubmit(false)
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -105,7 +108,7 @@ const ModalForgot: React.FC<Props> = props => {
                                 <input type="email" name="email" value={email} onChange={handleChange} autoFocus required className="input-field-email" placeholder={text.forgot.inputEmailPlaceholder}/>
                             </div>
                             <div className="form-submit-button">
-                                <button >{text.forgot.submitButton}</button>
+                                <button>{loadingSubmit && (<img alt="" src={require("../../assets/images/otherIcons/loading-button.svg")} />)}{text.forgot.submitButton}</button>
                             </div>
                         </form>
                     </div>

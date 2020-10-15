@@ -375,8 +375,8 @@ export const text = {
 
         // Groups
         GROUP_DOES_NOT_EXIST_OR_USER_IS_NOT_OWNER: 'The group does not exist or you are not the owner',
-        INVALID_PARTY_NAME_FORMAT: 'A group name must be 1-15 characters long',
-        INVALID_PARTY_NAME_LENGTH: 'A group name can contain only A-Z, a-z, 0-9 and .-_',
+        INVALID_PARTY_NAME_FORMAT: 'A group name can contain only A-Z, a-z, 0-9 and .-_',
+        INVALID_PARTY_NAME_LENGTH: 'A group name must be 1-15 characters long',
         CAN_NOT_KICK_OWNER: 'The founder of the group cannot be kicked out',
         USER_IS_ALREADY_IN_GROUP: 'The user is already in the group',
         QUEST_IS_PRIVATE: 'The quest cannot be added because it is private',
@@ -398,6 +398,7 @@ export const text = {
         USER_NOT_FOUND: 'Account not found',
         QUEST_NOT_FOUND: 'Quest not found',
         SELECT_REASON: 'Select a reason',
+        SELECT_QUEST: 'Select a quest',
         UNAUTHORIZED: 'You must be logged in to access this page'
     },
     success: {

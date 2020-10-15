@@ -21,6 +21,7 @@ const ModalReportUser: React.FC<Props> = (props) => {
 
     const [reportReasons, setReportReason] = useState([])
     const [selectedReason, setSelectedReason] = useState("")
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
 
     // Alerts
     const alert = useAlert()
@@ -65,6 +66,7 @@ const ModalReportUser: React.FC<Props> = (props) => {
             return
         }
 
+        setLoadingSubmit(true)
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/profile/report?id='+userId+'&reason='+selectedReason,
@@ -79,6 +81,7 @@ const ModalReportUser: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+            setLoadingSubmit(false)
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -114,7 +117,7 @@ const ModalReportUser: React.FC<Props> = (props) => {
                     ))}
 
                     <div className="form-submit-button">
-                        <button onClick={handleSubmit}>{text.reportQuest.button}</button>
+                        <button onClick={handleSubmit}>{loadingSubmit && (<img alt="" src={require("../../assets/images/otherIcons/loading-button.svg")} />)}{text.reportQuest.button}</button>
                     </div>
 
                 </div>

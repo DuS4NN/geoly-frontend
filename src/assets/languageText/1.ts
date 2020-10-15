@@ -373,8 +373,8 @@ export const text = {
 
         // Groups
         GROUP_DOES_NOT_EXIST_OR_USER_IS_NOT_OWNER: 'Skupina neexistuje alebo nie ste vlastníkom',
-        INVALID_PARTY_NAME_FORMAT: 'Dĺžka názvu skupiny musí byť 1-15 znakov',
-        INVALID_PARTY_NAME_LENGTH: 'Názov skupiny môže obsahovať A-Z, a-z, 0-9 a -_.',
+        INVALID_PARTY_NAME_FORMAT: 'Názov skupiny môže obsahovať A-Z, a-z, 0-9 a -_.',
+        INVALID_PARTY_NAME_LENGTH: 'Dĺžka názvu skupiny musí byť 1-15 znakov',
         CAN_NOT_KICK_OWNER: 'Zakladateľ skupiny nemôže byť vyhodený',
         USER_IS_ALREADY_IN_GROUP: 'Používateľ už je v skupine',
         QUEST_IS_PRIVATE: 'Úloha sa nedá pridať, pretože je súkromná',
@@ -396,6 +396,7 @@ export const text = {
         USER_NOT_FOUND: 'Účet nenájdený',
         QUEST_NOT_FOUND: 'Úloha nenájdená',
         SELECT_REASON: 'Vyberte dôvod',
+        SELECT_QUEST: 'Vyberte úlohu',
         UNAUTHORIZED: 'Pre vstup na túto stránku sa musíte prihlásiť'
     },
     success: {

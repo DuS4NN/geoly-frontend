@@ -31,6 +31,7 @@ const ModalManageGroup: React.FC<Props> = (props) => {
     const [users, setUsers] = useState([]) as Array<any>
     const [searchResult, setSearchResult] = useState([]) as Array<any>
     const [searchInput, setSearchInput] = useState("")
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
 
     const refUser = useRef(null) as any
 
@@ -86,12 +87,16 @@ const ModalManageGroup: React.FC<Props> = (props) => {
     }
 
     const handleSubmit = () => {
+        if(refUser.current.value === ""){
+            return
+        }
+
+        setLoadingSubmit(true)
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/group/invite?partyId='+groupId+'&nickName='+refUser.current.value,
             withCredentials: true
         }).then(function (response) {
-            console.log(response)
             let serverResponse = response.data.responseEntity.body
             let statusCode = response.data.responseEntity.statusCode
             if(statusCode === 'ACCEPTED'){
@@ -102,6 +107,10 @@ const ModalManageGroup: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+            setLoadingSubmit(false)
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 
@@ -126,6 +135,9 @@ const ModalManageGroup: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
 
@@ -149,6 +161,9 @@ const ModalManageGroup: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     },500)
 
@@ -198,7 +213,7 @@ const ModalManageGroup: React.FC<Props> = (props) => {
                     )}
 
                     <div className="form-submit-button">
-                        <button onClick={handleSubmit}>{text.groups.invite}</button>
+                        <button onClick={handleSubmit}>{loadingSubmit && (<img alt="" src={require("../../assets/images/otherIcons/loading-button.svg")} />)}{text.groups.invite}</button>
                     </div>
 
                     <div className="form-list">

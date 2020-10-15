@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef} from "react"
+import React, {useContext, useEffect, useRef, useState} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
@@ -31,6 +31,8 @@ const ModalAddGroup: React.FC<Props> = (props) => {
 
     const refName = useRef(null) as any
 
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
+
 
     // Modal
     useEffect(() => {
@@ -56,6 +58,15 @@ const ModalAddGroup: React.FC<Props> = (props) => {
     }
 
     const handleSubmit = () => {
+        if(refName.current?.value.length < 3){
+            alert.error(text.error.INVALID_PARTY_NAME_LENGTH)
+            return
+        }
+        if(refName.current?.value.match(/[A-Z,a-z,\-,_,.,0-9]*/)[0] !== refName.current?.value){
+            alert.error(text.error.INVALID_PARTY_NAME_FORMAT)
+            return
+        }
+        setLoadingSubmit(true)
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/group/create?name='+refName.current?.value,
@@ -64,12 +75,9 @@ const ModalAddGroup: React.FC<Props> = (props) => {
             let serverResponse = response.data.responseEntity.body
             let statusCode = response.data.responseEntity.statusCode
             if(statusCode === 'ACCEPTED'){
-
                 getCreatedGroups(1)
                 setPage(1)
-
                 alert.success(text.success[serverResponse])
-
                 setCount(count+1)
 
                 handleCloseModal()
@@ -78,6 +86,7 @@ const ModalAddGroup: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+            setLoadingSubmit(false)
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -113,7 +122,7 @@ const ModalAddGroup: React.FC<Props> = (props) => {
                     </div>
 
                     <div className="form-submit-button">
-                        <button onClick={handleSubmit}>{text.groups.createButton}</button>
+                        <button onClick={handleSubmit}>{loadingSubmit && (<img alt="" src={require("../../assets/images/otherIcons/loading-button.svg")} />)}{text.groups.createButton}</button>
                     </div>
                 </div>
             </div>

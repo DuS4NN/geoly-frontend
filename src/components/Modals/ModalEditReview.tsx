@@ -33,11 +33,12 @@ const ModalEditReview: React.FC<Props> = (props) => {
     // Props state
     const {showModal, setShowModal, editReviewId, reviews, setReviews, questId, reviewText, reviewRate, setReviewRate} = props
 
-    const textareaRef = useRef(null)
+    const textareaRef = useRef(null) as any
     const emojiPicker = useRef(null)
 
     const [reviewValue, setReviewValue] = useState("") as Array<any>
     const [showEmojiPicker, setShowEmojiPicker] = useState(false) as Array<any>
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
 
     // Modal
     Modal.setAppElement("#root")
@@ -66,6 +67,12 @@ const ModalEditReview: React.FC<Props> = (props) => {
     }
 
     const handleSubmit = () => {
+        if(textareaRef.current?.value.length === 0){
+            alert.error(text.error.INVALID_REVIEW_LENGTH_SIZE)
+            return
+        }
+
+        setLoadingSubmit(true)
         axios({
             method: 'PUT',
             url: process.env.REACT_APP_API_SERVER_URL+'/quest/review?reviewId='+editReviewId+'&questId='+questId,
@@ -91,6 +98,7 @@ const ModalEditReview: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+            setLoadingSubmit(false)
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -196,7 +204,7 @@ const ModalEditReview: React.FC<Props> = (props) => {
                     </div>
 
                     <div className="form-submit-button">
-                        <button onClick={handleSubmit}>{text.editReview.editButton}</button>
+                        <button onClick={handleSubmit}>{loadingSubmit && (<img alt="" src={require("../../assets/images/otherIcons/loading-button.svg")} />)}{text.editReview.editButton}</button>
                     </div>
                 </div>
             </div>

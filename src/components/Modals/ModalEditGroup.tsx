@@ -30,7 +30,7 @@ const ModalEditGroup: React.FC<Props> = (props) => {
     const {showModal, setShowModal, editGroup, setCreatedGroups, createdGroups} = props
 
     const [questsInGroup, setQuestsInGroup] = useState([]) as Array<any>
-
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
     const nameRef = useRef(null) as any
 
     useEffect(() => {
@@ -82,6 +82,15 @@ const ModalEditGroup: React.FC<Props> = (props) => {
     }
 
     const handleSubmit = () => {
+        if(nameRef.current?.value.length < 3){
+            alert.error(text.error.INVALID_PARTY_NAME_LENGTH)
+            return
+        }
+        if(nameRef.current?.value.match(/[A-Z,a-z,\-,_,.,0-9]*/)[0] !== nameRef.current?.value){
+            alert.error(text.error.INVALID_PARTY_NAME_FORMAT)
+            return
+        }
+        setLoadingSubmit(true)
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/group/edit?partyId='+editGroup.groupId+'&name='+nameRef.current?.value,
@@ -111,6 +120,7 @@ const ModalEditGroup: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+            setLoadingSubmit(false)
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -127,11 +137,9 @@ const ModalEditGroup: React.FC<Props> = (props) => {
             let statusCode = response.data.responseEntity.statusCode
 
             if(statusCode === 'ACCEPTED'){
-
                 setQuestsInGroup(questsInGroup.filter(function (quest:any) {
                     return quest.questId !== questId
                 }))
-
 
                 alert.success(text.success[serverResponse])
             }else{
@@ -186,7 +194,7 @@ const ModalEditGroup: React.FC<Props> = (props) => {
                         ))}
 
                         <div className="form-submit-button">
-                            <button onClick={handleSubmit}>{text.groups.editGroup}</button>
+                            <button onClick={handleSubmit}>{loadingSubmit && (<img alt="" src={require("../../assets/images/otherIcons/loading-button.svg")} />)}{text.groups.editGroup}</button>
                         </div>
 
                     </div>

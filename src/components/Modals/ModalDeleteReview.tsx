@@ -1,4 +1,4 @@
-import React, {useContext} from "react"
+import React, {useContext, useState} from "react"
 import ReactModal from "react-modal"
 import Modal from 'react-modal';
 import axios from "axios"
@@ -32,7 +32,7 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
 
     // Props state
     const {showModal, setShowModal, deleteReviewId, reviews, setReviews, setAddReview, page, setPage, count, setCount, getReviews} = props
-
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
 
     // Modal
     Modal.setAppElement("#root")
@@ -58,6 +58,7 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
     }
 
     const handleSubmit = () => {
+        setLoadingSubmit(true)
         axios({
             method: 'DELETE',
             url: process.env.REACT_APP_API_SERVER_URL+'/quest/review?reviewId='+deleteReviewId,
@@ -82,6 +83,7 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+            setLoadingSubmit(true)
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -111,7 +113,7 @@ const ModalDeleteReview: React.FC<Props> = (props) => {
                 </div>
                 <div className="form">
                     <div className="form-yes">
-                        <button onClick={handleSubmit}>{text.deleteReview.accept}</button>
+                        <button onClick={handleSubmit}>{loadingSubmit && (<img alt="" src={require("../../assets/images/otherIcons/loading-button.svg")} />)}{text.deleteReview.accept}</button>
                     </div>
                     <div className="form-no" >
                         <button onClick={handleCloseModal}>{text.deleteReview.decline}</button>

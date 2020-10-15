@@ -33,7 +33,7 @@ const PremiumResponse: React.FC = () => {
                 let statusCode = response.data.responseEntity.statusCode
 
                 if(statusCode === 'ACCEPTED'){
-                    alert.success(text.success[statusCode])
+                    alert.success(text.success[serverResponse])
                 }else if(statusCode === 'METHOD_NOT_ALLOWED'){
                     alert.error(text.error[serverResponse])
                 }else{

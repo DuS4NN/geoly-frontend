@@ -29,6 +29,7 @@ const ModalAddQuestToGroup: React.FC<Props> = (props) => {
     const {showModal, setShowModal, questId} = props
 
     const [selectedGroup, setSelectedGroup] = useState(0)
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
 
     const customStyle = {
         //@ts-ignore
@@ -122,6 +123,12 @@ const ModalAddQuestToGroup: React.FC<Props> = (props) => {
     }
 
     const handleSubmit = () => {
+        if(selectedGroup === 0){
+            alert.error(text.error.SELECT_QUEST)
+            return
+        }
+
+        setLoadingSubmit(true)
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/group/addquest?partyId='+selectedGroup+'&questId='+questId,
@@ -137,6 +144,7 @@ const ModalAddQuestToGroup: React.FC<Props> = (props) => {
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+            setLoadingSubmit(false)
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -184,7 +192,7 @@ const ModalAddQuestToGroup: React.FC<Props> = (props) => {
                     </div>
 
                     <div className="form-submit-button">
-                        <button onClick={handleSubmit}>{text.groups.add}</button>
+                        <button onClick={handleSubmit}>{loadingSubmit && (<img alt="" src={require("../../assets/images/otherIcons/loading-button.svg")} />)}{text.groups.add}</button>
                     </div>
                 </div>
             </div>

@@ -33,6 +33,8 @@ const ModalEditQuest: React.FC<Props> = (props) => {
 
     const [category, setCategory] = useState([]) as Array<any>
     const [images, setImages] = useState([]) as Array<any>
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
+    const [loadingSubmitImage, setLoadingSubmitImage] = useState(false)
 
     const nameRef = useRef(null) as any
     const descriptionRef = useRef(null) as any
@@ -202,16 +204,13 @@ const ModalEditQuest: React.FC<Props> = (props) => {
             if(quest.questId !== createdQuest.questId){
                 return quest
             }else{
-
                 let categoryName = ""
-
 
                 for(let i=0; i<category.length; i++){
                     if(category[i].value === selectedCategory){
                         categoryName = category[i].label
                     }
                 }
-
                 return {
                     ...quest,
                     questName:  nameRef.current?.value,
@@ -225,6 +224,7 @@ const ModalEditQuest: React.FC<Props> = (props) => {
             }
         }
 
+        setLoadingSubmit(true)
         axios({
             method: 'POST',
             url: process.env.REACT_APP_API_SERVER_URL+'/quest/editdetail?id='+createdQuest.questId,
@@ -245,9 +245,15 @@ const ModalEditQuest: React.FC<Props> = (props) => {
 
                 let newCreatedQuests = createdQuests.map((quest:any) => extractCreatedQuests(quest))
                 setCreatedQuests(newCreatedQuests)
+
+                if(deletedQuests.length === 0 && addedQuests.length === 0){
+                    handleCloseModal()
+                }
+
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
+            setLoadingSubmit(false)
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -260,6 +266,7 @@ const ModalEditQuest: React.FC<Props> = (props) => {
                 data.append('files', addedQuests[i].src)
             }
 
+            setLoadingSubmitImage(true)
             axios({
                 method: 'POST',
                 url: process.env.REACT_APP_API_SERVER_URL+'/quest/editimage?id='+createdQuest.questId+'&deleted='+deletedQuests,
@@ -277,12 +284,12 @@ const ModalEditQuest: React.FC<Props> = (props) => {
                 }else{
                     alert.error(text.error.SOMETHING_WENT_WRONG)
                 }
+                setLoadingSubmitImage(false)
             }).catch(function () {
                 history.push("/welcome")
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             })
         }
-        handleCloseModal()
     }
 
     const handleDifficultyChange = (e:any) => {
@@ -409,7 +416,7 @@ const ModalEditQuest: React.FC<Props> = (props) => {
                     </div>
 
                     <div className="form-submit-button">
-                        <button onClick={handleSubmit}>{text.userQuest.edit}</button>
+                        <button onClick={handleSubmit}>{(loadingSubmit || loadingSubmitImage) && (<img alt="" src={require("../../assets/images/otherIcons/loading-button.svg")} />)}{text.userQuest.edit}</button>
                     </div>
 
                 </div>
