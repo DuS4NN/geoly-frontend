@@ -178,6 +178,7 @@ const MapView: React.FC<Props> = (props) => {
 
     const findNewBoundsAndStartSearch = () => {
         let boundsNew = map.getBounds()
+        if(!boundsNew) return
         let keys = Object.keys(boundsNew)
 
         let coordinates1 = boundsNew[keys[0]]
@@ -222,6 +223,7 @@ const MapView: React.FC<Props> = (props) => {
 
             <div className="map" onClick={handleMapClick} ref={ref}>
             </div>
+
         </div>
     )
 }

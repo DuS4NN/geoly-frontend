@@ -228,6 +228,7 @@ export const text = {
         joinedGroups: 'Joined groups',
         leaveGroupTitle: 'Leave group',
         leaveGroupDesc: 'Are you sure you want to leave this group?',
+        noData: 'It looks like you\'re not in any groups',
 
         addQuestTitle: 'Add quest to group',
         addQuestDesc: 'Do you want to add the quest in to a group? No problem!'

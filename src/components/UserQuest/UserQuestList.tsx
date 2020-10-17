@@ -151,7 +151,7 @@ const UserQuestList: React.FC = () => {
                 <div className="user-quest-empty">
 
                     <div className="container-title">
-                        <h2>Quests</h2>
+                        <h2>{text.userQuest.title}</h2>
                     </div>
 
                     <div className="user-quest-empty-title">
