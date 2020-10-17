@@ -19,7 +19,7 @@ const Settings: React.FC = () => {
     const history = useHistory()
 
     const [selected, setSelected] = useState(0) as Array<any>
-    const [settings, setSettings] = useState({}) as Array<any>
+    const [settings, setSettings] = useState(null) as Array<any>
     const [languages, setLanguages] = useState([]) as Array<any>
 
     useEffect(() => {
@@ -47,6 +47,7 @@ const Settings: React.FC = () => {
                     premium: response.data.data[0][6]
                 })
             }else{
+                setSettings({})
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
         }).catch(function () {

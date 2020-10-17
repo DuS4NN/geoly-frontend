@@ -65,7 +65,7 @@ const NotificationsRoll: React.FC<Props> = (props) => {
             </div>
 
             <div  id="roll-items" className="roll-items" ref={ref}>
-                {notifications[0].id && notifications.length>0 && notifications.map((notification:any) => (
+                {notifications[0] && notifications[0].id && notifications.length>0 && notifications.map((notification:any) => (
                     <div key={notification.id} className="roll-item">
                         <div className="item-icon">
                             <img alt="" src={require("../../assets/images/notificationImages/"+notification.type+".svg")} />

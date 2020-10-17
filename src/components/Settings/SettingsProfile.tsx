@@ -39,8 +39,10 @@ const SettingsProfile: React.FC<Props> = (props) => {
     const [aboutValue, setAboutValue] = useState("")
 
     useEffect(() => {
-        setAboutValue(settings.about)
-    }, [settings.about])
+        if(settings != null){
+            setAboutValue(settings.about)
+        }
+    }, [settings])
 
     const handleChangeImage = (e:any) => {
         let image = e.target.files[0]
@@ -223,36 +225,44 @@ const SettingsProfile: React.FC<Props> = (props) => {
     return (
         <div className="settings-profile">
 
-            <ModalDeleteProfilePicture showModal={showModal} setShowModal={setShowModal} setSettings={setSettings} settings={settings} />
-            <ModalCancelSubscription showModal={showCancelModal} setShowModal={setShowCancelModal} settings={settings} setSettings={setSettings} />
-
-            <div className="settings-image">
-                <div className="settings-label">
-                    <span>{text.settings.profileImage}</span>
+            {settings === null && (
+                <div className="loading">
+                    <img alt="" src={require("../../assets/images/otherIcons/loading.svg")} />
                 </div>
-                <div className="image-show">
-                    <img alt="" src={newImage === null ? process.env.REACT_APP_IMAGE_SERVER_URL+settings.profileImage : URL.createObjectURL(newImage)} />
-                </div>
+            )}
 
-                <div className="input-wrapper">
-                    {text.imageUploader.buttonText}<input onChange={handleChangeImage} accept="image/jpeg, image/jpg, image/png" className="file-input hidden" type="file" />
-                </div>
+            {settings !== null && (
+                <div>
+                    <ModalDeleteProfilePicture showModal={showModal} setShowModal={setShowModal} setSettings={setSettings} settings={settings} />
+                    <ModalCancelSubscription showModal={showCancelModal} setShowModal={setShowCancelModal} settings={settings} setSettings={setSettings} />
 
-                <div className="image-delete">
-                    <button onClick={handleShowModal}>{text.settings.delete}</button>
-                </div>
-            </div>
+                    <div className="settings-image">
+                        <div className="settings-label">
+                            <span>{text.settings.profileImage}</span>
+                        </div>
+                        <div className="image-show">
+                            <img alt="" src={newImage === null ? process.env.REACT_APP_IMAGE_SERVER_URL+settings.profileImage : URL.createObjectURL(newImage)} />
+                        </div>
 
-            <div className="settings-about">
-                <div className="settings-label">
-                    <span>{text.settings.about}</span>
-                </div>
+                        <div className="input-wrapper">
+                            {text.imageUploader.buttonText}<input onChange={handleChangeImage} accept="image/jpeg, image/jpg, image/png" className="file-input hidden" type="file" />
+                        </div>
+
+                        <div className="image-delete">
+                            <button onClick={handleShowModal}>{text.settings.delete}</button>
+                        </div>
+                    </div>
+
+                    <div className="settings-about">
+                        <div className="settings-label">
+                            <span>{text.settings.about}</span>
+                        </div>
 
 
-                <textarea maxLength={500} ref={ref} defaultValue={settings.about} value={aboutValue} onChange={handleAboutChange} placeholder={text.settings.textAreaPlaceholder} />
-                <span onClick={handleShowEmojiPicker} className="emoji-picker-button"><img alt="" src={require("../../assets/images/otherIcons/emojiPicker.svg")} /></span>
-                {showEmojiPicker && (
-                    <span ref={emojiPicker} className="emoji-picker">
+                        <textarea maxLength={500} ref={ref} defaultValue={settings.about} value={aboutValue} onChange={handleAboutChange} placeholder={text.settings.textAreaPlaceholder} />
+                        <span onClick={handleShowEmojiPicker} className="emoji-picker-button"><img alt="" src={require("../../assets/images/otherIcons/emojiPicker.svg")} /></span>
+                        {showEmojiPicker && (
+                            <span ref={emojiPicker} className="emoji-picker">
                     <div className="emoji-triangle">
                     </div>
                     <Picker
@@ -260,54 +270,57 @@ const SettingsProfile: React.FC<Props> = (props) => {
                         set={"facebook"}
                     />
                 </span>
-                )}
+                        )}
 
-            </div>
+                    </div>
 
-            <div className="settings-language">
-                <div className="settings-label">
-                    <span>{text.settings.language}</span>
-                </div>
-                {languages[0] && settings.languageId && (
-                    <Select
-                        closeMenuOnSelect={true}
-                        options={languages}
-                        onChange={handleChangeLanguage}
-                        components={{Option: IconOption}}
-                        className={"customSelect"}
-                        defaultValue={languages.filter((cat:any) => {return cat.value === settings.languageId})}
-                        placeholder={""}
-                        styles={customStyle}
-                    />
-                )}
-            </div>
+                    <div className="settings-language">
+                        <div className="settings-label">
+                            <span>{text.settings.language}</span>
+                        </div>
+                        {languages[0] && settings.languageId && (
+                            <Select
+                                closeMenuOnSelect={true}
+                                options={languages}
+                                onChange={handleChangeLanguage}
+                                components={{Option: IconOption}}
+                                className={"customSelect"}
+                                defaultValue={languages.filter((cat:any) => {return cat.value === settings.languageId})}
+                                placeholder={""}
+                                styles={customStyle}
+                            />
+                        )}
+                    </div>
 
-            <div className="settings-private">
-                <div className="settings-label">
-                    <span>{text.settings.private}</span>
-                </div>
-                {settings.languageId  && (
-                    <Toggle
-                        defaultChecked={settings.privateProfile}
-                        onChange={handleChangePrivate}
-                        icons={{
-                            checked: null,
-                            unchecked: null,
-                        }}
-                    />
-                )}
-            </div>
+                    <div className="settings-private">
+                        <div className="settings-label">
+                            <span>{text.settings.private}</span>
+                        </div>
+                        {settings.languageId  && (
+                            <Toggle
+                                defaultChecked={settings.privateProfile}
+                                onChange={handleChangePrivate}
+                                icons={{
+                                    checked: null,
+                                    unchecked: null,
+                                }}
+                            />
+                        )}
+                    </div>
 
 
-            {settings.premium > 0 && (
-                <div className="settings-subscription">
-                    <button onClick={handleCancelSubscription}>{text.settings.cancelSubscription}</button>
+                    {settings.premium > 0 && (
+                        <div className="settings-subscription">
+                            <button onClick={handleCancelSubscription}>{text.settings.cancelSubscription}</button>
+                        </div>
+                    )}
+
+                    <div className="settings-submit">
+                        <button onClick={handleSubmit}>{(loadingSubmit || loadingSubmitImage) && (<img alt="" src={require("../../assets/images/otherIcons/loading-button.svg")} />)}{text.settings.save}</button>
+                    </div>
                 </div>
             )}
 
-            <div className="settings-submit">
-                <button onClick={handleSubmit}>{(loadingSubmit || loadingSubmitImage) && (<img alt="" src={require("../../assets/images/otherIcons/loading-button.svg")} />)}{text.settings.save}</button>
-            </div>
 
         </div>
     )

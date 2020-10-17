@@ -139,12 +139,41 @@
               height: 15px;
             }
           }
-
+          .loading{
+            text-align: center;
+          }
         }
         .content-item:hover{
           background: var(--light-mode-input-backgroud);
         }
       }
+    }
+  }
+
+  .group-list-empty{
+    background: white;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-bottom: 1px solid var(--light-mode-input-backgroud);
+    border-left: 1px solid var(--light-mode-input-backgroud);
+    border-right: 1px solid var(--light-mode-input-backgroud);
+
+    .group-list-empty-title{
+      text-align: center;
+      padding-top: 30px;
+      font-size: 17px;
+      padding-left: 35px;
+      padding-right: 35px;
+      letter-spacing: 1px;
+      font-family: OpenSans;
+    }
+
+    img{
+      width: 250px;
+      height: 250px;
+      padding-bottom: 30px;
     }
   }
 }

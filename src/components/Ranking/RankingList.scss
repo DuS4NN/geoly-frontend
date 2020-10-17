@@ -66,6 +66,12 @@
       padding-bottom: 30px;
     }
   }
+
+  .loading{
+    
+    border-bottom: 1px solid var(--light-mode-input-backgroud);
+    text-align: center;
+  }
 }
 
 

@@ -21,15 +21,12 @@ interface Props {
 const RankingList: React.FC<Props> = props => {
 
     const {ranking, user} = props
-
     const date = new Date()
 
     // Context
     const {userContext} = useContext(UserContext)
-
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
-    const noDataImage = require("../../assets/images/noData.svg")
 
     // Template
     return (
@@ -40,23 +37,38 @@ const RankingList: React.FC<Props> = props => {
             </div>
 
             <div className="ranking-list-table">
-                {!isEmpty(ranking) ? ranking.map(player => (
-                    <RankingItem key={player.position} player={player} />
-                    )) :
-                    <div className="ranking-list-empty">
-                        <span className="ranking-list-empty-title">{text.ranking.noData}</span>
-                        <br />
-                        <img src={noDataImage} alt="" />
+                {ranking === null && (
+                    <div className="loading">
+                        <img alt="" src={require("../../assets/images/otherIcons/loading.svg")} />
                     </div>
-                }
-                {!isEmpty(user) &&
-                <div className="ranking-list-user">
-                    <div className="ranking-list-user-gap">
-                    </div>
-                    <RankingItem key={user.position} player={user} />
-                </div>
-                }
+                )}
 
+                {ranking !== null && (
+                    <div>
+                        {ranking.length > 0 && (
+                            ranking.map(player => (
+                                <RankingItem key={player.position} player={player} />
+                            ))
+                        )}
+                        {ranking.length === 0 && (
+                            <div className="ranking-list-empty">
+                                <span className="ranking-list-empty-title">{text.ranking.noData}</span>
+                                <br />
+                                <img src={require("../../assets/images/noData.svg")} alt="" />
+                            </div>
+                        )}
+                    </div>
+                )}
+
+
+
+                {!isEmpty(user) &&
+                    <div className="ranking-list-user">
+                        <div className="ranking-list-user-gap">
+                        </div>
+                        <RankingItem key={user.position} player={user} />
+                    </div>
+                }
             </div>
         </div>
     )

@@ -1,11 +1,11 @@
 import React, {useContext, useEffect, useState} from 'react'
 import axios from 'axios'
 import {UserContext} from "../../UserContext"
-import './GroupsList.scss'
 import GroupsListCreated from "./GroupListCreated";
 import {useAlert} from "react-alert";
 import GroupsListEntered from "./GroupListEntered";
 import {useHistory} from "react-router-dom"
+import './GroupsList.scss'
 
 // Props
 interface Props {
@@ -18,10 +18,10 @@ const GroupsList: React.FC = () => {
     const alert = useAlert()
     const history = useHistory()
 
-    const [createdGroups, setCreatedGroups] = useState([]) as Array<any>
+    const [createdGroups, setCreatedGroups] = useState(null) as Array<any>
     const [createdGroupsCount, setCreatedGroupsCount] = useState(0)
 
-    const [enteredGroups, setEnteredGroups] = useState([]) as Array<any>
+    const [enteredGroups, setEnteredGroups] = useState(null) as Array<any>
     const [enteredGroupsCount, setEnteredGroupsCount] = useState(0)
 
 
@@ -45,6 +45,7 @@ const GroupsList: React.FC = () => {
             }else if(statusCode === 'NO_CONTENT'){
                 setCreatedGroups([])
             }else{
+                setEnteredGroups([])
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
         }).catch(function () {
@@ -75,6 +76,7 @@ const GroupsList: React.FC = () => {
             }else if(statusCode === 'NO_CONTENT'){
                 setEnteredGroups([])
             }else{
+                setEnteredGroups([])
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
         }).catch(function () {
@@ -132,6 +134,7 @@ const GroupsList: React.FC = () => {
                 setCount={setEnteredGroupsCount}
                 getEnteredGroups={getEnteredGroups}
             />
+
         </div>
     )
 }

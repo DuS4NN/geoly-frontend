@@ -59,7 +59,7 @@ const GroupsListEntered: React.FC<Props> = (props) => {
     return (
         <div className="group-list-table">
 
-            {enteredGroups.length > 0 &&(
+            {enteredGroups !== null && enteredGroups.length > 0 &&(
                 <div>
                     <ModalLeaveGroup
                         showModal={showLeaveModal}

@@ -20,15 +20,13 @@ const Ranking: React.FC = () => {
     const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
 
     // State
-    const [top, setTop] = useState([]) as Array<any>
+    const [top, setTop] = useState(null) as Array<any>
     const [user, setUser] = useState({})
 
     const history = useHistory()
     const alert = useAlert()
 
     var position = 0
-
-
 
     useEffect( () => {
         axios({

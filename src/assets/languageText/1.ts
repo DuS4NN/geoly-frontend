@@ -225,7 +225,7 @@ export const text = {
         joinedGroups: 'Ostatné skupiny',
         leaveGroupTitle: 'Opustiť skupinu',
         leaveGroupDesc: 'Ste si istý, že chcete opustitť túto skupinu?',
-        noData: 'Zdá sa, že nepatríte do žiadne skupiny.',
+        noData: 'Zdá sa, že nemáte vytvorenú žiadnu skupinu.',
 
         addQuestTitle: 'Pridať úlohu do skupiny',
         addQuestDesc: 'Chcete pridať úlohu do skupiny? Žiaden problém!'

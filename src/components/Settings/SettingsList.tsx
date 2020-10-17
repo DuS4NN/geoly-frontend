@@ -28,10 +28,7 @@ const SettingsList: React.FC<Props> = (props) => {
 
         if(id >= 0 && id<=2){
             setSelected(id)
-
-
         }
-
     }
 
     // Template
