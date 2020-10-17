@@ -21,9 +21,9 @@ const UserQuestList: React.FC = () => {
     const alert = useAlert()
     const history = useHistory()
 
-    const [activeQuest, setActiveQuest] = useState({})
-    const [createdQuest, setCreatedQuest] = useState({})
-    const [playedQuest, setPlayedQuest] = useState({})
+    const [activeQuest, setActiveQuest] = useState(null) as Array<any>
+    const [createdQuest, setCreatedQuest] = useState(null) as Array<any>
+    const [playedQuest, setPlayedQuest] = useState(null) as Array<any>
 
     const getAllPlayedQuests = (page:number) => {
         axios({
@@ -141,13 +141,26 @@ const UserQuestList: React.FC = () => {
     return (
         <div className="user-quest-list">
 
-            <UserQuestActive activeQuest={activeQuest} setActiveQuest={setActiveQuest} playedQuest={playedQuest} setPlayedQuest={setPlayedQuest}/>
-            <UserQuestCreated createdQuest={createdQuest} setCreatedQuest={setCreatedQuest} getCreatedQuests={getCreatedQuests}  />
-            <UserQuestPlayed playedQuest={playedQuest} getAllPlayedQuests={getAllPlayedQuests}/>
+            {activeQuest === null && playedQuest === null && createdQuest === null && (
+                <div className="user-quest-empty">
 
+                    <div className="container-title">
+                        <h2></h2>
+                    </div>
 
+                    <img src={require("../../assets/images/otherIcons/loading.svg")} alt="" />
+                </div>
+            )}
 
-            {Object.keys(activeQuest).length === 0 && Object.keys(createdQuest).length === 0 && Object.keys(playedQuest).length === 0 && (
+            {activeQuest !== null && playedQuest !== null && createdQuest !== null && (
+                <div>
+                    <UserQuestActive activeQuest={activeQuest} setActiveQuest={setActiveQuest} playedQuest={playedQuest} setPlayedQuest={setPlayedQuest}/>
+                    <UserQuestCreated createdQuest={createdQuest} setCreatedQuest={setCreatedQuest} getCreatedQuests={getCreatedQuests}  />
+                    <UserQuestPlayed playedQuest={playedQuest} getAllPlayedQuests={getAllPlayedQuests}/>
+                </div>
+            )}
+
+            {activeQuest !== null && createdQuest !== null && playedQuest !== null && Object.keys(activeQuest).length === 0 && Object.keys(createdQuest).length === 0 && Object.keys(playedQuest).length === 0 && (
                 <div className="user-quest-empty">
 
                     <div className="container-title">

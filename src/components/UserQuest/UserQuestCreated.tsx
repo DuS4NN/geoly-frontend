@@ -43,8 +43,6 @@ const UserQuestCreated: React.FC<Props> = (props) => {
         })
     }, [])
 
-
-
     const handleChangePage = (event:any, value:number) => {
         setPage(value)
         getCreatedQuests(value)

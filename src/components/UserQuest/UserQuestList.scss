@@ -90,6 +90,7 @@
       .container-title{
         width: 60%;
         margin-left: auto;
+        min-height: 103px;
         margin-right: auto;
         background: white;
         border-top: 1px solid var(--light-mode-input-backgroud);
@@ -212,6 +213,7 @@
         margin-right: auto;
         background: white;
         border: 1px solid var(--light-mode-input-backgroud);
+        min-height: 103px;
         h2{
           font-family: Nexa;
           font-weight: bold;
@@ -301,6 +303,7 @@
         margin-right: auto;
         background: white;
         border: 1px solid var(--light-mode-input-backgroud);
+        min-height: 103px;
         h2{
           font-family: Nexa;
           font-weight: bold;
@@ -396,10 +399,11 @@
       background: white;
       border-top: 1px solid var(--light-mode-input-backgroud);
       border-bottom: 1px solid var(--light-mode-input-backgroud);
+      min-height: 103px;
       h2{
         font-family: Nexa;
         font-weight: bold;
-        font-size: 35px;
+        font-size: 30px;
         padding-left: 20px;
         letter-spacing: 0.8px;
         text-align: left;
@@ -409,8 +413,8 @@
 
     .user-quest-empty-title{
       text-align: center;
-      margin-top: 50px;
-      font-size: 25px;
+      margin-top: 30px;
+      font-size: 17px;
       padding-left: 35px;
       padding-right: 35px;
       letter-spacing: 1px;
@@ -418,8 +422,8 @@
     }
 
     img{
-      width: 450px;
-      height: 450px;
+      width: 250px;
+      height: 250px;
       padding-bottom: 30px;
     }
   }

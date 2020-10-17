@@ -28,7 +28,7 @@ const UserQuestActive: React.FC<Props> = (props) => {
     const alert = useAlert()
 
     useEffect(() => {
-        if(activeQuest.categoryImage){
+        if(activeQuest !== null && activeQuest.categoryImage){
             setImage(activeQuest.categoryImage)
             setCategory(activeQuest.categoryName)
         }
