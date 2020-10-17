@@ -1,6 +1,15 @@
 .profile{
   width: 100%;
 
+  .loading-image{
+    padding-top: 70px;
+    padding-bottom: 230px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    border-bottom: 1px solid var(--light-mode-input-backgroud);
+  }
+
   .header{
     width: 100%;
     height: 400px;

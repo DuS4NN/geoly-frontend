@@ -105,7 +105,7 @@ function App() {
                             <Route exact path="/quests" component={UserQuest} />
                             <Route exact path="/groups" component={Groups} />
                             <Route path={"/group/"} component={Group} />
-                            <Route path={"/profile/"} component={Profile} />
+                            <Route path={"/profile/:nick"} render={(props) => <Profile {...props} />} />
                             <Route exact path={"/premium"} component={Premium} />
                             <Route path={"/premiumresponse/"} component={PremiumResponse} />
                             <Route exact path={"/"} component={Welcome} />

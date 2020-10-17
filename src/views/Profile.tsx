@@ -8,21 +8,24 @@ import {UserContext} from "../UserContext";
 import ProfileQuest from "../components/Profile/ProfileQuest";
 import {useAlert} from "react-alert";
 import {useHistory} from "react-router-dom";
+import ProfileLoading from "../components/Profile/ProfileLoading";
+
+import '../components/Profile/ProfileHeader.scss'
+import '../components/Profile/ProfileInfo.scss'
 
 // Props
 interface Props {
 }
 
 // Component
-const Profile: React.FC<Props> = (props) => {
+const Profile: React.FC<Props> = (props:any) => {
     const {userContext} = useContext(UserContext)
     const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
 
     const history = useHistory()
     const alert = useAlert()
 
-    const [nick] = useState(window.location.href.split('/').pop())
-    const [user, setUser] = useState({}) as Array<any>
+    const [user, setUser] = useState(null) as Array<any>
     const [badges, setBadges] = useState([]) as Array<any>
     const [createdQuests, setCreatedQuests] = useState([]) as Array<any>
     const [playedQuests, setPlayedQuests] = useState([]) as Array<any>
@@ -34,16 +37,29 @@ const Profile: React.FC<Props> = (props) => {
     useEffect(() => {
         axios({
             method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/profile?nickName='+nick,
+            url: process.env.REACT_APP_API_SERVER_URL+'/profile?nickName='+props.match.params.nick,
             withCredentials: true
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
             if(statusCode === 'OK'){
 
                 if(response.data.data[0][0][0] === null){
-                    throw Object.assign(
-                        new Error("404"), {code: 404}
-                    )
+                    history.push("/welcome")
+                    alert.error(text.error.SOMETHING_WENT_WRONG)
+                }
+
+                if(response.data.data[0][0][1] === 1 && response.data.data[0][0][8] === 0){
+                    setUser({
+                        private: response.data.data[0][0][1],
+                        owner: response.data.data[0][0][8],
+                        nick: response.data.data[0][0][2],
+                        date: new Date(response.data.data[0][0][5]),
+                        best: response.data.data[0][0][6] === null ? 0 : response.data.data[0][0][6],
+                        this: response.data.data[0][0][7] === null ? 0 : response.data.data[0][0][7],
+                        image: response.data.data[0][0][3],
+                    })
+
+                    return
                 }
 
                 setUser({
@@ -98,35 +114,47 @@ const Profile: React.FC<Props> = (props) => {
                 setPlayedLength(response.data.data[5][0])
                 setCreatedLength(response.data.data[6][0])
             }else{
-                throw Object.assign(
-                    new Error("404"), {code: 404}
-                )
+                history.push("/welcome")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             }
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
         })
-    }, [])
+    }, [props])
 
     // Template
     return (
         <div className="profile">
-            {(user.private === 0 || user.owner === 1) ? (
+
+            {user === null && (
+                <ProfileLoading />
+            )}
+
+            {user !== null && (
+                <ProfileHeader user={user} createdLength={createdLength} playedLength={playedLength} />
+            )}
+
+            {user !== null && (user.private === 0 || user.owner === 1) && (
                 <div>
-                    <ProfileHeader user={user} createdLength={createdLength} playedLength={playedLength} />
                     <ProfileInfo badges={badges} user={user} activity={activity} />
-                    <ProfileQuest playedQuests={playedQuests} createdQuests={createdQuests} createdLength={createdLength} playedLength={playedLength} nick={nick} />
+                    <ProfileQuest playedQuests={playedQuests} createdQuests={createdQuests} createdLength={createdLength} playedLength={playedLength} nick={props.match.params.nick} />
                 </div>
-            ) : (
-                <div className="quest-private">
-                    <div className="quest-private-title">
-                        <h2>{text.private.profile}</h2>
-                    </div>
-                    <div className="quest-private-img">
-                        <img src={require("../assets/images/private.svg")} alt=""/>
+            )}
+
+            {user !== null && (user.private === 1 && user.owner === 0) && (
+                <div className="profile-list">
+                    <div className="quest-private">
+                        <div className="quest-private-title">
+                            <h2>{text.private.profile}</h2>
+                        </div>
+                        <div className="quest-private-img">
+                            <img src={require("../assets/images/private.svg")} alt=""/>
+                        </div>
                     </div>
                 </div>
             )}
+
         </div>
     )
 }

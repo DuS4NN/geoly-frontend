@@ -36,6 +36,12 @@ const NavigationRoll: React.FC<Props> = (props) => {
         setShowRoll(false)
     }
 
+    const handleProfileClick = () => {
+
+        history.push("/profile/"+userContext["nickName"])
+        handleClick()
+    }
+
     const handleChange = () => {
 
         let toggle:boolean = !userContext['darkMode']
@@ -115,14 +121,14 @@ const NavigationRoll: React.FC<Props> = (props) => {
                         </div>
                     </Link>
 
-                    <Link onClick={handleClick} to={'/profile/'+userContext['nickName']} className="navigation-roll-item profile">
+                    <div onClick={handleProfileClick} className="navigation-roll-item profile">
                         <div className="navigation-roll-item-icon">
                             <img src={require("../../assets/images/navigationIcons/profile.svg")} alt="" />
                         </div>
                         <div className="navigation-roll-item-title">
                             <span>{text.navigation.profile}</span>
                         </div>
-                    </Link>
+                    </div>
 
                     <Link onClick={handleClick} to={"/settings"} className="navigation-roll-item settings">
                         <div className="navigation-roll-item-icon">

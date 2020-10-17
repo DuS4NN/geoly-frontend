@@ -87,7 +87,6 @@ const Quest: React.FC = () => {
     const openReportModal = () => {
         setShowReportModal(true)
     }
-
     const openAddModal = () => {
         setShowAddModal(true)
     }
@@ -103,6 +102,11 @@ const Quest: React.FC = () => {
                 if(statusCode === 'OK'){
                     let newDetails = response.data.data.map((detail:any) => extractDetails(detail))
                     setDetails(newDetails[0])
+
+                    getStages()
+                    getImages()
+                    getReviews(1)
+
                 }else{
                     history.push("/welcome")
                     alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -113,24 +117,41 @@ const Quest: React.FC = () => {
             })
         }
         const extractDetails = (detail:any) => {
+            if(detail[13] === 0 || (detail[13] === 1 && detail[14] === 0)){
+
+                console.log(detail[13])
+                console.log(detail[14])
+
+                return {
+                    questId: detail[0],
+                    questName: detail[1],
+                    questDifficulty: detail[2],
+                    questDescription: detail[3],
+                    categoryImage: detail[4],
+                    categoryName: detail[5],
+                    userName: detail[6],
+                    userImage: detail[7],
+                    questReview: detail[8],
+                    countFinish: detail[9],
+                    countOnStage: detail[10],
+                    countCancel: detail[11],
+                    questDate: detail[12],
+                    questPrivate: detail[13],
+                    questOwner: detail[14],
+                    questPremium: detail[15]
+                }
+            }
             return {
-                questId: detail[0],
+                questPrivate: detail[13],
+                questOwner: detail[14],
                 questName: detail[1],
-                questDifficulty: detail[2],
-                questDescription: detail[3],
                 categoryImage: detail[4],
                 categoryName: detail[5],
                 userName: detail[6],
                 userImage: detail[7],
-                questReview: detail[8],
-                countFinish: detail[9],
-                countOnStage: detail[10],
-                countCancel: detail[11],
-                questDate: detail[12],
-                questPrivate: detail[13],
-                questOwner: detail[14],
-                questPremium: detail[15]
-            } as unknown
+            }
+
+
         }
 
         const getStages = () => {
@@ -192,29 +213,25 @@ const Quest: React.FC = () => {
 
         }
 
-        getStages()
+
         getDetails()
-        getImages()
-        getReviews(1)
     },[id])
 
     // Template
     return (
         <div className="quest">
 
+            <QuestTitle details={details} />
+
             {details.questPrivate === 0 || (details.questPrivate === 1 && details.questOwner === 0) ? (
                 <div>
+
                     {userContext['nickName'] && (
                         <div>
                             <ModalReportQuest questId={id} showReportModal={showReportModal} setShowReportModal={setShowReportModal} />
                             <ModalAddQuestToGroup showModal={showAddModal} setShowModal={setShowAddModal} questId={id} />
                         </div>
-
                     )}
-
-
-                    <QuestTitle details={details} />
-
 
                     <div className="quest-detail-content">
                         <div className="quest-report">
