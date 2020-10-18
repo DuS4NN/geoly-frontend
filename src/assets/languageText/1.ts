@@ -232,7 +232,7 @@ export const text = {
     },
     group: {
         created: 'Vytvorené: ',
-        noQuest: 'Skupina nemá žiadne úlohy',
+        noQuest: 'Vyzerá to tak, že skupina nemá žiadne úlohy',
         signUp: 'Prihlásiť sa',
         signOut: 'Odhlásiť sa',
         USER_HAS_ACTIVE_QUEST: 'Používateľ môže mať iba jednu aktívnu úlohu',

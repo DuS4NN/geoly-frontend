@@ -1,6 +1,12 @@
 .group{
   width: 100%;
 
+  .group-content{
+    .loading{
+      text-align: center;
+    }
+  }
+
   .header{
     width: 100%;
     height: 400px;
@@ -75,6 +81,7 @@
           min-width: 190px;
           margin-bottom: 10px;
           display: table;
+          min-height: 20px;
           border-radius: 20px;
           background: white;
           padding: 10px;

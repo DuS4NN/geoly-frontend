@@ -235,7 +235,7 @@ export const text = {
     },
     group: {
         created: 'Created: ',
-        noQuest: 'The group has no quests',
+        noQuest: 'It looks like the group has no quests',
         signUp: 'Sign Up',
         signOut: 'Sign Out',
         USER_HAS_ACTIVE_QUEST: 'You have already signed up for this quest',

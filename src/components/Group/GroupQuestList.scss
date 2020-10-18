@@ -49,34 +49,27 @@
   }
 
   .group-no-quest{
-    background: #ffffff;;
+    background: white;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -30px;
-    margin-bottom: 50px;
-    width: 60%;
-    max-width: 1000px;
-    display: table;
-    border: 1px solid var(--light-mode-input-backgroud);
+    text-align: center;
 
     .title{
-      background: #ffffff;;
-      border-bottom: 1px solid var(--light-mode-input-backgroud);
-      h2{
-        font-family: Nexa;
-        font-weight: bold;
-        font-size: 35px;
-        letter-spacing: 0.8px;
-        text-align: center;
-        color: var(--light-mode-dark-green)
-      }
+      text-align: center;
+      margin-top: 30px;
+      font-size: 17px;
+      padding-left: 35px;
+      padding-right: 35px;
+      letter-spacing: 1px;
+      font-family: OpenSans;
     }
 
     .img{
       text-align: center;
       img{
-        width: 450px;
-        height: 450px;
+        width: 250px;
+        height: 250px;
         padding-bottom: 30px;
       }
     }

@@ -213,7 +213,6 @@ const Quest: React.FC = () => {
 
         }
 
-
         getDetails()
     },[id])
 
