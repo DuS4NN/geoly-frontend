@@ -12,6 +12,7 @@ import ModalAddQuestToGroup from "../components/Modals/ModalAddQuestToGroup";
 import ReactTooltip from "react-tooltip";
 import {useAlert} from "react-alert";
 import {useHistory} from "react-router-dom"
+import QuestLoading from "../components/Quest/QuestLoading";
 
 // Props
 interface Props {
@@ -27,10 +28,10 @@ const Quest: React.FC = () => {
     const alert = useAlert()
 
     const [id] = useState(window.location.href.split('/').pop())
-    const [images, setImages] = useState([])
-    const [stages, setStages] = useState([])
-    const [reviews, setReviews] = useState([])
-    const [details, setDetails] = useState({}) as any
+    const [images, setImages] = useState(null) as Array<any>
+    const [stages, setStages] = useState(null)
+    const [reviews, setReviews] = useState(null) as Array<any>
+    const [details, setDetails] = useState(null) as Array<any>
 
     const [showReportModal, setShowReportModal] = useState(false)
     const [showAddModal, setShowAddModal] = useState(false)
@@ -95,7 +96,8 @@ const Quest: React.FC = () => {
         const getDetails = () => {
             axios({
                 method: 'GET',
-                url: process.env.REACT_APP_API_SERVER_URL+'/quest/detail?id='+id
+                url: process.env.REACT_APP_API_SERVER_URL+'/quest/detail?id='+id,
+                withCredentials: true
             }).then(function (response) {
                 let statusCode = response.data.responseEntity.statusCode
 
@@ -103,10 +105,11 @@ const Quest: React.FC = () => {
                     let newDetails = response.data.data.map((detail:any) => extractDetails(detail))
                     setDetails(newDetails[0])
 
-                    getStages()
-                    getImages()
-                    getReviews(1)
-
+                    if(newDetails[0].questPrivate === 0 || newDetails[0].questOwner === 1){
+                        getStages()
+                        getImages()
+                        getReviews(1)
+                    }
                 }else{
                     history.push("/welcome")
                     alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -117,11 +120,7 @@ const Quest: React.FC = () => {
             })
         }
         const extractDetails = (detail:any) => {
-            if(detail[13] === 0 || (detail[13] === 1 && detail[14] === 0)){
-
-                console.log(detail[13])
-                console.log(detail[14])
-
+            if(detail[14] === 1 || detail[13] === 0){
                 return {
                     questId: detail[0],
                     questName: detail[1],
@@ -149,9 +148,8 @@ const Quest: React.FC = () => {
                 categoryName: detail[5],
                 userName: detail[6],
                 userImage: detail[7],
+                questDate: detail[12]
             }
-
-
         }
 
         const getStages = () => {
@@ -165,9 +163,8 @@ const Quest: React.FC = () => {
                     let newStages = response.data.data.map((stage:any) => extractStage(stage))
                     setStages(newStages)
                 }else{
-                    throw Object.assign(
-                        new Error("404"), {code: 404}
-                    )
+                    history.push("/welcome")
+                    alert.error(text.error.SOMETHING_WENT_WRONG)
                 }
             }).catch(function () {
                 history.push("/welcome")
@@ -210,7 +207,6 @@ const Quest: React.FC = () => {
                 original: process.env.REACT_APP_IMAGE_SERVER_URL+image,
                 thumbnail: process.env.REACT_APP_IMAGE_SERVER_URL+image
             }
-
         }
 
         getDetails()
@@ -220,51 +216,72 @@ const Quest: React.FC = () => {
     return (
         <div className="quest">
 
-            <QuestTitle details={details} />
+            {details === null && stages === null && images === null && reviews === null && (
+                <QuestLoading />
+            )}
 
-            {details.questPrivate === 0 || (details.questPrivate === 1 && details.questOwner === 0) ? (
+            {details !== null && (
                 <div>
 
-                    {userContext['nickName'] && (
+                    <QuestTitle details={details} />
+
+                    {(details.questPrivate === 0 || details.questOwner === 1) && (
                         <div>
-                            <ModalReportQuest questId={id} showReportModal={showReportModal} setShowReportModal={setShowReportModal} />
-                            <ModalAddQuestToGroup showModal={showAddModal} setShowModal={setShowAddModal} questId={id} />
+                            {stages !== null && images !== null && reviews !== null && (
+                                <div>
+                                    {userContext['nickName'] && (
+                                        <div>
+                                            <ModalReportQuest questId={id} showReportModal={showReportModal} setShowReportModal={setShowReportModal} />
+                                            <ModalAddQuestToGroup showModal={showAddModal} setShowModal={setShowAddModal} questId={id} />
+                                        </div>
+                                    )}
+
+                                    <div>
+                                        <div className="quest-detail-content">
+                                            <div className="quest-report">
+                                                {userContext['nickName'] && (
+                                                    <div>
+                                                        <img data-tip={text.review.report} onClick={openReportModal} alt="" src={require("../assets/images/otherIcons/report.svg")} />
+                                                        <img data-tip={text.userQuest.addToGroup} className="add" onClick={openAddModal} alt="" src={require("../assets/images/otherIcons/add-black.svg")} />
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <ReactTooltip />
+
+                                            <QuestDetails details={details} stages={stages} />
+                                        </div>
+
+                                        <QuestGallery images={images} />
+
+                                        <QuestButton questId={id} />
+
+                                        <QuestReviewsForm setPage={setPage} getReviews={getReviews} setAddReview={setAddReview} questId={id} reviews={reviews} setReviews={setReviews} addReview={addReview} />
+                                        <QuestReviewsList page={page} setPage={setPage} questId={id} countReviews={countReviews} setCountReviews={setCountReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} setAddReview={setAddReview}/>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     )}
 
-                    <div className="quest-detail-content">
-                        <div className="quest-report">
-                            {userContext['nickName'] && (
-                                <div>
-                                    <img data-tip={text.review.report} onClick={openReportModal} alt="" src={require("../assets/images/otherIcons/report.svg")} />
-                                    <img data-tip={text.userQuest.addToGroup} className="add" onClick={openAddModal} alt="" src={require("../assets/images/otherIcons/add-black.svg")} />
+                    {(details.questPrivate === 1 && details.questOwner !== 1) && (
+                        <div>
+                            <div className="quest-detail-content">
+                                <div className="quest-private">
+                                    <div className="quest-private-title">
+                                        <h2>{text.private.quest}</h2>
+                                    </div>
+                                    <div className="quest-private-img">
+                                        <img src={require("../assets/images/private.svg")} alt=""/>
+                                    </div>
                                 </div>
-                            )}
-                         </div>
-                        <ReactTooltip />
-                        <QuestDetails details={details} stages={stages} />
-                    </div>
+                            </div>
+                        </div>
+                    )}
 
-                    <QuestGallery images={images} />
-
-                    <QuestButton questId={id} />
-
-                    <QuestReviewsForm setPage={setPage} getReviews={getReviews} setAddReview={setAddReview} questId={id} reviews={reviews} setReviews={setReviews} addReview={addReview} />
-                    <QuestReviewsList page={page} setPage={setPage} questId={id} countReviews={countReviews} setCountReviews={setCountReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} setAddReview={setAddReview}/>
                 </div>
-            ) : (
-               <div className="quest-private">
-                   <div className="quest-private-title">
-                       <h2>{text.private.quest}</h2>
-                   </div>
-                   <div className="quest-private-img">
-                       <img src={require("../assets/images/private.svg")} alt=""/>
-                   </div>
-               </div>
             )}
-
-
         </div>
+
     )
 }
 
