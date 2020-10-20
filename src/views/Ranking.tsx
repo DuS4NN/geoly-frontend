@@ -36,7 +36,15 @@ const Ranking: React.FC = () => {
             let statusCode = response.data.responseEntity.statusCode
 
             if(statusCode === 'OK'){
-                let data:RankingPlayer[] = response.data.data.map((player: any) => extractData(player))
+                let data:RankingPlayer[] = response.data.data.map((player: any) => {
+                    position++
+                    return {
+                        position: position,
+                        points: player[0],
+                        nickname: player[1],
+                        profileImage: player[2]
+                    } as unknown as RankingPlayer
+                })
 
                 setTop(data)
             }else{
@@ -55,9 +63,13 @@ const Ranking: React.FC = () => {
             withCredentials: true
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
-
             if(statusCode === 'OK'){
-                let player:RankingPlayer = extractPlayer(response.data.data[0])
+                let player:RankingPlayer = {
+                    position: response.data.data[0][0],
+                    points: response.data.data[0][1],
+                    nickname: response.data.data[0][2],
+                    profileImage: response.data.data[0][3]
+                }
                 if(player.position > 50){
                     setUser(player)
                 }
@@ -66,25 +78,6 @@ const Ranking: React.FC = () => {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
         })
-
-        const extractPlayer = (player:any) => {
-            return {
-                position: player[0],
-                points: player[1],
-                nickname: player[2],
-                profileImage: player[3]
-            } as unknown as RankingPlayer
-        }
-
-        const extractData = (player:any) => {
-            position++
-            return {
-                position: position,
-                points: player[0],
-                nickname: player[1],
-                profileImage: player[2]
-            } as unknown as RankingPlayer
-        }
 
     }, [userContext, position, setTop])
 
