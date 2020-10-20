@@ -7,6 +7,7 @@ import './UserQuestList.scss'
 import ModalDeleteQuest from "../Modals/ModalDeleteQuest";
 import ModalEditQuest from "../Modals/ModalEditQuest";
 import ReactTooltip from "react-tooltip";
+import ModalEditStages from "../Modals/ModalEditStages";
 
 // Props
 interface Props {
@@ -30,6 +31,7 @@ const UserQuestCreatedItem: React.FC<Props> = (props) => {
 
     const [showDeleteModal, setShowDeleteModal] = useState(false)
     const [showEditModal, setShowEditModal] = useState(false)
+    const [showEditStagesModal, setShowEditStagesModal] = useState(false)
 
 
     const handleDeleteQuest = () => {
@@ -40,10 +42,15 @@ const UserQuestCreatedItem: React.FC<Props> = (props) => {
         setShowEditModal(true)
     }
 
+    const handleEditStages = () => {
+        setShowEditStagesModal(true)
+    }
+
     return (
         <div className="user-quest-created">
             <ModalDeleteQuest showModal={showDeleteModal} setShowModal={setShowDeleteModal} deleteQuestId={createdQuest.questId} createdQuests={createdQuests} count={count} setCount={setCount} page={page} setPage={setPage} getCreatedQuests={getCreatedQuests}/>
             <ModalEditQuest showModal={showEditModal} setShowModal={setShowEditModal} createdQuest={createdQuest} createdQuests={createdQuests} setCreatedQuests={setCreatedQuests} />
+            <ModalEditStages showModal={showEditStagesModal} setShowModal={setShowEditStagesModal} questId={createdQuest.questId} />
 
             {createdQuest !== {} && (
                 <div className="container-table-item">
@@ -54,8 +61,15 @@ const UserQuestCreatedItem: React.FC<Props> = (props) => {
                         <NavLink to={"./quest/"+createdQuest.questId}>{createdQuest.questName}</NavLink>
                     </div>
                     <div className="item-quest-buttons">
-                        <img data-tip={text.userQuest.editQuest} onClick={handleEditQuest}  alt="" src={require("../../assets/images/otherIcons/edit.svg")} />
-                        <img data-tip={text.userQuest.deleteQuest} onClick={handleDeleteQuest} alt="" src={require("../../assets/images/otherIcons/delete.svg")} />
+                        <div className="button-image">
+                            <img data-tip={text.userQuest.editQuest} onClick={handleEditQuest}  alt="" src={require("../../assets/images/otherIcons/edit.svg")} />
+                        </div>
+                        <div className="button-image">
+                            <img data-tip={text.userQuest.editStages} onClick={handleEditStages}  alt="" src={require("../../assets/images/otherIcons/stages.svg")} />
+                        </div>
+                        <div className="button-image">
+                            <img data-tip={text.userQuest.deleteQuest} onClick={handleDeleteQuest} alt="" src={require("../../assets/images/otherIcons/delete.svg")} />
+                        </div>
                     </div>
                 </div>
             )}

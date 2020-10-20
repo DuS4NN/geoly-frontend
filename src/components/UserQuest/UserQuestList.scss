@@ -335,14 +335,21 @@
 
           .item-quest-buttons{
             vertical-align: middle;
-            display: table-cell;
+            height: 70px;
             padding-right: 10px;
             padding-left: 10px;
             border-left: 1px solid var(--light-mode-input-backgroud);
-            img{
-              width: 15px;
-              padding: 3px;
-              cursor: pointer;
+
+            .button-image{
+              height: 70px;
+              display: table-cell;
+              vertical-align: middle;
+
+              img{
+                width: 15px;
+                padding: 5px;
+                cursor: pointer;
+              }
             }
           }
 
@@ -359,6 +366,7 @@
             }
           }
           .item-quest-name{
+            padding-right: 10px;
             padding-left: 30px;
             vertical-align: middle;
             display: table-cell;

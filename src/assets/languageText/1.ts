@@ -162,6 +162,21 @@ export const text = {
         edit: 'Upraviť',
         editQuestTitle: 'Upraviť úloha',
         editQuestSubTitle: 'Rozhodli ste sa upraviť úlohu? Poďme na to!',
+        editStages: 'Upraviť etapy',
+        editStagesTitle: 'Upraviť etapy',
+        editStagesSubTitle: 'Rozhodli ste sa upraviť etapy? Poďme na to!',
+        answer: 'Odpoveď',
+        question: 'Otázka',
+        advise: 'Rada',
+        note: 'Poznámka',
+        answers: 'Odpovede',
+        addAnswer: 'Pridať odpoveď',
+        qrCode: 'QR kód',
+        qrCodeToolTip: 'Uložte si tento QR kód a skryte ho na miesto, ktoré hráč môže nájsť',
+
+        answersToolTip: 'V prípade, že chcete aby si používateľ vyberal správnu odpoveď, pridajte niekoľko nesprávnych odpovedí',
+        noteToolTip: 'Poznámka, ktorá sa zobrazí používateľovi po dokončení etapy',
+        adviseToolTip: 'Rada, o ktorú môže používateľ požiadať, no stojí ho body',
 
         addToGroup: 'Pridať do skupiny',
     },
@@ -371,6 +386,10 @@ export const text = {
         IMAGE_SIZE_TOO_BIG: 'Veľkosť obrázku je moc veľká',
         UNSUPPORTED_IMAGE_TYPE: 'Podporovaný typ obrázkov je PNG a JPG',
         TOO_MANY_IMAGES: 'Maximálny počet obrázkov je 5',
+        ANSWER_ALREADY_EXISTS: 'Odpoveď už existuje',
+        ANSWERS_MAX_COUNT: 'Etapa môže mať maximálne 5 odpovedí',
+        ANSWER_LENGTH: 'Dĺžka odpovede musí byť 1-100 znakov',
+        ANSWER_SYMBOL: 'Odpoveď nemôže obsahovať symbol ;',
 
         // Groups
         GROUP_DOES_NOT_EXIST_OR_USER_IS_NOT_OWNER: 'Skupina neexistuje alebo nie ste vlastníkom',

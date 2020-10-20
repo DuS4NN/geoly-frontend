@@ -65,11 +65,15 @@ const ModalEditQuest: React.FC<Props> = (props) => {
             url: process.env.REACT_APP_API_SERVER_URL+'/quest/getimages?id='+createdQuest.questId,
             withCredentials: true
         }).then(function (response) {
-            let serverResponse = response.data.responseEntity.body;
+            let serverResponse = response.data.responseEntity.statusCode;
 
             if(serverResponse === 'OK'){
                 let images = response.data.data.map((image:any) => extractImage(image))
                 setImages(images)
+            }else if(serverResponse === 'NO_CONTENT'){
+                setImages([])
+            }else{
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             }
         }).catch(function () {
             history.push("/welcome")

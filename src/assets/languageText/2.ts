@@ -164,6 +164,21 @@ export const text = {
         edit: 'Edit',
         editQuestTitle: 'Edit the quest',
         editQuestSubTitle: 'Have we decided to edit the quest? Let\'s go!',
+        editStages: 'Edit stages',
+        editStagesTitle: 'Edit the stages',
+        editStagesSubTitle: 'Have we decided to edit the stages? Let\'s go!',
+        answer: 'Answer',
+        question: 'Question',
+        advise: 'Advise',
+        note: 'Note',
+        answers: 'Answers',
+        addAnswer: 'Add answer',
+        qrCode: 'QR code',
+        qrCodeToolTip: 'Save this QR code and hide it in a place that the player can find',
+
+        answersToolTip: 'If you want the user to choose the correct answer, add some incorrect answers',
+        noteToolTip: 'A note that will be displayed to the user after the stage is completed',
+        adviseToolTip: 'A user can ask for a advice, but it costs a points',
 
         addToGroup: 'Add to group'
     },
@@ -373,6 +388,10 @@ export const text = {
         IMAGE_SIZE_TOO_BIG: 'The Image size is too large',
         UNSUPPORTED_IMAGE_TYPE: 'Supported image types are PNG and JPG',
         TOO_MANY_IMAGES: 'The maximum number of images is 5',
+        ANSWER_ALREADY_EXISTS: 'The answer already exists',
+        ANSWERS_MAX_COUNT: 'A stage can have a maximum of 5 answers',
+        ANSWER_LENGTH: 'Answer must be 1-100 characters long',
+        ANSWER_SYMBOL: 'The answer cannot contain a symbol ;',
 
         // Groups
         GROUP_DOES_NOT_EXIST_OR_USER_IS_NOT_OWNER: 'The group does not exist or you are not the owner',
