@@ -389,9 +389,11 @@ export const text = {
         UNSUPPORTED_IMAGE_TYPE: 'Supported image types are PNG and JPG',
         TOO_MANY_IMAGES: 'The maximum number of images is 5',
         ANSWER_ALREADY_EXISTS: 'The answer already exists',
-        ANSWERS_MAX_COUNT: 'A stage can have a maximum of 5 answers',
+        INVALID_ANSWER_COUNT: 'A stage can have a maximum of 5 answers',
         ANSWER_LENGTH: 'Answer must be 1-100 characters long',
         ANSWER_SYMBOL: 'The answer cannot contain a symbol ;',
+        INVALID_STAGE_TEXT: 'One of the stage parameters is longer than 200 characters',
+        INVALID_QUESTION_OR_ANSWER: 'Enter a question and an answer',
 
         // Groups
         GROUP_DOES_NOT_EXIST_OR_USER_IS_NOT_OWNER: 'The group does not exist or you are not the owner',
@@ -443,6 +445,7 @@ export const text = {
         QUEST_DISABLED: 'The quest has been deactivated',
         IMAGES_SAVED: 'The images has been saved',
         QUEST_EDITED: 'The quest details has been edited',
+        STAGE_EDITED: 'The stage has been edited',
         // Group
         GROUP_DELETED: 'The group has been deleted',
         GROUP_CREATED: 'The group has been added',

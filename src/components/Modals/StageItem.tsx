@@ -3,6 +3,8 @@ import {useAlert} from "react-alert"
 import {UserContext} from "../../UserContext";
 import './Modal.scss'
 import ReactTooltip from "react-tooltip";
+import {useHistory} from "react-router-dom"
+import axios from "axios"
 
 // Props
 interface Props {
@@ -21,11 +23,13 @@ const StageItem: React.FC<Props> = props => {
     const [answerList, setAnswerList] = useState([]) as Array<any>
 
     const alert = useAlert()
+    const history = useHistory()
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
-    const questionRef = useRef(null)
-    const answerRef = useRef(null)
-    const adviseRef = useRef(null)
+    const questionRef = useRef(null) as any
+    const answerRef = useRef(null) as any
+    const adviseRef = useRef(null) as any
+    const noteRef = useRef(null) as any
 
     const [addReviewValue, setAddReviewValue] = useState("") as Array<any>
     const [correctAnswer, setCorrectAnswer] = useState("") as Array<any>
@@ -33,9 +37,7 @@ const StageItem: React.FC<Props> = props => {
     useEffect(() => {
         if(stage.answerList){
             setAnswerList(stage.answerList.split(";"))
-
             setCorrectAnswer(stage.answer)
-
         }
     }, [stage.answerList])
 
@@ -65,7 +67,7 @@ const StageItem: React.FC<Props> = props => {
         }
 
         if(answerList.length >= 5){
-            alert.error(text.error.ANSWERS_MAX_COUNT)
+            alert.error(text.error.INVALID_ANSWER_COUNT)
             setAddReviewValue("")
             return
         }
@@ -93,7 +95,50 @@ const StageItem: React.FC<Props> = props => {
     }
 
     const handleSaveStage = () => {
+        if(answerList.length > 5){
+            alert.error(text.error.INVALID_ANSWER_COUNT)
+            return
+        }
+        if(answerRef.current?.value.length == 0 || questionRef.current?.value.length==0){
+            alert.error(text.error.INVALID_QUESTION_OR_ANSWER)
+            return
+        }
 
+        if(adviseRef.current?.value.length > 200 || noteRef.current?.value > 200 || answerList.join(";").length > 1000 ||
+            answerRef.current?.value.length > 200 || questionRef.current?.value.length>200 ){
+            alert.error(text.error.INVALID_STAGE_TEXT)
+            return
+        }
+
+        axios({
+            method: 'POST',
+            url: process.env.REACT_APP_API_SERVER_URL+'/editstage',
+            withCredentials: true,
+            data: {
+                question: questionRef.current?.value,
+                answer: answerRef.current?.value,
+                advise: adviseRef.current?.value,
+                note: noteRef.current?.value,
+                answerList: answerList.join(";"),
+                stageId: stage.stageId,
+                questId: stage.questId
+            }
+        }).then(function (response) {
+            let serverResponse = response.data.responseEntity.body
+            let statusCode = response.data.responseEntity.statusCode
+
+            if(statusCode === 'ACCEPTED'){
+                alert.success(text.success[serverResponse])
+                setRoll(false)
+            }else if(serverResponse === 'INVALID_STAGE_TEXT' || serverResponse === 'INVALID_ANSWER_COUNT'){
+                alert.error(text.error[serverResponse])
+            }else{
+                alert.error(text.error.SOMETHING_WENT_WRONG)
+            }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
+        })
     }
 
     const returnAnswerQuestion = () => {
@@ -123,7 +168,7 @@ const StageItem: React.FC<Props> = props => {
                         {text.userQuest.note}
                         <img alt="" data-tip={text.userQuest.noteToolTip} src={require("../../assets/images/otherIcons/help.svg")} />
                     </span>
-                    <input defaultValue={stage.note} maxLength={200} ref={adviseRef} placeholder={text.userQuest.note} />
+                    <input defaultValue={stage.note} maxLength={200} ref={noteRef} placeholder={text.userQuest.note} />
                 </div>
                 <br/>
                 <span className="label">
@@ -182,14 +227,6 @@ const StageItem: React.FC<Props> = props => {
         )
     }
 
-    const returnGoToPlace = () => {
-        return (
-            <div>
-                lul
-            </div>
-        )
-    }
-
     // Template
     return (
         <div>
@@ -201,13 +238,14 @@ const StageItem: React.FC<Props> = props => {
                     <span>{text.stageType[stage.type]}</span>
                 </div>
                 <div className="stage-roll">
-                    <img alt="" onClick={handleRoll} src={roll ? require("../../assets/images/otherIcons/arrow-up.svg") : require("../../assets/images/otherIcons/arrow-down.svg")} />
+                    {stage.type !== 'GO_TO_PLACE' && (
+                        <img alt="" onClick={handleRoll} src={roll ? require("../../assets/images/otherIcons/arrow-up.svg") : require("../../assets/images/otherIcons/arrow-down.svg")} />
+                    )}
                 </div>
             </div>
 
             {roll && (
                 <div>
-                    {stage.type === 'GO_TO_PLACE' && returnGoToPlace()}
                     {stage.type === 'SCAN_QR_CODE' && returnScanQRCode()}
                     {stage.type === 'ANSWER_QUESTION' && returnAnswerQuestion()}
                 </div>

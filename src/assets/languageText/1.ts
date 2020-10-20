@@ -387,9 +387,11 @@ export const text = {
         UNSUPPORTED_IMAGE_TYPE: 'Podporovaný typ obrázkov je PNG a JPG',
         TOO_MANY_IMAGES: 'Maximálny počet obrázkov je 5',
         ANSWER_ALREADY_EXISTS: 'Odpoveď už existuje',
-        ANSWERS_MAX_COUNT: 'Etapa môže mať maximálne 5 odpovedí',
+        INVALID_ANSWER_COUNT: 'Etapa môže mať maximálne 5 odpovedí',
         ANSWER_LENGTH: 'Dĺžka odpovede musí byť 1-100 znakov',
         ANSWER_SYMBOL: 'Odpoveď nemôže obsahovať symbol ;',
+        INVALID_STAGE_TEXT: 'Jeden z parametrov etapy je dlhší ako 200 znakov',
+        INVALID_QUESTION_OR_ANSWER: 'Zadajte otázku a odpoveď',
 
         // Groups
         GROUP_DOES_NOT_EXIST_OR_USER_IS_NOT_OWNER: 'Skupina neexistuje alebo nie ste vlastníkom',
@@ -441,6 +443,7 @@ export const text = {
         QUEST_DISABLED: 'Úloha bola deaktivovaná',
         IMAGES_SAVED: 'Obrázky boli uložené',
         QUEST_EDITED: 'Detaily úlohy boli upravené',
+        STAGE_EDITED: 'Etapa bola upravená',
         // Group
         GROUP_DELETED: 'Skupina bola odstránená',
         GROUP_CREATED: 'Skupina bola vytvorená',
