@@ -4,8 +4,17 @@
     position: fixed;
     height: 80px;
 
+    button{
+      margin-right: 25px;
+      min-width: 150px;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+
     .navigation-profile-user{
       width: 170px;
+
+
       .notification-icons{
         .navigation-notifications{
           width: 40px;

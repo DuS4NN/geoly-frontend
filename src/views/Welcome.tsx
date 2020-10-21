@@ -3,6 +3,7 @@ import {useHistory} from "react-router-dom"
 import {UserContext} from "../UserContext"
 
 import '../components/Welcome/Welcome.scss'
+import '../components/Welcome/SmallDeviceWelcome.scss'
 
 // Props
 interface Props {
