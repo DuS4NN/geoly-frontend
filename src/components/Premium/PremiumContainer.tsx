@@ -27,6 +27,12 @@ const PremiumContainer: React.FC = () => {
     });
 
     const handleSubmit = () => {
+
+        if(!userContext['nickName']){
+            alert.error(text.error.UNAUTHORIZED)
+            return
+        }
+
         setLoadingSubmit(true)
         axios({
             method: 'GET',

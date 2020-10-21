@@ -80,8 +80,6 @@ function App() {
         }
     }, [])
 
-
-
     // Template
     return (
         <div className="app">

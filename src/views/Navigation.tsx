@@ -4,6 +4,8 @@ import NavigationLinks from "../components/Navigation/NavigationLinks"
 import NavigationProfile from "../components/Navigation/NavigationProfile"
 import NavigationRoll from "../components/Navigation/NavigationRoll";
 
+import "../components/Navigation/SmallDeviceNavigation.scss"
+
 // Props
 interface Props {
 }

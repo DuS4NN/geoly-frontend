@@ -26,6 +26,13 @@
   height: 100%;
   display: table;
 
+  .navigation-menu{
+    img{
+      width: 0;
+      height: 0;
+    }
+  }
+
   .navigation-links-logo {
     vertical-align: middle;
     width: 20vw;
