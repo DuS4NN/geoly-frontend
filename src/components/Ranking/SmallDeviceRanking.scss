@@ -1,0 +1,50 @@
+@media only screen and (max-width: 1100px) {
+  .raking-list{
+    top: 547px;
+    width: 100%;
+
+    .ranking-list-title{
+      width: calc(100% - 2px);
+      border-top: 1px solid var(--light-mode-input-backgroud);
+      border-bottom: 1px solid var(--light-mode-input-backgroud);
+
+      h2{
+        font-family: Nexa;
+        font-weight: bold;
+        font-size: 30px;
+        letter-spacing: 0.8px;
+        text-align: center;
+        color: var(--light-mode-dark-green)
+      }
+    }
+
+    .ranking-list-table{
+      border: none;
+      width: 100%;
+
+      .raking-item-nickname{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 0;
+      }
+    }
+
+    .ranking-list-empty{
+      width: 100%;
+      padding-top: 30px;
+
+      .ranking-list-empty-title{
+        font-size: 17px;
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+
+      img{
+        width: 250px;
+        height: 250px;
+      }
+
+    }
+  }
+}

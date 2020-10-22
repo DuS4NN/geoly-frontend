@@ -44,6 +44,9 @@
     display: table-cell;
     width: inherit;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 0;
 
     .ranking-item-nickname-text{
       cursor: pointer;

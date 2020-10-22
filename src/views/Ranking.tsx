@@ -8,6 +8,7 @@ import {useHistory} from "react-router-dom"
 import {RankingPlayer} from '../types'
 import {UserContext} from "../UserContext";
 import {useAlert} from "react-alert";
+import '../components/Ranking/SmallDeviceRanking.scss'
 
 // Props
 interface Props {
