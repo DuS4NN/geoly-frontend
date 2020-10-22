@@ -4,9 +4,11 @@
     width: 100%;
 
     .ranking-list-title{
-      width: calc(100% - 2px);
+      width: 100%;
       border-top: 1px solid var(--light-mode-input-backgroud);
       border-bottom: 1px solid var(--light-mode-input-backgroud);
+      border-left: none;
+      border-right: none;
 
       h2{
         font-family: Nexa;

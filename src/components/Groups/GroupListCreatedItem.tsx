@@ -44,12 +44,15 @@ const GroupListCreatedItem: React.FC<Props> = (props) => {
     return (
         <div className="content-item">
 
-            <div className="item-name">
-                <NavLink to={"./group/"+group.groupId}>{group.groupName}</NavLink>
+            <div className="item-info">
+                <div className="item-name">
+                    <NavLink to={"./group/"+group.groupId}>{group.groupName}</NavLink>
+                </div>
+                <div className="item-date">
+                    <span>{date.getDate()+" "+text.month[date.getMonth()]+" "+date.getFullYear()}</span>
+                </div>
             </div>
-            <div className="item-date">
-                <span>{date.getDate()+" "+text.month[date.getMonth()]+" "+date.getFullYear()}</span>
-            </div>
+
             <div className="item-buttons">
                 <img data-tip={text.groups.editGroup} onClick={handleEditGroup}  alt="" src={require("../../assets/images/otherIcons/edit.svg")} />
                 <img data-tip={text.groups.manageUsers} onClick={handleManageUsers} alt="" src={require("../../assets/images/otherIcons/manage-users.svg")} />

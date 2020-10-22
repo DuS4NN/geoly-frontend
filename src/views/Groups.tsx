@@ -4,6 +4,7 @@ import GroupsList from "../components/Groups/GroupsList";
 import {UserContext} from "../UserContext";
 import {useHistory} from "react-router-dom"
 import {useAlert} from "react-alert";
+import "../components/Groups/SmallDeviceGroups.scss"
 
 // Props
 interface Props {

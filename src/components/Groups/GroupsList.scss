@@ -52,37 +52,50 @@
           width: 100%;
           height: 70px;
 
-          .item-name{
+          .item-info{
             display: table-cell;
-            padding-left: 30px;
-            padding-right: 30px;
-            vertical-align: middle;
-            font-family: OpenSans;
-            color: black;
-            font-weight: normal;
-            font-size: 16px;
-            letter-spacing: 0.8px;
-            text-align: left;
-            white-space: nowrap;
-            a{
-              cursor: pointer;
-              text-decoration: none;
-              color: black
+
+            .item-name{
+              width: 100%;
+              display: table-cell;
+              padding-left: 30px;
+              padding-right: 30px;
+              vertical-align: middle;
+              font-family: OpenSans;
+              color: black;
+              font-weight: normal;
+              font-size: 16px;
+              letter-spacing: 0.8px;
+              text-align: left;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: 0;
+              a{
+                cursor: pointer;
+                text-decoration: none;
+                color: black
+              }
+            }
+            .item-date{
+              height: 70px;
+              min-width: 180px;
+              display: table-cell;
+              padding-right: 20px;
+              text-align: right;
+              vertical-align: middle;
+              font-family: Nexa;
+              color: var(--light-mode-gray-text);
+              font-size: 12px;
             }
           }
-          .item-date{
-            padding-right: 20px;
-            text-align: right;
-            display: table-cell;
-            vertical-align: middle;
-            font-family: Nexa;
-            color: var(--light-mode-gray-text);
-            font-size: 12px;
-          }
+
+
           .item-buttons{
-            width: 80px;
+            width: 75px;
             padding-left: 10px;
             padding-right: 10px;
+
             text-align: right;
             vertical-align: middle;
             display: table-cell;
@@ -95,6 +108,10 @@
               height: 15px;
             }
           }
+
+
+
+
           .item-add{
             padding-top: 8px;
             text-align: center;

@@ -1,0 +1,51 @@
+@media only screen and (max-width: 1100px) {
+  .groups-list {
+    top: 547px;
+
+    .container-title{
+      width: 100%!important;
+      border-left: none!important;
+      border-right: none!important;
+      h2{
+        font-size: 30px!important;
+        text-align: center!important;
+      }
+    }
+
+    .container-content{
+      width: 100%!important;
+
+      .content-item {
+        border-left: none !important;
+        border-right: none !important;
+        display: table;
+        width: 100%!important;
+
+
+        .item-info{
+          display: table-cell !important;
+          width: calc(100% - 75px);
+        }
+
+        .item-name {
+          width: 100%!important;
+          max-width: calc(100% - 60px)!important;
+          display: block!important;
+          padding-top: 20px;
+          height: 32px!important;
+        }
+
+        .item-date {
+          display: block!important;
+          padding-bottom: 3px;
+          height: 15px!important;
+        }
+
+        .item-buttons {
+          width: 75px!important;
+          display: table-cell !important;
+        }
+      }
+    }
+  }
+}

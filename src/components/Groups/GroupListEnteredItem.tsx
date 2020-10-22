@@ -33,12 +33,15 @@ const GroupListEnteredItem: React.FC<Props> = (props) => {
     return (
         <div className="content-item">
 
-            <div className="item-name">
-                <NavLink to={"./group/"+group.groupId}>{group.groupName}</NavLink>
+            <div className="item-info">
+                <div className="item-name">
+                    <NavLink to={"./group/"+group.groupId}>{group.groupName}</NavLink>
+                </div>
+                <div className="item-date">
+                    <span>{date.getDate()+" "+text.month[date.getMonth()]+" "+date.getFullYear()}</span>
+                </div>
             </div>
-            <div className="item-date">
-                <span>{date.getDate()+" "+text.month[date.getMonth()]+" "+date.getFullYear()}</span>
-            </div>
+
             <div className="item-buttons-entered">
                 <img data-tip={text.groups.leave} alt="" onClick={() => handleShowLeaveModal(group.groupId)} src={require("../../assets/images/otherIcons/leave.svg")} />
             </div>
