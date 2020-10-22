@@ -227,9 +227,6 @@ const MapQuestDetail: React.FC<Props> = (props) => {
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
     const history = useHistory()
 
-    // Image
-    const headerBottom = require("../../assets/images/obliqueBottom.svg")
-
     // Methods
     const handleCloseDetail = () => {
         setQuestDetail(null)
@@ -359,14 +356,13 @@ const MapQuestDetail: React.FC<Props> = (props) => {
                             <button onClick={handleCloseDetail}>X</button>
                         </div>
 
-
                         <div className="quest-detail-title">
                             <span>{questDetail.questName}</span>
                         </div>
                     </div>
 
                     <div className="quest-detail-header-bottom">
-                        <img src={headerBottom} alt="" />
+                        <img alt="" src={require("../../assets/images/obliqueBottom.svg")} />
                     </div>
 
                     <div className="quest-detail-description">

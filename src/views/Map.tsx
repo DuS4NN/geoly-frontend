@@ -1,11 +1,11 @@
 import React, {useContext, useEffect, useState} from "react"
 import axios from "axios"
 import {useHistory} from "react-router-dom"
-
-// Children
 import MapView from "../components/Map/MapView"
 import {UserContext} from "../UserContext";
 import {useAlert} from "react-alert";
+
+import '../components/Map/SmallDeviceMap.scss'
 
 // Props
 interface Props {

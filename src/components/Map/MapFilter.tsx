@@ -166,6 +166,8 @@ const MapFilter: React.FC<Props> = (props) => {
             .catch(error => alert.error(text.mapFilter.placeNotFound))
 
         handleAddressChangeClick()
+
+        handleRollChange()
     },500)
 
     const handleAddressChange = (address : any) => {
