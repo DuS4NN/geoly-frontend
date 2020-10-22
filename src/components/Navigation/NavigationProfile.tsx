@@ -110,7 +110,10 @@ const NavigationProfile: React.FC<Props> = (props) => {
         <div className="navigation-button navigation-profile">
             {userContext['nickName'] == null ?
                 (
-                <button onClick={handleClick}>{text.navigation.logIn}</button>
+                    <div className="navigation-button-content">
+                        <button onClick={handleClick}>{text.navigation.logIn}</button>
+                    </div>
+
                 ) : (
                 <div className="navigation-profile-user">
                     <div className="notification-icons">

@@ -80,7 +80,10 @@ const NavigationInvitations: React.FC<Props> = (props) => {
     // Template
     return (
         <div className="navigation-invitations">
-            <img onClick={handleShowRoll} src={require("../../assets/images/inputImages/message.svg")} alt="" />
+            <div className="invitations-button-image">
+                <img onClick={handleShowRoll} src={require("../../assets/images/inputImages/message.svg")} alt="" />
+            </div>
+
 
             {unseenCount !== null && unseenCount > 0 && (
                 <div className="invitations-count">
