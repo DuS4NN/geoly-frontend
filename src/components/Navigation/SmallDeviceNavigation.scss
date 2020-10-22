@@ -12,38 +12,44 @@
     }
 
     .navigation-profile-user{
-      width: 170px;
+      width: 145px;
 
 
       .notification-icons{
         .navigation-notifications{
-          width: 40px;
+          width: 30px;
           img{
             vertical-align: middle;
             margin-left: 10px;
             margin-right: 10px;
             cursor: pointer;
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
           }
+
+          .notification-count{
+            margin-left: 23px;
+            margin-top: -30px;
+          }
+
         }
 
         .navigation-invitations{
-          width: 40px;
+          width: 30px;
           img{
             vertical-align: middle;
             margin-left: 10px;
-            margin-right: 10px;
+            margin-right: 5px;
             cursor: pointer;
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
           }
 
           .invitations-count{
             background: red;
             position: absolute;
-            margin-left: 28px;
-            margin-top: -35px;
+            margin-left: 25px;
+            margin-top: -30px;
             font-family: OpenSans;
             font-size: 12px;
             padding-left: 4px;
@@ -59,7 +65,7 @@
       .profile-image{
         cursor: pointer;
         text-align: right;
-        padding-right: 30px!important;
+        padding-right: 20px!important;
         display: table-cell;
         width: 40px!important;
         img{
@@ -73,7 +79,7 @@
       .navigation-menu{
         display: table-cell;
         vertical-align: middle;
-        padding-left: 30px;
+        padding-left: 20px;
         img{
           cursor: pointer;
           vertical-align: middle;
@@ -85,7 +91,7 @@
       .navigation-links-logo{
         padding-left: 15px;
         img{
-          width: 120px;
+          width: 100px;
         }
       }
 
@@ -147,6 +153,21 @@
     .navigation-triangle{
       display: none;
     }
+
+    .roll-item{
+      width: 100%;
+      background: red;
+
+      .item-text{
+        width: calc(100% - 40px);
+      }
+
+      .item-buttons{
+       background: blue;
+        width: calc(100% - 40px);
+      }
+    }
+
   }
 
   .navigation-roll{

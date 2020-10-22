@@ -12,7 +12,7 @@
         text-align: center;
         font-family: Nexa;
         font-weight: bold;
-        font-size: 35px;
+        font-size: 30px;
         letter-spacing: 0.2px;
         text-transform: uppercase;
         border-bottom: 5px solid var(--button-dark-green);
@@ -25,8 +25,12 @@
 
     .welcome-content{
 
+      .welcome-container-white{
+        padding-bottom: 10px;
+      }
+
       .welcome-container-white, .welcome-container-green{
-        height: 350px!important;
+        height: min-content!important;
         width: 100%;
         display: block!important;
       }
@@ -45,21 +49,23 @@
         .info-text{
           padding-top: 20px;
           font-family: OpenSansText;
+          font-size: 15px;
         }
       }
     }
 
     .welcome-footer{
+      margin-top: 15px;
       height: 200px;
     }
 
     h1{
       padding: 20px;
-      font-size: 30px;
+      font-size: 27px;
     }
     h2{
       padding-top: 10px;
-      font-size: 27px;
+      font-size: 25px;
     }
     button{
       padding: 8px 20px;

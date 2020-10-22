@@ -6,7 +6,6 @@
 
   .user-quest-played{
     width: 100%;
-
     .pagination{
       padding-top: 20px;
       text-align: center;
@@ -20,10 +19,9 @@
       margin-bottom: 50px;
 
       .user-quest-played-container-bottom{
-        width: calc(60% + 14px);
+        width: calc(60% + 2px);
         margin-left: auto;
         margin-right: auto;
-
 
         .user-quest-played-container-bottom-border{
           border-top: 1px solid var(--light-mode-input-backgroud);
@@ -31,38 +29,69 @@
         }
       }
 
+
+
       .item-stage-container:hover{
         background: var(--light-mode-input-backgroud);
       }
       .item-stage-container{
         border-left: 1px solid var(--light-mode-input-backgroud);
         border-right: 1px solid var(--light-mode-input-backgroud);
-        width: calc(100% - 81px);
+        width: calc(100% - 82px);
         height: 50px;
         margin-left: 81px;
-
         display: table;
 
-        .item-stage-image{
+        .item-stage{
           display: table-cell;
-          vertical-align: middle;
-          padding-left: 10px;
-          padding-right: 15px;
-          width: 30px;
+          width: 100%;
 
-          img{
-            width: 30px;
+          .item-stage-info{
+            display: table-cell;
+            vertical-align: middle;
+            width: 100%;
+
+            .item-stage-image{
+              display: table-cell;
+              vertical-align: middle;
+              vertical-align: middle;
+              padding-left: 10px;
+              padding-right: 15px;
+              width: 30px;
+
+              img{
+                vertical-align: middle;
+                width: 30px;
+                height: 30px;
+              }
+            }
+            .item-stage-name{
+              width: 100%;
+              vertical-align: middle;
+              display: table-cell;
+              vertical-align: middle;
+              font-family: OpenSans;
+              font-weight: normal;
+              font-size: 14px;
+              letter-spacing: 0.8px;
+            }
           }
+
+          .item-stage-date{
+            vertical-align: middle;
+            height: 50px;
+            min-width: 150px;
+            display: table-cell;
+            text-align: right;
+            padding-right: 20px;
+            font-family: Nexa;
+            color: var(--light-mode-gray-text);
+            font-size: 12px;
+            letter-spacing: 0.2px;
+          }
+
         }
-        .item-stage-name{
-          width: 40%;
-          display: table-cell;
-          vertical-align: middle;
-          font-family: OpenSans;
-          font-weight: normal;
-          font-size: 14px;
-          letter-spacing: 0.8px;
-        }
+
         .item-stage-status{
           width: 20px;
           text-align: right;
@@ -75,22 +104,14 @@
             width: 20px;
           }
         }
-        .item-stage-date{
-          text-align: right;
-          padding-right: 10px;
-          font-family: Nexa;
-          color: var(--light-mode-gray-text);
-          font-size: 12px;
-          letter-spacing: 0.2px;
-          display: table-cell;
-          vertical-align: middle;
-        }
+
       }
+
+
 
       .container-title{
         width: 60%;
         margin-left: auto;
-        min-height: 103px;
         margin-right: auto;
         background: white;
         border-top: 1px solid var(--light-mode-input-backgroud);
@@ -221,7 +242,7 @@
           padding-left: 20px;
           letter-spacing: 0.8px;
           text-align: left;
-          color: var(--light-mode-dark-green)
+          color: var(--light-mode-dark-green);
         }
       }
       .container-table{
@@ -271,6 +292,9 @@
             text-align: left;
             width: inherit;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 0;
 
             a{
               cursor: pointer;
@@ -303,7 +327,7 @@
         margin-right: auto;
         background: white;
         border: 1px solid var(--light-mode-input-backgroud);
-        min-height: 103px;
+
         h2{
           font-family: Nexa;
           font-weight: bold;
@@ -347,6 +371,7 @@
 
               img{
                 width: 15px;
+                height: 15px;
                 padding: 5px;
                 cursor: pointer;
               }

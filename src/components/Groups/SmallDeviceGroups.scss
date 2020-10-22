@@ -22,21 +22,21 @@
       .content-item {
         border-left: none !important;
         border-right: none !important;
-        display: table;
         width: 100%!important;
 
 
         .item-info{
-          display: table-cell !important;
-          width: calc(100% - 75px);
+          width: calc(100% - 80px)!important;
         }
 
         .item-name {
           width: 100%!important;
-          max-width: calc(100% - 60px)!important;
+          max-width: calc(100% - 45px)!important;
           display: block!important;
           padding-top: 20px;
+          padding-left: 10px!important;
           height: 32px!important;
+
         }
 
         .item-date {
@@ -45,8 +45,12 @@
           height: 15px!important;
         }
 
+        .item-buttons-entered{
+          width: 15px!important;
+        }
+
         .item-buttons {
-          width: 75px!important;
+          width: 80px!important;
           display: table-cell !important;
         }
       }
@@ -54,6 +58,7 @@
 
     .group-list-empty{
       border-left: none;
+      font-size: 15px!important;
       border-right: none;
     }
   }

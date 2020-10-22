@@ -4,7 +4,7 @@ import {UserContext} from "../UserContext"
 import UserQuestImage from "../components/UserQuest/UserQuestImage";
 import UserQuestList from "../components/UserQuest/UserQuestList";
 import {useAlert} from "react-alert";
-
+import "../components/UserQuest/SmallDeviceUserQuest.scss"
 // Props
 interface Props {
 }

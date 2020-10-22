@@ -30,15 +30,26 @@ const UserQuestPlayedItem: React.FC<Props> = (props) => {
 
             {playedQuest.map((quest:any) => (
                 <div key={quest.stageId + quest.stageStatus + quest.stageDate} className="item-stage-container">
-                    <div className="item-stage-image">
-                        <img alt="" src={quest.questId ? require("../../assets/images/stageTypeImages/"+quest.stageType+".svg") : ""} />
+
+
+                    <div className="item-stage">
+
+                        <div className="item-stage-info">
+                            <div className="item-stage-image">
+                                <img alt="" src={quest.questId ? require("../../assets/images/stageTypeImages/"+quest.stageType+".svg") : ""} />
+                            </div>
+
+                            <div className="item-stage-name">
+                                <span>{quest.questId ? text.stageType[quest.stageType] : ""}</span>
+                            </div>
+                        </div>
+
+                        <div className="item-stage-date">
+                            <span>{quest.stageDate ? new Date(quest.stageDate).getDate()+" "+text.month[new Date(quest.stageDate).getMonth()]+" "+new Date(quest.stageDate).getFullYear() : ""}</span>
+                        </div>
                     </div>
-                    <div className="item-stage-name">
-                        <span>{quest.questId ? text.stageType[quest.stageType] : ""}</span>
-                    </div>
-                    <div className="item-stage-date">
-                        <span>{quest.stageDate ? new Date(quest.stageDate).getDate()+" "+text.month[new Date(quest.stageDate).getMonth()]+" "+new Date(quest.stageDate).getFullYear() : ""}</span>
-                    </div>
+
+
                     <div className="item-stage-status">
                         <img alt="" data-tip={text.stageStatus[quest.stageStatus]} src={quest.stageStatus ? require("../../assets/images/stageStatus/"+quest.stageStatus+".svg") : ""} />
                     </div>
