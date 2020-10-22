@@ -2,6 +2,10 @@
   .groups-list {
     top: 547px;
 
+    .group-list-container{
+      margin-bottom: 30px!important;
+    }
+
     .container-title{
       width: 100%!important;
       border-left: none!important;
@@ -46,6 +50,11 @@
           display: table-cell !important;
         }
       }
+    }
+
+    .group-list-empty{
+      border-left: none;
+      border-right: none;
     }
   }
 }

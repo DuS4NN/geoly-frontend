@@ -106,9 +106,10 @@
         left: 0;
         background: white;
         text-align: center;
+        border-top: 1px solid var(--light-mode-input-backgroud);
 
         a{
-          border-top: 1px solid var(--light-mode-input-backgroud);
+          border-bottom: 1px solid var(--light-mode-input-backgroud);
           padding-top: 10px;
           padding-bottom: 10px;
           display: block;
