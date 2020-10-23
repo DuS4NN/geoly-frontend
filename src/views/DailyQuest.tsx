@@ -6,6 +6,7 @@ import {useGoogleMaps} from "react-hook-google-maps/dist";
 import {useAlert} from "react-alert";
 import {useHistory} from "react-router-dom"
 
+import '../components/DailyQuest/SmallDeviceDailyQuest.scss'
 import '../components/DailyQuest/DailyQuest.scss'
 
 // Component
