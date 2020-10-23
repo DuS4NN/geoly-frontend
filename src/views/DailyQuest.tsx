@@ -44,6 +44,7 @@ const DailyQuest: React.FC = () => {
                 url: process.env.REACT_APP_API_SERVER_URL+'/dailyquest',
                 withCredentials: true
             }).then(function (response) {
+                let serverResponse = response.data.responseEntity.body
                 let statusCode = response.data.responseEntity.statusCode
 
                 if(statusCode === 'OK'){
@@ -59,6 +60,9 @@ const DailyQuest: React.FC = () => {
                         map: map
                     })
                     setTimeLeft(response.data.data[1])
+
+                }else if(serverResponse === 'USER_ADDRESS_NULL'){
+                    alert.error(text.error[serverResponse])
                 }else{
                     alert.error(text.error.SOMETHING_WENT_WRONG)
                 }
