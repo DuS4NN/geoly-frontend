@@ -1,5 +1,6 @@
 import React from 'react'
 import PremiumContainer from "../components/Premium/PremiumContainer";
+import "../components/Premium/SmallDevicePremium.scss"
 
 // Props
 interface Props {
