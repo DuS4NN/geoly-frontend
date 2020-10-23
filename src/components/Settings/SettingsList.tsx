@@ -43,7 +43,7 @@ const SettingsList: React.FC<Props> = (props) => {
                         <span>{text.settings.profile}</span>
                     </div>
                 </div>
-                <div onClick={ () => handleSelect(1)}  className={selected === 1 ? "list-header-item selected" : "list-header-item"}>
+                <div onClick={ () => handleSelect(1)}  className={selected === 1 ? "list-header-item selected password" : "list-header-item password"}>
                     <div className="item-image">
                         <img alt="" src={require("../../assets/images/settingsImages/password.svg")} />
                     </div>

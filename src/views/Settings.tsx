@@ -6,6 +6,7 @@ import SettingsList from "../components/Settings/SettingsList";
 import {UserContext} from "../UserContext";
 import {useAlert} from "react-alert";
 import {useHistory} from "react-router-dom";
+import "../components/Settings/SmallDeviceSettings.scss"
 
 // Props
 interface Props {
