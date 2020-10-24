@@ -13,6 +13,7 @@ import ReactTooltip from "react-tooltip";
 import {useAlert} from "react-alert";
 import {useHistory} from "react-router-dom"
 import QuestLoading from "../components/Quest/QuestLoading";
+import "../components/Quest/SmallDeviceQuest.scss"
 
 // Props
 interface Props {

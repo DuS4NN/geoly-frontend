@@ -1,0 +1,372 @@
+@media only screen and (max-width: 1100px) {
+  .quest{
+
+    .quest-title{
+      display: block;
+      width: 100%;
+      padding-top: 80px;
+      background-image: url("../../assets/images/waveLeft/backgroundBottomLeft.svg"), url("../../assets/images/waveRight/backgroundTopRight.svg");
+      background-position: 0 100%, 100% 80px;
+      background-size: 30%;
+      height: auto;
+
+      .quest-title-category{
+        width: 100%;
+        padding-left: 0;
+        height: auto!important;
+        display: block;
+
+        .category-image{
+          padding-left: 10px;
+          width: 20px;
+          img{
+            width: 20px;
+            height: 20px;
+          }
+        }
+        .category-name{
+          padding-right: 10px;
+          padding-left: 10px;
+          font-size: 14px;
+          letter-spacing: 0.8px;
+        }
+
+        .premium{
+          display: block;
+          text-align: left;
+          padding-left: 10px;
+          float: none;
+          width: auto;
+          .premium-text{
+            font-size: 14px;
+            letter-spacing: 0.8px;
+          }
+          img{
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+      }
+
+      .quest-title-name{
+        width: 96%;
+        height: auto;
+        text-align: center;
+        padding-top: 20px;
+
+        .title-name-text{
+          display: block;
+          font-size: 20px;
+        }
+
+      }
+
+      .quest-title-user{
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        height: 26px;
+        padding-top: 10px;
+
+        .quest-title-user-box{
+          padding-right: 10px;
+        }
+
+        .user-image{
+          img{
+            width: 20px;
+            height: 20px;
+          }
+        }
+        .user-name{
+          font-size: 15px;
+          padding-left: 10px;
+        }
+      }
+    }
+
+    .quest-detail-content{
+      margin-top: 0;
+      width: 100%;
+      border-right: none;
+      border-left: none;
+
+      .quest-report{
+        height: 15px;
+        padding-top: 4px;
+        width: calc(100% - 10px);
+
+        .add{
+          padding-left: 10px;
+        }
+
+        img{
+          width: 15px;
+          height: 15px;
+        }
+      }
+
+      .quest-details{
+        .quest-details-title{
+          font-size: 15px;
+          margin-left: 20px;
+          padding-bottom: 7px;
+        }
+
+        .quest-details-description{
+          padding-left: 30px;
+          padding-right: 30px;
+          font-size: 13px;
+          width: calc(100% - 60px);
+        }
+
+        .details-title{
+          margin-top: 20px;
+          padding-bottom: 7px;
+          font-size: 15px;
+        }
+        .details-container{
+          width: 100%;
+          .quest-details-graph{
+            min-height: auto;
+            padding-right: 0;
+            float: none;
+            display: block;
+            width: min-content;
+            margin-right: auto;
+            margin-left: auto;
+
+            .quest-detail-graph-label{
+              font-size: 12px;
+              margin-bottom: 7px;
+            }
+
+            canvas{
+              min-height: 50px;
+              min-width: 100px;
+              max-height: 50px;
+              max-width: 100px;
+            }
+          }
+
+        }
+      }
+    }
+
+    .map-ref{
+      border-left: none;
+      border-right: none;
+    }
+
+    .quest-stages{
+      display: block;
+      padding-left: 0;
+      margin-top: 20px;
+      width: 100%;
+
+
+      .quest-stages-item{
+        margin-left: auto;
+        margin-right: auto;
+        min-width: 180px;
+        max-width: 180px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        .item-image{
+          width: 15px;
+          padding-left: 10px;
+          padding-right: 10px;
+          display: table-cell;
+
+          img{
+            width: 15px;
+            height: 15px;
+          }
+        }
+
+        .item-name{
+          font-size: 13px;
+        }
+      }
+    }
+
+    .quest-gallery{
+      width: 100%;
+      border-left: none;
+      border-right: none;
+      padding-top: 10px;
+
+      .gallery{
+        width: 100%;
+      }
+    }
+
+    .quest-button{
+      padding-top: 20px;
+      padding-bottom: 20px;
+      width: 100%;
+      border-left: none;
+      border-right: none;
+
+      button{
+        font-size: 15px;
+        padding: 8px 30px;
+      }
+    }
+
+    .quest-review-form{
+      width: 100%;
+      border-left: none;
+      border-right: none;
+
+      .quest-review-form-container-content{
+
+        .form-title{
+          font-size: 15px;
+          width: 90%;
+        }
+        .form-rating{
+          width: 90%;
+        }
+        .form-textarea{
+          width: 100%;
+
+          textarea{
+            min-height: 60px;
+            width: calc(90% - 16px);
+            font-size: 13px;
+            margin-left: 5%;
+            margin-right: 5%;
+            padding: 7px;
+          }
+        }
+
+        .emoji-mart{
+          max-width: 266px;
+        }
+        .emoji-picker{
+          margin-top: 40px;
+          margin-left: -277px;
+        }
+        .emoji-triangle{
+          top: -15px;
+          margin-left: 230px;
+          position: absolute;
+          width: 0;
+          height: 0;
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+          border-bottom: 15px solid #d9d9d9;
+        }
+        .emoji-picker-button{
+          position: absolute;
+          margin-left: -39px;
+          margin-top: 5px;
+
+          img{
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+          }
+        }
+
+        .form-button {
+          width: 90%;
+          margin-top: 7px;
+
+          button {
+            font-size: 15px;
+            padding: 8px 30px;
+          }
+        }
+
+      }
+
+    }
+
+    .quest-reviews-list{
+      width: 100%;
+      border-right: none;
+      border-left: none;
+
+      .quest-reviews-list-title{
+        width: 70%;
+        padding-bottom: 20px;
+        font-size: 15px;
+      }
+
+      .quest-review-item{
+        width: 80%;
+        padding: 10px;
+        margin-bottom: 20px;
+
+        .quest-review-header{
+          .header-user-image{
+            width: 20px;
+
+            img{
+              width: 20px;
+              height: 20px;
+            }
+          }
+          .header-user-name{
+            font-size: 14px;
+            padding-left: 7px;
+          }
+          .header-rating{
+            .dv-star-rating{
+              i {
+                font-size: 20px!important;
+              }
+            }
+          }
+        }
+
+        .quest-review-text{
+          padding-top: 7px;
+          font-size: 13px;
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+
+        .quest-review-footer{
+          margin-top: 7px;
+          margin-left: 10px;
+
+          .footer-icons{
+            text-align: right;
+
+            img{
+              width: 12px;
+              height: 12px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    .quest-private{
+      margin-top: 20px;
+      padding-bottom: 20px;
+      border-bottom: none;
+
+      .quest-private-title{
+        width: 70%;
+        h2{
+          font-size: 20px;
+        }
+      }
+
+      .quest-private-img{
+        img{
+          width: 200px;
+          height: 200px;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
