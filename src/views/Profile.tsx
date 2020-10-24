@@ -12,6 +12,7 @@ import ProfileLoading from "../components/Profile/ProfileLoading";
 
 import '../components/Profile/ProfileHeader.scss'
 import '../components/Profile/ProfileInfo.scss'
+import '../components/Profile/SmallDeviceProfile.scss'
 
 // Props
 interface Props {

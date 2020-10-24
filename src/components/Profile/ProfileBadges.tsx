@@ -32,10 +32,16 @@ const ProfileBadges: React.FC<Props> = (props) => {
     }
 
     useEffect(() => {
+        console.log(window.screen.width)
+
         const calcAndSetMargin = () => {
             let container = document.getElementById("badge-item-container")
             if(container){
                 let badgeWidth = 110 + 30 //30 - min padding
+
+                if(window.screen.width <= 1100){
+                    badgeWidth = 70 + 30
+                }
 
                 let containerWidth = container?.clientWidth as number
                 let numberOfBadges = Math.trunc(containerWidth/badgeWidth)
