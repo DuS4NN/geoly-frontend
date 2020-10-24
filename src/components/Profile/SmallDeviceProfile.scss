@@ -5,10 +5,10 @@
       .header-main{
         display: block;
         padding-top: 80px;
-        background-image: url("../../assets/images/waveRight/backgroundTopRight.svg");
-        background-position: 100% 80px;
+        background-image: url("../../assets/images/waveRight/backgroundTopRight.svg"), url("../../assets/images/waveLeft/backgroundBottomLeft.svg");
+        background-position: 100% 80px, 0 calc(100% - 80px);
         background-repeat: no-repeat;
-        background-size: 60%;
+        background-size: 45%, 45%;
 
         .header-title{
           display: block;
@@ -87,7 +87,6 @@
                 height: 15px;
               }
             }
-
           }
         }
       }
@@ -268,6 +267,20 @@
               }
             }
           }
+        }
+      }
+
+      .no-data{
+        width: 90%;
+        margin-top: 30px;
+
+        .title{
+          font-size: 17px;
+        }
+
+        img{
+          width: 200px;
+          height: 200px;
         }
       }
     }
