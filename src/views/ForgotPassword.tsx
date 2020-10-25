@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "../components/Account/ForgotPassword/SmallDeviceForgotPassword.scss"
 // Children
 import ForgotPasswordForm from "../components/Account/ForgotPassword/ForgotPasswordForm"
 

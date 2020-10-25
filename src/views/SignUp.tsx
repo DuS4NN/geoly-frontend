@@ -3,6 +3,7 @@ import {useHistory} from "react-router-dom"
 import {UserContext} from "../UserContext"
 import SignUpForm from "../components/Account/SignUp/SignUpForm"
 import SignUpBackground from "../components/Account/SignUp/SignUpBackground"
+import "../components/Account/SignUp/SmallDeviceSignUp.scss"
 
 // Props
 interface Props {

@@ -1,0 +1,114 @@
+@media only screen and (min-width: 1900px) {
+  .sign-in{
+    .sign-in-background-bg{
+      display: table;
+      background-image: url("../../../assets/images/waveRight/backgroundBottomRight.svg"), url("../../../assets/images/waveRight/backgroundTopRight.svg");
+      background-repeat: no-repeat;
+      background-size: 70%;
+      background-position: 100% 100%, 100% 0;
+      width: 75%;
+      margin-left: 25%;
+      height: 100%;
+    }
+    .sign-in-background-img{
+      background-size: 70%;
+    }
+  }
+}
+@media only screen and (max-width: 1100px) {
+
+  .sign-in{
+    display: block!important;
+    position: absolute;
+    padding-top: 80px;
+    height: calc(100% - 80px);
+    background-image: url("../../../assets/images/waveRight/backgroundBottomRight.svg"), url("../../../assets/images/waveLeft/backgroundTopLeft.svg");
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: 100% 100%, 0 80px;
+    overflow-y: scroll;
+
+    .sign-in-form{
+      display: block!important;
+      width: 100%!important;
+      height: auto!important;
+      padding-bottom: 20px;
+
+
+      .sign-in-form-title{
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 30px;
+        padding-bottom: 10px;
+        font-size: 27px;
+        font-weight: bold;
+        font-family: Nexa;
+        color: var(--light-mode-dark-green);
+
+        h2{
+          margin: 0;
+        }
+      }
+      .social-media{
+        .social-media-icon{
+          margin: 10px;
+          img{
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+      .form-title{
+        margin-top: 10px;
+        color: var(--light-mode-gray-text);
+        font-family: Nexa;
+        font-weight: normal;
+        letter-spacing: 0.8px;
+        font-size: 14px;
+      }
+
+      .form{
+        padding-top: 20px;
+        .form-input input{
+          width: 65%;
+        }
+      }
+
+      .form-forgot{
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 0;
+        padding-bottom: 20px;
+
+        .forgot{
+          font-size: 13px;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+          width: max-content;
+        }
+
+        .sign-up-link-text{
+          font-size: 13px;
+          margin-top: 15px;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+          width: max-content;
+        }
+      }
+
+      .form-button-signin{
+        font-size: 15px!important;
+        padding: 8px 30px;
+        margin-bottom: 0;
+      }
+    }
+
+    .sign-in-background{
+      display: none!important;
+    }
+  }
+}
+
+
