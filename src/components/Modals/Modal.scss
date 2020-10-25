@@ -74,6 +74,7 @@
       }
 
       .form-textarea{
+        position: relative;
         text-align: center;
         padding-bottom: 15px;
         padding-top: 15px;
@@ -513,8 +514,6 @@
               }
             }
       }
-
-
     }
   }
 
@@ -536,6 +535,231 @@
     }
     button:hover{
       color: var(--light-mode-dark-green)
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .modal{
+    width: 98%;
+    max-height: calc(90vh - 100px);
+    margin-top: 100px;
+    margin-bottom: 100px;
+    max-width: 100%;
+
+    .image{
+      display: block!important;
+      width: 100%!important;
+      margin-left: 0!important;
+      text-align: center!important;
+      padding: 0!important;
+      img{
+        margin-top: 0!important;
+        width: 150px!important;
+      }
+    }
+
+    .modal-form {
+      display: block !important;
+      width: 100% !important;
+      margin-top: -15px !important;
+      margin-bottom: 10px!important;
+
+      .title {
+        font-size: 20px;
+      }
+
+      .subtitle {
+        width: 90%;
+        height: auto;
+        padding-bottom: 10px;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .form-input {
+        input {
+          width: calc(90% - 40px) !important;
+        }
+      }
+
+      .form-textarea {
+        position: relative;
+        textarea {
+          padding-right: 25px;
+          width: calc(90% - 32px) !important;
+          font-size: 14px !important;
+        }
+      }
+
+      .form-review {
+        width: 90% !important;
+      }
+
+      .from-input-with-padding {
+        input.input-field-email {
+          width: calc(90% - 60px);
+        }
+      }
+
+      .form-submit-button {
+        margin-bottom: 15px !important;
+
+        button {
+          font-size: 15px;
+          padding: 8px 30px !important;
+        }
+      }
+
+      .form-list {
+        width: 90%!important;
+        .list-quest-item {
+          margin-bottom: 10px!important;
+          height: 40px!important;
+
+          .item-image {
+            width: 20px!important;
+
+            img {
+              width: 20px!important;
+              height: 20px!important;
+            }
+          }
+          .item-name {
+            font-size: 13px!important;
+          }
+        }
+
+      }
+
+      .form-bubble-item{
+        font-size: 14px!important;
+        width: 90%!important;
+      }
+
+      .form-details{
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+
+        .label{
+          margin-top: 10px;
+          text-align: left;
+          font-size: 13px!important;
+          padding-bottom: 5px!important;
+        }
+
+        .form-difficulty{
+          width: 100%!important;
+          display: block!important;
+        }
+        .form-private{
+          text-align: left;
+          width: 90%!important;
+          display: block!important;
+
+        }
+        .form-category{
+          width: 100%!important;
+          display: block!important;
+        }
+      }
+
+      .form-search-result{
+        width: calc(90% - 2px)!important;
+
+        .result-item{
+          height: 25px!important;
+          font-size: 14px!important;
+          padding-top: 7px!important;
+        }
+      }
+
+      .stage{
+        display: table;
+        position: relative;
+        height: 40px!important;
+        margin-top: 15px!important;
+
+        .stage-image{
+          height: 40px!important;
+          padding-right: 10px!important;
+
+          img{
+            width: 20px!important;
+            height: 20px!important;
+          }
+
+        }
+        .stage-name{
+          font-size: 14px!important;
+        }
+        .stage-roll{
+          padding-right: 10px!important;
+        }
+      }
+
+      .stage-items{
+
+        .qr-code{
+          img{
+            max-width: 200px!important;
+          }
+        }
+        .label{
+          width: 90%!important;
+        }
+        .answer-list{
+          width: 90%!important;
+          .answer-item{
+            .name{
+              font-size: 14px!important;
+            }
+          }
+        }
+        .add-answer{
+          input{
+            width: calc(90% - 30px)!important;
+          }
+        }
+      }
+
+      .emoji-picker{
+        margin-top: 40px;
+        margin-left: -260px!important;
+      }
+
+      .emoji-mart{
+        max-width: 266px;
+      }
+
+      .emoji-picker-button{
+        position: absolute;
+        margin-left: -24px;
+        margin-top: 5px;
+
+        img{
+          cursor: pointer;
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      .emoji-triangle{
+        margin-left: 229px!important;
+      }
+
+    }
+
+    .close-modal{
+      top: 105px;
+      right: calc(1% + 10px);
+      display: block;
+      position: absolute;
+      padding: 0;
+      margin: 0;
+      width: 40px;
     }
   }
 }

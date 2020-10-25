@@ -26,20 +26,21 @@
 
 
         .item-info{
-          width: calc(100% - 80px)!important;
+          width: calc(100% - 80px);
+          max-width: calc(100% - 80px)!important;
         }
 
         .item-name {
-          width: 100%!important;
-          max-width: calc(100% - 45px)!important;
+          min-width: calc(100% - 40px);
+          max-width: calc(100% - 40px);
           display: block!important;
-          padding-top: 20px;
+          padding-top: 10px!important;
           padding-left: 10px!important;
           height: 32px!important;
-
         }
 
         .item-date {
+          width: calc(100% - 20px);
           display: block!important;
           padding-bottom: 3px;
           height: 15px!important;
@@ -50,6 +51,7 @@
         }
 
         .item-buttons {
+          min-width: 80px;
           width: 80px!important;
           display: table-cell !important;
         }
