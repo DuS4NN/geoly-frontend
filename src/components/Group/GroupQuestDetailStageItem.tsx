@@ -44,16 +44,23 @@ const GroupQuestDetailStageItem: React.FC<Props> = (props) => {
             <div className={expanded ? "user-info expanded" : "user-info"}>
                 {filteredUserInfo.map((info:any) => (
                     <div key={info.userQuestId} className="stage-user-item">
-                        <div className="user-image">
-                            <img src={process.env.REACT_APP_IMAGE_SERVER_URL+info.userImage} alt="" />
-                        </div>
 
-                        <div className="user-name">
-                            <NavLink to={"/profile/"+info.userName}>{info.userName}</NavLink>
-                        </div>
+                        <div className="stage-user">
 
-                        <div className="user-time">
-                            <span>{info.userDate && info.userDate.getDate()+" "+text.month[info.userDate.getMonth()]+" "+info.userDate.getFullYear()+ " "+ info.userDate.getHours()+ ":"+ info.userDate.getMinutes()}</span>
+                            <div className="stage-user-info">
+                                <div className="user-image">
+                                    <img src={process.env.REACT_APP_IMAGE_SERVER_URL+info.userImage} alt="" />
+                                </div>
+
+                                <div className="user-name">
+                                    <NavLink to={"/profile/"+info.userName}>{info.userName}</NavLink>
+                                </div>
+                            </div>
+
+                            <div className="user-time">
+                                <span>{info.userDate && info.userDate.getDate()+" "+text.month[info.userDate.getMonth()]+" "+info.userDate.getFullYear()+ " "+ info.userDate.getHours()+ ":"+ info.userDate.getMinutes()}</span>
+                            </div>
+
                         </div>
 
                         <div className="user-status">

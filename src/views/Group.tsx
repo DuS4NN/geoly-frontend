@@ -8,6 +8,7 @@ import {UserContext} from "../UserContext";
 import {useHistory} from "react-router-dom";
 import {useAlert} from "react-alert";
 import GroupLoading from "../components/Group/GroupLoading";
+import "../components/Group/SmallDeviceGroup.scss"
 
 // Props
 interface Props {

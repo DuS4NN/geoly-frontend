@@ -1,0 +1,252 @@
+@media only screen and (max-width: 1100px) {
+  .group{
+    .header{
+      height: auto;
+      padding-top: 80px;
+
+      background-image: url("../../assets/images/waveRight/backgroundBottomRight.svg"), url("../../assets/images/waveLeft/backgroundTopLeft.svg");
+      background-position: bottom right, 0 80px;
+      background-repeat: no-repeat;
+      background-size: 50%;
+
+      .header-title{
+        padding-left: 0!important;
+        background-image: none!important;
+        width: 100%!important;
+        height: auto!important;
+        display: block!important;
+
+        .header-name{
+          margin-left: auto;
+          margin-right: auto!important;
+          padding-top: 20px!important;
+          width: 94%!important;
+          text-align: center!important;
+          height: auto!important;
+          word-break: break-word!important;
+          overflow-wrap: break-word!important;
+
+          h2{
+            font-size: 20px!important;
+          }
+        }
+        .header-create-date{
+          padding-left: 10px!important;
+          font-size: 13px!important;
+          height: 30px!important;
+        }
+      }
+
+      .header-user-list{
+        background-image: none!important;
+        width: 100%!important;
+        display: block!important;
+
+        .list-left{
+          width: 100%!important;
+          padding: 0!important;
+          display: block!important;
+        }
+
+        .list-right{
+          width: 100%!important;
+          padding: 0!important;
+          display: block!important;
+        }
+
+        .user-list-item{
+          margin-left: auto;
+          margin-right: auto;
+          min-width: 150px!important;
+          margin-bottom: 7px!important;
+          min-height: 15px!important;
+          padding: 5px!important;
+
+          .item-image{
+            width: 15px!important;
+
+            img{
+              width: 15px!important;
+              height: 15px!important;
+            }
+          }
+          .leader{
+            a{
+              color: var(--button-dark-green)!important;
+            }
+          }
+          .item-name{
+            font-size: 13px!important;
+            text-align: left!important;
+
+            img{
+              width: 14px!important;
+            }
+
+          }
+        }
+      }
+    }
+
+    .group-content{
+      margin-top: 0;
+      width: 100%;
+      border-top: 1px solid var(--light-mode-input-backgroud);
+      border-bottom: none;
+      border-left: none;
+      border-right: none;
+
+      .group-quest-list{
+        display: block;
+        width: 100%;
+
+        .quest-list-item{
+          height: 30px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+
+          .quest-category{
+            width: 25px;
+            img{
+              padding-left: 10px;
+              padding-right: 10px;
+              width: 25px;
+            }
+          }
+
+        }
+
+      }
+
+      .group-no-quest{
+        width: 100%;
+
+        .title{
+          margin-top: 20px;
+          font-size: 15px;
+        }
+
+        .img{
+          text-align: center;
+          img{
+            width: 200px;
+            height: 200px;
+            padding-bottom: 20px;
+          }
+        }
+      }
+
+    }
+
+    .group-quest-detail{
+      border-left: none;
+      display: block;
+      width: 100%;
+
+      .quest-detail-title{
+        padding-top: 20px;
+        padding-left: 10px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        text-align: center;
+        a{
+          font-size: 20px;
+        }
+      }
+
+      .quest-detail-map{
+        height: 200px;
+      }
+
+      .quest-detail-desc{
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 13px;
+
+        .quest-detail-desc-title{
+          padding-bottom: 7px;
+          font-size: 15px;
+        }
+      }
+
+      .quest-detail-gallery{
+        width: 100%;
+      }
+
+      .quest-detail-stages{
+
+        .quest-detail-stages-title{
+          font-size: 15px;
+        }
+
+        .stage-item{
+          height: 55px;
+
+          .item-image{
+            width: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+            img{
+              width: 20px;
+              height: 20px;
+            }
+          }
+          .item-name{
+            font-size: 14px;
+          }
+          .item-arrow{
+            padding-right: 10px;
+          }
+        }
+
+        .stage-user-item{
+          height: 40px;
+          width: 95%;
+          .stage-user{
+            .stage-user-info{
+              display: block;
+              .user-image{
+                width: 20px;
+                padding-right: 10px;
+                padding-left: 10px;
+
+                img {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+              .user-name{
+                a{
+                  font-size: 13px;
+                }
+              }
+            }
+            .user-time{
+              display: block;
+              font-size: 12px;
+            }
+          }
+          .user-status{
+            width: 15px;
+            padding-left: 10px;
+            padding-right: 10px;
+            img{
+              width: 15px;
+              height: 15px;
+            }
+          }
+        }
+      }
+
+      .quest-detail-button{
+        margin-bottom: 20px;
+        margin-top: 5px;
+
+        button {
+          font-size: 15px;
+          padding: 8px 30px;
+        }
+      }
+    }
+  }
+}
