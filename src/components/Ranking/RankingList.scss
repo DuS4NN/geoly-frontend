@@ -1,77 +1,79 @@
-.raking-list{
-  width: 100vw;
-  top: 540px;
-  padding-bottom: 20px;
-  position: absolute;
+.ranking{
+  width: 100%;
+  height: 100%;
 
-  .ranking-list-title{
-    width: 60vw;
-    margin-left: auto;
-    margin-right: auto;
-    background: white;
-    border: 1px solid var(--light-mode-input-backgroud);
+  .raking-list{
+    width: 100vw;
+    top: 540px;
+    padding-bottom: 20px;
+    position: absolute;
 
-    h2{
-      font-family: Nexa;
-      font-weight: bold;
-      font-size: 35px;
-      padding-left: 20px;
-      letter-spacing: 0.8px;
-      text-align: left;
-      color: var(--light-mode-dark-green)
-    }
-  }
+    .ranking-list-title{
+      width: 60vw;
+      margin-left: auto;
+      margin-right: auto;
+      background: white;
+      border: 1px solid var(--light-mode-input-backgroud);
 
-  .ranking-list-table{
-    width: 60vw;
-    margin-left: auto;
-    margin-right: auto;
-    background: white;
-    border-left: 1px solid var(--light-mode-input-backgroud);
-    border-right: 1px solid var(--light-mode-input-backgroud);
-  }
-
-  .ranking-list-user{
-    width: 100%;
-  }
-
-  .ranking-list-user-gap{
-    margin-top: 15px;
-    width: 100%;
-    height: 35px;
-    background-image: url("../../assets/images/otherIcons/verticalDots.svg");
-    background-size: 20px;
-    background-repeat: no-repeat;
-
-    background-position: top center;
-    border-bottom: 1px solid var(--light-mode-input-backgroud);
-  }
-
-  .ranking-list-empty{
-    text-align: center;
-    padding-top: 50px;
-    border-bottom: 1px solid var(--light-mode-input-backgroud);
-
-    .ranking-list-empty-title{
-      padding-left: 20px;
-      padding-right: 20px;
-      font-size: 25px;
-      letter-spacing: 1px;
-      font-family: OpenSans;
+      h2{
+        font-family: Nexa;
+        font-weight: bold;
+        font-size: 35px;
+        padding-left: 20px;
+        letter-spacing: 0.8px;
+        text-align: left;
+        color: var(--light-mode-dark-green)
+      }
     }
 
-    img{
-      width: 450px;
-      height: 450px;
-      padding-bottom: 30px;
+    .ranking-list-table{
+      width: 60vw;
+      margin-left: auto;
+      margin-right: auto;
+      background: white;
+      border-left: 1px solid var(--light-mode-input-backgroud);
+      border-right: 1px solid var(--light-mode-input-backgroud);
     }
-  }
 
-  .loading{
-    
-    border-bottom: 1px solid var(--light-mode-input-backgroud);
-    text-align: center;
+    .ranking-list-user{
+      width: 100%;
+    }
+
+    .ranking-list-user-gap{
+      margin-top: 15px;
+      width: 100%;
+      height: 35px;
+      background-image: url("../../assets/images/otherIcons/verticalDots.svg");
+      background-size: 20px;
+      background-repeat: no-repeat;
+
+      background-position: top center;
+      border-bottom: 1px solid var(--light-mode-input-backgroud);
+    }
+
+    .ranking-list-empty{
+      text-align: center;
+      padding-top: 50px;
+      border-bottom: 1px solid var(--light-mode-input-backgroud);
+
+      .ranking-list-empty-title{
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 25px;
+        letter-spacing: 1px;
+        font-family: OpenSans;
+      }
+
+      img{
+        width: 450px;
+        height: 450px;
+        padding-bottom: 30px;
+      }
+    }
+
+    .loading{
+      border-bottom: 1px solid var(--light-mode-input-backgroud);
+      text-align: center;
+    }
   }
 }
-
-

@@ -1,14 +1,17 @@
 @media only screen and (max-width: 1100px) {
+  .ranking{
+    height: 100%!important;
+  }
   .raking-list{
-    top: 547px;
-    width: 100%;
+    top: 547px!important;
+    width: 100%!important;
 
     .ranking-list-title{
-      width: 100%;
+      width: 100%!important;
       border-top: 1px solid var(--light-mode-input-backgroud);
       border-bottom: 1px solid var(--light-mode-input-backgroud);
-      border-left: none;
-      border-right: none;
+      border-left: none!important;
+      border-right: none!important;
 
       h2{
         font-family: Nexa;
@@ -21,8 +24,8 @@
     }
 
     .ranking-list-table{
-      border: none;
-      width: 100%;
+      border: none!important;
+      width: 100%!important;
 
       .raking-item-nickname{
         white-space: nowrap;

@@ -81,7 +81,7 @@ const NavigationNotifications: React.FC<Props> = (props) => {
     // Template
     return (
         <div className="navigation-notifications">
-            <img onClick={handleShowRoll} src={userContext['nickName'] ? require("../../assets/images/darkModeImages/notification.svg") : require("../../assets/images/inputImages/notification.svg")} alt="" />
+            <img onClick={handleShowRoll} src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/notification.svg") : require("../../assets/images/inputImages/notification.svg")} alt="" />
 
             {unseenCount !== null && unseenCount > 0 && (
                 <div className="notification-count">
