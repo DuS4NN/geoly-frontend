@@ -37,13 +37,11 @@ const NavigationRoll: React.FC<Props> = (props) => {
     }
 
     const handleProfileClick = () => {
-
         history.push("/profile/"+userContext["nickName"])
         handleClick()
     }
 
     const handleChange = () => {
-
         let toggle:boolean = !userContext['darkMode']
 
         axios({
@@ -54,9 +52,11 @@ const NavigationRoll: React.FC<Props> = (props) => {
             let statusCode = response.data.responseEntity.statusCode
 
             if(statusCode === 'ACCEPTED'){
-                let newUserContext:LogInUser = userContext
-                newUserContext['darkMode'] = toggle
-                setUserContext(newUserContext)
+                setUserContext({
+                    ...userContext,
+                    darkMode: toggle
+                })
+
                 localStorage.setItem('darkMode', String(toggle))
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)

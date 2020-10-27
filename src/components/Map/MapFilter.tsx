@@ -61,8 +61,8 @@ const MapFilter: React.FC<Props> = (props) => {
 
     // Images
     const loadingImage = require("../../assets/images/otherIcons/loading.svg")
-    const arrowRight = require("../../assets/images/otherIcons/arrow-right.svg")
-    const arrowLeft = require("../../assets/images/otherIcons/arrow-left.svg")
+    const arrowRight = userContext['darkMode'] ? require("../../assets/images/darkModeImages/arrow-right.svg") : require("../../assets/images/otherIcons/arrow-right.svg")
+    const arrowLeft = userContext['darkMode'] ? require("../../assets/images/darkModeImages/arrow-left.svg") : require("../../assets/images/otherIcons/arrow-left.svg")
 
     // On start
     useEffect( () => {

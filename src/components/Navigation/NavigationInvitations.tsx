@@ -81,7 +81,7 @@ const NavigationInvitations: React.FC<Props> = (props) => {
     return (
         <div className="navigation-invitations">
             <div className="invitations-button-image">
-                <img onClick={handleShowRoll} src={require("../../assets/images/inputImages/message.svg")} alt="" />
+                <img onClick={handleShowRoll} src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/message.svg") : require("../../assets/images/inputImages/message.svg")} alt="" />
             </div>
 
 

@@ -113,13 +113,10 @@
     }
 
     .quest-detail-graph{
-      display: table;
       width: 100%;
       margin-top: 30px;
       margin-bottom: 50px;
       text-align: center;
-      margin-right: auto;
-      margin-left: auto;
 
       .quest-detail-graph-label{
         text-align: center;
@@ -128,39 +125,49 @@
         margin-bottom: 10px;
       }
 
+      .graph-label{
+        margin-top: -32px;
+        padding-left: 8px;
+        font-family: OpenSans;
+      }
+
       .quest-detail-graph-difficulty{
-        width: 33%;
-        display: table-cell;
+        vertical-align:top;
+         width: 33%;
+        display: inline-block;
+
 
         canvas{
           margin-left: auto;
           margin-right: auto;
-          width: 96%;
+          width: 100%;
           max-height: 70px;
           max-width: 140px;
         }
       }
       .quest-detail-graph-review{
-        width: 33%;
-        display: table-cell;
+        vertical-align:top;
+        width: 34%;
+        display: inline-block;
 
         canvas{
           margin-left: auto;
           margin-right: auto;
-          width: 96%;
+          width: 100%;
           max-height: 70px;
           max-width: 140px;
         }
       }
       .quest-detail-graph-success{
+        vertical-align:top;
         width: 33%;
         text-align: center;
-        display: table-cell;
+        display: inline-block;
 
         canvas{
           margin-left: auto;
           margin-right: auto;
-          width: 96%;
+          width: 100%;
           max-height: 70px;
           max-width: 140px;
         }

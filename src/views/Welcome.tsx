@@ -52,7 +52,7 @@ const Welcome: React.FC = () => {
                     </div>
                 </div>
 
-                <img alt="" className="oblique-image" src={require("../assets/images/obliqueTop.svg")} />
+                <img alt="" className="oblique-image-top" src={require("../assets/images/obliqueTop.svg")} />
                 <div className="welcome-container-green">
 
                     <div className="container-info">
@@ -67,7 +67,7 @@ const Welcome: React.FC = () => {
                     </div>
 
                 </div>
-                <img alt="" className="oblique-image" src={require("../assets/images/obliqueBottom.svg")} />
+                <img alt="" className="oblique-image-bottom" src={require("../assets/images/obliqueBottom.svg")} />
 
 
                 <div className="welcome-container-white">
@@ -83,7 +83,7 @@ const Welcome: React.FC = () => {
                     </div>
                 </div>
 
-                <img alt="" className="oblique-image" src={require("../assets/images/obliqueTop.svg")} />
+                <img alt="" className="oblique-image-top" src={require("../assets/images/obliqueTop.svg")} />
                 <div className="welcome-container-green">
 
                     <div className="container-info">
@@ -98,7 +98,7 @@ const Welcome: React.FC = () => {
                     </div>
 
                 </div>
-                <img alt="" className="oblique-image" src={require("../assets/images/obliqueBottom.svg")} />
+                <img alt="" className="oblique-image-bottom" src={require("../assets/images/obliqueBottom.svg")} />
 
                 <div className="welcome-container-white">
                     <div className="container-image welcome5">

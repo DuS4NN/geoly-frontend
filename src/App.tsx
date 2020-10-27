@@ -25,6 +25,7 @@ import DailyQuest from "./views/DailyQuest";
 
 // Style
 import './App.scss'
+import './DarkMode.scss'
 
 // Component
 function App() {
@@ -82,7 +83,7 @@ function App() {
 
     // Template
     return (
-        <div className="app">
+        <div className={userContext['darkMode'] ? "app darkmode" : "app"}>
             {loaded && (
                 <UserContext.Provider value={{userContext, setUserContext}}>
 

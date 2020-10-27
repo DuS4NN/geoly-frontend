@@ -85,6 +85,7 @@
     .dropdown-container-loading{
       background: white;
       text-align: center;
+      width: calc(100% - 30px);
 
       img{
         width: 50px;
@@ -94,6 +95,7 @@
 
     .suggestion-item, .suggestion-item--active{
       background: white;
+      width: calc(100% - 50px);
       cursor: pointer;
       overflow: hidden;
       text-overflow: ellipsis;

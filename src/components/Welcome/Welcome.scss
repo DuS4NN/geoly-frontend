@@ -39,11 +39,19 @@
   }
 
   .welcome-content{
-    margin-top: 20px;
+    padding-top: 20px;
     width: 100%;
+    overflow-x: hidden;
 
-    .oblique-image{
+    .oblique-image-top{
       display: block;
+      margin-bottom: -1px;
+      margin-left: -5px;
+    }
+
+    .oblique-image-bottom{
+      margin-right: -5px;
+      margin-top: -1px;
     }
 
     .welcome-container-white{

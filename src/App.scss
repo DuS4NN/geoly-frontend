@@ -29,6 +29,18 @@ button{
 
   --button-light-red: #dd3030;
   --button-dark-red: #b22626;
+
+  --dark-mode-background: #121212;
+  --dark-mode-input-background: #343434;
+  --dark-mode-white-color-text: #DDDDDD;
+  --dark-mode-border-color: #565656;
+  --dark-mode-background-light-green: rgba(234,251,243,0.9);
+  --dark-mode-green: #2bb673
+
+}
+
+#__react-alert__ div div div {
+  width: auto !important;
 }
 
 #root{
