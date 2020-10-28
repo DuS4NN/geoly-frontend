@@ -1,5 +1,4 @@
 .darkmode{
-
   .welcome{
     .welcome-content{
       background-color: var(--dark-mode-background)!important;
@@ -166,9 +165,12 @@
       }
     }
   }
+  .ranking {
 
-  .ranking{
-    background-color: var(--dark-mode-background)!important;
+    .raking-list{
+      background-color: var(--dark-mode-background)!important;
+    }
+
     .ranking-list-title{
       background-color: var(--dark-mode-input-background)!important;
       border: 1px solid var(--dark-mode-border-color)!important;
@@ -205,6 +207,189 @@
         color: var(--dark-mode-white-color-text)!important;
       }
     }
+  }
+  .groups{
+    .groups-list{
+      background-color: var(--dark-mode-background)!important;
+      .pagination{
+        .Mui-selected{
+          background-color: var(--dark-mode-green)!important;
+        }
+        button{
+          color: var(--dark-mode-white-color-text)!important;
+        }
+      }
+      .group-list-table{
+        .add-title{
+          h2{
+            color: var(--dark-mode-green)!important;
+          }
+        }
+        .container-title{
+          background-color: var(--dark-mode-input-background)!important;
+          border: 1px solid var(--dark-mode-border-color)!important;
+          h2{
+            color: var(--dark-mode-green)!important;
+          }
+        }
+        .content-item:hover{
+          background-color: var(--dark-mode-border-color)!important;
+        }
+
+        .content-item{
+          background-color: var(--dark-mode-input-background)!important;
+          border-right: 1px solid var(--dark-mode-border-color)!important;
+          border-left: 1px solid var(--dark-mode-border-color)!important;
+          border-bottom: 1px solid var(--dark-mode-border-color)!important;
+          .item-name{
+            a{
+              color: var(--dark-mode-white-color-text)!important;
+            }
+
+          }
+          .item-buttons, .item-buttons-entered{
+            border-left: 1px solid var(--dark-mode-border-color)!important;
+          }
+        }
+      }
+    }
+  }
+  .user-quest{
+    .pagination{
+      .Mui-selected{
+        background-color: var(--dark-mode-green)!important;
+      }
+      button{
+        color: var(--dark-mode-white-color-text)!important;
+      }
+    }
+    .user-quest-list{
+      background-color: var(--dark-mode-background)!important;
+      .user-quest-created {
+        .container-title{
+          background-color: var(--dark-mode-input-background)!important;
+          border: 1px solid var(--dark-mode-border-color)!important;
+          h2{
+            color: var(--dark-mode-green)!important;
+          }
+        }
+        .user-quest-created-container{
+          .container-title{
+            border-left: 1px solid var(--dark-mode-border-color)!important;
+            border-right: 1px solid var(--dark-mode-border-color)!important;
+          }
+          .container-table{
+            border-left: 1px solid var(--dark-mode-border-color)!important;
+            border-right: 1px solid var(--dark-mode-border-color)!important;
+          }
+
+          .container-table-item:hover{
+            background-color: var(--dark-mode-border-color) !important;
+          }
+          .container-table-item{
+            border-bottom: 1px solid var(--dark-mode-border-color) !important;
+            background-color: var(--dark-mode-input-background) !important;
+            .item-quest-buttons {
+              border-left: 1px solid var(--dark-mode-border-color) !important;
+            }
+            .item-category-image {
+              border-right: 1px solid var(--dark-mode-border-color) !important;
+            }
+            .item-quest-name{
+              color: var(--dark-mode-white-color-text)!important;
+              a{
+                color: var(--dark-mode-white-color-text)!important;
+              }
+            }
+          }
+
+        }
+      }
+      .user-quest-active{
+            .container-title{
+              background-color: var(--dark-mode-input-background)!important;
+              border: 1px solid var(--dark-mode-border-color)!important;
+              h2{
+                color: var(--dark-mode-green)!important;
+              }
+            }
+            .user-quest-active-container{
+              .container-button{
+                border-bottom: 1px solid var(--dark-mode-border-color)!important;
+                border-right: 1px solid var(--dark-mode-border-color)!important;
+                border-left: 1px solid var(--dark-mode-border-color)!important;
+                background-color: var(--dark-mode-input-background)!important;
+                button{
+                  box-shadow: none!important;
+                }
+              }
+            }
+            .container-table{
+              border-left: 1px solid var(--dark-mode-border-color)!important;
+              border-right: 1px solid var(--dark-mode-border-color)!important;
+            }
+            .container-table-item{
+              background-color: var(--dark-mode-input-background)!important;
+              color: var(--dark-mode-white-color-text)!important;
+              a{
+                color: var(--dark-mode-white-color-text)!important;
+              }
+              border-bottom: 1px solid var(--dark-mode-border-color)!important;
+            }
+            .item-category-name{
+              border-right: 1px solid var(--dark-mode-border-color)!important;
+            }
+          }
+      .user-quest-played{
+        .user-quest-played-container-bottom-border{
+          border-top: 1px solid var(--dark-mode-border-color)!important;
+        }
+        .item-stage-container{
+          background-color: var(--dark-mode-input-background)!important;
+          color: var(--dark-mode-white-color-text)!important;
+          border-right: 1px solid var(--dark-mode-border-color)!important;
+          border-left: 1px solid var(--dark-mode-border-color)!important;
+        }
+        .container-title{
+          background-color: var(--dark-mode-input-background)!important;
+          border: 1px solid var(--dark-mode-border-color)!important;
+          h2{
+            color: var(--dark-mode-green)!important;
+          }
+        }
+
+        .container-table{
+          background-color: var(--dark-mode-input-background)!important;
+
+          .container-table-item:hover{
+           background-color: var(--dark-mode-border-color)!important;
+          }
+
+          .container-table-item{
+            border-top: 1px solid var(--dark-mode-border-color)!important;
+            border-right: 1px solid var(--dark-mode-border-color)!important;
+            color: var(--dark-mode-white-color-text)!important;
+            a{
+              color: var(--dark-mode-white-color-text)!important;
+            }
+
+            .item-category-image{
+              border-bottom: 1px solid var(--dark-mode-border-color)!important;
+              border-left: 1px solid var(--dark-mode-border-color)!important;
+            }
+
+          }
+        }
+
+
+      }
+    }
+  }
+
+
+
+  .content{
+    background-color: var(--dark-mode-background)!important;
   }
 }
 

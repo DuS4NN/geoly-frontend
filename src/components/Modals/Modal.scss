@@ -1,3 +1,8 @@
+.ReactModal__Body--open, .ReactModalPortal{
+  position: relative!important;
+  z-index: 99999999!important;
+}
+
 .modal{
   margin-top: 20vh;
   width: 70vw;

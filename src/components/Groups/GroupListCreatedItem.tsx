@@ -54,9 +54,9 @@ const GroupListCreatedItem: React.FC<Props> = (props) => {
             </div>
 
             <div className="item-buttons">
-                <img data-tip={text.groups.editGroup} onClick={handleEditGroup}  alt="" src={require("../../assets/images/otherIcons/edit.svg")} />
-                <img data-tip={text.groups.manageUsers} onClick={handleManageUsers} alt="" src={require("../../assets/images/otherIcons/manage-users.svg")} />
-                <img data-tip={text.groups.deleteGroup} onClick={handleDeleteGroup} alt="" src={require("../../assets/images/otherIcons/delete.svg")} />
+                <img data-tip={text.groups.editGroup} onClick={handleEditGroup}  alt="" src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/edit.svg") : require("../../assets/images/otherIcons/edit.svg")} />
+                <img data-tip={text.groups.manageUsers} onClick={handleManageUsers} alt="" src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/manage-users.svg") : require("../../assets/images/otherIcons/manage-users.svg")} />
+                <img data-tip={text.groups.deleteGroup} onClick={handleDeleteGroup} alt="" src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/delete.svg") : require("../../assets/images/otherIcons/delete.svg")} />
             </div>
 
             <ReactTooltip />

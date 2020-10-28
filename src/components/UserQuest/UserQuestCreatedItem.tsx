@@ -62,13 +62,13 @@ const UserQuestCreatedItem: React.FC<Props> = (props) => {
                     </div>
                     <div className="item-quest-buttons">
                         <div className="button-image">
-                            <img data-tip={text.userQuest.editQuest} onClick={handleEditQuest}  alt="" src={require("../../assets/images/otherIcons/edit.svg")} />
+                            <img data-tip={text.userQuest.editQuest} onClick={handleEditQuest}  alt="" src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/edit.svg") : require("../../assets/images/otherIcons/edit.svg")} />
                         </div>
                         <div className="button-image">
-                            <img data-tip={text.userQuest.editStages} onClick={handleEditStages}  alt="" src={require("../../assets/images/otherIcons/stages.svg")} />
+                            <img data-tip={text.userQuest.editStages} onClick={handleEditStages}  alt="" src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/stages.svg") : require("../../assets/images/otherIcons/stages.svg")} />
                         </div>
                         <div className="button-image">
-                            <img data-tip={text.userQuest.deleteQuest} onClick={handleDeleteQuest} alt="" src={require("../../assets/images/otherIcons/delete.svg")} />
+                            <img data-tip={text.userQuest.deleteQuest} onClick={handleDeleteQuest} alt="" src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/delete.svg") : require("../../assets/images/otherIcons/delete.svg")} />
                         </div>
                     </div>
                 </div>

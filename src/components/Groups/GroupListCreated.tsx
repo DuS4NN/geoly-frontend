@@ -126,7 +126,7 @@ const GroupsListCreated: React.FC<Props> = (props) => {
                     <div className="content-item">
                         <div className="item-add">
                             <div className="add-image" onClick={handleShowAddModal}>
-                                <img src={require("../../assets/images/otherIcons/add.svg")} alt="" />
+                                <img src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/add.svg") : require("../../assets/images/otherIcons/add.svg")} alt="" />
                             </div>
                             <div className="add-title" onClick={handleShowAddModal}>
                                 <h2>{text.groups.create}</h2>
