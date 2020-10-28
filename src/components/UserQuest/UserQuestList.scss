@@ -421,6 +421,8 @@
     }
 
     .user-quest-empty{
+      z-index: 1;
+      position: relative;
       background: white;
       width: 60%;
       margin-left: auto;
@@ -431,6 +433,8 @@
       border-right: 1px solid var(--light-mode-input-backgroud);
 
       .container-title{
+        z-index: 1;
+        position: relative;
         background: white;
         border-top: 1px solid var(--light-mode-input-backgroud);
         border-bottom: 1px solid var(--light-mode-input-backgroud);

@@ -1,4 +1,12 @@
 .daily-quest{
+  width: 100%;
+  height: 100vh;
+
+  .daily-quest-content{
+    width: 100%;
+    height: 100vh;
+  }
+
   .header-container{
     width: 100%;
     height: 500px;
@@ -72,9 +80,12 @@
     }
   }
 
-  .daily-quest-map{
+  .daily-quest-map-container{
+    width: 100%;
+    padding-bottom: 30px;
     margin-top: 30px;
-    margin-bottom: 30px;
+  }
+  .daily-quest-map{
     margin-right: auto;
     margin-left: auto;
     width: 70%;

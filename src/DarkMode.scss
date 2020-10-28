@@ -73,7 +73,6 @@
         .css-26l3qy-menu{
           background-color: var(--dark-mode-input-background)!important;
         }
-
       }
 
       .MuiSlider-thumb {
@@ -114,6 +113,11 @@
       .navigation-triangle{
         border-bottom: 15px solid var(--dark-mode-border-color);
       }
+
+     .navigation-roll-item{
+       background-color: var(--dark-mode-input-background)!important;
+      }
+
       .navigation-roll-item:hover{
         background-color: var(--dark-mode-border-color)!important;
         color: var(--dark-mode-green)!important;
@@ -220,6 +224,9 @@
         }
       }
       .group-list-table{
+        .item-add{
+
+        }
         .add-title{
           h2{
             color: var(--dark-mode-green)!important;
@@ -241,6 +248,7 @@
           border-right: 1px solid var(--dark-mode-border-color)!important;
           border-left: 1px solid var(--dark-mode-border-color)!important;
           border-bottom: 1px solid var(--dark-mode-border-color)!important;
+
           .item-name{
             a{
               color: var(--dark-mode-white-color-text)!important;
@@ -252,7 +260,18 @@
           }
         }
       }
+
+
+      .group-list-empty{
+        color: var(--dark-mode-white-color-text)!important;
+        background: var(--dark-mode-input-background)!important;
+        border-bottom: 1px solid var(--dark-mode-border-color)!important;
+        border-left: 1px solid var(--dark-mode-border-color)!important;
+        border-right: 1px solid var(--dark-mode-border-color)!important;
+      }
+
     }
+
   }
   .user-quest{
     .pagination{
@@ -383,6 +402,161 @@
 
 
       }
+    }
+    .user-quest-empty{
+      border-bottom: 1px solid var(--dark-mode-border-color);
+      border-left: 1px solid var(--dark-mode-border-color);
+      border-right: 1px solid var(--dark-mode-border-color);
+      background: var(--dark-mode-input-background);
+    }
+    .container-title{
+      background: var(--dark-mode-input-background)!important;
+      border-top: 1px solid var(--dark-mode-border-color)!important;
+      border-bottom: 1px solid var(--dark-mode-border-color)!important;
+      h2{
+        color: var(--dark-mode-green)!important;
+      }
+    }
+    .user-quest-empty-title{
+      color: var(--dark-mode-white-color-text)!important;
+    }
+
+  }
+  .premium{
+    .premium-content{
+      background-color: var(--dark-mode-background)!important;
+    }
+    background-color: var(--dark-mode-background)!important;
+    .oblique-image{
+      background-color: var(--dark-mode-background)!important;
+    }
+    .premium-container-white{
+      background-color: var(--dark-mode-background)!important;
+      color: white!important;
+      h2{
+        color: var(--button-dark-green)!important;
+      }
+    }
+
+
+  }
+  .daily-quest{
+    .daily-quest-content{
+      background-color: var(--dark-mode-background)!important;
+    }
+    .daily-quest-map-container{
+      background-color: var(--dark-mode-background)!important;
+    }
+    h2, .countdown{
+      color: var(--dark-mode-green)!important;
+    }
+
+    .info-description, h3{
+      color: var(--dark-mode-white-color-text)!important;
+    }
+
+  }
+
+  .settings{
+    background-color: var(--dark-mode-background)!important;
+    .settings-list {
+      background: var(--dark-mode-input-background) !important;
+      border-top: 1px solid var(--dark-mode-border-color) !important;
+
+      .list-header {
+        border-left: 1px solid var(--dark-mode-border-color) !important;
+        border-bottom: 1px solid var(--dark-mode-border-color) !important;
+      }
+
+      .list-header-item {
+        border-right: 1px solid var(--dark-mode-border-color) !important;
+        color: var(--dark-mode-white-color-text) !important;
+      }
+
+      .list-header-item:hover {
+        background: var(--dark-mode-border-color) !important;
+      }
+
+      .selected {
+        color: var(--dark-mode-green) !important;
+      }
+
+      .settings-label {
+        color: var(--dark-mode-white-color-text) !important;
+      }
+
+      .settings-profile, .settings-password, .settings-appearance {
+        border-left: 1px solid var(--dark-mode-border-color);
+        border-right: 1px solid var(--dark-mode-border-color);
+        border-bottom: 1px solid var(--dark-mode-border-color);
+      }
+
+      .settings-profile{
+        button, .input-wrapper{
+          box-shadow: none!important;
+        }
+        .settings-about{
+          textarea{
+            background-color: var(--dark-mode-input-background);
+            border: 1px solid var(--dark-mode-border-color);
+            color: var(--dark-mode-white-color-text);
+          }
+        }
+
+        .emoji-triangle{
+          border-bottom: 15px solid var(--dark-mode-border-color);
+        }
+
+        .customSelect {
+          .css-17vgs4h-control{
+            background-color: var(--dark-mode-input-background)!important;
+            border: 1px solid var(--dark-mode-border-color)!important;
+          }
+          .css-1uccc91-singleValue{
+            color: var(--dark-mode-white-color-text)!important;
+          }
+          .css-1m1wrg0-control{
+            background-color: var(--dark-mode-input-background)!important;
+            border: 1px solid var(--dark-mode-green)!important;
+
+          }
+          .css-26l3qy-menu{
+            background-color: var(--dark-mode-input-background)!important;
+            color: var(--dark-mode-white-color-text)!important;
+          }
+        }
+      }
+      .settings-password{
+        .input-field-password{
+          background-image: url("assets/images/darkModeImages/password.svg");
+        }
+        input{
+          background-color: var(--dark-mode-input-background)!important;
+          border: 1px solid var(--dark-mode-border-color)!important;
+          color: var(--dark-mode-white-color-text)!important;
+        }
+        input::placeholder{
+          color: var(--dark-mode-white-color-text)!important;
+        }
+
+        input:focus::placeholder{
+          color: var(--dark-mode-green)!important;
+        }
+        button{
+          box-shadow: none!important;
+        }
+      }
+      .settings-appearance {
+        .selected {
+          border: 1px solid var(--dark-mode-green) !important;
+          background: var(--dark-mode-border-color);
+        }
+
+        .item-name {
+          color: var(--dark-mode-white-color-text) !important;
+        }
+      }
+
     }
   }
 

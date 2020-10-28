@@ -1,11 +1,14 @@
 .settings{
+  width: 100%;
+  height: max-content;
   .settings-list{
+    z-index: 1;
+    position: relative;
+    margin-top: -8vw;
     width: 60vw;
     margin-left: 20vw;
     border-top: 1px solid var(--light-mode-input-backgroud);
     background: white;
-    top: 540px;
-    position: absolute;
 
     .list-header{
       display: table;

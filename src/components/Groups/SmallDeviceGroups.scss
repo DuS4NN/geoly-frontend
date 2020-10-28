@@ -7,10 +7,9 @@
     }
 
     .container-title{
-      width: 100%!important;
-      margin-left: -2px!important;
-      border-left: none!important;
-      border-right: none!important;
+      width: calc(100% - 2px)!important;
+
+
       h2{
         font-size: 30px!important;
         text-align: center!important;
@@ -18,11 +17,10 @@
     }
 
     .container-content{
-      width: 100%!important;
+      width: calc(100% - 2px)!important;
+      margin-left: 1px!important;
 
       .content-item {
-        margin-left: -2px!important;
-        border: none !important;
         width: 100%!important;
 
 
@@ -60,6 +58,7 @@
     }
 
     .group-list-empty{
+      width: 100%!important;
       border-left: none;
       font-size: 15px!important;
       border-right: none;

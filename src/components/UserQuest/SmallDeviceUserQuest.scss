@@ -1,6 +1,6 @@
 @media only screen and (max-width: 1100px) {
   .user-quest-list{
-    top: 547px;
+    margin-top: 0!important;
 
     .user-quest-created{
 
@@ -8,9 +8,9 @@
         margin-bottom: 30px;
 
         .container-title{
-          width: 100%;
-          border-right: none;
-          border-left: none;
+          width: calc(100% - 2px)!important;
+          border-right: none!important;
+          border-left: none!important;
           h2{
             font-size: 30px;
             text-align: center;
@@ -18,9 +18,9 @@
 
         }
         .container-table{
-          width: 100%;
-          border-left: none;
-          border-right: none;
+          width: calc(100% - 2px)!important;
+          border-left: none!important;
+          border-right: none!important;
 
           .item-category-image{
             padding-left: 10px!important;
@@ -45,14 +45,14 @@
         margin-bottom: 30px!important;
 
         .user-quest-played-container-bottom{
-          width: 100%!important;
+          width: calc(100% - 2px)!important;
           .user-quest-played-container-bottom-border{
             margin-left: 0;
           }
         }
 
         .container-title{
-          width: 100%!important;
+          width: calc(100% - 2px)!important;
           border-right: none!important;
           border-left: none!important;
           h2{
@@ -62,7 +62,7 @@
           }
         }
         .container-table{
-        width: 100%!important;
+          width: calc(100% - 2px)!important;
 
         .container-table-item{
           border-right: none!important;
@@ -121,9 +121,9 @@
     }
 
     .user-quest-empty{
-      width: 100%;
-      border-left: none;
-      border-right: none;
+      width: 100%!important;
+      border-left: none!important;
+      border-right: none!important;
 
       .container-title{
         h2{
@@ -144,13 +144,13 @@
       }
 
       .container-button{
-        width: 100%!important;
+        width: calc(100% - 2px)!important;
         border-right: none!important;
         border-left: none!important;
       }
 
       .container-title{
-        width: 100%!important;
+        width: calc(100% - 2px)!important;
         border-left: none!important;
         border-right: none!important;
         h2{
@@ -161,7 +161,7 @@
       }
 
       .container-table{
-        width: 100%!important;
+        width: calc(100% - 2px)!important;
         border-left: none!important;
         border-right: none!important;
       }

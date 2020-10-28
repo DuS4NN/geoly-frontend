@@ -1,4 +1,5 @@
 .premium {
+
   .premium-header{
     width: 100%;
     height: 500px;
@@ -21,8 +22,21 @@
     background-position: top right, bottom left;
   }
 
-  .oblique-image{
+  .oblique-image-bottom{
     display: block;
+    margin-right: -5px;
+    margin-top: -2px;
+    background-color: #3FB8AF!important;
+    position: relative;
+    background-image: url("../../assets/images/obliqueBottom.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .oblique-image-top{
+    display: block;
+    margin-bottom: -1px;
+    margin-left: -5px;
   }
 
   .header-text{
@@ -31,6 +45,10 @@
     width: 100vw;
     height: 500px;
     display: table-cell;
+  }
+
+  .premium-content{
+    overflow-x: hidden;
   }
 
   .premium-container-white{

@@ -112,7 +112,7 @@ const DailyQuest: React.FC = () => {
     return (
         <div className="daily-quest">
             {userContext['nickName'] && (
-                <div>
+                <div className="daily-quest-content">
                     <div className="header-container">
                         <div className="header-text">
                             <h1>{text.daily.title}</h1>
@@ -136,7 +136,9 @@ const DailyQuest: React.FC = () => {
                         )}
                     </div>
 
-                    <div className="daily-quest-map" ref={ref}>
+                    <div className="daily-quest-map-container">
+                        <div className="daily-quest-map" ref={ref}>
+                        </div>
                     </div>
                 </div>
             )}

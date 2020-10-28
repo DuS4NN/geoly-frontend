@@ -66,47 +66,47 @@ const PremiumContainer: React.FC = () => {
                 </div>
             </div>
 
-            <div className="premium-container-white" id="scroll-to">
-                <div className="container-image premium1">
-                </div>
-                <div className="container-info">
-                    <div className="info-title">
-                        <h2>{text.premium.title1}</h2>
+            <div className="premium-content">
+                <div className="premium-container-white" id="scroll-to">
+                    <div className="container-image premium1">
                     </div>
-                    <div className="info-text">
-                        <span>{text.premium.text1}</span>
-                    </div>
-                </div>
-            </div>
-
-
-            <img alt="" className="oblique-image" src={require("../../assets/images/obliqueTop.svg")} />
-            <div className="premium-container-green">
-
-                <div className="container-info">
-                    <div className="info-title">
-                        <h2>{text.premium.title2}</h2>
-                    </div>
-                    <div className="info-text">
-                        <span>{text.premium.text2}</span>
+                    <div className="container-info">
+                        <div className="info-title">
+                            <h2>{text.premium.title1}</h2>
+                        </div>
+                        <div className="info-text">
+                            <span>{text.premium.text1}</span>
+                        </div>
                     </div>
                 </div>
-                <div className="container-image premium2">
-                </div>
 
-            </div>
-            <img alt="" className="oblique-image" src={require("../../assets/images/obliqueBottom.svg")} />
+                <img alt="" className="oblique-image oblique-image-top" src={require("../../assets/images/obliqueTop.svg")} />
+                <div className="premium-container-green">
 
-
-            <div className="premium-container-white">
-                <div className="container-image premium3">
-                </div>
-                <div className="container-info">
-                    <div className="info-title">
-                        <h2>{text.premium.title3}</h2>
+                    <div className="container-info">
+                        <div className="info-title">
+                            <h2>{text.premium.title2}</h2>
+                        </div>
+                        <div className="info-text">
+                            <span>{text.premium.text2}</span>
+                        </div>
                     </div>
-                    <div className="info-text">
-                        <span>{text.premium.text3}</span>
+                    <div className="container-image premium2">
+                    </div>
+
+                </div>
+                <img alt="" className="oblique-image oblique-image-bottom" src={require("../../assets/images/obliqueBottom.svg")} />
+
+                <div className="premium-container-white">
+                    <div className="container-image premium3">
+                    </div>
+                    <div className="container-info">
+                        <div className="info-title">
+                            <h2>{text.premium.title3}</h2>
+                        </div>
+                        <div className="info-text">
+                            <span>{text.premium.text3}</span>
+                        </div>
                     </div>
                 </div>
             </div>

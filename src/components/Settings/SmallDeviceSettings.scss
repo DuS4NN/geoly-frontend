@@ -3,10 +3,10 @@
     .settings-list{
       width: 100%;
       margin-left: 0;
-      top: 547px;
+      margin-top: 0;
 
       .list-header{
-        width: 100%;
+        width: calc(100% - 1px);
         border-left: none;
 
         .list-header-item.password{
