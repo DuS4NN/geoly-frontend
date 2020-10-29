@@ -61,8 +61,8 @@ const QuestReviewsItem: React.FC<Props> = (props) => {
                 </div>
                 {review.owner===1 && (
                     <div className="footer-icons">
-                        <img onClick={handleEdit} title={text.iconTitle.edit} alt="" src={require("../../assets/images/otherIcons/edit.svg")} />
-                        <img onClick={handleDelete} title={text.iconTitle.delete} className="footer-icon-delete" alt="" src={require("../../assets/images/otherIcons/delete.svg")} />
+                        <img onClick={handleEdit} title={text.iconTitle.edit} alt="" src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/edit.svg") : require("../../assets/images/otherIcons/edit.svg")} />
+                        <img onClick={handleDelete} title={text.iconTitle.delete} className="footer-icon-delete" alt="" src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/delete.svg") : require("../../assets/images/otherIcons/delete.svg")} />
                     </div>
                 )
 

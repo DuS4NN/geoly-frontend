@@ -7,6 +7,11 @@
   width: 100%;
   height: 100%;
 
+  .quest-container-content{
+    width: 100%;
+    height: 100%;
+  }
+
   .quest-report{
     height: 18px;
     padding-top: 4px;
@@ -214,7 +219,7 @@
       font-size: 25px;
       letter-spacing: 0.8px;
       text-align: center;
-      color: var(--light-mode-dark-green)
+      color: var(--light-mode-dark-green);
     }
   }
 

@@ -103,48 +103,50 @@ const ProfileQuest: React.FC<Props> = (props) => {
 
     // Template
     return (
-      <div className="profile-quest">
-          <div className="profile-quest-navigation">
-              <div onClick={handleSelectCreated} className={selected === 0 ? "profile-quest-navigation-item selected" : "profile-quest-navigation-item"}>
+        <div className="profile-quest-container">
+            <div className="profile-quest">
+                <div className="profile-quest-navigation">
+                    <div onClick={handleSelectCreated} className={selected === 0 ? "profile-quest-navigation-item selected" : "profile-quest-navigation-item"}>
 
-                  <div className="item-name">
-                      <span>{text.profile.createdQuests}</span>
-                  </div>
-              </div>
-              <div onClick={handleSelectFinished} className={selected === 1 ? "profile-quest-navigation-item selected" : "profile-quest-navigation-item"}>
+                        <div className="item-name">
+                            <span>{text.profile.createdQuests}</span>
+                        </div>
+                    </div>
+                    <div onClick={handleSelectFinished} className={selected === 1 ? "profile-quest-navigation-item selected" : "profile-quest-navigation-item"}>
 
-                  <div className="item-name">
-                      <span>{text.profile.finishedQuests}</span>
-                  </div>
-              </div>
-          </div>
+                        <div className="item-name">
+                            <span>{text.profile.finishedQuests}</span>
+                        </div>
+                    </div>
+                </div>
 
-          {quests.length > 0 ?
-              (
-              <div>
-                  {quests.map((quest:any) => (
-                      <ProfileQuestItem key={quest.questId} quest={quest} />
-                  ))}
+                {quests.length > 0 ?
+                    (
+                        <div>
+                            {quests.map((quest:any) => (
+                                <ProfileQuestItem key={quest.questId} quest={quest} />
+                            ))}
 
-                  {( (selected === 0 && createdLength > 5) || (selected === 1 && playedLength > 5) ) && (
-                      <MuiThemeProvider theme={theme}>
-                          <Pagination
-                              className={classes.alignItemsAndJustifyContent + " pagination"}
-                              count={selected === 0 ? Math.ceil(createdLength/5) : Math.ceil(playedLength/5)}
-                              page={page}
-                              color="primary"
-                              onChange={handleChangePage}
-                          />
-                      </MuiThemeProvider>
-                  )}
-              </div>
-              ) : (
-              <div className="no-data">
-                <div className="title">{selected === 0 ? ""+text.profile.noCreatedQuests : ""+text.profile.noFinishedQuests}</div>
-                  <img src={require("../../assets/images/noData.svg")} alt="" />
-              </div>
-              )}
-      </div>
+                            {( (selected === 0 && createdLength > 5) || (selected === 1 && playedLength > 5) ) && (
+                                <MuiThemeProvider theme={theme}>
+                                    <Pagination
+                                        className={classes.alignItemsAndJustifyContent + " pagination"}
+                                        count={selected === 0 ? Math.ceil(createdLength/5) : Math.ceil(playedLength/5)}
+                                        page={page}
+                                        color="primary"
+                                        onChange={handleChangePage}
+                                    />
+                                </MuiThemeProvider>
+                            )}
+                        </div>
+                    ) : (
+                        <div className="no-data">
+                            <div className="title">{selected === 0 ? ""+text.profile.noCreatedQuests : ""+text.profile.noFinishedQuests}</div>
+                            <img src={require("../../assets/images/noData.svg")} alt="" />
+                        </div>
+                    )}
+            </div>
+        </div>
     )
 }
 

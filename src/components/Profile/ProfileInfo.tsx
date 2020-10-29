@@ -31,19 +31,20 @@ const ProfileInfo: React.FC<Props> = (props) => {
 
     // Template
     return (
-        <div className="profile-list">
+        <div className="profile-list-container">
+            <div className="profile-list">
 
-            <ModalReportUser userId={user.id} showReportModal={showModal} setShowReportModal={setShowModal} />
+                <ModalReportUser userId={user.id} showReportModal={showModal} setShowReportModal={setShowModal} />
 
 
                 <div className="report">
                     {userContext['nickName'] && (
-                        <img data-tip={text.profile.report} onClick={handleReportUser} alt="" src={require("../../assets/images/otherIcons/report.svg")} />
+                        <img data-tip={text.profile.report} onClick={handleReportUser} alt="" src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/report.svg") : require("../../assets/images/otherIcons/report.svg")} />
                     )}
                 </div>
 
 
-            <div className="about">
+                <div className="about">
                     {user.about && user.about.length>0 && (
                         <div>
                             <div className="about-title">
@@ -87,11 +88,12 @@ const ProfileInfo: React.FC<Props> = (props) => {
                     </div>
                 </div>
 
-            {badges.length > 1 && (
-                <ProfileBadges badges={badges} />
-            )}
-        </div>
+                {badges.length > 1 && (
+                    <ProfileBadges badges={badges} />
+                )}
+            </div>
 
+        </div>
     )
 }
 

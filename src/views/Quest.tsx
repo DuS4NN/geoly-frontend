@@ -222,7 +222,7 @@ const Quest: React.FC = () => {
             )}
 
             {details !== null && (
-                <div>
+                <div className="quest-container">
 
                     <QuestTitle details={details} />
 
@@ -237,13 +237,13 @@ const Quest: React.FC = () => {
                                         </div>
                                     )}
 
-                                    <div>
+                                    <div className="quest-container-content">
                                         <div className="quest-detail-content">
                                             <div className="quest-report">
                                                 {userContext['nickName'] && (
                                                     <div>
-                                                        <img data-tip={text.review.report} onClick={openReportModal} alt="" src={require("../assets/images/otherIcons/report.svg")} />
-                                                        <img data-tip={text.userQuest.addToGroup} className="add" onClick={openAddModal} alt="" src={require("../assets/images/otherIcons/add-black.svg")} />
+                                                        <img data-tip={text.review.report} onClick={openReportModal} alt="" src={userContext['darkMode'] ? require("../assets/images/darkModeImages/report.svg") : require("../assets/images/otherIcons/report.svg")} />
+                                                        <img data-tip={text.userQuest.addToGroup} className="add" onClick={openAddModal} alt="" src={userContext['darkMode'] ? require("../assets/images/darkModeImages/add-black.svg") : require("../assets/images/otherIcons/add-black.svg")} />
                                                     </div>
                                                 )}
                                             </div>

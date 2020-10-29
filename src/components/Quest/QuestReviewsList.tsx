@@ -103,7 +103,7 @@ const QuestReviewsList: React.FC<Props> = (props) => {
             {countReviews > 5 && (
                 <MuiThemeProvider theme={theme}>
                     <Pagination
-                        className={classes.alignItemsAndJustifyContent}
+                        className={classes.alignItemsAndJustifyContent + " pagination"}
                         count={Math.ceil(countReviews/5)}
                         page={page}
                         color="primary"

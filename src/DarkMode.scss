@@ -456,7 +456,6 @@
     }
 
   }
-
   .settings{
     background-color: var(--dark-mode-background)!important;
     .settings-list {
@@ -557,6 +556,166 @@
         }
       }
 
+    }
+  }
+  .profile{
+    .profile-quest-container, .profile-list-container{
+      background-color: var(--dark-mode-background)!important;
+    }
+    .loading-image{
+      border-bottom: 1px solid var(--dark-mode-border-color)!important;
+    }
+    .list-item{
+      background-color: var(--dark-mode-input-background)!important;
+      border: 1px solid var(--dark-mode-border-color)!important;
+      color: var(--dark-mode-white-color-text)!important;
+    }
+    .profile-list{
+      background-color: var(--dark-mode-input-background)!important;
+      border-top: 1px solid var(--dark-mode-border-color)!important;
+      border-left: 1px solid var(--dark-mode-border-color)!important;
+      border-right: 1px solid var(--dark-mode-border-color)!important;
+
+      .about-title, .heat-map-title{
+        color: var(--dark-mode-green)!important;
+      }
+      .about-text{
+        color: var(--dark-mode-white-color-text)!important;
+      }
+
+    }
+    .profile-quest{
+      border-left: 1px solid var(--dark-mode-border-color) !important;
+      border-right: 1px solid var(--dark-mode-border-color)!important;
+      border-bottom: 1px solid var(--dark-mode-border-color) !important;
+      background-color: var(--dark-mode-input-background)!important;
+      .selected{
+        box-shadow: none!important;
+      }
+      .item-name{
+        color: var(--dark-mode-white-color-text)!important;
+      }
+      .profile-quest-item{
+        border: 1px solid var(--dark-mode-border-color)!important;
+      }
+      .open{
+        border-top: 1px solid var(--dark-mode-border-color)!important;
+      }
+      .item-footer{
+        border-top: 1px solid var(--dark-mode-border-color)!important;
+      }
+      .user-name, .stage-item-name, .title-name{
+        color: var(--dark-mode-white-color-text)!important;
+        a{
+          color: var(--dark-mode-white-color-text)!important;
+        }
+      }
+      .stage-item{
+        border: 1px solid var(--dark-mode-border-color)!important;
+      }
+      .pagination{
+        .Mui-selected{
+          background-color: var(--dark-mode-green)!important;
+        }
+        button{
+          color: var(--dark-mode-white-color-text)!important;
+        }
+      }
+    }
+    .no-data{
+      .title{
+        color: var(--dark-mode-green)!important;
+      }
+    }
+  }
+
+  .quest{
+    .quest-container-content{
+      background-color: var(--dark-mode-background);
+    }
+    .premium{
+      background-color: transparent!important;
+    }
+    .quest-detail-content{
+      border-top: 1px solid var(--dark-mode-border-color);
+      border-left: 1px solid var(--dark-mode-border-color);
+      border-right: 1px solid var(--dark-mode-border-color);
+      background-color: var(--dark-mode-input-background);
+    }
+    .details-title{
+      color: var(--dark-mode-green)!important;
+      border-top: 1px solid var(--dark-mode-border-color);
+    }
+    .quest-details-title{
+      color: var(--dark-mode-green)!important;
+    }
+    .quest-details-description, .quest-detail-graph-label{
+      color: var(--dark-mode-white-color-text)!important;
+    }
+    .quest-private{
+      background-color: var(--dark-mode-input-background);
+      border-bottom: 1px solid var(--dark-mode-border-color);
+      .quest-private-title{
+        background-color: var(--dark-mode-input-background);
+        border-bottom: 1px solid var(--dark-mode-border-color-backgroud);
+        h2{
+          color: var(--dark-mode-green)!important;
+        }
+      }
+    }
+    .quest-stages-item{
+      border: 1px solid var(--dark-mode-border-color)!important;
+      .item-name{
+        color: var(--dark-mode-white-color-text)!important;
+      }
+    }
+    .quest-gallery{
+      border-left: 1px solid var(--dark-mode-border-color);
+      border-right: 1px solid var(--dark-mode-border-color);
+      background-color: var(--dark-mode-input-background);
+    }
+    .map-ref{
+      border-left: 1px solid var(--dark-mode-border-color);
+      border-right: 1px solid var(--dark-mode-border-color);
+    }
+    .quest-button{
+      border-left: 1px solid var(--dark-mode-border-color);
+      border-right: 1px solid var(--dark-mode-border-color);
+      background-color: var(--dark-mode-input-background);
+      button{
+        box-shadow: none;
+      }
+    }
+    .quest-review-form{
+      border-left: 1px solid var(--dark-mode-border-color);
+      border-right: 1px solid var(--dark-mode-border-color);
+      background-color: var(--dark-mode-input-background);
+    }
+    .emoji-triangle{
+      border-bottom: 15px solid var(--dark-mode-border-color);
+    }
+    .quest-reviews-list{
+      background-color: var(--dark-mode-input-background);
+      border-right: 1px solid var(--dark-mode-border-color);
+      border-left: 1px solid var(--dark-mode-border-color);
+      .quest-reviews-list-title{
+        border-top: 1px solid var(--dark-mode-border-color);
+        color: var(--dark-mode-green);
+      }
+      .quest-review-item{
+        border: 1px solid var(--dark-mode-border-color);
+      }
+      .header-user-name, .quest-review-text{
+        color: var(--dark-mode-white-color-text);
+      }
+    }
+    .pagination{
+      .Mui-selected{
+        background-color: var(--dark-mode-green)!important;
+      }
+      button{
+        color: var(--dark-mode-white-color-text)!important;
+      }
     }
   }
 

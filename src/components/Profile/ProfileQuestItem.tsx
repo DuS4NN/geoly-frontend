@@ -29,7 +29,8 @@ const ProfileQuestItem: React.FC<Props> = (props) => {
         {
             center: { lat:68.7163857, lng: 21.2610746 },
             zoom: 12,
-            maxZoom: 16
+            maxZoom: 16,
+            styles: require('../../assets/mapThemes/'+userContext['mapTheme']+'.ts').mapTheme
         }
     )
 
@@ -166,7 +167,7 @@ const ProfileQuestItem: React.FC<Props> = (props) => {
                     <NavLink to={"/quest/"+quest.questId}>{quest.questName}</NavLink>
                 </div>
                 <div className="title-arrow">
-                    <img onClick={handleOpen} alt="" src={open ? require("../../assets/images/otherIcons/arrow-up.svg") : require("../../assets/images/otherIcons/arrow-down.svg")} />
+                    <img onClick={handleOpen} alt="" src={open ? userContext['darkMode'] ? require("../../assets/images/darkModeImages/arrow-up.svg") : require("../../assets/images/otherIcons/arrow-up.svg") : userContext['darkMode'] ? require("../../assets/images/darkModeImages/arrow-down.svg") : require("../../assets/images/otherIcons/arrow-down.svg")} />
                 </div>
             </div>
 

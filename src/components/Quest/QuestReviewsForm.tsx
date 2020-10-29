@@ -142,6 +142,7 @@ const QuestReviewsForm: React.FC<Props> = (props) => {
                     <Picker
                         onSelect={handleEmojiSelect}
                         set={"facebook"}
+                        theme={userContext['darkMode'] ? "dark" : "light"}
                     />
                 </span>
                             )}

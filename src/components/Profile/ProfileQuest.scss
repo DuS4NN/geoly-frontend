@@ -1,4 +1,9 @@
 .profile{
+  .profile-quest-container{
+    width: 100%;
+    height: 100%;
+  }
+
   .profile-quest{
     padding-bottom: 50px;
     width: 90%;
@@ -18,7 +23,7 @@
       .selected{
         background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
         background-size: 300% 100%;
-        padding: 12px;
+        padding: 12px!important;
         border: none!important;
         color: white;
         box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
@@ -220,7 +225,8 @@
       margin-right: auto;
       margin-left: auto;
       text-align: center;
-      margin-top: 50px;
+      padding-top: 50px;
+
 
       .title{
         font-family: Nexa;
