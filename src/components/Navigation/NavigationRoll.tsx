@@ -58,6 +58,15 @@ const NavigationRoll: React.FC<Props> = (props) => {
                 })
 
                 localStorage.setItem('darkMode', String(toggle))
+
+                if(toggle){
+                    let bodyElement = document.getElementsByTagName("BODY")[0]
+                    bodyElement.className = bodyElement.className + "modaldarkmode"
+                }else{
+                    let bodyElement = document.getElementsByTagName("BODY")[0]
+                    bodyElement.classList.remove("modaldarkmode")
+                }
+
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }

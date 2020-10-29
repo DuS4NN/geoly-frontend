@@ -36,6 +36,8 @@ function App() {
     let mapTheme = localStorage.getItem("mapTheme") ? localStorage.getItem("mapTheme") : '1'
     let darkMode = localStorage.getItem("darkMode") ? localStorage.getItem("darkMode") : 'false'
 
+
+
     let userFromStorage = {
         nickName: nickName,
         profileImage: profileImage,
@@ -66,6 +68,11 @@ function App() {
                         languageId: data[4]
                     } as any
                     setUserContext(newUser)
+
+                    if(newUser.darkMode){
+                        let bodyElement = document.getElementsByTagName("BODY")[0]
+                        bodyElement.className = bodyElement.className + "modaldarkmode"
+                    }
                 }else{
                     setUserContext({
                         ...userContext,
@@ -74,6 +81,11 @@ function App() {
                     })
                     localStorage.removeItem("nickName")
                     localStorage.removeItem("profileImage")
+
+                    if(darkMode){
+                        let bodyElement = document.getElementsByTagName("BODY")[0]
+                        bodyElement.className = bodyElement.className + "modaldarkmode"
+                    }
                 }
 
                 setLoaded(true)

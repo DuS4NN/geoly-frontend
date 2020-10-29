@@ -3,6 +3,146 @@
   z-index: 99999999!important;
 }
 
+.modaldarkmode{
+  .ReactModal__Overlay{
+    background-color: rgba(055, 055, 055, 0.75)!important;
+  }
+  .modal{
+    background-color: var(--dark-mode-input-background);
+    border: 1px solid var(--dark-mode-border-color);
+    .close-modal{
+      button{
+        color: var(--dark-mode-white-color-text)!important;
+      }
+      button:hover{
+        color: var(--dark-mode-green)!important;
+      }
+    }
+    .modal-form{
+      .title {
+        color: var(--dark-mode-green)!important;
+      }
+      .subtitle {
+        color: var(--dark-mode-white-color-text)!important;
+      }
+      .form{
+        .form-input{
+          input{
+            background-color: var(--dark-mode-input-background);
+            border: 1px solid var(--dark-mode-border-color);
+            color: var(--dark-mode-white-color-text);
+          }
+          input:focus::placeholder {
+            color: var(--dark-mode-green);
+          }
+        }
+        .form-textarea{
+          textarea{
+            background-color: var(--dark-mode-input-background);
+            border: 1px solid var(--dark-mode-border-color);
+            color: var(--dark-mode-white-color-text);
+          }
+        }
+        .from-input-with-padding{
+          input.input-field-email {
+            background-color: var(--dark-mode-input-background);
+            border: 1px solid var(--dark-mode-border-color);
+            color: var(--dark-mode-white-color-text);
+            background-image: url("../../assets/images/darkModeImages/message.svg");
+          }
+          input:focus::placeholder {
+            color: var(--dark-mode-green);
+          }
+        }
+        .form-submit-button{
+          button{
+            box-shadow: none;
+          }
+        }
+        .form-list{
+          .list-quest-item:hover{
+            background: var(--dark-mode-border-color);
+          }
+          .list-quest-item{
+            border: 1px solid var(--dark-mode-border-color);
+          }
+          .item-name{
+            color: var(--dark-mode-white-color-text);
+          }
+        }
+        .form-bubble-item{
+          border: 1px solid var(--dark-mode-border-color);
+          color: var(--dark-mode-white-color-text);
+        }
+        .form-bubble-item.selected{
+          background: var(--dark-mode-border-color);
+          color: var(--dark-mode-green);
+        }
+        .form-details{
+          .label{
+            color: var(--dark-mode-white-color-text);
+          }
+
+
+
+        }
+        .form-yes, .form-no{
+          button{
+            box-shadow: none;
+          }
+        }
+        .form-search-result{
+          border-top: 1px solid var(--dark-mode-border-color);
+          border-left: 1px solid var(--dark-mode-border-color);
+          border-right: 1px solid var(--dark-mode-border-color);
+          .result-item{
+            border-bottom: 1px solid var(--dark-mode-border-color);
+            color: var(--dark-mode-white-color-text);
+          }
+          .result-item:hover{
+            color: var(--dark-mode-green);
+          }
+        }
+        .emoji-triangle{
+          border-bottom: 15px solid var(--dark-mode-border-color);
+        }
+        .stage{
+          border: 1px solid var(--dark-mode-border-color);
+        }
+        .stage-name{
+          color: var(--dark-mode-white-color-text);
+        }
+        .stage-items{
+          border-left: 1px solid var(--dark-mode-border-color);
+          border-right: 1px solid var(--dark-mode-border-color);
+          border-bottom: 1px solid var(--dark-mode-border-color);
+
+          .label{
+            color: var(--dark-mode-white-color-text);
+          }
+          .answer-list{
+            color: var(--dark-mode-white-color-text);
+          }
+          .answer-item{
+            border: 1px solid var(--dark-mode-border-color)!important;
+          }
+          .add-answer{
+            input{
+              color: var(--dark-mode-white-color-text);
+              border: 1px solid var(--dark-mode-border-color)!important;
+              background-color: var(--dark-mode-input-background);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
 .modal{
   margin-top: 20vh;
   width: 70vw;
@@ -543,6 +683,7 @@
     }
   }
 }
+
 
 @media only screen and (max-width: 1100px) {
   .modal{

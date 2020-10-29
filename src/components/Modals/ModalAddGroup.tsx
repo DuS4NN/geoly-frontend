@@ -96,7 +96,7 @@ const ModalAddGroup: React.FC<Props> = (props) => {
     // Template
     return (
         <ReactModal
-            className="modal"
+            className={userContext['darkMode'] ? "modal darkmode" : "modal"}
             closeTimeoutMS={500}
             isOpen={showModal}
             onAfterOpen={onAfterOpenModal}>

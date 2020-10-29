@@ -158,7 +158,7 @@ const StageItem: React.FC<Props> = props => {
                 <div className="form-input">
                     <span className="label">
                         {text.userQuest.advise}
-                        <img alt="" data-tip={text.userQuest.adviseToolTip} src={require("../../assets/images/otherIcons/help.svg")} />
+                        <img alt="" data-tip={text.userQuest.adviseToolTip} src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/help.svg") : require("../../assets/images/otherIcons/help.svg")} />
                     </span>
                     <input defaultValue={stage.advise} maxLength={200} ref={adviseRef} placeholder={text.userQuest.advise} />
                 </div>
@@ -166,14 +166,14 @@ const StageItem: React.FC<Props> = props => {
                 <div className="form-input">
                     <span className="label">
                         {text.userQuest.note}
-                        <img alt="" data-tip={text.userQuest.noteToolTip} src={require("../../assets/images/otherIcons/help.svg")} />
+                        <img alt="" data-tip={text.userQuest.noteToolTip} src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/help.svg") : require("../../assets/images/otherIcons/help.svg")} />
                     </span>
                     <input defaultValue={stage.note} maxLength={200} ref={noteRef} placeholder={text.userQuest.note} />
                 </div>
                 <br/>
                 <span className="label">
                     {text.userQuest.answers}
-                    <img alt="" data-tip={text.userQuest.answersToolTip} src={require("../../assets/images/otherIcons/help.svg")} />
+                    <img alt="" data-tip={text.userQuest.answersToolTip} src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/help.svg") : require("../../assets/images/otherIcons/help.svg")} />
                 </span>
                 <div className="answer-list">
 
@@ -191,7 +191,7 @@ const StageItem: React.FC<Props> = props => {
                                 <span>{answer}</span>
                             </div>
                             <div className="buttons">
-                                    <img alt="" onClick={() => handleDeleteAnswer(answer)} src={require("../../assets/images/otherIcons/delete.svg")} />
+                                    <img alt="" onClick={() => handleDeleteAnswer(answer)} src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/delete.svg") : require("../../assets/images/otherIcons/delete.svg")} />
                             </div>
                         </div>
                     ))}
@@ -216,7 +216,7 @@ const StageItem: React.FC<Props> = props => {
             <div className="stage-items">
                  <span className="label">
                      {text.userQuest.qrCode}
-                     <img alt="" data-tip={text.userQuest.qrCodeToolTip} src={require("../../assets/images/otherIcons/help.svg")} />
+                     <img alt="" data-tip={text.userQuest.qrCodeToolTip} src={userContext['darkMode'] ? require("../../assets/images/darkModeImages/help.svg") : require("../../assets/images/otherIcons/help.svg")}/>
                  </span>
                 <div className="qr-code">
                     <img alt="" src={process.env.REACT_APP_IMAGE_SERVER_URL+stage.qrCodeUrl} />
@@ -239,7 +239,7 @@ const StageItem: React.FC<Props> = props => {
                 </div>
                 <div className="stage-roll">
                     {stage.type !== 'GO_TO_PLACE' && (
-                        <img alt="" onClick={handleRoll} src={roll ? require("../../assets/images/otherIcons/arrow-up.svg") : require("../../assets/images/otherIcons/arrow-down.svg")} />
+                        <img alt="" onClick={handleRoll} src={roll ? userContext['darkMode'] ? require("../../assets/images/darkModeImages/arrow-up.svg") : require("../../assets/images/otherIcons/arrow-up.svg") : userContext['darkMode'] ? require("../../assets/images/darkModeImages/arrow-down.svg") : require("../../assets/images/otherIcons/arrow-down.svg")} />
                     )}
                 </div>
             </div>
