@@ -37,7 +37,7 @@ const GroupQuestDetailStageItem: React.FC<Props> = (props) => {
                     <span>{text.stageType[stage.stageType]}</span>
                 </div>
                 <div className={filteredUserInfo.length > 0 ? "item-arrow" : "item-arrow hide"}>
-                    <img onClick={handleExpand} alt="" src={expanded ? require("../../assets/images/otherIcons/arrow-up.svg") : require("../../assets/images/otherIcons/arrow-down.svg")} />
+                    <img onClick={handleExpand} alt="" src={expanded ? userContext['darkMode'] ? require("../../assets/images/darkModeImages/arrow-up.svg") : require("../../assets/images/otherIcons/arrow-up.svg") : userContext['darkMode'] ? require("../../assets/images/darkModeImages/arrow-down.svg") : require("../../assets/images/otherIcons/arrow-down.svg")} />
                 </div>
             </div>
 

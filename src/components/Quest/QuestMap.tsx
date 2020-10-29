@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {useGoogleMaps} from "react-hook-google-maps/dist"
 import "./QuestMap.scss"
+import {UserContext} from "../../UserContext";
 
 // Props
 interface Props {
@@ -12,6 +13,8 @@ const QuestMap: React.FC<Props> = (props) => {
 
     const {stages} = props
 
+    const {userContext} = useContext(UserContext)
+
     const [markers] = useState([]) as Array<any>
 
     const {ref, map, google} = useGoogleMaps(
@@ -19,7 +22,8 @@ const QuestMap: React.FC<Props> = (props) => {
         {
             center: { lat:68.7163857, lng: 21.2610746 },
             zoom: 16,
-            maxZoom: 16
+            maxZoom: 16,
+            styles: require('../../assets/mapThemes/'+userContext['mapTheme']+'.ts').mapTheme
         }
     )
 

@@ -628,7 +628,6 @@
       }
     }
   }
-
   .quest{
     .quest-container-content{
       background-color: var(--dark-mode-background);
@@ -715,6 +714,78 @@
       }
       button{
         color: var(--dark-mode-white-color-text)!important;
+      }
+    }
+  }
+  .group{
+    background-color: var(--dark-mode-background);
+    .user-list-item{
+      border: 1px solid var(--dark-mode-border-color)!important;
+      background-color: var(--dark-mode-input-background)!important;
+      a{
+        color: var(--dark-mode-white-color-text)!important;
+      }
+    }
+    .group-no-quest{
+      background-color: var(--dark-mode-input-background);
+      .title{
+        color: var(--dark-mode-white-color-text);
+      }
+    }
+    .group-content{
+      background-color: var(--dark-mode-input-background);
+      border: 1px solid var(--dark-mode-border-color);
+      .quest-list-item:hover{
+        background: var(--dark-mode-border-color);
+      }
+      .quest-list-item{
+        border-bottom: 1px solid var(--dark-mode-border-color);
+        .quest-name{
+          color: var(--dark-mode-white-color-text);
+        }
+      }
+    }
+    .group-quest-detail{
+      border-left: 1px solid var(--dark-mode-border-color);
+      .quest-detail-title{
+        a{
+          color: var(--dark-mode-green);
+        }
+      }
+      .quest-detail-desc-title{
+        color: var(--dark-mode-green);
+      }
+      .quest-detail-desc{
+        color: var(--dark-mode-white-color-text);
+      }
+      .quest-detail-stages-title{
+        border-top: 1px solid var(--dark-mode-border-color);
+        color: var(--dark-mode-green);
+      }
+      .stage-item:hover{
+        background: var(--dark-mode-border-color);
+      }
+      .stage-item{
+        border-bottom: 1px solid var(--dark-mode-border-color);
+        .item-name, {
+          color: var(--dark-mode-white-color-text);
+        }
+      }
+      .stage-user-item{
+        border-bottom: 1px solid var(--dark-mode-border-color);
+        .stage-user{
+          .user-name{
+            a{
+              color: var(--dark-mode-white-color-text)!important;
+            }
+
+          }
+        }
+      }
+      .quest-detail-button{
+        button{
+          box-shadow: none!important;
+        }
       }
     }
   }

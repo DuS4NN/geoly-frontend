@@ -90,7 +90,7 @@
 
     .group-content{
       margin-top: 0;
-      width: 100%;
+      width: calc(100% - 2px);
       border-top: 1px solid var(--light-mode-input-backgroud);
       border-bottom: none;
       border-left: none;
@@ -155,6 +155,7 @@
       }
 
       .quest-detail-map{
+        width: calc(100% - 1px);
         height: 200px;
       }
 

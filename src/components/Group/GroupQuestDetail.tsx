@@ -34,7 +34,8 @@ const GroupQuestDetail: React.FC<Props> = (props) => {
         process.env.REACT_APP_GOOGLE_API_KEY+"",
         {
             center: { lat:68.7163857, lng: 21.2610746 },
-            zoom: 12
+            zoom: 12,
+            styles: require('../../assets/mapThemes/'+userContext['mapTheme']+'.ts').mapTheme
         }
     )
 
