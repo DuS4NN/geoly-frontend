@@ -82,9 +82,6 @@
           .label{
             color: var(--dark-mode-white-color-text);
           }
-
-
-
         }
         .form-yes, .form-no{
           button{
@@ -134,14 +131,44 @@
             }
           }
         }
+        .customSelect{
+          .css-17vgs4h-control{
+            background-color: var(--dark-mode-input-background)!important;
+            border: 1px solid var(--dark-mode-border-color)!important;
+          }
+          .css-1uccc91-singleValue{
+            color: var(--dark-mode-white-color-text)!important;
+          }
+          .css-1m1wrg0-control{
+            background-color: var(--dark-mode-input-background)!important;
+            border: 1px solid var(--dark-mode-green)!important;
+
+          }
+          .css-26l3qy-menu{
+            background-color: var(--dark-mode-input-background)!important;
+            color: var(--dark-mode-white-color-text)!important;
+          }
+        }
+        .image-upload{
+          .input-wrapper{
+            box-shadow: none!important;
+          }
+
+          .image-upload-preview{
+            .preview-image{
+              .delete-button{
+                color: var(--dark-mode-white-color-text)!important;
+              }
+              .delete-button:hover{
+                color: var(--dark-mode-green)!important;
+              }
+            }
+          }
+        }
       }
     }
   }
 }
-
-
-
-
 
 .modal{
   margin-top: 20vh;
