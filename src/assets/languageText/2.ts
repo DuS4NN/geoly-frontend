@@ -1,7 +1,7 @@
 export const text = {
     logIn: {
         title: 'Sign in to Geoly',
-        subTitle: 'or use your email account:',
+        subTitle: 'use your email and password:',
         formEmailPlaceholder: 'Email',
         formPasswordPlaceholder: 'Password',
         forgotPassword: 'Forgot your password?',

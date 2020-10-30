@@ -24,11 +24,12 @@
     height: calc(100% - 80px);
     background-image: url("../../../assets/images/waveRight/backgroundBottomRight.svg"), url("../../../assets/images/waveLeft/backgroundTopLeft.svg");
     background-repeat: no-repeat;
-    background-size: 50%;
+    background-size: 50%, 45%;
     background-position: 100% 100%, 0 80px;
     overflow-y: scroll;
 
     .sign-in-form{
+      padding-top: 50px;
       display: block!important;
       width: 100%!important;
       height: auto!important;

@@ -101,24 +101,6 @@ const SignInForm: React.FC<Props> = () => {
                 <h2>{text.logIn.title}</h2>
             </div>
 
-            <div className="social-media">
-                <div className="social-media-icon">
-                    <Link to="/">
-                        <img title={text.logIn.signInFacebook} alt="" src={facebookIcon}/>
-                    </Link>
-                </div>
-                <div className="social-media-icon">
-                    <Link to="/">
-                        <img title={text.logIn.signInGoogle} alt="" src={googleIcon}/>
-                    </Link>
-                </div>
-                <div className="social-media-icon">
-                    <Link to="/">
-                        <img title={text.logIn.signInDiscord} alt="" src={discordIcon}/>
-                    </Link>
-                </div>
-            </div>
-
             <div className="form-title">
                 <span>
                     {text.logIn.subTitle}

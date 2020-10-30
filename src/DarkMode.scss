@@ -99,6 +99,11 @@
   .navigation{
     background-color: var(--dark-mode-background)!important;
     border-bottom: 1px solid var(--dark-mode-border-color)!important;
+    .navigation-profile{
+      button{
+        box-shadow: none;
+      }
+    }
     .navigation-links{
       a{
         color: var(--dark-mode-white-color-text)!important;
@@ -794,6 +799,49 @@
         }
       }
     }
+  }
+  .sign-in{
+    .sign-in-form-title{
+      color: var(--dark-mode-green);
+    }
+    .form-title{
+      color: var(--dark-mode-white-color-text);
+    }
+    .form-input input{
+      background-color: var(--dark-mode-input-background);
+      border: 1px solid var(--dark-mode-border-color);
+      color: var(--dark-mode-white-color-text);
+    }
+    input::placeholder{
+      color: var(--dark-mode-white-color-text);
+    }
+    input:focus::placeholder{
+      color: var(--dark-mode-green);
+
+    }
+    .input-field-password{
+      background-image: url("assets/images/darkModeImages/password.svg");
+    }
+    .input-field-email{
+      background-image: url("assets/images/darkModeImages/email.svg");
+    }
+    .form-forgot{
+      color: var(--dark-mode-white-color-text);
+    }
+    .sign-up-link-text{
+      border-bottom: 1px solid var(--dark-mode-border-color);
+    }
+    .form-button-signin{
+      box-shadow: none;
+    }
+    .forgot{
+      border-bottom: 1px solid var(--dark-mode-border-color);
+    }
+
+    .sign-in-background{
+      background-image: url("assets/images/darkModeImages/waveRight.svg");
+    }
+
   }
   .content{
     background-color: var(--dark-mode-background)!important;

@@ -36,8 +36,6 @@ function App() {
     let mapTheme = localStorage.getItem("mapTheme") ? localStorage.getItem("mapTheme") : '1'
     let darkMode = localStorage.getItem("darkMode") ? localStorage.getItem("darkMode") : 'false'
 
-
-
     let userFromStorage = {
         nickName: nickName,
         profileImage: profileImage,
@@ -90,6 +88,11 @@ function App() {
 
                 setLoaded(true)
             })
+        }else{
+            if(darkMode){
+                let bodyElement = document.getElementsByTagName("BODY")[0]
+                bodyElement.className = bodyElement.className + "modaldarkmode"
+            }
         }
     }, [])
 

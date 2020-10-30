@@ -1,7 +1,7 @@
 export const text = {
     logIn: {
         title: 'Prihláste sa do Geoly',
-        subTitle: 'alebo použite email a heslo:',
+        subTitle: 'použite Váš email a heslo:',
         formEmailPlaceholder: 'Email',
         formPasswordPlaceholder: 'Heslo',
         forgotPassword: 'Zabudli ste heslo?',

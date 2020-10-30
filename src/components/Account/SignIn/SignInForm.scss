@@ -33,29 +33,6 @@
     color: var(--light-mode-dark-green);
   }
 
-  .social-media{
-    margin-right: auto;
-    margin-left: auto;
-    width: 100%;
-
-    .social-media-icon{
-      margin: 15px;
-      display: inline-block;
-
-      img{
-        width: 35px;
-        padding: 10px;
-        height: 35px;
-        border-radius: 50%;
-        border: 1px solid var(--light-mode-gray-text);
-      }
-
-      img:hover{
-        background-color: var(--light-mode-input-backgroud);
-      }
-    }
-  }
-
   .form-title{
     width: 100%;
     margin-top: 30px;
