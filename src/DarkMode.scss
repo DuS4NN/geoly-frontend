@@ -171,6 +171,9 @@
   }
   .ranking {
 
+    .loading{
+      border-bottom: 1px solid var(--dark-mode-border-color);
+    }
     .raking-list{
       background-color: var(--dark-mode-background)!important;
     }
@@ -371,7 +374,10 @@
         }
         .container-title{
           background-color: var(--dark-mode-input-background)!important;
-          border: 1px solid var(--dark-mode-border-color)!important;
+          border-top: 1px solid var(--dark-mode-border-color)!important;
+          border-left: 1px solid var(--dark-mode-border-color)!important;
+          border-right: 1px solid var(--dark-mode-border-color)!important;
+          border-bottom: none!important;
           h2{
             color: var(--dark-mode-green)!important;
           }

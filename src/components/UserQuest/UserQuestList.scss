@@ -110,9 +110,8 @@
         }
 
         .container-title{
-          width: calc(60% - 0px);
-          margin-left: auto;
-          margin-right: auto;
+          width: calc(60% - 1px);
+          margin-left: 20%;
           background: white;
           border-top: 1px solid var(--light-mode-input-backgroud);
           border-left: 1px solid var(--light-mode-input-backgroud);

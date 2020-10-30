@@ -50,8 +50,12 @@
             margin-left: 0;
           }
         }
+        .user-quest-played-container-bottom-border{
+          margin-left: 49px!important;
+        }
 
         .container-title{
+          margin-left: 0!important;
           width: calc(100% - 2px)!important;
           border-right: none!important;
           border-left: none!important;
@@ -62,16 +66,18 @@
           }
         }
         .container-table{
-          width: calc(100% - 2px)!important;
+
+          width: calc(100% - 1px)!important;
+          margin-left: 0!important;
 
         .container-table-item{
           border-right: none!important;
 
           .item-category-image{
-            padding-left: 10px;
-            padding-right: 5px;
+            padding-left: 10px!important;
+            padding-right: 5px!important;
             border-left: none!important;
-            width: 35px;
+            width: 35px!important;
             img{
               width: 35px!important;
               height: 35px!important;
@@ -84,15 +90,15 @@
       }
 
         .item-stage-container{
-          border-left: 1px solid var(--light-mode-input-backgroud);
+          border-left: 1px solid var(--light-mode-input-backgroud)!important;
           border-right: none;
-          width: calc(100% - 51px);
-          margin-left: 50px;
+          width: calc(100% - 51px)!important;
+          margin-left: 50px!important;
 
           .item-stage{
 
             .item-stage-info{
-              display: block;
+              display: block!important;
               height: 32px;
 
               .item-stage-image{
@@ -112,11 +118,8 @@
               display: block;
               height: 18px;
             }
-
           }
-
         }
-
       }
     }
 
