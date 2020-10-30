@@ -13,7 +13,7 @@ export const text = {
     },
     signUp: {
         title: 'Create Geoly account',
-        subTitle: 'or use your email for registration:',
+        subTitle: 'use your email for registration:',
         signUpFacebook: 'Use Facebook account',
         signUpGoogle: 'Use Google account',
         signUpDiscord: 'Use Discord account',

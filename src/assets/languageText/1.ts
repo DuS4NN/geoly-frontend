@@ -13,7 +13,7 @@ export const text = {
     },
     signUp: {
         title: 'Vytvoriť Geoly účet',
-        subTitle: 'alebo vytvorte účet pomocou emailu',
+        subTitle: 'vytvorte účet pomocou emailu',
         signUpFacebook: 'Použiť Facebook účet',
         signUpGoogle: 'Použiť Google účet',
         signUpDiscord: 'Použiť Discord účet',

@@ -837,11 +837,78 @@
     .forgot{
       border-bottom: 1px solid var(--dark-mode-border-color);
     }
-
     .sign-in-background{
       background-image: url("assets/images/darkModeImages/waveRight.svg");
     }
+  }
+  .sign-up{
+    .sign-up-form-title{
+      color: var(--dark-mode-green);
+    }
+    .form-title{
+      color: var(--dark-mode-white-color-text);
+    }
+    .form-input input{
+      background-color: var(--dark-mode-input-background);
+      border: 1px solid var(--dark-mode-border-color);
+      color: var(--dark-mode-white-color-text);
+    }
+    input::placeholder{
+      color: var(--dark-mode-white-color-text);
+    }
+    input:focus::placeholder{
+      color: var(--dark-mode-green);
 
+    }
+    .input-field-password{
+      background-image: url("assets/images/darkModeImages/password.svg");
+    }
+    .input-field-email{
+      background-image: url("assets/images/darkModeImages/email.svg");
+    }
+    .input-field-nickname{
+      background-image: url("assets/images/darkModeImages/nickname.svg");
+    }
+    .form-sign-in{
+      color: var(--dark-mode-white-color-text);
+    }
+    .sign-in-link-text{
+      border-bottom: 1px solid var(--dark-mode-border-color);
+    }
+    .form-button{
+      box-shadow: none;
+    }
+    .sign-up-background{
+      background-image: url("assets/images/darkModeImages/waveLeft.svg");
+    }
+  }
+  .forgot-password{
+    .forgot-password-image{
+      background-image: url("assets/images/darkModeImages/waveLeft.svg");
+    }
+    .title{
+      color: var(--dark-mode-green);
+    }
+    .subtitle{
+      color: var(--dark-mode-white-color-text);
+    }
+    button{
+      box-shadow: none;
+    }
+    input{
+      background-color: var(--dark-mode-input-background)!important;
+      border: 1px solid var(--dark-mode-border-color);
+      color: var(--dark-mode-white-color-text);
+    }
+    input::placeholder{
+      color: var(--dark-mode-white-color-text);
+    }
+    input:focus::placeholder{
+      color: var(--dark-mode-green);
+    }
+    .input-field-password {
+      background-image: url("assets/images/darkModeImages/email.svg");
+    }
   }
   .content{
     background-color: var(--dark-mode-background)!important;

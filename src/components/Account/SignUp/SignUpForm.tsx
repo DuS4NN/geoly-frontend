@@ -144,24 +144,6 @@ const SignUpForm: React.FC = () => {
                 <h2>{text.signUp.title}</h2>
             </div>
 
-            <div className="social-media">
-                <div className="social-media-icon">
-                    <Link to="/">
-                        <img title={text.signUp.signUpFacebook} alt="" src={facebookIcon}/>
-                    </Link>
-                </div>
-                <div className="social-media-icon">
-                    <Link to="/">
-                        <img title={text.signUp.signUpGoogle} alt="" src={googleIcon}/>
-                    </Link>
-                </div>
-                <div className="social-media-icon">
-                    <Link to="/">
-                        <img title={text.signUp.signUpDiscord} alt="" src={discordIcon}/>
-                    </Link>
-                </div>
-            </div>
-
             <div className="form-title">
                 <span>
                     {text.signUp.subTitle}
