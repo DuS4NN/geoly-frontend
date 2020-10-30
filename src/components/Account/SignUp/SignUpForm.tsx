@@ -30,11 +30,6 @@ const SignUpForm: React.FC = () => {
     // Text
     const text = require('../../../assets/languageText/'+userContext['languageId']+'.ts').text
 
-    // Images
-    const facebookIcon = require('../../../assets/images/socialMedia/facebook.svg')
-    const googleIcon = require('../../../assets/images/socialMedia/google.svg')
-    const discordIcon = require('../../../assets/images/socialMedia/discord.svg')
-
     // Inputs
     const emailInput = useRef<HTMLInputElement>(null);
     const nickNameInput = useRef<HTMLInputElement>(null);

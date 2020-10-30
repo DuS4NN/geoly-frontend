@@ -36,11 +36,6 @@ const SignInForm: React.FC<Props> = () => {
     const emailInput = useRef<HTMLInputElement>(null);
     const passwordInput = useRef<HTMLInputElement>(null);
 
-    // Images
-    const facebookIcon = require('../../../assets/images/socialMedia/facebook.svg')
-    const googleIcon = require('../../../assets/images/socialMedia/google.svg')
-    const discordIcon = require('../../../assets/images/socialMedia/discord.svg')
-
     // Methods
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -81,6 +76,15 @@ const SignInForm: React.FC<Props> = () => {
             }
             setUserContext(newUser)
             history.push("/map")
+
+            if(newUser.darkMode){
+                let bodyElement = document.getElementsByTagName("BODY")[0]
+                bodyElement.className = bodyElement.className + "modaldarkmode"
+            }else{
+                let bodyElement = document.getElementsByTagName("BODY")[0]
+                bodyElement.classList.remove("modaldarkmode")
+            }
+
         }).catch(function () {
             alert.error(text.error.BAD_CREDENTIALS)
             setPassword("")

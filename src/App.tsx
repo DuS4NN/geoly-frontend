@@ -34,7 +34,7 @@ function App() {
     let profileImage = localStorage.getItem("profileImage") ? localStorage.getItem("profileImage") : null
     let languageId = localStorage.getItem("languageId") ? localStorage.getItem("languageId") : '1'
     let mapTheme = localStorage.getItem("mapTheme") ? localStorage.getItem("mapTheme") : '1'
-    let darkMode = localStorage.getItem("darkMode") ? localStorage.getItem("darkMode") : 'false'
+    let darkMode = localStorage.getItem("darkMode") ? localStorage.getItem("darkMode") == 'true' : false
 
     let userFromStorage = {
         nickName: nickName,
@@ -92,6 +92,9 @@ function App() {
             if(darkMode){
                 let bodyElement = document.getElementsByTagName("BODY")[0]
                 bodyElement.className = bodyElement.className + "modaldarkmode"
+            }else{
+                let bodyElement = document.getElementsByTagName("BODY")[0]
+                bodyElement.classList.remove("modaldarkmode")
             }
         }
     }, [])
