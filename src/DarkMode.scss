@@ -306,8 +306,10 @@
             border-right: 1px solid var(--dark-mode-border-color)!important;
           }
           .container-table{
+            background-color: var(--dark-mode-input-background);
             border-left: 1px solid var(--dark-mode-border-color)!important;
             border-right: 1px solid var(--dark-mode-border-color)!important;
+            width: 60%;
           }
 
           .container-table-item:hover{
@@ -662,6 +664,9 @@
     .quest-details-description, .quest-detail-graph-label{
       color: var(--dark-mode-white-color-text)!important;
     }
+    .graph-label{
+      color: var(--dark-mode-white-color-text);
+    }
     .quest-private{
       background-color: var(--dark-mode-input-background);
       border-bottom: 1px solid var(--dark-mode-border-color);
@@ -717,6 +722,9 @@
       }
       .header-user-name, .quest-review-text{
         color: var(--dark-mode-white-color-text);
+        a{
+          color: var(--dark-mode-white-color-text);
+        }
       }
     }
     .pagination{

@@ -2,6 +2,20 @@
   font-family: 'OpenSansText';
   src: url("assets/fonts/OpenSans-Light.ttf");
 }
+@font-face {
+  font-family: 'Nexa';
+  src: url('assets/fonts/FFMarkProBold.otf');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url('assets/fonts/OpenSans-Regular.otf');
+}
+@font-face {
+  font-family: 'Nexa';
+  src: url('assets/fonts/Nexa-Light.otf');
+  font-weight: normal;
+}
 
 button{
   img{

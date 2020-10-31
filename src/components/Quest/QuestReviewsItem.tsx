@@ -1,5 +1,6 @@
 import React, {useContext, useState} from "react"
 import {UserContext} from "../../UserContext"
+import {NavLink} from "react-router-dom"
 //@ts-ignore
 import StarRatingComponent from 'react-star-rating-component'
 
@@ -38,7 +39,7 @@ const QuestReviewsItem: React.FC<Props> = (props) => {
                     <img alt="" src={process.env.REACT_APP_IMAGE_SERVER_URL+review.userImage} />
                 </div>
                 <div className="header-user-name">
-                    <span>{review.userName}</span>
+                    <NavLink to={"/profile/"+review.userName}>{review.userName}</NavLink>
                 </div>
 
                 <div className="header-rating">

@@ -70,19 +70,6 @@ const QuestDetails: React.FC<Props> = (props) => {
                     var easingDecimal = ease || 1;
                     var arcs          = this.getMeta().data;
 
-                    var width = this.chart.width,
-                        height = this.chart.height;
-
-                    var fontSize = (height / 85).toFixed(2);
-                    this.chart.ctx.font = fontSize + "em OpenSans";
-                    this.chart.ctx.textBaseline = "middle";
-
-                    var text = details.questDifficulty,
-                        textX = Math.round(width / 2),
-                        textY = height / 1.5;
-
-                    this.chart.ctx.fillText(text, textX, textY);
-
                     Chart.helpers.each(arcs, function(arc:any, i:any) {
                         arc.transition(easingDecimal).draw();
 
@@ -121,27 +108,6 @@ const QuestDetails: React.FC<Props> = (props) => {
                     var easingDecimal = ease || 1;
                     var arcs          = this.getMeta().data;
 
-                    var width = this.chart.width,
-                        height = this.chart.height;
-
-                    var fontSize = (height / 85).toFixed(2);
-                    this.chart.ctx.font = fontSize + "em OpenSans";
-                    this.chart.ctx.textBaseline = "middle";
-
-                    let avgReviewValue = ""
-
-                    if(details.questReview === null){
-                        avgReviewValue = "0"
-                    }else{
-                        avgReviewValue = Math.round(details.questReview)+""
-                    }
-
-                    var text = avgReviewValue,
-                        textX = Math.round(width / 2),
-                        textY = height / 1.5;
-
-                    this.chart.ctx.fillText(text, textX, textY);
-
                     Chart.helpers.each(arcs, function(arc:any, i:any) {
                         arc.transition(easingDecimal).draw();
 
@@ -179,24 +145,6 @@ const QuestDetails: React.FC<Props> = (props) => {
                     var ctx           = this.chart.ctx;
                     var easingDecimal = ease || 1;
                     var arcs          = this.getMeta().data;
-
-                    var width = this.chart.width,
-                        height = this.chart.height;
-
-                    var fontSize = (height / 70).toFixed(2);
-                    this.chart.ctx.font = fontSize + "em OpenSans";
-                    this.chart.ctx.textBaseline = "middle";
-
-                    let successValue = Math.round(100 / (details.countFinish+1 + details.countOnStage + details.countCancel) * (details.countFinish+1))
-                    if(isNaN(successValue)){
-                        successValue = 0
-                    }
-
-                    var text = successValue+'%',
-                        textX = Math.round((width - (this.chart.ctx.measureText(text).width)/2) / 2),
-                        textY = height / 1.5;
-
-                    this.chart.ctx.fillText(text, textX, textY);
 
                     Chart.helpers.each(arcs, function(arc:any, i:any) {
                         arc.transition(easingDecimal).draw();
@@ -352,6 +300,9 @@ const QuestDetails: React.FC<Props> = (props) => {
                         </div>
                         <canvas ref={difficultyChartContainer}>
                         </canvas>
+                        <div className="graph-label">
+                            {details.questDifficulty}
+                        </div>
                     </div>
                     <div className="quest-detail-graph-review">
                         <div className="quest-detail-graph-label">
@@ -359,6 +310,9 @@ const QuestDetails: React.FC<Props> = (props) => {
                         </div>
                         <canvas ref={reviewChartContainer}>
                         </canvas>
+                        <div className="graph-label">
+                            {details.questReview === null ? 0 : Math.round(details.questReview)}
+                        </div>
                     </div>
                     <div className="quest-detail-graph-success">
                         <div className="quest-detail-graph-label">
@@ -366,6 +320,9 @@ const QuestDetails: React.FC<Props> = (props) => {
                         </div>
                         <canvas ref={successChartContainer}>
                         </canvas>
+                        <div className="graph-label">
+                            {isNaN(Math.round(100 / (details.countFinish+1 + details.countOnStage + details.countCancel) * (details.countFinish+1))) ? 0 : Math.round(100 / (details.countFinish+1 + details.countOnStage + details.countCancel) * (details.countFinish+1))}%
+                        </div>
                     </div>
                 </div>
                 <QuestStages stages={stages}/>

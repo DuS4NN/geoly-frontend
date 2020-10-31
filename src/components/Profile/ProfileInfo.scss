@@ -77,6 +77,12 @@
           }
         }
 
+
+        ::-webkit-scrollbar {
+          height: 0;
+          width: 0;
+        }
+
         .badge-item-container{
           width: calc(100% - 130px);
           display: inline-block;
@@ -86,6 +92,8 @@
           -ms-overflow-style: none;
           scrollbar-width: none;
           text-align: center;
+
+
 
           .badge-item-container::-webkit-scrollbar{
             display: none;

@@ -4,12 +4,18 @@
     position: fixed;
     height: 80px;
 
+    .navigation-button{
+      width: auto;
+    }
+
     .navigation-button-content{
+      width: 100%;
+
       button{
         margin-right: 25px;
-        min-width: 100px;
-        padding-right: 5px;
-        padding-left: 5px;
+        padding-right: 15px;
+        padding-left: 15px;
+        font-size: 14px;
       }
     }
 

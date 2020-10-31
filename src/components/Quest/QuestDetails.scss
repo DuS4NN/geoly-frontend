@@ -148,7 +148,15 @@
           margin-bottom: 10px;
         }
 
+        .graph-label{
+          text-align: center;
+          margin-top: -32px;
+          padding-left: 8px;
+          font-family: OpenSans;
+        }
+
         .quest-detail-graph-difficulty{
+          vertical-align:top;
           width: 33%;
           display: table-cell;
 
