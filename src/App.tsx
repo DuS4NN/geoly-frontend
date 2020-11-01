@@ -22,6 +22,7 @@ import PremiumResponse from "./components/Premium/PremiumResponse";
 import Welcome from "./views/Welcome";
 import Settings from "./views/Settings";
 import DailyQuest from "./views/DailyQuest";
+import AdminUser from "./views/Admin/AdminUser"
 
 // Style
 import './App.scss'
@@ -129,6 +130,8 @@ function App() {
                             <Route exact path={"/welcome"} component={Welcome} />
                             <Route exact path={"/settings"} component={Settings} />
                             <Route exact path={"/daily"} component={DailyQuest} />
+
+                            <Route exact path={"/admin/user"} component={AdminUser} />
                         </Switch>
                     </main>
 
