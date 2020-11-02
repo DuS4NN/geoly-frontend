@@ -269,8 +269,8 @@ export const text = {
         activity: 'Activity',
         createdQuests: 'Created quests',
         finishedQuests: 'Finished quests',
-        noCreatedQuests: 'User has no created quests',
-        noFinishedQuests: 'User has no finished quests',
+        noCreatedQuests: 'Users has no created quests',
+        noFinishedQuests: 'Users has no finished quests',
         report: 'Report the user',
         reportTitle: 'Report a user',
         premiumQuest: 'Premium quest'
@@ -337,12 +337,12 @@ export const text = {
     },
     notifications: {
         welcome: 'Welcome to Geoly!',
-        addReview1: 'User',
+        addReview1: 'Users',
         addReview2: 'has posted a review of your',
         addReview3: 'quest'
     },
     invitations: {
-        user: 'User',
+        user: 'Users',
         sentInvite: 'has sent you an invitation to the group',
         accept: 'Accept',
         deny: 'Deny',

@@ -2,7 +2,7 @@ export const adminText = {
     navigation: {
         users: 'Users',
         questReports: 'Quest Reports',
-        userReports: 'User Reports',
+        userReports: 'Users Reports',
         quests: 'Quests'
     },
     user: {
@@ -10,7 +10,7 @@ export const adminText = {
         inputPlaceholder: 'Search users..',
         registeredAt: 'Registered at',
         id: 'ID',
-        user: 'User'
+        user: 'Users'
     },
     error: {
         SOMETHING_WENT_WRONG: "Something went wrong"

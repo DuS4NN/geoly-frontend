@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react"
-import AdminUserInput from "../../components/Admin/User/AdminUserInput";
-import AdminUserList from "../../components/Admin/User/AdminUserList";
+import AdminUserInput from "../../components/Admin/Users/AdminUserInput";
+import AdminUserList from "../../components/Admin/Users/AdminUserList";
 import AdminNavigation from "../../components/Admin/Navigation/AdminNavigation";
-import "../../components/Admin/User/AdminUser.scss"
+import "../../components/Admin/Users/AdminUser.scss"
 import axios from "axios";
 import {useAlert} from "react-alert";
 import {useHistory} from "react-router-dom";

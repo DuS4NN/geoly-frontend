@@ -23,6 +23,7 @@ import Welcome from "./views/Welcome";
 import Settings from "./views/Settings";
 import DailyQuest from "./views/DailyQuest";
 import AdminUser from "./views/Admin/AdminUser"
+import AdminUserEdit from "./views/Admin/AdminUserEdit"
 
 // Style
 import './App.scss'
@@ -30,7 +31,7 @@ import './DarkMode.scss'
 
 // Component
 function App() {
-    // User Context
+    // Users Context
     let nickName = localStorage.getItem("nickName") ? localStorage.getItem("nickName") : null
     let profileImage = localStorage.getItem("profileImage") ? localStorage.getItem("profileImage") : null
     let languageId = localStorage.getItem("languageId") ? localStorage.getItem("languageId") : '1'
@@ -132,6 +133,7 @@ function App() {
                             <Route exact path={"/daily"} component={DailyQuest} />
 
                             <Route exact path={"/admin/user"} component={AdminUser} />
+                            <Route path={"/admin/user/:id"} render={(props) => <AdminUserEdit {...props} />} />
                         </Switch>
                     </main>
 
