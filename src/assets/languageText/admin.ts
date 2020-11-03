@@ -23,7 +23,14 @@ export const adminText = {
         active: 'Active',
         verified: 'Verified',
         private: 'Private',
-        submit: 'Submit'
+        submit: 'Submit',
+
+        badges: 'Badges',
+        return: 'Return',
+
+        badgeName: 'Name',
+        badgeDate: 'Date',
+        action: 'Action'
     },
     language: {
         Slovak: 'Slovak',
@@ -31,5 +38,8 @@ export const adminText = {
     },
     error: {
         SOMETHING_WENT_WRONG: "Something went wrong"
+    },
+    success: {
+        BADGE_DELETED: 'The badge has been deleted'
     }
 }

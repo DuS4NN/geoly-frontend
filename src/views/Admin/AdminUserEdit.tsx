@@ -5,6 +5,7 @@ import {useAlert} from "react-alert";
 import {useHistory} from "react-router-dom";
 import AdminNavigation from "../../components/Admin/Navigation/AdminNavigation";
 import AdminUserDetailsEdit from "../../components/Admin/UserDetail/AdminUserDetailsEdit";
+import AdminUserDetailsTable from "../../components/Admin/UserDetail/AdminUserDetailsTable";
 
 // Props
 interface Props {
@@ -76,7 +77,7 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
                     }
                 }))
 
-                setCreatedQuests(response.data.data[4].map((group:any) => {
+                setCreatedGroups(response.data.data[4].map((group:any) => {
                     return {
                         id: group[0],
                         date: group[1],
@@ -103,7 +104,7 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
                     }
                 }))
             }else{
-                alert.error(text.error)
+                alert.error(text.error.SOMETHING_WENT_WRONG)
             }
         }).catch(function () {
             history.push("/welcome")
@@ -118,6 +119,8 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
 
             <div className="adminUserDetailsContainer">
                 <AdminUserDetailsEdit details={details} setDetails={setDetails} />
+
+                <AdminUserDetailsTable data={badges} setData={setBadges} name={text.userDetails.badges} key={text.userDetails.badges} />
             </div>
         </div>
     )
