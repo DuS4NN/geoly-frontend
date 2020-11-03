@@ -297,7 +297,7 @@ const SettingsProfile: React.FC<Props> = (props) => {
                         <div className="settings-label">
                             <span>{text.settings.private}</span>
                         </div>
-                        {settings.languageId  && (
+                        {settings.languageId && (
                             <Toggle
                                 defaultChecked={settings.privateProfile}
                                 onChange={handleChangePrivate}

@@ -92,7 +92,7 @@ const UserQuestList: React.FC = () => {
             questDate: createdQuest[1],
             questDescription: createdQuest[2],
             questDifficulty: createdQuest[3],
-            questPrivate: createdQuest[4] == 'true',
+            questPrivate: createdQuest[4] === 1,
             categoryName: createdQuest[5],
             categoryImage: createdQuest[6],
             questName: createdQuest[7]

@@ -1,0 +1,161 @@
+.adminUserDetails{
+  width: 100%;
+  height: 100%;
+
+  .adminUserDetailsContainer{
+    display: inline-block;
+    vertical-align: top;
+    width: 80%;
+    height: max-content;
+
+    margin-left: -1px;
+    border-left: 1px solid var(--light-mode-input-backgroud);
+
+    .adminUserDetailsEdit{
+      .title{
+        font-family: Nexa;
+        font-weight: bold;
+        font-size: 40px;
+        text-transform: uppercase;
+        text-align: center;
+        color: var(--light-mode-dark-green);
+
+        padding-top: 50px;
+      }
+
+      .form{
+        width: 60%;
+        height: 100%;
+        padding-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .formItem{
+          width: 100%;
+          margin-top: 20px;
+
+          .itemLabel{
+            text-align: left;
+            font-family: OpenSans;
+            font-size: 13px;
+            color: var(--light-mode-gray-text);
+
+            padding-bottom: 5px;
+          }
+          .itemContent{
+            width: 100%;
+
+            .image{
+              display: table-cell;
+              vertical-align: middle;
+              width: 50px;
+
+              img{
+                vertical-align: middle;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+              }
+            }
+            .deleteButton{
+              display: table-cell;
+              vertical-align: middle;
+              width: 100%;
+              padding-left: 30px;
+
+              button{
+                font-size: 14px;
+                text-decoration: none;
+                letter-spacing: 2px;
+                border-radius: 50px;
+                padding: 8px 30px;
+                border: none;
+                cursor: pointer;
+                color: white;
+                font-family: OpenSans;
+                background-image: linear-gradient(to right, var(--button-light-red), var(--button-dark-red), var(--button-dark-red), var(--button-light-red));
+                box-shadow: 0 4px 15px 0 rgba(191, 52, 75, 0.75);
+                font-weight: normal;
+                background-size: 300% 100%;
+                -o-transition: all .4s ease-in-out;
+                -webkit-transition: all .4s ease-in-out;
+                transition: all .4s ease-in-out;
+              }
+              button:hover {
+                background-position: 100% 0;
+                -o-transition: all .4s ease-in-out;
+                -webkit-transition: all .4s ease-in-out;
+                transition: all .4s ease-in-out;
+              }
+            }
+            .customSelect{
+              .css-26l3qy-menu{
+                font-family:OpenSans;
+              }
+            }
+
+            input{
+              width: 100%;
+              border: none;
+              background-color: var(--light-mode-input-backgroud);
+
+              padding: 15px;
+
+              font-family: OpenSans;
+              font-size: 15px;
+            }
+            input:focus::placeholder{
+              color: var(--light-mode-dark-green);
+            }
+
+            textarea{
+              width: 100%;
+              border: none;
+              background-color: var(--light-mode-input-backgroud);
+              font-family: OpenSans;
+              font-size: 15px;
+              overflow-y: hidden;
+              resize: vertical;
+              padding: 15px;
+              min-height: 60px;
+            }
+            textarea:focus::placeholder{
+              color: var(--light-mode-dark-green);
+            }
+          }
+        }
+        .formButton{
+          width: 100%;
+          text-align: center;
+          padding-top: 30px;
+          padding-bottom: 30px;
+
+          button{
+            font-size: 15px;
+            text-decoration: none;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            padding: 8px 30px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-family: OpenSans;
+            background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
+            box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
+            font-weight: normal;
+            background-size: 300% 100%;
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+          }
+          button:hover {
+            background-position: 100% 0;
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}

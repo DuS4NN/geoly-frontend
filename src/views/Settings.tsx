@@ -41,7 +41,7 @@ const Settings: React.FC = () => {
                 setSettings({
                     mapTheme: response.data.data[0][0],
                     languageId: response.data.data[0][1],
-                    privateProfile: response.data.data[0][2] == 'true',
+                    privateProfile: response.data.data[0][2] === 1,
                     profileImage: response.data.data[0][3],
                     about: response.data.data[0][4],
                     userId: response.data.data[0][5],
