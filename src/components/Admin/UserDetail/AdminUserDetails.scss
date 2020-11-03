@@ -160,6 +160,7 @@
 
     .adminUserDetailsTable{
       padding-top: 50px;
+      padding-bottom: 50px;
       width: 100%;
 
       .header{
@@ -208,17 +209,68 @@
 
         border-bottom: 1px solid var(--light-mode-input-backgroud);
 
+        .reviewsId{
+          display: table-cell;
+          vertical-align: middle;
+          width: 50px;
+          padding-left: 20px;
+        }
+        .reviewsText{
+          padding-left: 10px;
+          display: table-cell;
+          vertical-align: middle;
+        }
+        .reviewsReview{
+          width: 70px;
+          display: table-cell;
+          vertical-align: middle;
+        }
+        .reviewsDate{
+          display: table-cell;
+          vertical-align: middle;
+          width: 120px;
+        }
+        .reviewsAction{
+          display: table-cell;
+          vertical-align: middle;
+          width: 40px;
+          padding-right: 5px;
+        }
+
+
         .badgeName{
           display: table-cell;
           vertical-align: middle;
           padding-left: 20px;
-
         }
         .badgeDate{
           display: table-cell;
           vertical-align: middle;
           text-align: right;
           padding-right: 40px;
+        }
+
+        .questName{
+          width: 70%;
+          display: table-cell;
+          vertical-align: middle;
+          padding-left: 20px;
+        }
+        .questActive{
+          display: table-cell;
+          vertical-align: middle;
+          width: 50px;
+          padding-left: 30px;
+
+          font-family: OpenSans!important;
+          font-size: 14px;
+        }
+        .questDate{
+          display: table-cell;
+          vertical-align: middle;
+          width: 30%;
+          text-align: right;
+          padding-right: 80px;
         }
 
         .groupName{
@@ -316,6 +368,56 @@
         }
       }
 
+      .tableQuests{
+        width: 100%;
+        display: table;
+        height: 50px;
+
+        border-bottom: 1px solid var(--light-mode-input-backgroud);
+
+        .name{
+          display: table-cell;
+          vertical-align: middle;
+          width: 70%;
+
+          a{
+            font-size: 14px;
+            font-family: OpenSans;
+            padding-left: 15px;
+            color: black;
+            text-decoration: none;
+          }
+
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 0;
+        }
+        .date{
+          display: table-cell;
+          vertical-align: middle;
+          width: 30%;
+
+          font-size: 13px;
+          font-family: Nexa;
+          color: var(--light-mode-gray-text);
+          text-align: right;
+
+          padding-right: 15px;
+        }
+        .active{
+          display: table-cell;
+          vertical-align: middle;
+          width: 50px;
+
+          font-size: 14px;
+          font-family: OpenSans;
+          padding-left: 15px;
+          color: black;
+          text-decoration: none;
+        }
+      }
+
       .tableItemBadge{
         width: 100%;
 
@@ -377,53 +479,130 @@
             }
           }
         }
+      }
 
-        .removeItem{
+      .tableItemReview{
+        width: 100%;
+
+        .item {
           width: 100%;
           display: table;
           height: 50px;
           border-bottom: 1px solid var(--light-mode-input-backgroud);
 
-          .removeYes, .removeNo{
+          .quest{
             display: table-cell;
             vertical-align: middle;
-            text-align: center;
-            width: 50%;
-
-            button{
-              font-size: 15px;
+            width: 50px;
+            padding-left: 15px;
+            padding-right: 15px;
+            cursor: pointer;
+            a{
               text-decoration: none;
-              letter-spacing: 2px;
-              border-radius: 50px;
-              padding: 8px 30px;
-              border: none;
-              cursor: pointer;
-              color: white;
               font-family: OpenSans;
-              font-weight: normal;
-              background-size: 300% 100%;
-              -o-transition: all .4s ease-in-out;
-              -webkit-transition: all .4s ease-in-out;
-              transition: all .4s ease-in-out;
-            }
-            button:hover {
-              background-position: 100% 0;
-              -o-transition: all .4s ease-in-out;
-              -webkit-transition: all .4s ease-in-out;
-              transition: all .4s ease-in-out;
+              color: black;
+              font-size: 14px;
             }
           }
-          .removeYes{
-            button{
-              background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
-              box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
+          .text{
+            display: table-cell;
+            vertical-align: middle;
+            width: calc(100% - 305px);
+
+            font-family: OpenSans;
+            font-size: 13px;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 0;
+          }
+          .review{
+            width: 10px;
+            display: table-cell;
+            vertical-align: middle;
+
+            padding-right: 10px;
+            padding-left: 10px;
+
+            font-family: OpenSans;
+            font-size: 13px;
+          }
+
+          .date{
+            width: 140px;
+            display: table-cell;
+            vertical-align: middle;
+
+            color: var(--light-mode-gray-text);
+            text-align: right;
+            font-size: 13px;
+            font-family: Nexa;
+            padding-right: 15px;
+          }
+          .action{
+            display: table-cell;
+            vertical-align: middle;
+            width: 15px;
+            padding-right: 15px;
+            padding-left: 15px;
+
+            img{
+              vertical-align: middle;
+              width: 15px;
+              height: 15px;
+
+              cursor: pointer;
             }
           }
-          .removeNo{
-            button{
-              background-image: linear-gradient(to right, var(--button-light-red), var(--button-dark-red), var(--button-dark-red), var(--button-light-red));
-              box-shadow: 0 4px 15px 0 rgba(191, 52, 75, 0.75);
-            }
+        }
+
+      }
+      .removeItem{
+        width: 100%;
+        display: table;
+        height: 50px;
+        border-bottom: 1px solid var(--light-mode-input-backgroud);
+
+        .removeYes, .removeNo{
+          display: table-cell;
+          vertical-align: middle;
+          text-align: center;
+          width: 50%;
+
+          button{
+            font-size: 15px;
+            text-decoration: none;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            padding: 8px 30px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-family: OpenSans;
+            font-weight: normal;
+            background-size: 300% 100%;
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+          }
+          button:hover {
+            background-position: 100% 0;
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+          }
+        }
+        .removeYes{
+          button{
+            background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
+            box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
+          }
+        }
+        .removeNo{
+          button{
+            background-image: linear-gradient(to right, var(--button-light-red), var(--button-dark-red), var(--button-dark-red), var(--button-light-red));
+            box-shadow: 0 4px 15px 0 rgba(191, 52, 75, 0.75);
           }
         }
       }

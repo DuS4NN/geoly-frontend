@@ -25,11 +25,16 @@ export const adminText = {
         verified: 'Verified',
         private: 'Private',
         submit: 'Submit',
+        text: 'Text',
+        review: 'Reviews',
 
         //Table name
         badges: 'Badges',
         createdGroups: 'Created groups',
         joinedGroups: 'Joined groups',
+        createdQuests: 'Created quests',
+        playedQuests: 'Played quests',
+        reviews: 'Reviews',
 
         //Header items
         badgeName: 'Name',
@@ -45,6 +50,7 @@ export const adminText = {
         SOMETHING_WENT_WRONG: "Something went wrong"
     },
     success: {
-        BADGE_DELETED: 'The badge has been deleted'
+        BADGE_DELETED: 'The badge has been deleted',
+        REVIEW_DELETED: 'The reviews has been deleted'
     }
 }

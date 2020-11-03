@@ -124,7 +124,9 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
                 <AdminUserDetailsTable data={badges} setData={setBadges} name={text.userDetails.badges} key={text.userDetails.badges} />
                 <AdminUserDetailsTable data={createdGroups} setData={setCreatedGroups} name={text.userDetails.createdGroups} key={text.userDetails.createdGroups} />
                 <AdminUserDetailsTable data={joinedGroups} setData={setJoinedGroups} name={text.userDetails.joinedGroups} key={text.userDetails.joinedGroups} />
-
+                <AdminUserDetailsTable data={createdQuests} setData={setCreatedQuests} name={text.userDetails.createdQuests} key={text.userDetails.createdQuests }/>
+                <AdminUserDetailsTable data={playedQuests} setData={setPlayedQuests} name={text.userDetails.playedQuests} key={text.userDetails.playedQuests} />
+                <AdminUserDetailsTable data={reviews} setData={setReviews} name={text.userDetails.reviews} key={text.userDetails.reviews} />
             </div>
         </div>
     )

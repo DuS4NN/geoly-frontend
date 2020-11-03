@@ -2,6 +2,9 @@ import React, {useState} from "react"
 import ItemBadge from "./TableItems/ItemBadges";
 import ItemCreatedGroup from "./TableItems/ItemCreatedGroup";
 import ItemJoinedGroup from "./TableItems/ItemJoinedGroup";
+import ItemQuests from "./TableItems/ItemQuests";
+import ItemReview from "./TableItems/ItemReview";
+
 
 // Props
 interface Props {
@@ -125,6 +128,83 @@ const AdminUserDetailsTable: React.FC<Props> = (props:any) => {
         )
     }
 
+    const returnQuests = () => {
+        return (
+            <div>
+                <div className="header">
+                    <div className="title">
+                        <span>{name}</span>
+                    </div>
+                    <div className="arrow">
+                        <img onClick={handleShow} alt="" src={show ? require("../../../assets/images/otherIcons/arrow-up.svg") : require("../../../assets/images/otherIcons/arrow-down.svg")} />
+                    </div>
+                </div>
+
+                {show && (
+                    <div>
+                        <div className="itemHeader">
+                            <div className="questName">
+                                <span>{text.userDetails.badgeName}</span>
+                            </div>
+                            <div className="questActive">
+                                <span>{text.userDetails.active}</span>
+                            </div>
+                            <div className="questDate">
+                                <span>{text.userDetails.badgeDate}</span>
+                            </div>
+                        </div>
+
+                        {data.map((createdQuest:any) => (
+                            <ItemQuests quest={createdQuest} key={createdQuest.id} />
+                        ))}
+                    </div>
+                )}
+            </div>
+        )
+    }
+
+    const returnReviews = () => {
+        return (
+            <div>
+                <div className="header">
+                    <div className="title">
+                        <span>{name}</span>
+                    </div>
+                    <div className="arrow">
+                        <img onClick={handleShow} alt="" src={show ? require("../../../assets/images/otherIcons/arrow-up.svg") : require("../../../assets/images/otherIcons/arrow-down.svg")} />
+                    </div>
+                </div>
+
+                {show && (
+                    <div>
+                        <div className="itemHeader">
+                            <div className="reviewsId">
+                                <span>{text.userDetails.badgeName}</span>
+                            </div>
+                            <div className="reviewsText">
+                                <span>{text.userDetails.text}</span>
+                            </div>
+                            <div className="reviewsReview">
+                                <span>{text.userDetails.review}</span>
+                            </div>
+                            <div className="reviewsDate">
+                                <span>{text.userDetails.badgeDate}</span>
+                            </div>
+                            <div className="reviewsAction">
+                                <span>{text.userDetails.action}</span>
+                            </div>
+                        </div>
+
+                        {data.map((review:any) => (
+                            <ItemReview review={review} setReviews={setData} reviews={data} key={review.id} />
+                        ))}
+                    </div>
+                )}
+            </div>
+        )
+    }
+
+
     // Template
     return (
         <div className="adminUserDetailsTable">
@@ -137,7 +217,15 @@ const AdminUserDetailsTable: React.FC<Props> = (props:any) => {
             {name === text.userDetails.joinedGroups && (
                 returnJoinedGroups()
             )}
-
+            {name === text.userDetails.createdQuests && (
+                returnQuests()
+            )}
+            {name === text.userDetails.playedQuests && (
+                returnQuests()
+            )}
+            {name === text.userDetails.reviews && (
+                returnReviews()
+            )}
         </div>
     )
 }
