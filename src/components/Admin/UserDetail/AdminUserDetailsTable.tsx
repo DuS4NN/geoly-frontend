@@ -4,6 +4,7 @@ import ItemCreatedGroup from "./TableItems/ItemCreatedGroup";
 import ItemJoinedGroup from "./TableItems/ItemJoinedGroup";
 import ItemQuests from "./TableItems/ItemQuests";
 import ItemReview from "./TableItems/ItemReview";
+import ItemPoint from "./TableItems/ItemPoint";
 
 
 // Props
@@ -204,6 +205,38 @@ const AdminUserDetailsTable: React.FC<Props> = (props:any) => {
         )
     }
 
+    const returnPoints = () => {
+        return (
+            <div>
+                <div className="header">
+                    <div className="title">
+                        <span>{name}</span>
+                    </div>
+                    <div className="arrow">
+                        <img onClick={handleShow} alt="" src={show ? require("../../../assets/images/otherIcons/arrow-up.svg") : require("../../../assets/images/otherIcons/arrow-down.svg")} />
+                    </div>
+                </div>
+
+                {show && (
+                    <div>
+                        <div className="itemHeader">
+                            <div className="pointSeason">
+                                <span>{text.userDetails.season}</span>
+                            </div>
+                            <div className="pointAmount">
+                                <span>{text.userDetails.amount}</span>
+                            </div>
+                        </div>
+
+                        {data.map((point:any) => (
+                            <ItemPoint point={point} key={point.season} />
+                        ))}
+                    </div>
+                )}
+            </div>
+        )
+    }
+
 
     // Template
     return (
@@ -225,6 +258,9 @@ const AdminUserDetailsTable: React.FC<Props> = (props:any) => {
             )}
             {name === text.userDetails.reviews && (
                 returnReviews()
+            )}
+            {name === text.userDetails.points && (
+                returnPoints()
             )}
         </div>
     )

@@ -35,12 +35,15 @@ export const adminText = {
         createdQuests: 'Created quests',
         playedQuests: 'Played quests',
         reviews: 'Reviews',
+        points: 'Points',
 
         //Header items
         badgeName: 'Name',
         badgeDate: 'Date',
         action: 'Action',
-        owner: 'Owner'
+        owner: 'Owner',
+        season: 'Season',
+        amount: 'Amount'
     },
     language: {
         Slovak: 'Slovak',

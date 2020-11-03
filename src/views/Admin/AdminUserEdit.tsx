@@ -21,6 +21,7 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
     const [createdQuests, setCreatedQuests] = useState([]) as Array<any>
     const [playedQuests, setPlayedQuests] = useState([]) as Array<any>
     const [reviews, setReviews] = useState([]) as Array<any>
+    const [points, setPoints] = useState([]) as Array<any>
 
     const text = require('../../assets/languageText/admin').adminText
     const alert = useAlert()
@@ -56,7 +57,7 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
                         id: quest[0],
                         date: quest[1],
                         name: quest[2],
-                        active: quest[3],
+                        active: quest[3]
                     }
                 }))
 
@@ -65,7 +66,7 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
                         id: quest[0],
                         date: quest[1],
                         name: quest[2],
-                        active: quest[3],
+                        active: quest[3]
                     }
                 }))
 
@@ -75,7 +76,7 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
                         name: group[1],
                         ownerId: group[2],
                         ownerNick: group[3],
-                        date: group[4],
+                        date: group[4]
                     }
                 }))
 
@@ -83,7 +84,7 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
                     return {
                         id: group[0],
                         date: group[1],
-                        name: group[2],
+                        name: group[2]
                     }
                 }))
 
@@ -92,7 +93,7 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
                         id: badge[0],
                         name: badge[1],
                         image: badge[2],
-                        date: badge[3],
+                        date: badge[3]
                     }
                 }))
 
@@ -102,7 +103,15 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
                         text: review[1],
                         review: review[2],
                         questId: review[3],
-                        id: review[4],
+                        id: review[4]
+                    }
+                }))
+
+                setPoints(response.data.data[7].map((point:any) => {
+                    return {
+                        month: point[0],
+                        year: point[1],
+                        amount: point[2]
                     }
                 }))
             }else{
@@ -128,6 +137,7 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
                 <AdminUserDetailsTable data={createdQuests} setData={setCreatedQuests} name={text.userDetails.createdQuests} key={text.userDetails.createdQuests }/>
                 <AdminUserDetailsTable data={playedQuests} setData={setPlayedQuests} name={text.userDetails.playedQuests} key={text.userDetails.playedQuests} />
                 <AdminUserDetailsTable data={reviews} setData={setReviews} name={text.userDetails.reviews} key={text.userDetails.reviews} />
+                <AdminUserDetailsTable data={points} setData={setPoints} name={text.userDetails.points} key={text.userDetails.points} />
             </div>
         </div>
     )
