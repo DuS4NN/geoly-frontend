@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from "react"
+import React, {useState} from "react"
 import ItemBadge from "./TableItems/ItemBadges";
-import axios from "axios"
+import ItemCreatedGroup from "./TableItems/ItemCreatedGroup";
+import ItemJoinedGroup from "./TableItems/ItemJoinedGroup";
 
 // Props
 interface Props {
@@ -57,11 +58,84 @@ const AdminUserDetailsTable: React.FC<Props> = (props:any) => {
         )
     }
 
+    const returnCreatedGroups = () => {
+        return (
+            <div>
+                <div className="header">
+                    <div className="title">
+                        <span>{name}</span>
+                    </div>
+                    <div className="arrow">
+                        <img onClick={handleShow} alt="" src={show ? require("../../../assets/images/otherIcons/arrow-up.svg") : require("../../../assets/images/otherIcons/arrow-down.svg")} />
+                    </div>
+                </div>
+
+                {show && (
+                    <div>
+                        <div className="itemHeader">
+                            <div className="groupName">
+                                <span>{text.userDetails.badgeName}</span>
+                            </div>
+                            <div className="groupDate">
+                                <span>{text.userDetails.badgeDate}</span>
+                            </div>
+                        </div>
+
+                        {data.map((createdGroup:any) => (
+                            <ItemCreatedGroup group={createdGroup} key={createdGroup.id} />
+                        ))}
+                    </div>
+                )}
+            </div>
+        )
+    }
+
+    const returnJoinedGroups = () => {
+        return (
+            <div>
+                <div className="header">
+                    <div className="title">
+                        <span>{name}</span>
+                    </div>
+                    <div className="arrow">
+                        <img onClick={handleShow} alt="" src={show ? require("../../../assets/images/otherIcons/arrow-up.svg") : require("../../../assets/images/otherIcons/arrow-down.svg")} />
+                    </div>
+                </div>
+
+                {show && (
+                    <div>
+                        <div className="itemHeader">
+                            <div className="joinedGroupName">
+                                <span>{text.userDetails.badgeName}</span>
+                            </div>
+                            <div className="joinedGroupUser">
+                                <span>{text.userDetails.owner}</span>
+                            </div>
+                            <div className="joinedGroupDate">
+                                <span>{text.userDetails.badgeDate}</span>
+                            </div>
+                        </div>
+
+                        {data.map((createdGroup:any) => (
+                            <ItemJoinedGroup group={createdGroup} key={createdGroup.id} />
+                        ))}
+                    </div>
+                )}
+            </div>
+        )
+    }
+
     // Template
     return (
         <div className="adminUserDetailsTable">
             {name === text.userDetails.badges && (
                 returnBadges()
+            )}
+            {name === text.userDetails.createdGroups && (
+                returnCreatedGroups()
+            )}
+            {name === text.userDetails.joinedGroups && (
+                returnJoinedGroups()
             )}
 
         </div>

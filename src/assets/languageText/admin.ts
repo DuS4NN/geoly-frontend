@@ -16,6 +16,7 @@ export const adminText = {
         nick: 'Nickname',
         image: 'Profile image',
         delete: 'Delete',
+        return: 'Return',
         email: 'Email',
         address: 'Address',
         about: 'About',
@@ -25,12 +26,16 @@ export const adminText = {
         private: 'Private',
         submit: 'Submit',
 
+        //Table name
         badges: 'Badges',
-        return: 'Return',
+        createdGroups: 'Created groups',
+        joinedGroups: 'Joined groups',
 
+        //Header items
         badgeName: 'Name',
         badgeDate: 'Date',
-        action: 'Action'
+        action: 'Action',
+        owner: 'Owner'
     },
     language: {
         Slovak: 'Slovak',

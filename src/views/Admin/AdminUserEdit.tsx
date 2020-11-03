@@ -72,8 +72,9 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
                     return {
                         id: group[0],
                         name: group[1],
-                        nick: group[2],
-                        date: group[3],
+                        ownerId: group[2],
+                        ownerNick: group[3],
+                        date: group[4],
                     }
                 }))
 
@@ -110,7 +111,7 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
         })
-    }, [])
+    }, [props])
 
     // Template
     return (
@@ -121,6 +122,9 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
                 <AdminUserDetailsEdit details={details} setDetails={setDetails} />
 
                 <AdminUserDetailsTable data={badges} setData={setBadges} name={text.userDetails.badges} key={text.userDetails.badges} />
+                <AdminUserDetailsTable data={createdGroups} setData={setCreatedGroups} name={text.userDetails.createdGroups} key={text.userDetails.createdGroups} />
+                <AdminUserDetailsTable data={joinedGroups} setData={setJoinedGroups} name={text.userDetails.joinedGroups} key={text.userDetails.joinedGroups} />
+
             </div>
         </div>
     )
