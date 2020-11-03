@@ -37,15 +37,16 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
             if(statusCode === 'OK'){
                 let userDetails = response.data.data[0][0]
                 setDetails({
+                    id: props.match.params.id,
                     image: userDetails[0],
                     nick: userDetails[1],
                     about: userDetails[2],
                     active: userDetails[3] === 1,
                     email: userDetails[4],
                     address: userDetails[5],
-                    verified: userDetails[6],
-                    private: userDetails[7],
-                    darkMode: userDetails[8],
+                    verified: userDetails[6] === 1,
+                    private: userDetails[7] === 1,
+                    darkMode: userDetails[8] === 1,
                     mapTheme: userDetails[9],
                     language: userDetails[10]
                 })

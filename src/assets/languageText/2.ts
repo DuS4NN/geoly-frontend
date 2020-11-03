@@ -421,6 +421,7 @@ export const text = {
         QUEST_NOT_FOUND: 'Quest not found',
         SELECT_REASON: 'Select a reason',
         SELECT_QUEST: 'Select a quest',
+        INVALID_ADDRESS: 'The address format is invalid',
         UNAUTHORIZED: 'You must be logged in to access this page'
     },
     success: {

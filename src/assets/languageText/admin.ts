@@ -51,6 +51,8 @@ export const adminText = {
     },
     success: {
         BADGE_DELETED: 'The badge has been deleted',
-        REVIEW_DELETED: 'The reviews has been deleted'
+        REVIEW_DELETED: 'The reviews has been deleted',
+        PROFILE_IMAGE_DELETED: 'The profile image has been deleted',
+        USER_UPDATED: 'The user has been updated'
     }
 }
