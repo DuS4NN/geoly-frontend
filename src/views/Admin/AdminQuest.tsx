@@ -52,6 +52,9 @@ const AdminQuest: React.FC = () => {
             withCredentials: true
         }).then(function (response) {
             setCount(response.data)
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(text.error.SOMETHING_WENT_WRONG)
         })
 
         findQuests("")
