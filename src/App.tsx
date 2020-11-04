@@ -28,6 +28,7 @@ import AdminUserEdit from "./views/Admin/AdminUserEdit"
 // Style
 import './App.scss'
 import './DarkMode.scss'
+import AdminQuest from "./views/Admin/AdminQuest";
 
 // Component
 function App() {
@@ -134,6 +135,8 @@ function App() {
 
                             <Route exact path={"/admin/user"} component={AdminUser} />
                             <Route path={"/admin/user/:id"} render={(props) => <AdminUserEdit {...props} />} />
+
+                            <Route exact path={"/admin/quest"} component={AdminQuest} />
                         </Switch>
                     </main>
 

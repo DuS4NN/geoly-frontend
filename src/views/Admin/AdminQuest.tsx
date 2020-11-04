@@ -1,42 +1,41 @@
 import React, {useEffect, useState} from "react"
-import AdminUserInput from "../../components/Admin/Users/AdminUserInput";
-import AdminUserList from "../../components/Admin/Users/AdminUserList";
 import AdminNavigation from "../../components/Admin/Navigation/AdminNavigation";
-import "../../components/Admin/Users/AdminUser.scss"
+import "../../components/Admin/Quests/AdminQuest.scss"
 import axios from "axios";
 import {useAlert} from "react-alert";
 import {useHistory} from "react-router-dom";
+import AdminQuestInput from "../../components/Admin/Quests/AdminQuestInput";
+import AdminQuestList from "../../components/Admin/Quests/AdminQuestList";
 
 
 // Component
-const AdminUser: React.FC = () => {
+const AdminQuest: React.FC = () => {
 
     const text = require('../../assets/languageText/admin').adminText
     const alert = useAlert()
     const history = useHistory()
 
-    const [userList, setUserList] = useState([]) as Array<any>
+    const [questList, setQuestList] = useState([]) as Array<any>
     const [page, setPage] = useState(1) as Array<any>
     const [count, setCount] = useState(0) as Array<any>
 
-    const findUsers = (nick:any) => {
+    const findQuests = (name:any) => {
         axios({
             method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/adminUser?page='+page+'&nick='+nick,
+            url: process.env.REACT_APP_API_SERVER_URL+'/adminQuest?page='+page+'&name='+name,
             withCredentials: true
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
 
             if(statusCode === 'OK'){
-                let newUsers = response.data.data.map((user:any) => {
+                let newQuests = response.data.data.map((user:any) => {
                     return {
-                        id: user[0],
-                        nick: user[1],
-                        date: user[2],
-                        image: user[3]
+                        name: user[0],
+                        id: user[1],
+                        date: user[2]
                     }
                 })
-                setUserList(newUsers)
+                setQuestList(newQuests)
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
@@ -49,27 +48,27 @@ const AdminUser: React.FC = () => {
     useEffect(() => {
         axios({
             method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/adminUserCount',
+            url: process.env.REACT_APP_API_SERVER_URL+'/adminQuestCount',
             withCredentials: true
         }).then(function (response) {
             setCount(response.data)
         })
 
-        findUsers("")
+        findQuests("")
     }, [])
 
     // Template
     return (
-        <div className="adminUser">
+        <div className="adminQuest">
             <AdminNavigation />
 
-            <div className="adminUserContainer">
-                <AdminUserInput findUsers={findUsers} />
-                <AdminUserList userList={userList} page={page} setPage={setPage} count={count} />
+            <div className="adminQuestContainer">
+                <AdminQuestInput findQuests={findQuests} />
+                <AdminQuestList questList={questList} page={page} count={count} setPage={setPage} />
             </div>
 
         </div>
     )
 }
 
-export default AdminUser
+export default AdminQuest

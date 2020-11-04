@@ -7,10 +7,10 @@ export const adminText = {
     },
     user: {
         title: 'Users',
-        inputPlaceholder: 'Search users..',
+        inputPlaceholder: 'Search users by nickname..',
         registeredAt: 'Registered at',
         id: 'ID',
-        user: 'Users'
+        user: 'User'
     },
     userDetails: {
         nick: 'Nickname',
@@ -44,6 +44,13 @@ export const adminText = {
         owner: 'Owner',
         season: 'Season',
         amount: 'Amount'
+    },
+    quest: {
+        title: 'Quests',
+        inputPlaceholder: 'Search quests by name...',
+        id: 'ID',
+        createdAt: 'Created at',
+        quest: 'Quest'
     },
     language: {
         Slovak: 'Slovak',
