@@ -2,8 +2,18 @@ export const adminText = {
     navigation: {
         users: 'Users',
         questReports: 'Quest Reports',
-        userReports: 'Users Reports',
-        quests: 'Quests'
+        userReports: 'User Reports',
+        quests: 'Quests',
+
+        main: 'Main',
+        seasons: 'Seasons',
+        groups: 'Groups',
+        questCreator: 'Quest Creator',
+
+        //Admin
+        logs: 'Logs',
+        payments: 'Payments',
+        roles: 'Roles'
     },
     user: {
         title: 'Users',
@@ -43,7 +53,9 @@ export const adminText = {
         action: 'Action',
         owner: 'Owner',
         season: 'Season',
-        amount: 'Amount'
+        amount: 'Amount',
+        quest: 'Quest',
+        rating: 'Rating'
     },
     quest: {
         title: 'Quests',

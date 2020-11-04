@@ -180,13 +180,13 @@ const AdminUserDetailsTable: React.FC<Props> = (props:any) => {
                     <div>
                         <div className="itemHeader">
                             <div className="reviewsId">
-                                <span>{text.userDetails.badgeName}</span>
+                                <span>{text.userDetails.quest}</span>
                             </div>
                             <div className="reviewsText">
                                 <span>{text.userDetails.text}</span>
                             </div>
                             <div className="reviewsReview">
-                                <span>{text.userDetails.review}</span>
+                                <span>{text.userDetails.rating}</span>
                             </div>
                             <div className="reviewsDate">
                                 <span>{text.userDetails.badgeDate}</span>
