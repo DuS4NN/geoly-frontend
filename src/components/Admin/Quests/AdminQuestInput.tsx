@@ -1,15 +1,16 @@
-import React, {ChangeEvent, useEffect} from "react"
+import React, {ChangeEvent} from "react"
 import {debounce} from "lodash-es";
 
 // Props
 interface Props {
-    findQuests: any
+    setQuest: (quest:any) => void
+    setPage: (page:number) => void
 }
 
 // Component
 const AdminQuestInput: React.FC<Props> = (props) => {
 
-    const {findQuests} = props
+    const {setQuest, setPage} = props
 
     const text = require('../../../assets/languageText/admin').adminText
 
@@ -18,7 +19,8 @@ const AdminQuestInput: React.FC<Props> = (props) => {
     }
 
     const handleSearch = debounce((name:any) => {
-        findQuests(name)
+        setQuest(name)
+        setPage(1)
     }, 500)
 
     // Template

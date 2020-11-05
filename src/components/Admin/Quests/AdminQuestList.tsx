@@ -23,6 +23,8 @@ const AdminQuestList: React.FC<Props> = (props) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            paddingTop: '20px',
+            paddingBottom: '20px'
         },
     }))
     const theme = createMuiTheme({

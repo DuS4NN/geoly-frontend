@@ -18,17 +18,20 @@ const AdminQuest: React.FC = () => {
     const [questList, setQuestList] = useState([]) as Array<any>
     const [page, setPage] = useState(1) as Array<any>
     const [count, setCount] = useState(0) as Array<any>
+    const [quest, setQuest] = useState("") as Array<any>
 
-    const findQuests = (name:any) => {
+    const findQuests = () => {
         axios({
             method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/adminQuest?page='+page+'&name='+name,
+            url: process.env.REACT_APP_API_SERVER_URL+'/adminQuest?page='+page+'&name='+quest,
             withCredentials: true
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
 
             if(statusCode === 'OK'){
-                let newQuests = response.data.data.map((user:any) => {
+                setCount(response.data.data[0])
+
+                let newQuests = response.data.data[1].map((user:any) => {
                     return {
                         name: user[0],
                         id: user[1],
@@ -46,19 +49,8 @@ const AdminQuest: React.FC = () => {
     }
 
     useEffect(() => {
-        axios({
-            method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/adminQuestCount',
-            withCredentials: true
-        }).then(function (response) {
-            setCount(response.data)
-        }).catch(function () {
-            history.push("/welcome")
-            alert.error(text.error.SOMETHING_WENT_WRONG)
-        })
-
-        findQuests("")
-    }, [])
+        findQuests()
+    }, [page, quest])
 
     // Template
     return (
@@ -66,7 +58,7 @@ const AdminQuest: React.FC = () => {
             <AdminNavigation />
 
             <div className="adminQuestContainer">
-                <AdminQuestInput findQuests={findQuests} />
+                <AdminQuestInput setQuest={setQuest} setPage={setPage}/>
                 <AdminQuestList questList={questList} page={page} count={count} setPage={setPage} />
             </div>
 

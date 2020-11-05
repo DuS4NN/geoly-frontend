@@ -3,13 +3,14 @@ import {debounce} from "lodash-es";
 
 // Props
 interface Props {
-    findUsers: any
+    setUser: (user:any) => void
+    setPage: (page:number) => void
 }
 
 // Component
 const AdminUserInput: React.FC<Props> = (props) => {
 
-    const {findUsers} = props
+    const {setUser, setPage} = props
 
     const text = require('../../../assets/languageText/admin').adminText
 
@@ -18,7 +19,8 @@ const AdminUserInput: React.FC<Props> = (props) => {
     }
 
     const handleSearch = debounce((nick:any) => {
-        findUsers(nick)
+        setUser(nick)
+        setPage(1)
     }, 500)
 
     // Template
