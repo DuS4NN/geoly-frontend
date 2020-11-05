@@ -13,7 +13,6 @@
     border-left: 1px solid var(--light-mode-input-backgroud);
 
     .adminQuestDetails{
-
       .title{
         font-family: Nexa;
         font-weight: bold;
@@ -28,7 +27,6 @@
 
         word-break: break-all;
       }
-
       .form {
         width: 60%;
         height: 100%;
@@ -127,6 +125,162 @@
             -o-transition: all .4s ease-in-out;
             -webkit-transition: all .4s ease-in-out;
             transition: all .4s ease-in-out;
+          }
+        }
+      }
+    }
+
+    .adminQuestStageList{
+
+      .title{
+        font-family: Nexa;
+        font-weight: bold;
+        font-size: 40px;
+        text-transform: uppercase;
+        text-align: center;
+        color: var(--light-mode-dark-green);
+
+        padding-top: 50px;
+        padding-left: 30px;
+        padding-right: 30px;
+
+        word-break: break-all;
+      }
+
+      .form {
+        width: 60%;
+        height: 100%;
+        padding-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .stage{
+          width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+          height: 50px;
+          margin-top: 30px;
+
+          display: table;
+          position: relative;
+
+          border: 1px solid var(--light-mode-input-backgroud);
+
+          .stage-id{
+            display: table-cell;
+            vertical-align: middle;
+            padding-left: 10px;
+            padding-right: 10px;
+
+            font-family: OpenSans;
+            color: var(--light-mode-dark-green);
+            font-size: 14px;
+          }
+          .stage-image{
+            display: table-cell;
+            vertical-align: middle;
+            width: 40px;
+            img{
+              vertical-align: middle;
+              width: 30px;
+              height: 30px;
+            }
+
+          }
+          .stage-name{
+            display: table-cell;
+            vertical-align: middle;
+            width: 100%;
+            padding-left: 15px;
+
+            font-size: 14px;
+            font-family: OpenSans;
+          }
+          .stage-roll{
+            display: table-cell;
+            vertical-align: middle;
+            width: 15px;
+
+            padding-right: 10px!important;
+            img{
+              cursor: pointer;
+              width: 15px;
+              height: 15px;
+            }
+          }
+        }
+        .stage-items{
+          margin-right: auto;
+          margin-left: auto;
+          padding-top: 15px;
+          width: 100%;
+          padding-bottom: 15px;
+          border-left: 1px solid var(--light-mode-input-backgroud);
+          border-right: 1px solid var(--light-mode-input-backgroud);
+          border-bottom: 1px solid var(--light-mode-input-backgroud);
+
+          input{
+            width: calc(100% - 30px);
+            border: none;
+            background-color: var(--light-mode-input-backgroud);
+
+            padding: 15px;
+
+            font-family: OpenSans;
+            font-size: 15px;
+          }
+          input:focus::placeholder{
+            color: var(--light-mode-dark-green);
+          }
+
+          .qr-code{
+            text-align: center;
+            img{
+              width: 70%;
+              max-width: 300px;
+            }
+          }
+          .label{
+            display: block;
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: OpenSans;
+            font-size: 13px;
+            padding-left: 5px;
+            padding-bottom: 5px;
+            color: var(--light-mode-gray-text);
+
+            img{
+              padding-left: 7px;
+              width: 13px;
+              height: 13px;
+            }
+          }
+          .answer-list{
+            width: 100%;
+
+            .correct{
+              border: 1px solid var(--button-light-green)!important;
+            }
+            .answer-item{
+              min-height: 22px;
+              margin-top: 7px;
+              padding-top: 5px;
+              padding-bottom: 5px;
+              border-radius: 10px;
+              border: 1px solid var(--light-mode-input-backgroud);
+              .name{
+                padding-right: 5px;
+                padding-left: 15px;
+                vertical-align: middle;
+                display: table-cell;
+                font-family: OpenSans;
+                font-size: 16px;
+                text-align: left;
+                width: 100%;
+              }
+            }
           }
         }
       }

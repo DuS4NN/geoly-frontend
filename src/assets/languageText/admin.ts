@@ -74,7 +74,8 @@ export const adminText = {
         premium: 'Premium',
         user: 'User ID',
         createdAt: 'Created at',
-        submit: 'Submit'
+        submit: 'Submit',
+        stages: 'Stages',
     },
     language: {
         Slovak: 'Slovak',

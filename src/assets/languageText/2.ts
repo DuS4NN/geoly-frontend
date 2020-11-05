@@ -180,7 +180,11 @@ export const text = {
         noteToolTip: 'A note that will be displayed to the user after the stage is completed',
         adviseToolTip: 'A user can ask for a advice, but it costs a points',
 
-        addToGroup: 'Add to group'
+        addToGroup: 'Add to group',
+
+        //Admin
+        latitude: 'Latitude',
+        longitude: 'Longitude'
     },
     stageStatus: {
         ON_STAGE: 'In progress',

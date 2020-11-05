@@ -7,6 +7,7 @@ import {useHistory} from "react-router-dom";
 import AdminQuestDetails from "../../components/Admin/QuestEdit/AdminQuestDetails";
 
 import '../../components/Admin/QuestEdit/AdminQuestEdit.scss'
+import AdminQuestStageList from "../../components/Admin/QuestEdit/AdminQuestStageList";
 
 // Props
 interface Props {
@@ -138,6 +139,7 @@ const AdminQuestEdit: React.FC<Props> = (props:any) => {
 
             <div className="adminQuestEditContainer">
                 <AdminQuestDetails category={category} details={details} setDetails={setDetails} />
+                <AdminQuestStageList stages={stages} />
             </div>
 
         </div>
