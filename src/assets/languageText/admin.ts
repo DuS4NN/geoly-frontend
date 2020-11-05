@@ -64,6 +64,18 @@ export const adminText = {
         createdAt: 'Created at',
         quest: 'Quest'
     },
+    questDetails: {
+        name: 'Name',
+        description: 'Description',
+        category: 'Category',
+        difficulty: 'Difficulty',
+        active: 'Active',
+        private: 'Private',
+        premium: 'Premium',
+        user: 'User ID',
+        createdAt: 'Created at',
+        submit: 'Submit'
+    },
     language: {
         Slovak: 'Slovak',
         English: 'English'
@@ -75,6 +87,7 @@ export const adminText = {
         BADGE_DELETED: 'The badge has been deleted',
         REVIEW_DELETED: 'The reviews has been deleted',
         PROFILE_IMAGE_DELETED: 'The profile image has been deleted',
-        USER_UPDATED: 'The user has been updated'
+        USER_UPDATED: 'The user has been updated',
+        QUEST_EDITED: 'The quest has been updated'
     }
 }

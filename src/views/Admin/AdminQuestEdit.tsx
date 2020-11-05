@@ -4,6 +4,9 @@ import "../../components/Admin/Quests/AdminQuest.scss"
 import axios from "axios";
 import {useAlert} from "react-alert";
 import {useHistory} from "react-router-dom";
+import AdminQuestDetails from "../../components/Admin/QuestEdit/AdminQuestDetails";
+
+import '../../components/Admin/QuestEdit/AdminQuestEdit.scss'
 
 // Props
 interface Props {
@@ -13,6 +16,7 @@ interface Props {
 const AdminQuestEdit: React.FC<Props> = (props:any) => {
 
     const text = require('../../assets/languageText/admin').adminText
+    const oldText = require('../../assets/languageText/2.ts').text
     const alert = useAlert()
     const history = useHistory()
 
@@ -71,13 +75,15 @@ const AdminQuestEdit: React.FC<Props> = (props:any) => {
             let statusCode = response.data.responseEntity.statusCode
 
             if(statusCode === 'OK'){
-                let newDetail = response.data.data[0]
+                let newDetail = response.data.data[0][0]
+
                 setDetails({
+                    id: props.match.params.id,
                     createdAt: newDetail[0],
                     name: newDetail[1],
-                    active: newDetail[2],
-                    premium: newDetail[3],
-                    privateQuest: newDetail[4],
+                    active: newDetail[2] === 1,
+                    premium: newDetail[3] === 1,
+                    privateQuest: newDetail[4] === 1,
                     difficulty: newDetail[5],
                     description: newDetail[6],
                     category: newDetail[7],
@@ -111,7 +117,12 @@ const AdminQuestEdit: React.FC<Props> = (props:any) => {
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/categories',
         }).then(function (response) {
-            setCategory(response.data)
+            setCategory(response.data.map((category:any) => {
+                return {
+                    value: category.id,
+                    label: oldText.category[category.name.toLowerCase()]
+                }
+            }))
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -126,7 +137,7 @@ const AdminQuestEdit: React.FC<Props> = (props:any) => {
             <AdminNavigation />
 
             <div className="adminQuestEditContainer">
-
+                <AdminQuestDetails category={category} details={details} setDetails={setDetails} />
             </div>
 
         </div>
