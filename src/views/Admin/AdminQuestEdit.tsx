@@ -8,6 +8,8 @@ import AdminQuestDetails from "../../components/Admin/QuestEdit/AdminQuestDetail
 
 import '../../components/Admin/QuestEdit/AdminQuestEdit.scss'
 import AdminQuestStageList from "../../components/Admin/QuestEdit/AdminQuestStageList";
+import AdminQuestPlayedInput from "../../components/Admin/QuestEdit/AdminQuestPlayedInput";
+import AdminQuestPlayedList from "../../components/Admin/QuestEdit/AdminQuestPlayedList";
 
 // Props
 interface Props {
@@ -30,14 +32,12 @@ const AdminQuestEdit: React.FC<Props> = (props:any) => {
     const [page, setPage] = useState(1) as Array<any>
     const [count, setCount] = useState(0) as Array<any>
 
-    const getPlayed = (id:any) => {
-        if(id === ""){
-            id = 0
-        }
+    const [user, setUser] = useState(0) as Array<any>
 
+    const getPlayed = () => {
         axios({
             method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/adminQuestPlayed?id='+props.match.params.id+"&page="+page+"&userId="+id,
+            url: process.env.REACT_APP_API_SERVER_URL+'/adminQuestPlayed?id='+props.match.params.id+"&page="+page+"&userId="+user,
             withCredentials: true
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
@@ -55,6 +55,7 @@ const AdminQuestEdit: React.FC<Props> = (props:any) => {
                         nickName: played[5],
                         userId: played[6],
                         userImage: played[7],
+                        createdAt: played[8]
                     }
                 }))
 
@@ -66,6 +67,10 @@ const AdminQuestEdit: React.FC<Props> = (props:any) => {
             alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }
+
+    useEffect(() => {
+        getPlayed()
+    }, [page, user])
 
     useEffect(() => {
         axios({
@@ -128,8 +133,6 @@ const AdminQuestEdit: React.FC<Props> = (props:any) => {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
         })
-
-        getPlayed("")
     }, [])
 
     // Template
@@ -140,6 +143,10 @@ const AdminQuestEdit: React.FC<Props> = (props:any) => {
             <div className="adminQuestEditContainer">
                 <AdminQuestDetails category={category} details={details} setDetails={setDetails} />
                 <AdminQuestStageList stages={stages} />
+
+
+                <AdminQuestPlayedInput setPage={setPage} setUser={setUser} />
+                <AdminQuestPlayedList played={played} count={count} page={page} setPage={setPage} />
             </div>
 
         </div>

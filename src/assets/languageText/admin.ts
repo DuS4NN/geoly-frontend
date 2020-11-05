@@ -76,6 +76,13 @@ export const adminText = {
         createdAt: 'Created at',
         submit: 'Submit',
         stages: 'Stages',
+        inputPlaceholder: 'User ID..',
+        played: 'Played',
+
+        id: 'ID',
+        stage: 'Stage',
+        userName: 'User',
+        status: 'Status'
     },
     language: {
         Slovak: 'Slovak',

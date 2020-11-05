@@ -12,21 +12,22 @@
     margin-left: -1px;
     border-left: 1px solid var(--light-mode-input-backgroud);
 
+    .title{
+      font-family: Nexa;
+      font-weight: bold;
+      font-size: 40px;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--light-mode-dark-green);
+
+      padding-top: 50px;
+      padding-left: 30px;
+      padding-right: 30px;
+
+      word-break: break-all;
+    }
+
     .adminQuestDetails{
-      .title{
-        font-family: Nexa;
-        font-weight: bold;
-        font-size: 40px;
-        text-transform: uppercase;
-        text-align: center;
-        color: var(--light-mode-dark-green);
-
-        padding-top: 50px;
-        padding-left: 30px;
-        padding-right: 30px;
-
-        word-break: break-all;
-      }
       .form {
         width: 60%;
         height: 100%;
@@ -131,22 +132,6 @@
     }
 
     .adminQuestStageList{
-
-      .title{
-        font-family: Nexa;
-        font-weight: bold;
-        font-size: 40px;
-        text-transform: uppercase;
-        text-align: center;
-        color: var(--light-mode-dark-green);
-
-        padding-top: 50px;
-        padding-left: 30px;
-        padding-right: 30px;
-
-        word-break: break-all;
-      }
-
       .form {
         width: 60%;
         height: 100%;
@@ -282,6 +267,157 @@
               }
             }
           }
+        }
+      }
+    }
+
+    .adminQuestPlayedInput{
+      .input{
+        padding-top: 50px;
+        text-align: center;
+
+        input{
+          width: 50%;
+          border: none;
+          background-color: var(--light-mode-input-backgroud);
+
+          padding: 15px;
+
+          font-family: OpenSans;
+          font-size: 15px;
+        }
+        input:focus::placeholder{
+          color: var(--light-mode-dark-green);
+        }
+      }
+    }
+
+    .adminQuestPlayedList{
+      margin-left: auto;
+      margin-right: auto;
+      width: 60%;
+      margin-top: 50px;
+
+      border-top: 1px solid var(--light-mode-input-backgroud);
+      border-left: 1px solid var(--light-mode-input-backgroud);
+      border-right: 1px solid var(--light-mode-input-backgroud);
+
+      .header{
+        width: 100%;
+        height: 50px;
+        display: table;
+
+        font-family: Nexa;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 15px;
+        color: var(--light-mode-dark-green);
+
+        .id{
+          display: table-cell;
+          vertical-align: middle;
+          min-width: 80px;
+          padding-left: 15px;
+        }
+        .stage{
+          display: table-cell;
+          vertical-align: middle;
+          min-width: 80px;
+        }
+        .user{
+          display: table-cell;
+          vertical-align: middle;
+          width: 100%;
+        }
+
+        .status{
+          padding-right: 15px;
+          display: table-cell;
+          vertical-align: middle;
+          width: 20px;
+        }
+      }
+    }
+
+    .adminQuestPlayedItem{
+      width: 100%;
+      height: 60px;
+      display: block;
+
+      border-bottom: 1px solid var(--light-mode-input-backgroud);
+
+      .itemData{
+        width: 100%;
+        height: 40px;
+        display: table;
+
+        font-family: OpenSans;
+        font-size: 14px;
+
+        .id{
+          display: table-cell;
+          vertical-align: middle;
+          width: 80px;
+          padding-left: 15px;
+
+          color: var(--light-mode-dark-green);
+        }
+        .stage{
+          display: table-cell;
+          vertical-align: middle;
+          width: 80px;
+
+        }
+        .user{
+          display: table-cell;
+          vertical-align: middle;
+
+          a{
+            color: black;
+            cursor: pointer;
+            text-decoration: none;
+          }
+
+        }
+        .status{
+          display: table-cell;
+          vertical-align: middle;
+          width: 20px;
+          padding-right: 15px;
+
+          img{
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+
+      .itemDate{
+        width: 100%;
+        height: 20px;
+        display: table;
+
+        .created{
+          display: table-cell;
+          vertical-align: middle;
+          width: 50%;
+          text-align: left;
+          font-family: OpenSans;
+          font-size: 13px;
+
+          padding-bottom: 5px;
+          padding-left: 15px;
+        }
+        .updated{
+          display: table-cell;
+          vertical-align: middle;
+          width: 50%;
+          text-align: right;
+          font-family: OpenSans;
+          font-size: 13px;
+
+          padding-bottom: 5px;
+          padding-right: 15px;
         }
       }
     }
