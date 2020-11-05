@@ -19,7 +19,11 @@ const AdminQuestPlayedInput: React.FC<Props> = (props) => {
     }
 
     const handleSearch = debounce((id:any) => {
-        if(!parseInt(id)){
+        if(id === ""){
+            setUser(0)
+            setPage(1)
+            return
+        }else if(!parseInt(id)){
             return
         }
         setPage(1)
