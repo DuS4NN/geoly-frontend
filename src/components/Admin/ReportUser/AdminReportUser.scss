@@ -1,0 +1,219 @@
+.adminReportUser{
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  .adminReportUserContainer{
+    display: inline-block;
+    vertical-align: top;
+    width: 80%;
+    height: max-content;
+
+    margin-left: -1px;
+    border-left: 1px solid var(--light-mode-input-backgroud);
+
+    .adminUserReportInput{
+      width: 100%;
+      padding-top: 50px;
+
+      .title{
+        font-family: Nexa;
+        font-weight: bold;
+        font-size: 40px;
+        text-transform: uppercase;
+        text-align: center;
+        color: var(--light-mode-dark-green);
+      }
+
+      .input{
+        padding-top: 50px;
+        text-align: center;
+
+        input{
+          width: 50%;
+          border: none;
+          background-color: var(--light-mode-input-backgroud);
+
+          padding: 15px;
+
+          font-family: OpenSans;
+          font-size: 15px;
+        }
+        input:focus::placeholder{
+          color: var(--light-mode-dark-green);
+        }
+      }
+    }
+
+    .adminReportUserList{
+      width: 100%;
+      padding-top: 50px;
+
+      .header{
+        width: 100%;
+        height: 50px;
+        display: table;
+
+        font-family: Nexa;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 15px;
+        color: var(--light-mode-dark-green);
+
+        .user{
+          display: table-cell;
+          vertical-align: middle;
+          width: 60%;
+          padding-left: 15px;
+        }
+        .count{
+          display: table-cell;
+          vertical-align: middle;
+          width: 40%;
+
+          padding-right: 60px;
+
+          text-align: right;
+        }
+      }
+    }
+
+    .adminReportUserItem{
+      display: block;
+      border-bottom: 1px solid var(--light-mode-input-backgroud);
+
+      .itemContent{
+        display: table;
+        width: 100%;
+        height: 50px;
+
+        .image{
+          display: table-cell;
+          vertical-align: middle;
+          width: 30px;
+          padding-left: 15px;
+          padding-right: 15px;
+
+          img{
+            vertical-align: middle;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
+        }
+        .name{
+          display: table-cell;
+          vertical-align: middle;
+          width: 100%;
+
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 0;
+
+          a{
+            font-family: OpenSans;
+            font-size: 14px;
+            text-decoration: none;
+            color: black;
+          }
+        }
+        .count{
+          display: table-cell;
+          vertical-align: middle;
+          min-width: 75px;
+
+          padding-right: 15px;
+
+          font-family: OpenSans;
+          font-size: 14px;
+          text-align: left;
+        }
+        .arrow{
+          display: table-cell;
+          vertical-align: middle;
+          padding-right: 15px;
+          width: 15px;
+          img{
+            cursor: pointer;
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+      .itemContent:hover{
+        background-color: var(--light-mode-input-backgroud);
+      }
+
+      .reportDetails{
+        display: block;
+        width: 100%;
+        padding-bottom: 15px;
+
+        .detailsContainer{
+          width: 100%;
+
+          .title{
+            width: 100%;
+            text-align: center;
+            font-family: Nexa;
+            font-weight: bold;
+            font-size: 17px;
+            padding-top: 15px;
+            padding-bottom: 10px;
+            color: var(--light-mode-dark-green);
+          }
+
+          .details{
+            text-align: center;
+            display: block;
+            width: 100%;
+            padding-bottom: 5px;
+
+            font-family: OpenSans;
+            font-size: 14px;
+
+            .reason{
+              display: inline-block;
+              padding-left: 15px;
+            }
+            .count{
+              display: inline-block;
+            }
+          }
+        }
+
+        .detailsButton{
+          width: 100%;
+          padding-top: 20px;
+          text-align: center;
+
+          button{
+            font-size: 16px;
+            text-decoration: none;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            padding: 8px 30px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-family: OpenSans;
+            background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
+            box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
+            font-weight: normal;
+            background-size: 300% 100%;
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+          }
+          button:hover {
+            background-position: 100% 0;
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}

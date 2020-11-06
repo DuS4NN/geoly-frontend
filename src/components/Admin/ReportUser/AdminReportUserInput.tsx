@@ -8,7 +8,7 @@ interface Props {
 }
 
 // Component
-const AdminUserInput: React.FC<Props> = (props) => {
+const AdminUserReportInput: React.FC<Props> = (props) => {
 
     const {setUser, setPage} = props
 
@@ -25,15 +25,15 @@ const AdminUserInput: React.FC<Props> = (props) => {
 
     // Template
     return (
-        <div className="adminUserInput">
+        <div className="adminUserReportInput">
             <div className="title">
-                <span>{text.user.title}</span>
+                <span>{text.userReport.title}</span>
             </div>
             <div className="input">
-                <input maxLength={15} onChange={handleInputChange} placeholder={text.user.inputPlaceholder} />
+                <input maxLength={15} onChange={handleInputChange} placeholder={text.userReport.inputPlaceholder} />
             </div>
         </div>
     )
 }
 
-export default AdminUserInput
+export default AdminUserReportInput

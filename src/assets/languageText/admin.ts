@@ -59,7 +59,7 @@ export const adminText = {
     },
     quest: {
         title: 'Quests',
-        inputPlaceholder: 'Search quests by name...',
+        inputPlaceholder: 'Search quests by name..',
         id: 'ID',
         createdAt: 'Created at',
         quest: 'Quest'
@@ -84,6 +84,15 @@ export const adminText = {
         userName: 'User',
         status: 'Status'
     },
+    userReport: {
+        title: 'User Reports',
+        inputPlaceholder: 'Search user by nickname..',
+        user: 'User',
+        count: 'Count',
+        solved: 'Solved',
+        unsolved: 'Unsolved',
+        solve: 'Solve'
+    },
     language: {
         Slovak: 'Slovak',
         English: 'English'
@@ -96,6 +105,7 @@ export const adminText = {
         REVIEW_DELETED: 'The reviews has been deleted',
         PROFILE_IMAGE_DELETED: 'The profile image has been deleted',
         USER_UPDATED: 'The user has been updated',
-        QUEST_EDITED: 'The quest has been updated'
+        QUEST_EDITED: 'The quest has been updated',
+        REPORTS_SOLVED: 'The reports has been solved'
     }
 }
