@@ -31,6 +31,7 @@ import './DarkMode.scss'
 import AdminQuest from "./views/Admin/AdminQuest";
 import AdminQuestEdit from "./views/Admin/AdminQuestEdit";
 import AdminReportUser from "./views/Admin/AdminReportUser";
+import AdminReportQuest from "./views/Admin/AdminReportQuest";
 
 // Component
 function App() {
@@ -142,6 +143,7 @@ function App() {
                             <Route path={"/admin/quest/:id"} render={(props) => <AdminQuestEdit {...props} />} />
 
                             <Route exact path={"/admin/reportUser"} component={AdminReportUser} />
+                            <Route exact path={"/admin/reportQuest"} component={AdminReportQuest} />
                         </Switch>
                     </main>
 

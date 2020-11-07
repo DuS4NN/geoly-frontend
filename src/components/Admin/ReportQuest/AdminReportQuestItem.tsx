@@ -11,7 +11,7 @@ interface Props {
 }
 
 // Component
-const AdminReportUserItem: React.FC<Props> = (props) => {
+const AdminReportQuestItem: React.FC<Props> = (props) => {
 
     const {report, reports, setReports} = props
 
@@ -29,10 +29,11 @@ const AdminReportUserItem: React.FC<Props> = (props) => {
         if(!roll && unsolved.length === 0){
             axios({
                 method: 'GET',
-                url: process.env.REACT_APP_API_SERVER_URL+'/adminReportUserDetails?id='+report.userId,
+                url: process.env.REACT_APP_API_SERVER_URL+'/adminReportQuestDetails?id='+report.questId,
                 withCredentials: true
             }).then(function (response) {
                 let statusCode = response.data.responseEntity.statusCode
+
                 if(statusCode === 'OK'){
                     setSolved(response.data.data[0].map((report:any) => {
                         return {
@@ -63,7 +64,7 @@ const AdminReportUserItem: React.FC<Props> = (props) => {
     const handleSolve = () => {
         axios({
             method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/adminReportUserSolve?id='+report.userId,
+            url: process.env.REACT_APP_API_SERVER_URL+'/adminReportQuestSolve?id='+report.questId,
             withCredentials: true
         }).then(function (response) {
             let serverResponse = response.data.responseEntity.body
@@ -72,7 +73,7 @@ const AdminReportUserItem: React.FC<Props> = (props) => {
             if(statusCode === 'ACCEPTED'){
 
                 setReports(reports.filter(function (r:any) {
-                    return r.userId !== report.userId
+                    return r.questId !== report.questId
                 }))
 
                 alert.success(adminText.success[serverResponse])
@@ -87,14 +88,11 @@ const AdminReportUserItem: React.FC<Props> = (props) => {
 
     // Template
     return (
-        <div className="adminReportUserItem">
+        <div className="adminReportQuestItem">
 
             <div className="itemContent">
-                <div className="image">
-                    <img alt="" src={process.env.REACT_APP_IMAGE_SERVER_URL+report.image} />
-                </div>
                 <div className="name">
-                    <NavLink to={"/admin/user/"+report.userId}>{report.nick}</NavLink>
+                    <NavLink to={"/admin/quest/"+report.questId}>{report.name}</NavLink>
                 </div>
                 <div className="count">
                     <span>{report.count}</span>
@@ -153,4 +151,4 @@ const AdminReportUserItem: React.FC<Props> = (props) => {
     )
 }
 
-export default AdminReportUserItem
+export default AdminReportQuestItem

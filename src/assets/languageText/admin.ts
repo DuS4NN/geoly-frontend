@@ -93,6 +93,10 @@ export const adminText = {
         unsolved: 'Unsolved',
         solve: 'Solve'
     },
+    questReport: {
+        title: 'Quest Reports',
+        inputPlaceholder: 'Search quest by name..',
+    },
     language: {
         Slovak: 'Slovak',
         English: 'English'

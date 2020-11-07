@@ -1,9 +1,9 @@
-.adminReportUser{
+.adminReportUser, .adminReportQuest{
   width: 100%;
   height: 100%;
   display: block;
 
-  .adminReportUserContainer{
+  .adminReportUserContainer, .adminReportQuestContainer{
     display: inline-block;
     vertical-align: top;
     width: 80%;
@@ -12,7 +12,7 @@
     margin-left: -1px;
     border-left: 1px solid var(--light-mode-input-backgroud);
 
-    .adminUserReportInput{
+    .adminUserReportInput, .adminQuestReportInput{
       width: 100%;
       padding-top: 50px;
 
@@ -45,7 +45,7 @@
       }
     }
 
-    .adminReportUserList{
+    .adminReportUserList, .adminReportQuestList{
       width: 100%;
       padding-top: 50px;
 
@@ -60,7 +60,7 @@
         font-size: 15px;
         color: var(--light-mode-dark-green);
 
-        .user{
+        .user, .quest{
           display: table-cell;
           vertical-align: middle;
           width: 60%;
@@ -78,7 +78,7 @@
       }
     }
 
-    .adminReportUserItem{
+    .adminReportUserItem, .adminReportQuestItem{
       display: block;
       border-bottom: 1px solid var(--light-mode-input-backgroud);
 
@@ -92,7 +92,6 @@
           vertical-align: middle;
           width: 30px;
           padding-left: 15px;
-          padding-right: 15px;
 
           img{
             vertical-align: middle;
@@ -105,6 +104,8 @@
           display: table-cell;
           vertical-align: middle;
           width: 100%;
+
+          padding-left: 15px;
 
           white-space: nowrap;
           overflow: hidden;
