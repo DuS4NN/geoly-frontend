@@ -38,6 +38,11 @@
         width: 100%;
         font-family: OpenSans;
         font-size: 14px;
+
+        a{
+          text-decoration: none;
+          color: black;
+        }
       }
     }
     .item:hover{

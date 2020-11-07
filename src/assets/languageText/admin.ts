@@ -7,7 +7,6 @@ export const adminText = {
 
         main: 'Main',
         seasons: 'Seasons',
-        groups: 'Groups',
         questCreator: 'Quest Creator',
 
         //Admin
