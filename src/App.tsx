@@ -62,15 +62,20 @@ function App() {
             }).then(function (response) {
                 let statusCode = response.data.responseEntity.statusCode
                 if(statusCode === 'OK'){
-                    let data = response.data.data[0]
+
+                    let options = response.data.data[1][0]
+                    let roles = response.data.data[0]
+
 
                     let newUser = {
-                        nickName: data[0],
-                        profileImage: data[1],
-                        mapTheme: data[2],
-                        darkMode: data[3],
-                        languageId: data[4]
+                        languageId: options[0],
+                        mapTheme: options[1],
+                        darkMode: options[2],
+                        nickName: options[3],
+                        profileImage: options[4],
+                        roles: roles
                     } as any
+
                     setUserContext(newUser)
 
                     if(newUser.darkMode){
@@ -81,7 +86,8 @@ function App() {
                     setUserContext({
                         ...userContext,
                         nickName: null,
-                        profileImage: null
+                        profileImage: null,
+                        roles: null
                     })
                     localStorage.removeItem("nickName")
                     localStorage.removeItem("profileImage")

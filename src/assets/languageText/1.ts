@@ -38,6 +38,7 @@ export const text = {
         submitButton: 'Obnoviť'
     },
     navigation: {
+        admin: 'Admin',
         map: 'Mapa',
         ranking: 'Rebríček',
         quests: 'Úlohy',

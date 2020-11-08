@@ -1,5 +1,5 @@
 import React, {ChangeEvent, FormEvent, useContext, useRef, useState} from "react"
-import {Link, useHistory} from "react-router-dom"
+import {useHistory} from "react-router-dom"
 import {useAlert} from "react-alert"
 import axios from "axios"
 //Context
@@ -61,19 +61,29 @@ const SignInForm: React.FC<Props> = () => {
             url: process.env.REACT_APP_API_SERVER_URL+'/login?username='+email+'&password='+password,
             withCredentials: true
         }).then(function (response) {
-            localStorage.setItem('nickName', response.data.nickName)
-            localStorage.setItem("profileImage", response.data.profileImage)
-            localStorage.setItem('languageId', response.data.languageId)
-            localStorage.setItem('mapTheme', response.data.mapTheme)
-            localStorage.setItem('darkMode', response.data.darkMode)
+            let languageId = response.data.options[0][0]
+            let mapTheme = response.data.options[0][1]
+            let darkMode = response.data.options[0][2]
+            let nickName = response.data.options[0][3]
+            let profileImage = response.data.options[0][4]
+
+            let roles = response.data.roles
+
+            localStorage.setItem('languageId', languageId)
+            localStorage.setItem('mapTheme', mapTheme)
+            localStorage.setItem('darkMode', darkMode)
+            localStorage.setItem('nickName', nickName)
+            localStorage.setItem("profileImage", profileImage)
 
             let newUser:LogInUser = {
-                nickName: response.data.nickName,
-                profileImage: response.data.profileImage,
-                languageId: response.data.languageId,
-                mapTheme: response.data.mapTheme,
-                darkMode: response.data.darkMode
+                languageId: languageId,
+                mapTheme: mapTheme,
+                darkMode: darkMode,
+                nickName: nickName,
+                profileImage: profileImage,
+                roles: roles
             }
+
             setUserContext(newUser)
             history.push("/map")
 
@@ -85,7 +95,7 @@ const SignInForm: React.FC<Props> = () => {
                 bodyElement.classList.remove("modaldarkmode")
             }
 
-        }).catch(function () {
+        }).catch(function (error) {
             alert.error(text.error.BAD_CREDENTIALS)
             setPassword("")
         })

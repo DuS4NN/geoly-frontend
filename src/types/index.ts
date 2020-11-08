@@ -3,7 +3,8 @@ export interface LogInUser {
     profileImage: string,
     mapTheme: number,
     darkMode: boolean,
-    languageId: number
+    languageId: number,
+    roles: string[]
 }
 
 export interface RankingPlayer {

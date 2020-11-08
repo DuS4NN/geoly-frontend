@@ -38,6 +38,7 @@ export const text = {
         submitButton: 'Reset'
     },
     navigation: {
+        admin: 'Admin',
         map: 'Map',
         ranking: 'Ranking',
         quests: 'Quests',

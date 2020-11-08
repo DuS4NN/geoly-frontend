@@ -99,6 +99,16 @@ const NavigationRoll: React.FC<Props> = (props) => {
             <div className="navigation-triangle">
             </div>
                 <FadeIn right by={70} delayBy={0.05}>
+                    {(userContext['roles'].includes("MOD") || userContext['roles'].includes("ADMIN")) && (
+                        <Link onClick={handleClick} to={'/admin'} className="navigation-roll-item admin">
+                            <div className="navigation-roll-item-icon">
+                                <img src={require("../../assets/images/navigationIcons/admin.svg")} alt="" />
+                            </div>
+                            <div className="navigation-roll-item-title">
+                                <span>{text.navigation.admin}</span>
+                            </div>
+                        </Link>
+                    )}
 
                     <article className="navigation-roll-item">
 
