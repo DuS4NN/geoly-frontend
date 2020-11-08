@@ -96,12 +96,24 @@ export const adminText = {
         title: 'Quest Reports',
         inputPlaceholder: 'Search quest by name..',
     },
+    groupEdit: {
+        user: 'User',
+        createdAt: 'CreatedAt',
+        users: 'Users',
+        kick: 'Kick',
+        return: 'Return',
+        quests: 'Quests',
+        delete: 'Delete',
+        no: 'No',
+        yes: 'Yes'
+    },
     language: {
         Slovak: 'Slovak',
         English: 'English'
     },
     error: {
-        SOMETHING_WENT_WRONG: "Something went wrong"
+        SOMETHING_WENT_WRONG: "Something went wrong",
+        CAN_NOT_KICK_OWNER: 'The founder of the group cannot be kicked out'
     },
     success: {
         BADGE_DELETED: 'The badge has been deleted',
@@ -109,6 +121,8 @@ export const adminText = {
         PROFILE_IMAGE_DELETED: 'The profile image has been deleted',
         USER_UPDATED: 'The user has been updated',
         QUEST_EDITED: 'The quest has been updated',
-        REPORTS_SOLVED: 'The reports has been solved'
+        REPORTS_SOLVED: 'The reports has been solved',
+        USER_KICKED: 'The user has been kicked',
+        QUEST_DELETED: 'The quest has been deleted'
     }
 }

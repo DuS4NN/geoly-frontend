@@ -133,7 +133,7 @@ const AdminQuestEdit: React.FC<Props> = (props:any) => {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
         })
-    }, [])
+    }, [props])
 
     // Template
     return (
