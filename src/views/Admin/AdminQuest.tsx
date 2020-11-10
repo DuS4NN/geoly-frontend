@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import AdminNavigation from "../../components/Admin/Navigation/AdminNavigation";
 import "../../components/Admin/Quests/AdminQuest.scss"
 import axios from "axios";
@@ -6,14 +6,23 @@ import {useAlert} from "react-alert";
 import {useHistory} from "react-router-dom";
 import AdminQuestInput from "../../components/Admin/Quests/AdminQuestInput";
 import AdminQuestList from "../../components/Admin/Quests/AdminQuestList";
+import {UserContext} from "../../UserContext";
 
 
 // Component
 const AdminQuest: React.FC = () => {
 
+    const {userContext} = useContext(UserContext)
+    const userText = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
+
     const text = require('../../assets/languageText/admin').adminText
     const alert = useAlert()
     const history = useHistory()
+
+    if(userContext['roles'] === undefined || (!userContext['roles'].includes("MOD") && !userContext['roles'].includes("ADMIN"))){
+        history.push("/")
+        alert.error(userText.error.PERMISSION_DENIED)
+    }
 
     const [questList, setQuestList] = useState([]) as Array<any>
     const [page, setPage] = useState(1) as Array<any>

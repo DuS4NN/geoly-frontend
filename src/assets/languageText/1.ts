@@ -420,7 +420,8 @@ export const text = {
         QUEST_NOT_FOUND: 'Úloha nenájdená',
         SELECT_REASON: 'Vyberte dôvod',
         SELECT_QUEST: 'Vyberte úlohu',
-        UNAUTHORIZED: 'Pre vstup na túto stránku sa musíte prihlásiť'
+        UNAUTHORIZED: 'Pre vstup na túto stránku sa musíte prihlásiť',
+        PERMISSION_DENIED: 'Nemáte oprávnenie vstúpiť na túto stránku'
     },
     success: {
         // Register

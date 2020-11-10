@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import AdminNavigation from "../../components/Admin/Navigation/AdminNavigation";
 import "../../components/Admin/Quests/AdminQuest.scss"
 import axios from "axios";
@@ -10,6 +10,7 @@ import '../../components/Admin/QuestEdit/AdminQuestEdit.scss'
 import AdminQuestStageList from "../../components/Admin/QuestEdit/AdminQuestStageList";
 import AdminQuestPlayedInput from "../../components/Admin/QuestEdit/AdminQuestPlayedInput";
 import AdminQuestPlayedList from "../../components/Admin/QuestEdit/AdminQuestPlayedList";
+import {UserContext} from "../../UserContext";
 
 // Props
 interface Props {
@@ -18,10 +19,18 @@ interface Props {
 // Component
 const AdminQuestEdit: React.FC<Props> = (props:any) => {
 
+    const {userContext} = useContext(UserContext)
+    const userText = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
+
     const text = require('../../assets/languageText/admin').adminText
     const oldText = require('../../assets/languageText/2.ts').text
     const alert = useAlert()
     const history = useHistory()
+
+    if(userContext['roles'] === undefined || (!userContext['roles'].includes("MOD") && !userContext['roles'].includes("ADMIN"))){
+        history.push("/")
+        alert.error(userText.error.PERMISSION_DENIED)
+    }
 
     const [details, setDetails] = useState({}) as Array<any>
     const [played, setPlayed] = useState([]) as Array<any>

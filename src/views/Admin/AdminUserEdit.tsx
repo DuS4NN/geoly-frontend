@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import axios from "axios"
 import "../../components/Admin/UserDetail/AdminUserDetails.scss"
 import {useAlert} from "react-alert";
@@ -6,6 +6,7 @@ import {useHistory} from "react-router-dom";
 import AdminNavigation from "../../components/Admin/Navigation/AdminNavigation";
 import AdminUserDetailsEdit from "../../components/Admin/UserDetail/AdminUserDetailsEdit";
 import AdminUserDetailsTable from "../../components/Admin/UserDetail/AdminUserDetailsTable";
+import {UserContext} from "../../UserContext";
 
 // Props
 interface Props {
@@ -14,6 +15,17 @@ interface Props {
 // Component
 const AdminUserEdit: React.FC<Props> = (props:any) => {
 
+    const {userContext} = useContext(UserContext)
+    const userText = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
+
+    const text = require('../../assets/languageText/admin').adminText
+    const alert = useAlert()
+    const history = useHistory()
+
+    if(userContext['roles'] === undefined || (!userContext['roles'].includes("MOD") && !userContext['roles'].includes("ADMIN"))){
+        history.push("/")
+        alert.error(userText.error.PERMISSION_DENIED)
+    }
     const [details, setDetails] = useState({}) as Array<any>
     const [badges, setBadges] = useState([]) as Array<any>
     const [createdGroups, setCreatedGroups] = useState([]) as Array<any>
@@ -22,10 +34,6 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
     const [playedQuests, setPlayedQuests] = useState([]) as Array<any>
     const [reviews, setReviews] = useState([]) as Array<any>
     const [points, setPoints] = useState([]) as Array<any>
-
-    const text = require('../../assets/languageText/admin').adminText
-    const alert = useAlert()
-    const history = useHistory()
 
     useEffect(() => {
         axios({

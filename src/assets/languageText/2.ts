@@ -427,7 +427,8 @@ export const text = {
         SELECT_REASON: 'Select a reason',
         SELECT_QUEST: 'Select a quest',
         INVALID_ADDRESS: 'The address format is invalid',
-        UNAUTHORIZED: 'You must be logged in to access this page'
+        UNAUTHORIZED: 'You must be logged in to access this page',
+        PERMISSION_DENIED: 'You do not have permission to access this page'
     },
     success: {
         // Register
