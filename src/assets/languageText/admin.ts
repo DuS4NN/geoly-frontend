@@ -107,6 +107,14 @@ export const adminText = {
         no: 'No',
         yes: 'Yes'
     },
+    season: {
+        title: 'Seasons',
+        year: 'Year',
+        month: 'Month',
+        show: 'Show',
+        user: 'User',
+        amount: 'Amount'
+    },
     language: {
         Slovak: 'Slovak',
         English: 'English'

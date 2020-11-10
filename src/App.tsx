@@ -33,6 +33,7 @@ import AdminQuestEdit from "./views/Admin/AdminQuestEdit";
 import AdminReportUser from "./views/Admin/AdminReportUser";
 import AdminReportQuest from "./views/Admin/AdminReportQuest";
 import AdminGroupEdit from "./views/Admin/AdminGroupEdit";
+import AdminSeason from "./views/Admin/AdminSeason";
 
 // Component
 function App() {
@@ -153,6 +154,7 @@ function App() {
                             <Route exact path={"/admin/reportQuest"} component={AdminReportQuest} />
 
                             <Route path={"/admin/group/:id"} render={(props) => <AdminGroupEdit {...props} />} />
+                            <Route path={"/admin/season"} component={AdminSeason} />
                         </Switch>
                     </main>
 
