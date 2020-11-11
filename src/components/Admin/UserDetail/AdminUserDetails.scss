@@ -158,6 +158,56 @@
       }
     }
 
+    .adminUserDetailsRoles{
+      width: 100%;
+
+      .adminUserDetailsRolesContainer{
+        margin-top: 20px;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: OpenSans;
+
+        .roleSelect{
+          display: inline-block;
+          vertical-align: top;
+          width: 80%;
+        }
+        .roleSubmit{
+          display: inline-block;
+          vertical-align: top;
+          padding-left: 2%;
+          width: 18%;
+          text-align: right;
+
+          button{
+            font-size: 15px;
+            text-decoration: none;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            padding: 8px 30px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-family: OpenSans;
+            background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
+            box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
+            font-weight: normal;
+            background-size: 300% 100%;
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+          }
+          button:hover {
+            background-position: 100% 0;
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+          }
+        }
+      }
+    }
+
     .adminUserDetailsTable{
       padding-top: 50px;
       padding-bottom: 50px;

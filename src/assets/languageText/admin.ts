@@ -4,15 +4,14 @@ export const adminText = {
         questReports: 'Quest Reports',
         userReports: 'User Reports',
         quests: 'Quests',
-
         main: 'Main',
         seasons: 'Seasons',
+
         questCreator: 'Quest Creator',
 
         //Admin
         logs: 'Logs',
         payments: 'Payments',
-        roles: 'Roles'
     },
     user: {
         title: 'Users',
@@ -36,6 +35,7 @@ export const adminText = {
         submit: 'Submit',
         text: 'Text',
         review: 'Reviews',
+        save: 'Save',
 
         //Table name
         badges: 'Badges',
@@ -127,7 +127,8 @@ export const adminText = {
     },
     error: {
         SOMETHING_WENT_WRONG: "Something went wrong",
-        CAN_NOT_KICK_OWNER: 'The founder of the group cannot be kicked out'
+        CAN_NOT_KICK_OWNER: 'The founder of the group cannot be kicked out',
+        CHOOSE_ROLE: 'Select a new role'
     },
     success: {
         BADGE_DELETED: 'The badge has been deleted',
@@ -137,6 +138,7 @@ export const adminText = {
         QUEST_EDITED: 'The quest has been updated',
         REPORTS_SOLVED: 'The reports has been solved',
         USER_KICKED: 'The user has been kicked',
-        QUEST_DELETED: 'The quest has been deleted'
+        QUEST_DELETED: 'The quest has been deleted',
+        ROLES_UPDATED: 'The roles has been updated'
     }
 }

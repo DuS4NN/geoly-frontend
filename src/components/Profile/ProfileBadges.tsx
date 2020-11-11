@@ -32,8 +32,6 @@ const ProfileBadges: React.FC<Props> = (props) => {
     }
 
     useEffect(() => {
-        console.log(window.screen.width)
-
         const calcAndSetMargin = () => {
             let container = document.getElementById("badge-item-container")
             if(container){

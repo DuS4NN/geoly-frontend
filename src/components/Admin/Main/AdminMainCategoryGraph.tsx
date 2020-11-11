@@ -38,9 +38,6 @@ const AdminMainCategoryGraph: React.FC<Props> = (props) => {
 
     useEffect(() => {
         if (chart && chart.current && data.length>0) {
-
-            console.log(data)
-
             //@ts-ignore
             new Chart(chart.current, {
                 type: 'pie',

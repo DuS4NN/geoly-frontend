@@ -7,6 +7,7 @@ import AdminNavigation from "../../components/Admin/Navigation/AdminNavigation";
 import AdminUserDetailsEdit from "../../components/Admin/UserDetail/AdminUserDetailsEdit";
 import AdminUserDetailsTable from "../../components/Admin/UserDetail/AdminUserDetailsTable";
 import {UserContext} from "../../UserContext";
+import AdminUserDetailsRoles from "../../components/Admin/UserDetail/AdminUserDetailsRoles";
 
 // Props
 interface Props {
@@ -34,6 +35,7 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
     const [playedQuests, setPlayedQuests] = useState([]) as Array<any>
     const [reviews, setReviews] = useState([]) as Array<any>
     const [points, setPoints] = useState([]) as Array<any>
+    const [roles, setRoles] = useState([]) as Array<any>
 
     useEffect(() => {
         axios({
@@ -122,6 +124,11 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
                         amount: point[2]
                     }
                 }))
+
+                setRoles(response.data.data[8].map((role:any) => {
+                    return role[1]
+                }))
+
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
@@ -138,6 +145,10 @@ const AdminUserEdit: React.FC<Props> = (props:any) => {
 
             <div className="adminUserDetailsContainer">
                 <AdminUserDetailsEdit details={details} setDetails={setDetails} />
+
+                {userContext['roles'].includes("ADMIN") && (
+                    <AdminUserDetailsRoles roles={roles} setRoles={setRoles} id={props.match.params.id} />
+                )}
 
                 <AdminUserDetailsTable data={badges} setData={setBadges} name={text.userDetails.badges} key={text.userDetails.badges} />
                 <AdminUserDetailsTable data={createdGroups} setData={setCreatedGroups} name={text.userDetails.createdGroups} key={text.userDetails.createdGroups} />
