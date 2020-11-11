@@ -115,6 +115,12 @@ export const adminText = {
         user: 'User',
         amount: 'Amount'
     },
+    main: {
+        newUsers: 'New users in the last week',
+        finishedQuests: 'Completed quests in the last week',
+        finishedDaily: 'Completed daily quests in the last week',
+        newQuests: 'New quests in the last month'
+    },
     language: {
         Slovak: 'Slovak',
         English: 'English'
