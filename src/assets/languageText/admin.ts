@@ -121,6 +121,12 @@ export const adminText = {
         finishedDaily: 'Completed daily quests in the last week',
         newQuests: 'New quests in the last month'
     },
+    questCreator: {
+        title: 'Quest Creator',
+        stages: 'Stages',
+        addStage: 'Add stage',
+        delete: 'Delete'
+    },
     language: {
         Slovak: 'Slovak',
         English: 'English'
