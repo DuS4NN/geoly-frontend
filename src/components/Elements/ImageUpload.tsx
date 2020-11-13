@@ -3,7 +3,6 @@ import {UserContext} from "../../UserContext";
 import {useAlert} from "react-alert";
 
 import './ImageUpload.scss'
-import {add} from "lodash-es";
 
 interface Props {
     defaultImages: any

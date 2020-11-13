@@ -14,7 +14,6 @@ const AdminQuestCreator: React.FC = () => {
     const {userContext} = useContext(UserContext)
 
     const adminText = require('../../assets/languageText/admin').adminText
-    const userText = require('../../assets/languageText/2').user
     const alert = useAlert()
     const history = useHistory()
 
