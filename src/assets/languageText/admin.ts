@@ -136,7 +136,18 @@ export const adminText = {
     error: {
         SOMETHING_WENT_WRONG: "Something went wrong",
         CAN_NOT_KICK_OWNER: 'The founder of the group cannot be kicked out',
-        CHOOSE_ROLE: 'Select a new role'
+        CHOOSE_ROLE: 'Select a new role',
+
+        INVALID_DESCRIPTION: 'Invalid description',
+        CATEGORY_NOT_FOUND: 'Invalid category',
+        INVALID_NAME_LENGTH_SIZE: 'Invalid name',
+        INVALID_DIFFICULTY: 'Invalid difficulty',
+        INVALID_COORDINATES: 'Invalid coordinates',
+        INVALID_QUESTION: 'Invalid question',
+        INVALID_ANSWER: 'Invalid answer',
+        INVALID_ADVISE: 'Invalid advise',
+        INVALID_ANSWERS_LIST: 'Invalid answer list',
+        INVALID_NOTE: 'Invalid note',
     },
     success: {
         BADGE_DELETED: 'The badge has been deleted',
@@ -147,6 +158,7 @@ export const adminText = {
         REPORTS_SOLVED: 'The reports has been solved',
         USER_KICKED: 'The user has been kicked',
         QUEST_DELETED: 'The quest has been deleted',
-        ROLES_UPDATED: 'The roles has been updated'
+        ROLES_UPDATED: 'The roles has been updated',
+        QUEST_CREATED: 'The quest has been created'
     }
 }

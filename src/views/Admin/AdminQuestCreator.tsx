@@ -14,6 +14,7 @@ const AdminQuestCreator: React.FC = () => {
     const {userContext} = useContext(UserContext)
 
     const adminText = require('../../assets/languageText/admin').adminText
+    const userText = require('../../assets/languageText/2').user
     const alert = useAlert()
     const history = useHistory()
 
@@ -55,6 +56,59 @@ const AdminQuestCreator: React.FC = () => {
         })
     }, [])
 
+    const handleAddQuest = () => {
+
+        let finalStages = [] as any
+
+        stages.map((s:any) => {
+            finalStages.push({
+                type: s.type,
+                answer: s.answer === null ? null : s.answer.current?.value,
+                question: s.question === null ? null : s.question.current?.value,
+                advise: s.advise === null ? null : s.advise.current?.value === '' ? null : s.advise.current?.value,
+                answersList: s.answer === null ? null : s.answerList.join(";"),
+                latitude: s.latitude,
+                longitude: s.longitude,
+                qrCodeUrl: null,
+                note: s.note === null ? null : s.note.current?.value === '' ? null : s.note.current?.value
+            })
+        })
+
+        axios({
+            method: 'POST',
+            url: process.env.REACT_APP_API_SERVER_URL+'/adminAddQuest',
+            withCredentials: true,
+            data: {
+                name: nameRef.current?.value,
+                description: descriptionRef.current?.value,
+                categoryId: details.category,
+                difficulty: details.difficulty,
+                active: details.active,
+                premium: details.premium,
+                privateQuest: details.private,
+                stages: finalStages
+            }
+        }).then(function (response) {
+            let serverResponse = response.data.responseEntity.body
+            let statusCode = response.data.responseEntity.statusCode
+
+            if(statusCode === 'ACCEPTED'){
+
+                history.push("/admin")
+                alert.success(adminText.success[serverResponse])
+            }else if(statusCode === 'BAD_REQUEST'){
+                alert.error(adminText.error[serverResponse])
+            }else{
+                alert.error(adminText.error.SOMETHING_WENT_WRONG)
+            }
+        }).catch(function () {
+            history.push("/welcome")
+            alert.error(adminText.error.SOMETHING_WENT_WRONG)
+        })
+
+
+    }
+
     // Template
     return (
         <div className="adminQuestCreator">
@@ -63,6 +117,10 @@ const AdminQuestCreator: React.FC = () => {
             <div className="adminQuestCreatorContainer">
                 <AdminQuestCreatorForm categories={categories} details={details} setDetails={setDetails} nameRef={nameRef} descriptionRef={descriptionRef} />
                 <AdminQuestCreatorStageList stages={stages} setStages={setStages} />
+
+                <div className="submitButton">
+                    <button onClick={handleAddQuest}>{adminText.questCreator.addQuest}</button>
+                </div>
             </div>
 
         </div>
