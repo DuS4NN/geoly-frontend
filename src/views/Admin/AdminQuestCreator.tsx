@@ -66,7 +66,7 @@ const AdminQuestCreator: React.FC = () => {
                 answer: s.answer === null ? null : s.answer.current?.value,
                 question: s.question === null ? null : s.question.current?.value,
                 advise: s.advise === null ? null : s.advise.current?.value === '' ? null : s.advise.current?.value,
-                answersList: s.answer === null ? null : s.answerList.join(";"),
+                answersList: s.answerList === null ? null : s.answerList.length === 0 ? null : s.answerList.join(";"),
                 latitude: s.latitude,
                 longitude: s.longitude,
                 qrCodeUrl: null,
