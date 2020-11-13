@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react"
+import React, {useEffect, useState} from "react"
 import AdminQuestCreatorStageItem from "./AdminQuestCreatorStageItem";
 import Select from "react-select";
 import chroma from "chroma-js";

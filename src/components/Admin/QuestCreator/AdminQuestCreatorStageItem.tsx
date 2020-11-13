@@ -28,7 +28,6 @@ const AdminQuestCreatorStageItem: React.FC<Props> = (props) => {
     return (
         <div className="adminQuestCreatorStageItem">
 
-
             {stage.type === 'GO_TO_PLACE' && (
                 <StageItemGoToPlace stage={stage} setStages={setStages} stages={stages} />
             )}
@@ -36,7 +35,7 @@ const AdminQuestCreatorStageItem: React.FC<Props> = (props) => {
                 <StageItemAnswerQuestion stage={stage} stages={stages} setStages={setStages} />
             )}
             {stage.type === 'SCAN_QR_CODE' && (
-                <StageItemScanQrCode stage={stage} setStages={setStages} />
+                <StageItemScanQrCode stage={stage} stages={stages} setStages={setStages} />
             )}
 
             {stage.id !== 0 && (

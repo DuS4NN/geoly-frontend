@@ -125,7 +125,9 @@ export const adminText = {
         title: 'Quest Creator',
         stages: 'Stages',
         addStage: 'Add stage',
-        delete: 'Delete'
+        delete: 'Delete',
+        qrCode: 'The QR code will be generated after saving the quest',
+        addQuest: 'Add quest'
     },
     language: {
         Slovak: 'Slovak',

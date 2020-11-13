@@ -98,7 +98,6 @@
         }
       }
     }
-
     .adminQuestCreatorStageList{
       .title{
         font-family: Nexa;
@@ -253,6 +252,14 @@
             }
           }
         }
+        .stageItemScanQrCode{
+          .text{
+            text-align: center;
+            font-family: OpenSans;
+            font-size: 15px;
+            padding: 20px;
+          }
+        }
 
         .formInput{
           width: 100%;
@@ -276,6 +283,38 @@
           }
 
         }
+      }
+    }
+
+    .submitButton{
+      text-align: center;
+      margin-bottom: 20px;
+      margin-top: 20px;
+
+      button{
+        margin-top: 10px;
+        font-size: 16px;
+        text-decoration: none;
+        letter-spacing: 2px;
+        border-radius: 50px;
+        padding: 8px 70px;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-family: OpenSans;
+        font-weight: normal;
+        background-size: 300% 100%;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+        background-image: linear-gradient(to right, var(--button-light-green), var(--button-dark-green), var(--button-dark-green), var(--button-light-green));
+        box-shadow: 0 4px 15px 0 rgba(49, 196, 149, 0.75);
+      }
+      button:hover {
+        background-position: 100% 0;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
       }
     }
   }

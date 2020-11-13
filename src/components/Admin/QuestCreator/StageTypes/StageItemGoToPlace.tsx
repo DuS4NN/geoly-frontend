@@ -88,12 +88,11 @@ const StageItemGoToPlace: React.FC<Props> = (props) => {
 
             <div className="formInput">
                 <span className="label">
-                    {userText.userQuest.advise}
+                    {userText.userQuest.note}
                 </span>
                 <div className="formContent">
-                    <input maxLength={200} ref={noteRef} placeholder={userText.userQuest.advise} />
+                    <input maxLength={200} ref={noteRef} placeholder={userText.userQuest.note} />
                 </div>
-
             </div>
 
             <div className="stageItemMap" ref={ref}>
