@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React from "react"
 import StageItemGoToPlace from "./StageTypes/StageItemGoToPlace";
 import StageItemAnswerQuestion from "./StageTypes/StageItemAnswerQuestion";
 import StageItemScanQrCode from "./StageTypes/StageItemScanQrCode";
@@ -33,7 +33,7 @@ const AdminQuestCreatorStageItem: React.FC<Props> = (props) => {
                 <StageItemGoToPlace stage={stage} setStages={setStages} stages={stages} />
             )}
             {stage.type === 'ANSWER_QUESTION' && (
-                <StageItemAnswerQuestion stage={stage} setStages={setStages} />
+                <StageItemAnswerQuestion stage={stage} stages={stages} setStages={setStages} />
             )}
             {stage.type === 'SCAN_QR_CODE' && (
                 <StageItemScanQrCode stage={stage} setStages={setStages} />
