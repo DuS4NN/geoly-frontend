@@ -1,6 +1,4 @@
-import React, {useState} from "react"
-import Select from "react-select";
-import chroma from "chroma-js";
+import React, {useEffect, useState} from "react"
 import StageItemGoToPlace from "./StageTypes/StageItemGoToPlace";
 import StageItemAnswerQuestion from "./StageTypes/StageItemAnswerQuestion";
 import StageItemScanQrCode from "./StageTypes/StageItemScanQrCode";
@@ -16,10 +14,8 @@ interface Props {
 const AdminQuestCreatorStageItem: React.FC<Props> = (props) => {
 
     const {stage, stages, setStages} = props
-    const [marker] = useState([]) as Array<any>
 
     const adminText = require('../../../assets/languageText/admin').adminText
-
 
     const handleDeleteStage = () => {
         if(stage.id === 0) return
@@ -34,7 +30,7 @@ const AdminQuestCreatorStageItem: React.FC<Props> = (props) => {
 
 
             {stage.type === 'GO_TO_PLACE' && (
-                <StageItemGoToPlace stage={stage} marker={marker} />
+                <StageItemGoToPlace stage={stage} setStages={setStages} stages={stages} />
             )}
             {stage.type === 'ANSWER_QUESTION' && (
                 <StageItemAnswerQuestion stage={stage} setStages={setStages} />

@@ -1,16 +1,19 @@
-import React, {useEffect} from "react"
+import React, {useEffect, useState} from "react"
 import { useGoogleMaps } from "react-hook-google-maps";
 
 // Props
 interface Props {
     stage: any
-    marker: any
+    stages: any
+    setStages: (stages:any) => void
 }
 
 // Component
 const StageItemGoToPlace: React.FC<Props> = (props) => {
 
-    const {stage, marker} = props
+    const {stage, stages, setStages} = props
+
+    const [marker] = useState([]) as Array<any>
 
      const {ref, map, google} = useGoogleMaps(
         process.env.REACT_APP_GOOGLE_API_KEY+"",
@@ -21,7 +24,7 @@ const StageItemGoToPlace: React.FC<Props> = (props) => {
         })
 
     useEffect(() => {
-        if(!stage.longitude || !google || !map) return
+        if( !google || !map) return
 
         marker.push(new google.maps.Marker({
             position: { lat:stage.latitude, lng: stage.longitude },
@@ -30,16 +33,32 @@ const StageItemGoToPlace: React.FC<Props> = (props) => {
 
         map.addListener("click", (e:any) => {
             marker[0].setMap(null)
-
             marker.pop()
-
             marker.push(new google.maps.Marker({
                 map: map,
                 position: e.latLng
             }))
+            changePosition(e.latLng)
         })
 
-    }, [stage, google, map])
+    }, [google, map])
+
+    const changePosition = (latLng:any) => {
+        let newStages = [] as any
+
+        stages.map((s:any) => {
+            if(s.id !== stage.id){
+                newStages.push(s)
+            }else{
+                newStages.push({
+                    ...stage,
+                    latitude: latLng.lat(),
+                    longitude: latLng.lng()
+                })
+            }
+        })
+        setStages(newStages)
+    }
 
 
     // Template
