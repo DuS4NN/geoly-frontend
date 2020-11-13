@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useRef, useState} from "react"
 import AdminQuestCreatorStageItem from "./AdminQuestCreatorStageItem";
 import Select from "react-select";
 import chroma from "chroma-js";
@@ -77,14 +77,14 @@ const AdminQuestCreatorStageList: React.FC<Props> = (props) => {
             {
                 id: id,
                 type: stageType,
-                answer: '',
-                question: '',
-                advise: '',
-                answerList: '',
-                latitude: stageType==='GO_TO_PLACE' ? 48.864716 : '',
-                longitude: stageType==='GO_TO_PLACE' ? 2.349014 : '',
-                qrCodeUrl: '',
-                note: ''
+                answer: null,
+                question: null,
+                advise:null,
+                answerList:null,
+                latitude: stageType === 'GO_TO_PLACE' ? 48.864716 : null,
+                longitude: stageType==='GO_TO_PLACE' ? 2.349014 : null,
+                qrCodeUrl: null,
+                note: null
             }
         ])
         setId(id+1)

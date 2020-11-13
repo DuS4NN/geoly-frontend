@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useRef, useState} from "react"
 import { useGoogleMaps } from "react-hook-google-maps";
 
 // Props
@@ -14,6 +14,10 @@ const StageItemGoToPlace: React.FC<Props> = (props) => {
     const {stage, stages, setStages} = props
 
     const [marker] = useState([]) as Array<any>
+
+    const userText = require('../../../../assets/languageText/2').text
+
+    const noteRef = useRef(null) as any
 
      const {ref, map, google} = useGoogleMaps(
         process.env.REACT_APP_GOOGLE_API_KEY+"",
@@ -60,10 +64,37 @@ const StageItemGoToPlace: React.FC<Props> = (props) => {
         setStages(newStages)
     }
 
+    useEffect(() => {
+        if(noteRef !== null){
+            let newStages = [] as any
+
+            stages.map((s:any) => {
+                if(s.id !== stage.id){
+                    newStages.push(s)
+                }else{
+                    newStages.push({
+                        ...stage,
+                        note: noteRef
+                    })
+                }
+            })
+            setStages(newStages)
+        }
+    }, [noteRef])
 
     // Template
     return (
         <div className="stageItemGoToPlace">
+
+            <div className="formInput">
+                <span className="label">
+                    {userText.userQuest.advise}
+                </span>
+                <div className="formContent">
+                    <input maxLength={200} ref={noteRef} placeholder={userText.userQuest.advise} />
+                </div>
+
+            </div>
 
             <div className="stageItemMap" ref={ref}>
             </div>
