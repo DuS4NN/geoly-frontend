@@ -36,6 +36,7 @@ import AdminGroupEdit from "./views/Admin/AdminGroupEdit";
 import AdminSeason from "./views/Admin/AdminSeason";
 import AdminMain from "./views/Admin/AdminMain";
 import AdminQuestCreator from "./views/Admin/AdminQuestCreator";
+import AdminLog from "./views/Admin/AdminLog";
 
 // Component
 function App() {
@@ -159,6 +160,7 @@ function App() {
                             <Route exact path={"/admin/season"} component={AdminSeason} />
                             <Route exact path={"/admin"} component={AdminMain} />
                             <Route exact path={"/admin/creator"} component={AdminQuestCreator} />
+                            <Route exact path={"/admin/log"} component={AdminLog} />
                         </Switch>
                     </main>
 

@@ -129,6 +129,13 @@ export const adminText = {
         qrCode: 'The QR code will be generated after saving the quest',
         addQuest: 'Add quest'
     },
+    log: {
+      title: 'Logs',
+        id: 'ID',
+        data: 'Data',
+        type: 'Type',
+        date: 'Date'
+    },
     language: {
         Slovak: 'Slovak',
         English: 'English'
