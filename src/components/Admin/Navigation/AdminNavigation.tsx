@@ -1,14 +1,13 @@
-import React from "react"
+import React, {useContext} from "react"
 import {NavLink} from "react-router-dom"
 
 import "./AdminNavigation.scss"
-
-// Props
-interface Props {
-}
+import {UserContext} from "../../../UserContext";
 
 // Component
 const AdminNavigation: React.FC = () => {
+
+    const {userContext} = useContext(UserContext)
 
     const text = require('../../../assets/languageText/admin').adminText
 
@@ -74,6 +73,27 @@ const AdminNavigation: React.FC = () => {
                         <NavLink to={"/admin/creator"}>{text.navigation.questCreator}</NavLink>
                     </div>
                 </div>
+
+                {userContext['roles'].includes("ADMIN") && (
+                    <div className="item">
+                        <div className="image">
+                            <img alt="" src={require("../../../assets/images/adminImages/log.svg")} />
+                        </div>
+                        <div className="text">
+                            <NavLink to={"/admin/log"}>{text.navigation.logs}</NavLink>
+                        </div>
+                    </div>
+                )}
+                {userContext['roles'].includes("ADMIN") && (
+                    <div className="item">
+                        <div className="image">
+                            <img alt="" src={require("../../../assets/images/adminImages/payment.svg")} />
+                        </div>
+                        <div className="text">
+                            <NavLink to={"/admin/payment"}>{text.navigation.payments}</NavLink>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     )

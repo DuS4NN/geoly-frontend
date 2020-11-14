@@ -7,7 +7,6 @@ import {useHistory} from "react-router-dom";
 import {UserContext} from "../../UserContext";
 import AdminLogSelect from "../../components/Admin/Log/AdminLogSelect";
 import AdminLogList from "../../components/Admin/Log/AdminLogList";
-import AdminUserList from "../../components/Admin/Users/AdminUserList";
 
 
 // Component
