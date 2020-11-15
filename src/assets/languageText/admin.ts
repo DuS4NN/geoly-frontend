@@ -77,6 +77,8 @@ export const adminText = {
         stages: 'Stages',
         inputPlaceholder: 'User ID..',
         played: 'Played',
+        images: 'Images',
+        saveImages: 'Save',
 
         id: 'ID',
         stage: 'Stage',

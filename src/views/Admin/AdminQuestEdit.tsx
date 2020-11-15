@@ -11,6 +11,7 @@ import AdminQuestStageList from "../../components/Admin/QuestEdit/AdminQuestStag
 import AdminQuestPlayedInput from "../../components/Admin/QuestEdit/AdminQuestPlayedInput";
 import AdminQuestPlayedList from "../../components/Admin/QuestEdit/AdminQuestPlayedList";
 import {UserContext} from "../../UserContext";
+import AdminQuestImages from "../../components/Admin/QuestEdit/AdminQuestImages";
 
 // Props
 interface Props {
@@ -35,6 +36,7 @@ const AdminQuestEdit: React.FC<Props> = (props:any) => {
     const [details, setDetails] = useState({}) as Array<any>
     const [played, setPlayed] = useState([]) as Array<any>
     const [stages, setStages] = useState([]) as Array<any>
+    const [images, setImages] = useState([]) as Array<any>
 
     const [category, setCategory] = useState([]) as Array<any>
 
@@ -120,6 +122,13 @@ const AdminQuestEdit: React.FC<Props> = (props:any) => {
                     }
                 }))
 
+                setImages(response.data.data[2].map((image:any) => {
+                    return {
+                        id: image[0],
+                        src: process.env.REACT_APP_IMAGE_SERVER_URL+image[1]
+                    }
+                }))
+
             }else{
                 alert.error(text.error.SOMETHING_WENT_WRONG)
             }
@@ -151,8 +160,8 @@ const AdminQuestEdit: React.FC<Props> = (props:any) => {
 
             <div className="adminQuestEditContainer">
                 <AdminQuestDetails category={category} details={details} setDetails={setDetails} />
+                <AdminQuestImages images={images} setImages={setImages} id={props.match.params.id} />
                 <AdminQuestStageList stages={stages} />
-
 
                 <AdminQuestPlayedInput setPage={setPage} setUser={setUser} />
                 <AdminQuestPlayedList played={played} count={count} page={page} setPage={setPage} />
