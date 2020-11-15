@@ -17,6 +17,7 @@ const AdminPaymentItem: React.FC<Props> = (props) => {
     useEffect(() => {
         if(payment.end){
             setEnd(new Date(payment.end))
+
             setStart(new Date(payment.start))
         }
     }, [])
@@ -38,10 +39,10 @@ const AdminPaymentItem: React.FC<Props> = (props) => {
                 <span>{payment.state}</span>
             </div>
             <div className="start">
-                <span>{start.getDate()+". "+(start.getMonth()+1)+". "+start.getFullYear()+" "+start.getHours()+":"+start.getMinutes()}</span>
+                <span>{start.getDate()+". "+(start.getMonth()+1)+". "+start.getFullYear()+" "+ (start.getHours() < 10 ? '0' : '') + start.getHours()+":"+ (start.getMinutes() < 10 ? '0' : '') +start.getMinutes()}</span>
             </div>
             <div className="end">
-                <span>{end.getDate()+". "+(end.getMonth()+1)+". "+end.getFullYear()+" "+end.getHours()+":"+end.getMinutes()}</span>
+                <span>{end.getDate()+". "+(end.getMonth()+1)+". "+end.getFullYear()+" "+ (end.getHours() < 10 ? '0' : '') +end.getHours()+":"+ (end.getMinutes() < 10 ? '0' : '') +end.getMinutes()}</span>
             </div>
         </div>
     )

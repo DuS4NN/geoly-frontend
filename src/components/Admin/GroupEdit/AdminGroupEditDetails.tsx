@@ -40,7 +40,7 @@ const AdminGroupEditDetails: React.FC<Props> = (props) => {
                         <span>{adminText.groupEdit.createdAt}</span>
                     </div>
                     <div className="content">
-                        <span>{new Date(details.createdAt).getDate()+". "+(new Date(details.createdAt).getMonth()+1)+". "+new Date(details.createdAt).getFullYear()+" "+new Date(details.createdAt).getHours()+":"+new Date(details.createdAt).getMinutes()}</span>
+                        <span>{new Date(details.createdAt).getDate()+". "+(new Date(details.createdAt).getMonth()+1)+". "+new Date(details.createdAt).getFullYear()+" "+ (new Date(details.createdAt).getHours() < 10 ? '0' : '') +new Date(details.createdAt).getHours()+":"+ (new Date(details.createdAt).getMinutes() < 10 ? '0' : '') +new Date(details.createdAt).getMinutes()}</span>
                     </div>
                 </div>
             </div>

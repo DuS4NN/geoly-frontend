@@ -175,7 +175,7 @@ const AdminQuestDetails: React.FC<Props> = (props) => {
                         <span>{adminText.questDetails.createdAt}</span>
                     </div>
                     <div className="itemContent">
-                        <span>{new Date(details.createdAt).getDate()+". "+(new Date(details.createdAt).getMonth()+1)+". "+new Date(details.createdAt).getFullYear()+" "+new Date(details.createdAt).getHours()+":"+new Date(details.createdAt).getMinutes()}</span>
+                        <span>{new Date(details.createdAt).getDate()+". "+(new Date(details.createdAt).getMonth()+1)+". "+new Date(details.createdAt).getFullYear()+" "+ (new Date(details.createdAt).getHours() < 10 ? '0' : '') +new Date(details.createdAt).getHours()+":"+ (new Date(details.createdAt).getMinutes() < 10 ? '0' : '') +new Date(details.createdAt).getMinutes()}</span>
                     </div>
                 </div>
 

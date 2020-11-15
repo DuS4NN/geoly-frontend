@@ -31,7 +31,7 @@ const ItemQuests: React.FC<Props> = (props:any) => {
                 <span>{quest.active}</span>
             </div>
             <div className="date">
-                <span>{date.getDate()+". "+(date.getMonth()+1)+". "+date.getFullYear()+" "+date.getHours()+":"+date.getMinutes()}</span>
+                <span>{date.getDate()+". "+(date.getMonth()+1)+". "+date.getFullYear()+" "+ (date.getHours() < 10 ? '0' : '') +date.getHours()+":"+ (date.getMinutes() < 10 ? '0' : '') +date.getMinutes()}</span>
             </div>
         </div>
     )
