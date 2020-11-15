@@ -24,10 +24,6 @@ import Settings from "./views/Settings";
 import DailyQuest from "./views/DailyQuest";
 import AdminUser from "./views/Admin/AdminUser"
 import AdminUserEdit from "./views/Admin/AdminUserEdit"
-
-// Style
-import './App.scss'
-import './DarkMode.scss'
 import AdminQuest from "./views/Admin/AdminQuest";
 import AdminQuestEdit from "./views/Admin/AdminQuestEdit";
 import AdminReportUser from "./views/Admin/AdminReportUser";
@@ -37,6 +33,11 @@ import AdminSeason from "./views/Admin/AdminSeason";
 import AdminMain from "./views/Admin/AdminMain";
 import AdminQuestCreator from "./views/Admin/AdminQuestCreator";
 import AdminLog from "./views/Admin/AdminLog";
+import AdminPayment from "./views/Admin/AdminPayment";
+
+import './App.scss'
+import './DarkMode.scss'
+
 
 // Component
 function App() {
@@ -161,6 +162,7 @@ function App() {
                             <Route exact path={"/admin"} component={AdminMain} />
                             <Route exact path={"/admin/creator"} component={AdminQuestCreator} />
                             <Route exact path={"/admin/log"} component={AdminLog} />
+                            <Route exact path={"/admin/payment"} component={AdminPayment} />
                         </Switch>
                     </main>
 

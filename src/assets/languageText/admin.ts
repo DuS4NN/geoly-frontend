@@ -136,6 +136,15 @@ export const adminText = {
         type: 'Type',
         date: 'Date'
     },
+    payment: {
+        title: 'Payments',
+        inputPlaceholder: 'Search user by name..',
+        agreement: 'Agreement',
+        user: 'User',
+        state: 'State',
+        end: 'End at',
+        start: 'Start at'
+    },
     language: {
         Slovak: 'Slovak',
         English: 'English'
