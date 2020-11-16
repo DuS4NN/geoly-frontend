@@ -63,17 +63,17 @@ const ItemBadge: React.FC<Props> = (props:any) => {
         <div className="tableItemBadge">
             {!remove && (
                 <div className="item">
-                    <div className="image">
+                    <div className="tableItemBadgeImage">
                         <img alt="" src={require("../../../../"+badge.image)} />
                     </div>
-                    <div className="name">
+                    <div className="tableItemBadgeName">
                         <span>{text.badge[badge.name]}</span>
                     </div>
-                    <div className="date">
+                    <div className="tableItemBadgeDate">
                         <span>{date.getDate()+". "+(date.getMonth()+1)+". "+date.getFullYear()+" "+ (date.getHours() < 10 ? '0' : '') +date.getHours()+":"+ (date.getMinutes() < 10 ? '0' : '') +date.getMinutes()}</span>
                     </div>
 
-                    <div className="action">
+                    <div className="tableItemBadgeAction">
                         <img data-tip={adminText.userDetails.delete} alt="" src={require("../../../../assets/images/otherIcons/delete.svg")} onClick={handleChangeRemove} />
                         <ReactTooltip />
                     </div>

@@ -26,22 +26,22 @@ const AdminPaymentItem: React.FC<Props> = (props) => {
     // Template
     return (
         <div className="adminPaymentItem">
-            <div className="image">
+            <div className="adminPaymentItemImage">
                 <img alt="" src={process.env.REACT_APP_IMAGE_SERVER_URL+payment.image} />
             </div>
-            <div className="name">
+            <div className="adminPaymentItemName">
                 <NavLink to={"/admin/user/"+payment.userId}>{payment.nick}</NavLink>
             </div>
-            <div className="agreement">
+            <div className="adminPaymentItemAgreement">
                 <span>{payment.agreement}</span>
             </div>
-            <div className="state">
+            <div className="adminPaymentItemState">
                 <span>{payment.state}</span>
             </div>
-            <div className="start">
+            <div className="adminPaymentItemStart">
                 <span>{start.getDate()+". "+(start.getMonth()+1)+". "+start.getFullYear()+" "+ (start.getHours() < 10 ? '0' : '') + start.getHours()+":"+ (start.getMinutes() < 10 ? '0' : '') +start.getMinutes()}</span>
             </div>
-            <div className="end">
+            <div className="adminPaymentItemEnd">
                 <span>{end.getDate()+". "+(end.getMonth()+1)+". "+end.getFullYear()+" "+ (end.getHours() < 10 ? '0' : '') +end.getHours()+":"+ (end.getMinutes() < 10 ? '0' : '') +end.getMinutes()}</span>
             </div>
         </div>

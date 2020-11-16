@@ -26,10 +26,10 @@ const AdminGroupEditDetails: React.FC<Props> = (props) => {
                         <span>{adminText.groupEdit.user}</span>
                     </div>
                     <div className="content">
-                        <div className="image">
+                        <div className="groupEditDetailsImage">
                             <img alt="" src={process.env.REACT_APP_IMAGE_SERVER_URL+details.image} />
                         </div>
-                        <div className="name">
+                        <div className="groupEditDetailsName">
                             <NavLink to={"/admin/user/"+details.userId}>{details.nick}</NavLink>
                         </div>
                     </div>

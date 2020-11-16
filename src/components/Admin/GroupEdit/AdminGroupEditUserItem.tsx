@@ -58,15 +58,15 @@ const AdminGroupEditUserItem: React.FC<Props> = (props) => {
         <div className="adminGroupEditUserItem">
             {!remove && (
                 <div className="item">
-                    <div className="image">
+                    <div className="adminGroupEditItemImage">
                         <img alt="" src={process.env.REACT_APP_IMAGE_SERVER_URL+user.profileImage} />
                     </div>
 
-                    <div className="name">
+                    <div className="adminGroupEditItemName">
                         <NavLink to={"/admin/user/"+user.userId}>{user.nickName}</NavLink>
                     </div>
 
-                    <div className="action">
+                    <div className="adminGroupEditItemAction">
                         <img onClick={handleChangeKick} data-tip={adminText.groupEdit.kick} alt="" src={require("../../../assets/images/otherIcons/kick.svg")} />
                         <ReactTooltip />
                     </div>

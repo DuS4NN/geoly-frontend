@@ -22,16 +22,16 @@ const AdminUserItem: React.FC<Props> = (props) => {
     // Template
     return (
         <div className="adminUserItem">
-            <div className="id">
+            <div className="adminUserItemId">
                 <span>{user.id}</span>
             </div>
-            <div className="image">
+            <div className="adminUserItemImage">
                 <img alt="" src={process.env.REACT_APP_IMAGE_SERVER_URL+user.image} />
             </div>
-            <div className="name">
+            <div className="adminUserItemName">
                 <NavLink to={"/admin/user/"+user.id}>{user.nick}</NavLink>
             </div>
-            <div className="date">
+            <div className="adminUserItemDate">
                 <span>{date.getDate()+". "+(date.getMonth()+1)+". "+date.getFullYear()+" "+ (date.getHours() < 10 ? '0' : '') +date.getHours()+":"+ (date.getMinutes() < 10 ? '0' : '') +date.getMinutes()}</span>
             </div>
         </div>

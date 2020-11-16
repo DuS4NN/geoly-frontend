@@ -1,3 +1,9 @@
+@media only screen and (max-width: 1100px) {
+  .adminPaymentContainer{
+    margin-top: 80px;
+  }
+}
+
 .adminPayment {
   display: block;
   width: 100%;
@@ -98,7 +104,7 @@
       font-family: OpenSans;
       font-size: 14px;
 
-      .image{
+      .adminPaymentItemImage{
         display: table-cell;
         vertical-align: middle;
         width: 30px;
@@ -111,7 +117,7 @@
           border-radius: 50%;
         }
       }
-      .name{
+      .adminPaymentItemName{
         display: table-cell;
         vertical-align: middle;
         white-space: nowrap;
@@ -124,7 +130,7 @@
           color: black;
         }
       }
-      .agreement{
+      .adminPaymentItemAgreement{
         display: table-cell;
         vertical-align: middle;
         white-space: nowrap;
@@ -132,17 +138,17 @@
         text-overflow: ellipsis;
         min-width: 200px;
       }
-      .state{
+      .adminPaymentItemState{
         display: table-cell;
         vertical-align: middle;
         min-width: 80px;
       }
-      .start{
+      .adminPaymentItemStart{
         display: table-cell;
         vertical-align: middle;
         min-width: 180px;
       }
-      .end{
+      .adminPaymentItemEnd{
         display: table-cell;
         vertical-align: middle;
         min-width: 180px;

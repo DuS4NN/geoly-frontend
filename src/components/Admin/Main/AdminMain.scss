@@ -1,3 +1,17 @@
+@media only screen and (max-width: 1100px) {
+  .adminMainContainer{
+    margin-top: 80px;
+
+    .countContainer{
+      height: 120px!important;
+      .title{
+        height: 80px!important;
+      }
+    }
+  }
+}
+
+
 .adminMain {
   display: block;
   width: 100%;

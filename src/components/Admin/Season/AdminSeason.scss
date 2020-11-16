@@ -1,3 +1,9 @@
+@media only screen and (max-width: 1100px) {
+  .adminSeasonContainer{
+    margin-top: 80px;
+  }
+}
+
 .adminSeason {
   display: block;
   width: 100%;
@@ -133,7 +139,7 @@
           font-size: 14px;
           font-family: OpenSans;
 
-          .image{
+          .adminSeasonDetailsItemImage{
             display: table-cell;
             vertical-align: middle;
             padding-left: 15px;
@@ -146,7 +152,7 @@
               border-radius: 50%;
             }
           }
-          .name{
+          .adminSeasonDetailsItemName{
             display: table-cell;
             vertical-align: middle;
             width: 100%;
@@ -156,7 +162,7 @@
               color:black
             }
           }
-          .amount{
+          .adminSeasonDetailsItemAmount{
             display: table-cell;
             vertical-align: middle;
             width: 100px;

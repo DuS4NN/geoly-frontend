@@ -15,13 +15,13 @@ const AdminSeasonDetailsItem: React.FC<Props> = (props) => {
     // Template
     return (
         <div className="adminSeasonDetailsItem">
-            <div className="image">
+            <div className="adminSeasonDetailsItemImage">
                 <img alt="" src={process.env.REACT_APP_IMAGE_SERVER_URL+detail.image} />
             </div>
-            <div className="name">
+            <div className="adminSeasonDetailsItemName">
                 <NavLink to={"/admin/user/"+detail.id}>{detail.name}</NavLink>
             </div>
-            <div className="amount">
+            <div className="adminSeasonDetailsItemAmount">
                 <span>{detail.amount}</span>
             </div>
         </div>

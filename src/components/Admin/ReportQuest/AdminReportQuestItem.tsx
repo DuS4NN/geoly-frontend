@@ -91,13 +91,13 @@ const AdminReportQuestItem: React.FC<Props> = (props) => {
         <div className="adminReportQuestItem">
 
             <div className="itemContent">
-                <div className="name">
+                <div className="adminReportItemName">
                     <NavLink to={"/admin/quest/"+report.questId}>{report.name}</NavLink>
                 </div>
-                <div className="count">
+                <div className="adminReportItemCount">
                     <span>{report.count}</span>
                 </div>
-                <div className="arrow">
+                <div className="adminReportItemArrow">
                     <img onClick={handleRoll} alt="" src={roll ? require("../../../assets/images/otherIcons/arrow-up.svg") : require("../../../assets/images/otherIcons/arrow-down.svg")} />
                 </div>
             </div>

@@ -1,3 +1,13 @@
+@media only screen and (max-width: 1100px) {
+  .adminUserContainer{
+    margin-top: 80px;
+
+    .adminUserItem{
+
+    }
+  }
+}
+
 .adminUser{
   display: block;
   width: 100%;
@@ -89,7 +99,7 @@
       height: 50px;
       border-bottom: 1px solid var(--light-mode-input-backgroud);
 
-      .id{
+      .adminUserItemId{
         display: table-cell;
         vertical-align: middle;
         min-width: 60px;
@@ -99,7 +109,7 @@
         font-family: OpenSans;
         color: var(--light-mode-dark-green);
       }
-      .image{
+      .adminUserItemImage{
         display: table-cell;
         vertical-align: middle;
         width: 30px;
@@ -113,7 +123,7 @@
           border-radius: 50%;
         }
       }
-      .name{
+      .adminUserItemName{
         display: table-cell;
         vertical-align: middle;
         width: 100%;
@@ -130,7 +140,7 @@
           color: black;
         }
       }
-      .date{
+      .adminUserItemDate{
         display: table-cell;
         vertical-align: middle;
         min-width: 120px;

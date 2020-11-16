@@ -56,15 +56,15 @@ const AdminGroupEditQuestItem: React.FC<Props> = (props) => {
         <div className="adminGroupEditQuestItem">
             {!remove && (
                 <div className="item">
-                    <div className="name">
+                    <div className="adminGroupEditItemName">
                         <NavLink to={"/admin/quest/"+quest.id}>{quest.name}</NavLink>
                     </div>
 
-                    <div className="private">
+                    <div className="adminGroupEditItemPrivate">
                         <span>{quest.private == 1 ? adminText.groupEdit.yes : adminText.groupEdit.no}</span>
                     </div>
 
-                    <div className="action">
+                    <div className="adminGroupEditItemAction">
                         <img onClick={handleChangeKick} data-tip={adminText.groupEdit.delete} alt="" src={require("../../../assets/images/otherIcons/delete.svg")} />
                         <ReactTooltip />
                     </div>

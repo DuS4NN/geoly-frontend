@@ -1,3 +1,9 @@
+@media only screen and (max-width: 1100px) {
+  .adminGroupContainer{
+    margin-top: 80px;
+  }
+}
+
 .adminGroup{
   display: block;
   width: 100%;
@@ -53,7 +59,7 @@
             font-size: 14px;
             text-align: center;
 
-            .image{
+            .groupEditDetailsImage{
               display: inline-block;
               vertical-align: middle;
               width: 40px;
@@ -65,7 +71,7 @@
                 border-radius: 50%;
               }
             }
-            .name{
+            .groupEditDetailsName{
               display: inline-block;
               vertical-align: middle;
               a{
@@ -114,7 +120,7 @@
 
             border-bottom: 1px solid var(--light-mode-input-backgroud);
 
-            .private{
+            .adminGroupEditItemPrivate{
               display: table-cell;
               vertical-align: middle;
               padding-left: 15px;
@@ -125,7 +131,7 @@
               font-size: 14px;
             }
 
-            .image{
+            .adminGroupEditItemImage{
               display: table-cell;
               vertical-align: middle;
               padding-left: 15px;
@@ -137,7 +143,7 @@
                 border-radius: 50%;
               }
             }
-            .name{
+            .adminGroupEditItemName{
               display: table-cell;
               vertical-align: middle;
               font-family: OpenSans;
@@ -153,7 +159,7 @@
                 color:black;
               }
             }
-            .action{
+            .adminGroupEditItemAction{
               display: table-cell;
               vertical-align: middle;
               width: 15px;
