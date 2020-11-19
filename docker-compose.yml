@@ -1,0 +1,7 @@
+services:
+  frontend:
+    container_name: geoly-frontend
+    image: geoly-frontend
+    stdin_open: true
+    ports:
+      - "3001:3001"
