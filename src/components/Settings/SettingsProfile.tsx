@@ -124,7 +124,7 @@ const SettingsProfile: React.FC<Props> = (props) => {
                 alert.success(text.success[serverResponse])
                 setUserContext({
                     ...userContext,
-                    profileImage: 'static/images/user/'+settings.userId+'/'+settings.userId+'.jpg'
+                    profileImage: '/images/user/'+settings.userId+'/'+settings.userId+'.jpg'
                 })
             }else if(statusCode === 'METHOD_NOT_ALLOWED'){
                 alert.error(text.error[serverResponse])

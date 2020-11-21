@@ -66,11 +66,11 @@ const ModalDeleteProfilePicture: React.FC<Props> = (props) => {
                 alert.success(text.success[serverResponse])
                 setSettings({
                     ...settings,
-                    profileImage: 'static/images/user/default_profile_picture.png'
+                    profileImage: '/images/user/default_profile_picture.png'
                 })
                 setUserContext({
                     ...userContext,
-                    profileImage: 'static/images/user/default_profile_picture.png'
+                    profileImage: '/images/user/default_profile_picture.png'
                 })
                 handleCloseModal()
             }else{
