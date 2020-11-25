@@ -41,6 +41,7 @@ const Map: React.FC<Props> = (props) => {
             }
         }).catch(function () {
             alert.error(text.error.SOMETHING_WENT_WRONG)
+            history.push("/welcome")
         })
     }, [])
 
