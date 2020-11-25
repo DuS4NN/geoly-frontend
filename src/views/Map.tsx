@@ -29,6 +29,10 @@ const Map: React.FC<Props> = (props) => {
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
             if (statusCode === 'OK') {
+                if(response.data.data[0] === null){
+                    return;
+                }
+
                 let coordinates = response.data.data[0].split(", ")
                 setCenter({
                     lat: parseFloat(coordinates[0]),
@@ -36,7 +40,6 @@ const Map: React.FC<Props> = (props) => {
                 })
             }
         }).catch(function () {
-            history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
         })
     }, [])
