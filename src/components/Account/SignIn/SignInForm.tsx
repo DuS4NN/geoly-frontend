@@ -27,6 +27,7 @@ const SignInForm: React.FC<Props> = () => {
     //State
     const [password, setPassword] = useState("")
     const [showModal, setShowModal] = useState(false)
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
     // Alerts
     const alert = useAlert()
     // Text
@@ -56,6 +57,7 @@ const SignInForm: React.FC<Props> = () => {
     }
 
     const handleLogin = (email: String, password: String) => {
+        setLoadingSubmit(true)
         axios({
             method: 'post',
             url: process.env.REACT_APP_API_SERVER_URL+'/login?username='+email+'&password='+password,
@@ -94,8 +96,9 @@ const SignInForm: React.FC<Props> = () => {
                 let bodyElement = document.getElementsByTagName("BODY")[0]
                 bodyElement.classList.remove("modaldarkmode")
             }
-
-        }).catch(function (error) {
+            setLoadingSubmit(false)
+        }).catch(function () {
+            setLoadingSubmit(false)
             alert.error(text.error.BAD_CREDENTIALS)
             setPassword("")
         })
@@ -138,7 +141,7 @@ const SignInForm: React.FC<Props> = () => {
                     <span onClick={handleRedirect} className="sign-up-link-text">{text.logIn.createAccount}</span>
                 </div>
 
-                <button className="form-button-signin">{text.logIn.signInButton}</button>
+                <button className="form-button-signin">{loadingSubmit && (<img alt="" src={require("../../../assets/images/otherIcons/loading-button.svg")} />)}{text.logIn.signInButton}</button>
             </form>
         </div>
     )

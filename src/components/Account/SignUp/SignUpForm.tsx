@@ -25,6 +25,8 @@ const SignUpForm: React.FC = () => {
     const [email, setEmail] = useState("")
     const [nickName, setNickName] = useState("")
 
+    const [loadingSubmit, setLoadingSubmit] = useState(false)
+
     // Alerts
     const alert = useAlert()
     // Text
@@ -51,6 +53,7 @@ const SignUpForm: React.FC = () => {
             return
         }
 
+        setLoadingSubmit(true)
         axios({
             method: 'post',
             url: process.env.REACT_APP_API_SERVER_URL+'/register?languageId='+userContext['languageId'],
@@ -73,6 +76,7 @@ const SignUpForm: React.FC = () => {
             }else{
                 returnAlert(serverResponse)
             }
+            setLoadingSubmit(false)
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)
@@ -172,8 +176,7 @@ const SignUpForm: React.FC = () => {
                 <div className="form-sign-in">
                     <span onClick={handleRedirect} className="sign-in-link-text">{text.signUp.signIn}</span>
                 </div>
-
-                <button className="form-button">{text.signUp.signUpButton}</button>
+                <button className="form-button">{loadingSubmit && (<img alt="" src={require("../../../assets/images/otherIcons/loading-button.svg")} />)}{text.signUp.signUpButton}</button>
 
             </form>
 
