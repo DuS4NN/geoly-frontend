@@ -253,26 +253,32 @@ const MapQuestDetail: React.FC<Props> = (props) => {
 
     useEffect(() => {
         const handleDifficultyGraphDraw = () => {
-            if (difficultyChartContainer && difficultyChartContainer.current) {
+            if (difficultyChartContainer !== null && difficultyChartContainer.current !== null) {
                 setTimeout(() => {
-                    //@ts-ignore
-                    new Chart(difficultyChartContainer.current, difficultyChartConfig);
+                    if(difficultyChartContainer.current != null){
+                        //@ts-ignore
+                        new Chart(difficultyChartContainer.current, difficultyChartConfig);
+                    }
                 },300)
             }
         }
         const handleReviewGraphDraw = () => {
-            if (reviewChartContainer && reviewChartContainer.current) {
+            if (reviewChartContainer !== null && reviewChartContainer.current !== null) {
                 setTimeout(() => {
-                    //@ts-ignore
-                    new Chart(reviewChartContainer.current, reviewChartConfig);
+                    if(reviewChartContainer.current != null){
+                        //@ts-ignore
+                        new Chart(reviewChartContainer.current, reviewChartConfig);
+                    }
                 },300)
             }
         }
         const handleSuccessGraphDraw = () => {
-            if (successChartContainer && successChartContainer.current) {
+            if (successChartContainer !== null && successChartContainer.current !== null) {
                 setTimeout(() => {
-                    //@ts-ignore
-                    new Chart(successChartContainer.current, successChartConfig);
+                    if(successChartContainer.current !== null){
+                        //@ts-ignore
+                        new Chart(successChartContainer.current, successChartConfig);
+                    }
                 },300)
             }
         }
