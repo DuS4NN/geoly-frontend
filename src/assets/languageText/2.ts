@@ -96,12 +96,14 @@ export const text = {
         showButton: 'Show the quest',
     },
     category: {
-      history: 'History',
-      art: 'Art',
-      view: 'View',
-      architecture: 'Architecture',
-      nature: 'Nature',
-      culture: 'Culture'
+        history: 'History',
+        art: 'Art',
+        view: 'View',
+        architecture: 'Architecture',
+        nature: 'Nature',
+        culture: 'Culture',
+        game: 'Game',
+        other: 'Other'
     },
     stageType: {
       GO_TO_PLACE: 'Go to a place',

@@ -72,7 +72,9 @@ const MapFilter: React.FC<Props> = (props) => {
             VIEW: '#73d4ff',
             ARCHITECTURE: '#fccb5b',
             NATURE: '#53dc92',
-            CULTURE: '#ff4155'
+            CULTURE: '#ff4155',
+            GAME: '#B930D6',
+            OTHER: '#3DF9F9'
         }
         const stageTypeColors:any = {
             GO_TO_PLACE: '#30daec',

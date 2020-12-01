@@ -102,7 +102,9 @@ export const text = {
         view: 'Výhľad',
         architecture: 'Architektúra',
         nature: 'Príroda',
-        culture: 'Kultúra'
+        culture: 'Kultúra',
+        game: 'Hra',
+        other: 'Iné'
     },
     stageType: {
         GO_TO_PLACE: 'Prísť na miesto',
