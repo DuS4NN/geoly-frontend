@@ -358,6 +358,8 @@ export const text = {
     error: {
         // Login
         BAD_CREDENTIALS: 'Email or password is incorrect',
+        INACTIVE_ACCOUNT: 'Your account is inactive',
+        UNVERIFIED_ACCOUNT: 'Your account is unverified',
 
         // Register
         PASSWORDS_MATCH: 'Passwords do not match',

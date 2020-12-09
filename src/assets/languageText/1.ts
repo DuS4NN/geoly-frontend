@@ -351,6 +351,8 @@ export const text = {
     error: {
         // Login
         BAD_CREDENTIALS: 'Email alebo heslo sú nesprávne',
+        INACTIVE_ACCOUNT: 'Váš účet nie je aktívny',
+        UNVERIFIED_ACCOUNT: 'Váš účet nie je overený',
 
         // Register
         PASSWORDS_MATCH: 'Zadané heslá sa nezhodujú',

@@ -97,9 +97,23 @@ const SignInForm: React.FC<Props> = () => {
                 bodyElement.classList.remove("modaldarkmode")
             }
             setLoadingSubmit(false)
-        }).catch(function () {
+        }).catch(function (error) {
+
+            switch (error.response.data.exception) {
+                case "Bad credentials":
+                    setPassword("")
+                    alert.error(text.error.BAD_CREDENTIALS)
+                    break
+                case "User is disabled":
+                    alert.error(text.error.INACTIVE_ACCOUNT)
+                    break
+                case "User account is locked":
+                    alert.error(text.error.UNVERIFIED_ACCOUNT)
+                    break
+                default:
+                    alert.error(text.error.SOMETHING_WENT_WRONG)
+            }
             setLoadingSubmit(false)
-            alert.error(text.error.BAD_CREDENTIALS)
             setPassword("")
         })
     }
