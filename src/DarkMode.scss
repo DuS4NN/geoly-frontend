@@ -144,6 +144,11 @@
       .navigation-triangle{
         border-bottom: 15px solid var(--dark-mode-border-color)!important;
       }
+      .no-content{
+        .item{
+          color: white;
+        }
+      }
       .roll-item {
         border-bottom: 1px solid var(--dark-mode-border-color)!important;
       }

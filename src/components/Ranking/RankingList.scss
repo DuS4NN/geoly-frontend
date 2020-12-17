@@ -54,20 +54,20 @@
 
     .ranking-list-empty{
       text-align: center;
-      padding-top: 50px;
+      padding-top: 30px;
       border-bottom: 1px solid var(--light-mode-input-backgroud);
 
       .ranking-list-empty-title{
         padding-left: 20px;
         padding-right: 20px;
-        font-size: 25px;
+        font-size: 17px;
         letter-spacing: 1px;
         font-family: OpenSans;
       }
 
       img{
-        width: 450px;
-        height: 450px;
+        width: 250px;
+        height: 250px;
         padding-bottom: 30px;
       }
     }

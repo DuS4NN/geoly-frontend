@@ -10,6 +10,7 @@ import {useAlert} from "react-alert";
 
 // Props
 interface Props {
+    loading: boolean
     invitations: any
     setInvitations: (invitations:any) => void
     setShowRoll: (showRoll:boolean) => void
@@ -19,7 +20,7 @@ interface Props {
 // Component
 const InvitationsRoll: React.FC<Props> = (props) => {
 
-    const {getInvitations, invitations, setShowRoll, setInvitations} = props
+    const {loading, getInvitations, invitations, setShowRoll, setInvitations} = props
     const {userContext} = useContext(UserContext)
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
     const alert = useAlert()
@@ -114,35 +115,45 @@ const InvitationsRoll: React.FC<Props> = (props) => {
             </div>
 
             <div  id="roll-items" className="roll-items" ref={ref}>
-                {invitations.length>0 && invitations.map((invitation:any) => (
-                    <div key={invitation.invitationId} className="roll-item">
 
-                        <div className="item-image">
-                            <img alt="" src={require("../../assets/images/notificationImages/invitation.svg")} />
-                        </div>
-
-                        <div className="item-text">
-                            <span>{text.invitations.user}</span>
-                            <NavLink to={"/profile/"+invitation.userNick}> {invitation.userNick} </NavLink>
-                            <span>{text.invitations.sentInvite}</span>
-                            <span> {invitation.partyName}</span>
-                        </div>
-                        <div className="item-buttons">
-                            <div className="buttons-images">
-                                <button onClick={() => handleAccept(invitation.invitationId)}>{text.invitations.accept}</button>
-                            </div>
-                            <div className="buttons-images">
-                                <button onClick={() => handleDecline(invitation.invitationId)} className="decline">{text.invitations.deny}</button>
-                            </div>
-                        </div>
+                {loading ? (
+                    <div className="loading-invitations">
+                        <img alt="" src={require("../../assets/images/otherIcons/loading.svg")} />
                     </div>
-                ))}
+                ) : (
+                    <div>
+                        {invitations.length>0 && invitations.map((invitation:any) => (
+                            <div key={invitation.invitationId} className="roll-item">
 
-                {invitations.length === 0 && (
-                    <div className="no-content">
-                        <div className="item">{text.invitations.noContent}</div>
+                                <div className="item-image">
+                                    <img alt="" src={require("../../assets/images/notificationImages/invitation.svg")} />
+                                </div>
+
+                                <div className="item-text">
+                                    <span>{text.invitations.user}</span>
+                                    <NavLink to={"/profile/"+invitation.userNick}> {invitation.userNick} </NavLink>
+                                    <span>{text.invitations.sentInvite}</span>
+                                    <span> {invitation.partyName}</span>
+                                </div>
+                                <div className="item-buttons">
+                                    <div className="buttons-images">
+                                        <button onClick={() => handleAccept(invitation.invitationId)}>{text.invitations.accept}</button>
+                                    </div>
+                                    <div className="buttons-images">
+                                        <button onClick={() => handleDecline(invitation.invitationId)} className="decline">{text.invitations.deny}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+
+                        {invitations.length === 0 && (
+                            <div className="no-content">
+                                <div className="item">{text.invitations.noContent}</div>
+                            </div>
+                        )}
                     </div>
                 )}
+
 
             </div>
 

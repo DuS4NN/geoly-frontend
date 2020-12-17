@@ -145,7 +145,11 @@ export const text = {
         INAPPROPRIATE_DESCRIPTION: 'Nevhodný popis',
         INAPPROPRIATE_NAME: 'Nevhodný názov',
         INAPPROPRIATE_IMAGE: 'Nevhodný obrázok',
-        IMPOSSIBLE_QUEST: 'Nesplnitelná úloha'
+        INAPPROPRIATE_PROFILE_IMAGE: 'Nevhodný profilový obrázok',
+        IMPOSSIBLE_QUEST: 'Nesplnitelná úloha',
+        INAPPROPRIATE_ABOUT: 'Nevhodný popis',
+        IMPOSSIBLE_QUESTS: 'Nesplnitelné úlohy',
+
     },
     userQuest: {
         title: 'Úlohy',

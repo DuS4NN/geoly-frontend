@@ -6,6 +6,7 @@ import {UserContext} from "../../UserContext";
 import {useAlert} from "react-alert";
 // Props
 interface Props {
+    loading: boolean
     unseenCount: number
     setUnseenCount: (count:number) => void
     notifications: any
@@ -16,7 +17,7 @@ interface Props {
 const NavigationNotifications: React.FC<Props> = (props) => {
 
     const {userContext} = useContext(UserContext)
-    const {setUnseenCount, unseenCount, notifications, setNotifications} = props
+    const {loading, setUnseenCount, unseenCount, notifications, setNotifications} = props
 
     const [showNotificationsRoll, setShowNotificationsRoll] = useState(false) as Array<any>
     const [isEmpty, setIsEmpty] = useState(false)
@@ -90,7 +91,7 @@ const NavigationNotifications: React.FC<Props> = (props) => {
             )}
 
             {showNotificationsRoll && (
-                <NotificationsRoll getNotifications={getNotifications} setShowRoll={setShowNotificationsRoll} notifications={notifications} />
+                <NotificationsRoll loading={loading} getNotifications={getNotifications} setShowRoll={setShowNotificationsRoll} notifications={notifications} />
             )}
 
         </div>

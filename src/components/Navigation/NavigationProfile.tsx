@@ -28,6 +28,8 @@ const NavigationProfile: React.FC<Props> = (props) => {
     const [notifications, setNotifications] = useState([]) as Array<any>
     const [invitations, setInvitations] = useState([]) as Array<any>
 
+    const [loading, setLoading] = useState(false)
+
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
     // State
@@ -87,6 +89,7 @@ const NavigationProfile: React.FC<Props> = (props) => {
 
     useEffect(() => {
         if(userContext['nickName']){
+            setLoading(true)
             axios({
                 method: 'GET',
                 url: process.env.REACT_APP_API_SERVER_URL+'/headercountinfo',
@@ -101,6 +104,8 @@ const NavigationProfile: React.FC<Props> = (props) => {
             }).catch(function () {
                 history.push("/welcome")
                 alert.error(text.error.SOMETHING_WENT_WRONG)
+            }).finally(function () {
+                setLoading(false)
             })
         }
     }, [])
@@ -117,8 +122,8 @@ const NavigationProfile: React.FC<Props> = (props) => {
                 ) : (
                 <div className="navigation-profile-user">
                     <div className="notification-icons">
-                        <NavigationInvitations invitations={invitations} setInvitations={setInvitations} setUnseenCount={setUnseenCountInvitations} unseenCount={unseenCountInvitations} />
-                        <NavigationNotifications notifications={notifications} setNotifications={setNotifications} setUnseenCount={setUnseenCountNotifications} unseenCount={unseenCountNotifications} />
+                        <NavigationInvitations loading={loading} invitations={invitations} setInvitations={setInvitations} setUnseenCount={setUnseenCountInvitations} unseenCount={unseenCountInvitations} />
+                        <NavigationNotifications loading={loading} notifications={notifications} setNotifications={setNotifications} setUnseenCount={setUnseenCountNotifications} unseenCount={unseenCountNotifications} />
                     </div>
                     <div className="profile-image">
                         <img onClick={handleRoll} src={process.env.REACT_APP_IMAGE_SERVER_URL+userContext['profileImage']} alt="" />

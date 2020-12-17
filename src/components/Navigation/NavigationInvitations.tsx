@@ -7,6 +7,7 @@ import {useAlert} from "react-alert";
 
 // Props
 interface Props {
+    loading: boolean
     invitations: any
     unseenCount: any
     setInvitations: (invitations:any) => void
@@ -15,7 +16,7 @@ interface Props {
 
 // Component
 const NavigationInvitations: React.FC<Props> = (props) => {
-    const {setInvitations, invitations, unseenCount, setUnseenCount} = props
+    const {loading, setInvitations, invitations, unseenCount, setUnseenCount} = props
     const {userContext} = useContext(UserContext)
 
     const [showInvitationsRoll, setShowInvitationsRoll] = useState(false) as Array<any>
@@ -92,7 +93,7 @@ const NavigationInvitations: React.FC<Props> = (props) => {
             )}
 
             {showInvitationsRoll && (
-                <InvitationsRoll setInvitations={setInvitations} invitations={invitations} setShowRoll={setShowInvitationsRoll} getInvitations={getInvitations} />
+                <InvitationsRoll loading={loading} setInvitations={setInvitations} invitations={invitations} setShowRoll={setShowInvitationsRoll} getInvitations={getInvitations} />
             )}
 
         </div>
