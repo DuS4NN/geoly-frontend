@@ -104,7 +104,7 @@ const DailyQuest: React.FC = () => {
         if (completed){
             return <span className="countdown">00:00:00</span>
         }else{
-            return <span className="countdown">{hours}:{minutes}:{seconds}</span>
+            return <span className="countdown">{hours < 10 ? "0"+hours : hours}:{minutes < 10 ? "0"+minutes : minutes}:{seconds < 10 ? "0"+seconds : seconds}</span>
         }
     }
 
