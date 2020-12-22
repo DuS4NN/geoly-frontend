@@ -387,6 +387,7 @@ export const text = {
         USER_CAN_NOT_PLAY_OWN_QUEST: 'Používateľ nemôže začať vlastnú úlohu',
         USER_DOESNT_HAVE_PREMIUM: 'Na začatie tejto úlohy potrebujete prémiový účet',
         USER_ADDRESS_NULL: 'Nemôžeme vytvoriť dennú úlohu, pretože nemáme záznam o Vašej polohe',
+        USER_ADDRESS_OLD: 'Nemôžeme vytvoriť dennú úlohu, pretože záznam o Vašej polohe nie je aktuálny. Zapnutím Geoly aplikácie sa poloha aktualizuje.',
         USER_HAS_ACTIVE_DAILY_QUEST: 'Denná úloha je už aktívna',
 
         // Edit Quest

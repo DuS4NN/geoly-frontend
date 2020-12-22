@@ -389,6 +389,7 @@ export const text = {
         USER_CAN_NOT_PLAY_OWN_QUEST: 'A user cannot start their own quest',
         USER_DOESNT_HAVE_PREMIUM: 'You need a premium account to start this task',
         USER_ADDRESS_NULL: 'We can\'t create a daily quest because we don\'t have a record of your location',
+        USER_ADDRESS_OLD: 'We can\'t create a daily quest because your location record is out of date. Please turn on the Geoly application to update your location',
         USER_HAS_ACTIVE_DAILY_QUEST: 'The daily quest is already active',
 
         // Edit Quest

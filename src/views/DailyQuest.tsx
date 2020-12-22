@@ -61,8 +61,8 @@ const DailyQuest: React.FC = () => {
                     })
                     setTimeLeft(response.data.data[1])
 
-                }else if(serverResponse === 'USER_ADDRESS_NULL'){
-                    alert.error(text.error[serverResponse])
+                }else if(serverResponse === 'USER_ADDRESS_NULL' || serverResponse === 'USER_ADDRESS_OLD') {
+                    alert.error(text.error[serverResponse] )
                 }else{
                     alert.error(text.error.SOMETHING_WENT_WRONG)
                 }
