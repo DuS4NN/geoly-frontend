@@ -93,11 +93,21 @@ const NotificationsRoll: React.FC<Props> = (props) => {
                                     )}
 
                                     {notification.type === "GET_POINTS" && (
-                                        <span>null</span>
+                                        <div>
+                                            <span>{text.notifications.getPoints1}</span>
+                                            <span className="highlighted"> {notification.data.pointAmount} </span>
+                                            <span>{text.notifications.getPoints2}</span>
+                                            <NavLink to={"/quest/"+notification.data.questId}> {text.notifications.getPoints3}</NavLink>
+                                        </div>
                                     )}
 
                                     {notification.type === "GET_BADGE" && (
-                                        <span>null</span>
+                                        <div>
+                                            <span>{text.notifications.getBadge1}</span>
+                                            <NavLink to={"/profile/"+userContext['nickName']}> {text.notifications.getBadge2} </NavLink>
+                                            <span>{text.notifications.getBadge3} </span>
+                                            <NavLink to={"/quest/"+notification.data.questId}> {text.notifications.getBadge4}</NavLink>
+                                        </div>
                                     )}
 
                                     <div className="date">

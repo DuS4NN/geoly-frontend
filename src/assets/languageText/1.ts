@@ -343,7 +343,14 @@ export const text = {
         welcome: 'Vitajte v Geoly!',
         addReview1: 'Používateľ',
         addReview2: 'uverejnil rezenciu na Vašu',
-        addReview3: 'úlohu'
+        addReview3: 'úlohu',
+        getPoints1: 'Získali ste',
+        getPoints2: 'bodov za dokončenie',
+        getPoints3: 'úlohy',
+        getBadge1: 'Získali ste',
+        getBadge2: 'ocenenie',
+        getBadge3: 'za dokončenie',
+        getBadge4: 'úlohy'
     },
     invitations: {
         user: 'Používateľ',

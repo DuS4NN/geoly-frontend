@@ -71,6 +71,32 @@ const NavigationProfile: React.FC<Props> = (props) => {
             }
             setNotifications([notification, ...notifications])
         })
+        channelNotifications.bind("GET_POINTS", function (data:any) {
+            setUnseenCountNotifications(unseenCountNotifications+1)
+            let notification = {
+                date: new Date(),
+                id: data.notificationId,
+                type: "GET_POINTS",
+                data: {
+                    questId: data.questId,
+                    pointAmount: data.pointAmount
+                }
+            }
+            setNotifications([notification, ...notifications])
+        })
+        channelNotifications.bind("GET_BADGE", function (data:any) {
+            setUnseenCountNotifications(unseenCountNotifications+1)
+            let notification = {
+                date: new Date(),
+                id: data.notificationId,
+                type: "GET_BADGE",
+                data: {
+                    questId: data.questId,
+                    badgeName: data.badgeName
+                }
+            }
+            setNotifications([notification, ...notifications])
+        })
 
         const channelInvitations = pusher.subscribe("invitations-"+userToken)
         channelInvitations.bind("PARTY_INVITE", function (data:any) {

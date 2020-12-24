@@ -58,9 +58,13 @@
       font-family: OpenSans;
       font-size: 13px;
 
+      .highlighted{
+        color: var(--light-mode-dark-green);
+      }
+
       a{
         text-decoration: none;
-        color: var(--light-mode-dark-green)
+        color: var(--light-mode-dark-green);
       }
     }
 

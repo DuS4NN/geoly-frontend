@@ -346,7 +346,14 @@ export const text = {
         welcome: 'Welcome to Geoly!',
         addReview1: 'Users',
         addReview2: 'has posted a review of your',
-        addReview3: 'quest'
+        addReview3: 'quest',
+        getPoints1: 'You get',
+        getPoints2: 'points for completing the',
+        getPoints3: 'quest',
+        getBadge1: 'You get',
+        getBadge2: 'badge',
+        getBadge3: 'for completing the',
+        getBadge4: 'quest'
     },
     invitations: {
         user: 'Users',
