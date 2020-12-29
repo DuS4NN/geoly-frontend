@@ -87,7 +87,7 @@ export const text = {
         unreviewLabel: 'Neohodnotené',
         premium: 'Prémiové úlohy',
         findButton: 'Hľadať',
-        difficulty: 'Obťiažnosť:',
+        difficulty: 'Obtiažnosť:',
         review: 'Hodnotenie:',
         success: 'Úspešnosť:',
         cancel: 'Zrušené',

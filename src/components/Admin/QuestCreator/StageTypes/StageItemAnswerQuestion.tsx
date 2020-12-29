@@ -38,7 +38,7 @@ const StageItemAnswerQuestion: React.FC<Props> = (props) => {
             return
         }
 
-        if(addReviewValue.length==0){
+        if(addReviewValue.length === 0){
             return
         }
 
