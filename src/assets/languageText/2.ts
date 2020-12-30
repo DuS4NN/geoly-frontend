@@ -329,7 +329,8 @@ export const text = {
         cancelSubscriptionDesc: 'Are you sure you want to cancel your subscription?',
         newPassword: 'New password',
         oldPassword: 'Old password',
-        repeatPassword: 'Repeat password'
+        repeatPassword: 'Repeat password',
+        clickToSelect: 'Click to select'
     },
     language: {
         Slovak: 'Slovak',

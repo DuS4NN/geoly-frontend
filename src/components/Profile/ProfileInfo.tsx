@@ -73,7 +73,7 @@ const ProfileInfo: React.FC<Props> = (props) => {
                                 let date = value.date?.split('-')
 
                                 return {
-                                    "data-tip": date == null ? `` : ``+date[2]+' '+text.month[date[1]]+' '+date[0]
+                                    "data-tip": date == null ? `` : ``+date[2]+' '+text.month[date[1]-1]+' '+date[0]
                                 };
                             }}
                             classForValue={(value:any) => {

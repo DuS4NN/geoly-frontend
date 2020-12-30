@@ -326,7 +326,8 @@ export const text = {
         cancelSubscriptionDesc: 'Ste si istý, že chcete zrušiť predplatné Prémium?',
         newPassword: 'Nové heslo',
         oldPassword: 'Staré heslo',
-        repeatPassword: 'Opakovať heslo'
+        repeatPassword: 'Opakovať heslo',
+        clickToSelect: 'Vyberiete kliknutím'
     },
     language: {
         Slovak: 'Slovenčina',

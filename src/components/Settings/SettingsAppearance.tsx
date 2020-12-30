@@ -64,7 +64,7 @@ const SettingsAppearance: React.FC = () => {
     return (
         <div className="settings-appearance">
             {selected && themes.length > 0 && themes.map((theme:any) => (
-                <div data-tip="Click to select" onClick={() => handleChange(theme.id)} className={selected == theme.id ? "theme-item selected" : "theme-item"} key={theme.id}>
+                <div data-tip={text.settings.clickToSelect} onClick={() => handleChange(theme.id)} className={selected == theme.id ? "theme-item selected" : "theme-item"} key={theme.id}>
                     <div className="item-image">
                         <img alt="" src={require("../../assets/mapThemes/"+theme.id+".png")} />
                     </div>
