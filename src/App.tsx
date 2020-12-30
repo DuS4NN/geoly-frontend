@@ -53,7 +53,8 @@ function App() {
         profileImage: profileImage,
         languageId: languageId,
         mapTheme: mapTheme,
-        darkMode: darkMode
+        darkMode: darkMode,
+        roles: null
     } as any
 
     const [userContext, setUserContext] = useState(userFromStorage)

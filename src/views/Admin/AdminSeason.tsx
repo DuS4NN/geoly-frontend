@@ -18,7 +18,7 @@ const AdminSeason: React.FC = () => {
     const alert = useAlert()
     const history = useHistory()
 
-    if(userContext['roles'] === undefined || (!userContext['roles'].includes("MOD") && !userContext['roles'].includes("ADMIN"))){
+    if(userContext['roles'] === null || (!userContext['roles'].includes("MOD") && !userContext['roles'].includes("ADMIN"))){
         history.push("/")
         alert.error(userText.error.PERMISSION_DENIED)
     }

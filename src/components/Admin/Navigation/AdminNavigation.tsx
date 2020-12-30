@@ -74,7 +74,7 @@ const AdminNavigation: React.FC = () => {
                     </div>
                 </div>
 
-                {userContext['roles'].includes("ADMIN") && (
+                {userContext['roles'] !== null && userContext['roles'].includes("ADMIN") && (
                     <div className="adminNavigationItem">
                         <div className="adminNavigationItemImage">
                             <img alt="" src={require("../../../assets/images/adminImages/log.svg")} />
@@ -84,7 +84,7 @@ const AdminNavigation: React.FC = () => {
                         </div>
                     </div>
                 )}
-                {userContext['roles'].includes("ADMIN") && (
+                {userContext['roles'] !== null && userContext['roles'].includes("ADMIN") && (
                     <div className="adminNavigationItem">
                         <div className="adminNavigationItemImage">
                             <img alt="" src={require("../../../assets/images/adminImages/payment.svg")} />
