@@ -1,18 +1,13 @@
-FROM node:latest
+FROM node:15.5.1 as build
 
-# set working directory
 WORKDIR /app
-
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
-
-# install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install
-
-# add app
+COPY package*.json ./
+RUN npm ci
 COPY . ./
+RUN npm run build
 
-# start app
-CMD ["npm", "start"]
+FROM nginx:1.19.6-alpine
+
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/build /var/www
+CMD ["nginx", "-g", "daemon off;"]
