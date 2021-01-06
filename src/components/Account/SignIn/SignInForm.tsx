@@ -99,6 +99,13 @@ const SignInForm: React.FC<Props> = () => {
             setLoadingSubmit(false)
         }).catch(function (error) {
 
+            if(error.response === null || error.response === undefined){
+                setLoadingSubmit(false)
+                setPassword("")
+                alert.error(text.error.SOMETHING_WENT_WRONG)
+                return
+            }
+
             switch (error.response.data.exception) {
                 case "Bad credentials":
                     setPassword("")
