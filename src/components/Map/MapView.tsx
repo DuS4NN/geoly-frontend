@@ -221,7 +221,7 @@ const MapView: React.FC<Props> = (props) => {
                 setQuestDetail={setQuestDetail}
             />
 
-            <div className="map" onClick={handleMapClick} ref={ref}>
+            <div className="map" onClick={handleMapClick} onTouchEnd={handleMapClick} ref={ref}>
             </div>
 
         </div>

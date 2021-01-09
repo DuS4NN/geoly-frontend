@@ -44,32 +44,25 @@ const NavigationRoll: React.FC<Props> = (props) => {
     const handleChange = () => {
         let toggle:boolean = !userContext['darkMode']
 
+        setUserContext({
+            ...userContext,
+            darkMode: toggle
+        })
+
+        localStorage.setItem('darkMode', String(toggle))
+
+        if(toggle){
+            let bodyElement = document.getElementsByTagName("BODY")[0]
+            bodyElement.className = bodyElement.className + "modaldarkmode"
+        }else{
+            let bodyElement = document.getElementsByTagName("BODY")[0]
+            bodyElement.classList.remove("modaldarkmode")
+        }
+
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/settings/darkmode?toggle='+toggle,
             withCredentials: true
-        }).then(function (response) {
-            let statusCode = response.data.responseEntity.statusCode
-
-            if(statusCode === 'ACCEPTED'){
-                setUserContext({
-                    ...userContext,
-                    darkMode: toggle
-                })
-
-                localStorage.setItem('darkMode', String(toggle))
-
-                if(toggle){
-                    let bodyElement = document.getElementsByTagName("BODY")[0]
-                    bodyElement.className = bodyElement.className + "modaldarkmode"
-                }else{
-                    let bodyElement = document.getElementsByTagName("BODY")[0]
-                    bodyElement.classList.remove("modaldarkmode")
-                }
-
-            }else{
-                alert.error(text.error.SOMETHING_WENT_WRONG)
-            }
         }).catch(function () {
             history.push("/welcome")
             alert.error(text.error.SOMETHING_WENT_WRONG)

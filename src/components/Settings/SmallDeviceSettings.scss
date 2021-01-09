@@ -61,15 +61,16 @@
           padding-left: 20px;
 
           button {
+            font-size: 14px!important;
             padding-left: 15px;
             padding-right: 15px;
           }
         }
 
         .input-wrapper {
-          font-size: 13px;
-          padding-left: 15px;
-          padding-right: 15px;
+          font-size: 14px!important;
+          padding-left: 15px!important;
+          padding-right: 15px!important;
         }
 
         .image-show {

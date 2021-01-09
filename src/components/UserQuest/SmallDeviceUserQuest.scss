@@ -96,27 +96,26 @@
           margin-left: 50px!important;
 
           .item-stage{
+            height: 10px!important;
 
             .item-stage-info{
               display: block!important;
-              height: 32px;
+              padding-top: 5px!important;
 
               .item-stage-image{
-                height: 32px;
-
                 img{
-                  vertical-align: middle;
-                  width: 25px;
-                  height: 25px;
+                  vertical-align: middle!important;
+                  width: 25px!important;
+                  height: 25px!important;
                 }
               }
             }
 
             .item-stage-date{
-              text-align: right;
-              padding-right: 0;
-              display: block;
-              height: 18px;
+              height: 10px!important;
+              padding-right: 10px!important;
+              text-align: right!important;
+              display: block!important;
             }
           }
         }

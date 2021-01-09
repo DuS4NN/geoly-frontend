@@ -381,6 +381,9 @@
         .user-quest-played-container-bottom-border{
           border-top: 1px solid var(--dark-mode-border-color)!important;
         }
+        .item-stage-container:hover{
+          background-color: var(--dark-mode-border-color) !important;
+        }
         .item-stage-container{
           background-color: var(--dark-mode-input-background)!important;
           color: var(--dark-mode-white-color-text)!important;
