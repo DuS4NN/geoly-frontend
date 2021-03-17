@@ -97,6 +97,10 @@ const MapView: React.FC<Props> = (props) => {
     }
 
     const handleSearch = (boundsNw:any, boundsSe:any) => {
+
+        console.log(boundsNw)
+        console.log(boundsSe)
+
         axios({
             method: 'POST',
             url: process.env.REACT_APP_API_SERVER_URL + '/questByParam',
@@ -184,7 +188,17 @@ const MapView: React.FC<Props> = (props) => {
         let coordinates1 = boundsNew[keys[0]]
         let coordinates2 = boundsNew[keys[1]]
 
-        handleSearch([coordinates2.i, coordinates2.j],[coordinates1.i, coordinates1.j])
+        let coordinates1Keys = Object.keys(coordinates1)
+        let coordinates2Keys = Object.keys(coordinates2)
+
+        let coordinate1Min = coordinates1[coordinates1Keys[0]]
+        let coordinate1Max = coordinates1[coordinates1Keys[1]]
+
+        let coordinate2Min = coordinates2[coordinates2Keys[0]]
+        let coordinate2Max = coordinates2[coordinates2Keys[1]]
+
+
+        handleSearch([coordinate2Min, coordinate2Max],[coordinate1Min, coordinate1Max])
         setBounds(map.getBounds())
     }
 
