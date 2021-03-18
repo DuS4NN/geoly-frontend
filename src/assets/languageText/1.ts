@@ -240,6 +240,7 @@ export const text = {
         kick: 'Vyhodiť',
         kickGroupTitle: 'Spravovať používateľov',
         kickGroupDesc: 'Chcete pridať alebo vyhodiť používateľa? Poďme na to!',
+        selectGroup: 'Vyberte skupinu..',
         search: 'Vyhľadať používateľa',
         add: 'Pridať',
         invite: 'Pozvať',

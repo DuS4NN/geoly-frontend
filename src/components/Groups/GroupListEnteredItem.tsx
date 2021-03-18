@@ -43,7 +43,7 @@ const GroupListEnteredItem: React.FC<Props> = (props) => {
             </div>
 
             <div className="item-buttons-entered">
-                <img data-tip={text.groups.leave} alt="" onClick={() => handleShowLeaveModal(group.groupId)} src={userContext['darkMode']? require("../../assets/images/darkModeImages/leave.svg") : require("../../assets/images/otherIcons/leave.svg")} />
+                <img data-tip={text.groups.leaveGroupTitle} alt="" onClick={() => handleShowLeaveModal(group.groupId)} src={userContext['darkMode']? require("../../assets/images/darkModeImages/leave.svg") : require("../../assets/images/otherIcons/leave.svg")} />
             </div>
 
             <ReactTooltip />

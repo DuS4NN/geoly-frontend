@@ -184,7 +184,7 @@ const ModalAddQuestToGroup: React.FC<Props> = (props) => {
                             closeMenuOnSelect={true}
                             onChange={handleQuestSelect}
                             options={groups}
-                            placeholder={text.mapFilter.selectCategory}
+                            placeholder={text.groups.selectGroup}
                             noOptionsMessage={() => text.groups.noGroupLeft}
                             className="custom-select"
                             styles={customStyle}

@@ -236,6 +236,7 @@ export const text = {
         deleteGroupDesc: 'Are you sure you want to permanently delete this group?',
         editGroupTitle: 'Edit group',
         editGroupDesc: 'Have we decided to edit the group? Let\'s go!',
+        selectGroup: 'Select group..',
         create: 'Create group',
         createButton: 'Create',
         createModalDesc: 'Do you want to create a new group? Just enter a name!',
