@@ -31,4 +31,19 @@
     overflow-y: scroll;
   }
 
+  .map-button {
+    bottom: 30px;
+    right: 30px;
+
+    .map-button-button {
+      height: 35px !important;
+      width: 35px !important;
+
+      .map-button-button-image {
+        width: 17px !important;
+        height: 17px !important;
+      }
+    }
+  }
+
 }

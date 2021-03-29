@@ -15,7 +15,7 @@ interface Props {
 const Map: React.FC<Props> = (props) => {
 
     const {userContext} = useContext(UserContext)
-    const [center, setCenter] = useState({lat:48.864716, lng: 2.349014}) as Array<any>
+    const [center, setCenter] = useState(null) as Array<any>
     const history = useHistory()
     const alert = useAlert()
 
@@ -33,7 +33,7 @@ const Map: React.FC<Props> = (props) => {
                     return;
                 }
 
-                let coordinates = response.data.data[0].split(", ")
+                let coordinates = response.data.data[0].split(",")
                 setCenter({
                     lat: parseFloat(coordinates[0]),
                     lng: parseFloat(coordinates[1])

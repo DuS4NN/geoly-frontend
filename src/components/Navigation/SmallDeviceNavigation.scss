@@ -7,7 +7,6 @@
     .navigation-button{
       width: auto;
     }
-
     .navigation-button-content{
       width: 100%;
 
@@ -19,8 +18,16 @@
       }
     }
 
+    .navigation-profile{
+      text-align: right;
+      width: 20vw;
+    }
+
     .navigation-profile-user{
+
+      float: right;
       width: 145px;
+      text-align: right;
 
       .notification-icons{
         .navigation-notifications{
@@ -72,7 +79,6 @@
 
         }
       }
-
       .profile-image{
         cursor: pointer;
         text-align: right;
@@ -88,6 +94,7 @@
     }
 
     .navigation-links{
+
       .navigation-menu{
         display: table-cell;
         vertical-align: middle;

@@ -23,7 +23,7 @@ const QuestTitle: React.FC<Props> = (props) => {
     const text = require('../../assets/languageText/'+userContext['languageId']+'.ts').text
 
     useEffect(() => {
-        if (details.categoryImage) {
+        if (details !== null && details.categoryImage) {
             setImage( require( "../../" + details.categoryImage ) )
             setDate(new Date(details.questDate))
             setCategory(details.categoryName)
@@ -37,16 +37,24 @@ const QuestTitle: React.FC<Props> = (props) => {
 
             <div className="quest-title-category">
                 <div className="category-image">
-                    <img alt="" src={image} />
+                    {details !== null && (
+                        <img alt="" src={image} />
+                    )}
                 </div>
                 <div className="category-name">
-                    <span>{text.category[category.toLowerCase()]}</span>
+                    {details !== null && (
+                        <span>{text.category[category.toLowerCase()]}</span>
+                    )}
+
                 </div>
 
                 <div className="date">
-                    <span>{date.getDate()+" "+text.month[date.getMonth()]+" "+date.getFullYear()}</span>
+                    {details !== null && (
+                        <span>{date.getDate()+" "+text.month[date.getMonth()]+" "+date.getFullYear()}</span>
+                    )}
+
                 </div>
-                {details.questPremium === 1 && (
+                {details !== null && details.questPremium === 1 && (
                     <div className="premium">
                         <img alt="" src={require("../../assets/images/otherIcons/premium.svg")} />
                         <span className="premium-text">{text.profile.premiumQuest}</span>
@@ -55,17 +63,23 @@ const QuestTitle: React.FC<Props> = (props) => {
             </div>
 
             <div className="quest-title-name">
-                <div className="title-name-text">{details.questName}</div>
+                {details !== null && (
+                    <div className="title-name-text">{details.questName}</div>
+                )}
             </div>
 
             <div className="quest-title-user">
                 <div className="quest-title-user-box">
 
                     <div className="user-image">
-                        <img alt="" src={process.env.REACT_APP_IMAGE_SERVER_URL+details.userImage} />
+                        {details !== null && (
+                            <img alt="" src={process.env.REACT_APP_IMAGE_SERVER_URL+details.userImage} />
+                        )}
                     </div>
                     <div className="user-name">
-                        <NavLink to={"/profile/"+details.userName}>{details.userName}</NavLink>
+                        {details !== null && (
+                            <NavLink to={"/profile/"+details.userName}>{details.userName}</NavLink>
+                        )}
                     </div>
                 </div>
             </div>

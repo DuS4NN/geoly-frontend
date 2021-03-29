@@ -10,6 +10,7 @@ import MapFilter from "./MapFilter";
 // Style
 import './MapView.scss'
 import './MapFilter.scss'
+import MapButton from "./MapButton";
 
 interface questDetail{
     questId: number
@@ -37,6 +38,7 @@ const MapView: React.FC<Props> = (props) => {
     const {userContext} = useContext(UserContext)
     const {center} = props
     const [mapRef, setMapRef] = useState(null)
+    const [defaultCenter] = useState({lat:48.864716, lng: 2.349014}) as Array<any>
 
     const [category, setCategory] = useState([])
     const [difficulty, setDifficulty] = useState([1,5])
@@ -57,7 +59,7 @@ const MapView: React.FC<Props> = (props) => {
     const {ref, map, google} = useGoogleMaps(
         process.env.REACT_APP_GOOGLE_API_KEY+"",
         {
-            center: center,
+            center: defaultCenter,
             zoom: 12,
             minZoom: 12,
             styles: require('../../assets/mapThemes/'+userContext['mapTheme']+'.ts').mapTheme
@@ -71,12 +73,6 @@ const MapView: React.FC<Props> = (props) => {
             setBounds(map.getBounds())
         }
     }, [map])
-
-    useEffect(() => {
-        if(map){
-            map.setCenter(center)
-        }
-    }, [map, center])
 
     // Methods
     const handleMapClick = debounce(() => {
@@ -97,10 +93,6 @@ const MapView: React.FC<Props> = (props) => {
     }
 
     const handleSearch = (boundsNw:any, boundsSe:any) => {
-
-        console.log(boundsNw)
-        console.log(boundsSe)
-
         axios({
             method: 'POST',
             url: process.env.REACT_APP_API_SERVER_URL + '/questByParam',
@@ -237,6 +229,10 @@ const MapView: React.FC<Props> = (props) => {
 
             <div className="map" onClick={handleMapClick} onTouchEnd={handleMapClick} ref={ref}>
             </div>
+
+            {center !== null && (
+                <MapButton center={center} map={map} findNewBoundsAndStartSearch={findNewBoundsAndStartSearch}/>
+            )}
 
         </div>
     )

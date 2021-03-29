@@ -74,7 +74,8 @@ const NavigationLinks: React.FC<Props> = () => {
                     <NavLink to="/quests" >{text.navigation.quests}</NavLink>
                 )}
                 <NavLink to="/premium" >{text.navigation.premium}</NavLink>
-                <a href="https://play.google.com/store" >{text.navigation.app}</a>
+
+                <a href={process.env.REACT_APP_MOBILE_APP_DOWNLOAD}>{text.navigation.app}</a>
             </div>
 
         </div>

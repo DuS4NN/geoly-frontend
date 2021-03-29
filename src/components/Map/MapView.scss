@@ -16,3 +16,29 @@
   }
 
 }
+
+.map-button{
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+
+  .map-button-button{
+    display:block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: var(--button-light-green);
+    text-align: center;
+    vertical-align: center;
+    border: none;
+    cursor: pointer;
+
+    .map-button-button-image{
+      width: 23px;
+      height: 23px;
+      padding: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
