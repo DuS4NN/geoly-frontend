@@ -7,6 +7,7 @@ import {UserContext} from "../UserContext";
 import {useAlert} from "react-alert";
 import {useHistory} from "react-router-dom";
 import "../components/Settings/SmallDeviceSettings.scss"
+import useUserLogin from "../utils/useUserLogin";
 
 // Props
 interface Props {
@@ -18,18 +19,13 @@ const Settings: React.FC = () => {
     const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
     const alert = useAlert()
     const history = useHistory()
+    useUserLogin()
 
     const [selected, setSelected] = useState(0) as Array<any>
     const [settings, setSettings] = useState(null) as Array<any>
     const [languages, setLanguages] = useState([]) as Array<any>
 
     useEffect(() => {
-        if(!userContext['nickName']){
-            alert.error(text.error.UNAUTHORIZED)
-            history.push("/login")
-            return
-        }
-
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/getsettings',
@@ -79,7 +75,7 @@ const Settings: React.FC = () => {
     // Template
     return (
         <div className="settings">
-            {userContext['nickName'] && (
+            {userContext['nickName'] && localStorage.getItem("nickName") &&(
                 <div>
                     <SettingsImage />
                     <SettingsList selected={selected} setSelected={setSelected} settings={settings} setSettings={setSettings} languages={languages} />

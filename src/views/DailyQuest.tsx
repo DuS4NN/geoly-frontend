@@ -8,6 +8,7 @@ import {useHistory} from "react-router-dom"
 
 import '../components/DailyQuest/SmallDeviceDailyQuest.scss'
 import '../components/DailyQuest/DailyQuest.scss'
+import useUserLogin from "../utils/useUserLogin";
 
 // Component
 const DailyQuest: React.FC = () => {
@@ -18,14 +19,7 @@ const DailyQuest: React.FC = () => {
     const [loadingSubmit, setLoadingSubmit] = useState(false)
     const alert = useAlert()
     const history = useHistory()
-
-    useEffect(() => {
-        if(!userContext['nickName']){
-            alert.error(text.error.UNAUTHORIZED)
-            history.push("/login")
-            return
-        }
-    }, [])
+    useUserLogin()
 
     const {ref, map, google} = useGoogleMaps(
         process.env.REACT_APP_GOOGLE_API_KEY+"",
@@ -111,7 +105,7 @@ const DailyQuest: React.FC = () => {
     // Template
     return (
         <div className="daily-quest">
-            {userContext['nickName'] && (
+            {userContext['nickName'] && localStorage.getItem("nickName") && (
                 <div className="daily-quest-content">
                     <div className="header-container">
                         <div className="header-text">

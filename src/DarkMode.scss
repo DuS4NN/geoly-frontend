@@ -696,8 +696,6 @@
       }
     }
     .quest-gallery{
-      border-left: 1px solid var(--dark-mode-border-color);
-      border-right: 1px solid var(--dark-mode-border-color);
       background-color: var(--dark-mode-input-background);
     }
     .map-ref{
@@ -705,16 +703,12 @@
       border-right: 1px solid var(--dark-mode-border-color);
     }
     .quest-button{
-      border-left: 1px solid var(--dark-mode-border-color);
-      border-right: 1px solid var(--dark-mode-border-color);
       background-color: var(--dark-mode-input-background);
       button{
         box-shadow: none;
       }
     }
     .quest-review-form{
-      border-left: 1px solid var(--dark-mode-border-color);
-      border-right: 1px solid var(--dark-mode-border-color);
       background-color: var(--dark-mode-input-background);
     }
     .emoji-triangle{
@@ -722,8 +716,6 @@
     }
     .quest-reviews-list{
       background-color: var(--dark-mode-input-background);
-      border-right: 1px solid var(--dark-mode-border-color);
-      border-left: 1px solid var(--dark-mode-border-color);
       .quest-reviews-list-title{
         border-top: 1px solid var(--dark-mode-border-color);
         color: var(--dark-mode-green);

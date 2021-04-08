@@ -9,6 +9,7 @@ import {useHistory} from "react-router-dom";
 import {useAlert} from "react-alert";
 import GroupLoading from "../components/Group/GroupLoading";
 import "../components/Group/SmallDeviceGroup.scss"
+import useUserLogin from "../utils/useUserLogin";
 
 // Props
 interface Props {
@@ -20,6 +21,7 @@ const Group: React.FC<Props> = (props) => {
     const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
     const history = useHistory()
     const alert = useAlert()
+    useUserLogin()
 
     const [id] = useState(window.location.href.split('/').pop())
     const [selectedQuest, setSelectedQuest] = useState({})
@@ -28,12 +30,6 @@ const Group: React.FC<Props> = (props) => {
     const [quests, setQuests] = useState(null) as Array<any>
 
     useEffect(() => {
-        if(!userContext['nickName']){
-            alert.error(text.error.UNAUTHORIZED)
-            history.push("/login")
-            return
-        }
-
         axios({
             method: 'GET',
             url: process.env.REACT_APP_API_SERVER_URL+'/group?id='+id,
@@ -82,7 +78,7 @@ const Group: React.FC<Props> = (props) => {
     // Template
     return (
         <div className="group">
-            {userContext['nickName'] && (
+            {userContext['nickName'] && localStorage.getItem("nickName") && (
                 <div>
 
                     {details === null && users === null && quests === null && (

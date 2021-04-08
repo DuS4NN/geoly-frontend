@@ -1,35 +1,25 @@
-import React, {useContext, useEffect} from "react"
+import React, {useContext} from "react"
 import GroupsImage from "../components/Groups/GroupsImage";
 import GroupsList from "../components/Groups/GroupsList";
 import {UserContext} from "../UserContext";
-import {useHistory} from "react-router-dom"
-import {useAlert} from "react-alert";
 import "../components/Groups/SmallDeviceGroups.scss"
+import useUserLogin from "../utils/useUserLogin";
 
 // Props
 interface Props {
 }
 
 // Component
-const Groups: React.FC<Props> = (props) => {
+const Groups: React.FC<Props> = () => {
 
     const {userContext} = useContext(UserContext)
-    const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
-    const history = useHistory()
-    const alert = useAlert()
+    useUserLogin()
 
-    useEffect(() => {
-        if(!userContext['nickName']){
-            alert.error(text.error.UNAUTHORIZED)
-            history.push("/login")
-            return
-        }
-    }, [])
 
     // Template
     return (
         <div className="groups">
-            {userContext['nickName'] && (
+            {userContext['nickName'] && localStorage.getItem("nickName") && (
                 <div>
                     <GroupsImage />
                     <GroupsList />

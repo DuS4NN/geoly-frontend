@@ -28,7 +28,7 @@ const PremiumContainer: React.FC = () => {
 
     const handleSubmit = () => {
 
-        if(!userContext['nickName']){
+        if(!userContext['nickName'] || !localStorage.getItem("nickName")){
             alert.error(text.error.UNAUTHORIZED)
             return
         }
