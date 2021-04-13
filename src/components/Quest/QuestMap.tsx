@@ -29,6 +29,14 @@ const QuestMap: React.FC<Props> = (props) => {
 
     useEffect(() => {
         if(map && stages.length > 0){
+
+            if(markers.length > 0){
+                for(let i=0; i<markers.length; i++){
+                    markers[i].setMap(null)
+                }
+                markers.length = 0
+            }
+
             const findCenter = () => {
                 let lngs = []
                 let lats = []

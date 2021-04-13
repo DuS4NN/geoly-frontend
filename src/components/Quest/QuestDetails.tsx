@@ -246,24 +246,30 @@ const QuestDetails: React.FC<Props> = (props) => {
             const handleDifficultyGraphDraw = () => {
                 if (difficultyChartContainer && difficultyChartContainer.current) {
                     setTimeout(() => {
-                        //@ts-ignore
-                        new Chart(difficultyChartContainer.current, difficultyChartConfig);
+                        if(difficultyChartContainer && difficultyChartContainer.current){
+                            //@ts-ignore
+                            new Chart(difficultyChartContainer.current, difficultyChartConfig);
+                        }
                     },300)
                 }
             }
             const handleReviewGraphDraw = () => {
                 if (reviewChartContainer && reviewChartContainer.current) {
                     setTimeout(() => {
-                        //@ts-ignore
-                        new Chart(reviewChartContainer.current, reviewChartConfig);
+                        if(reviewChartContainer && reviewChartContainer.current){
+                            //@ts-ignore
+                            new Chart(reviewChartContainer.current, reviewChartConfig);
+                        }
                     },300)
                 }
             }
             const handleSuccessGraphDraw = () => {
                 if (successChartContainer && successChartContainer.current) {
                     setTimeout(() => {
-                        //@ts-ignore
-                        new Chart(successChartContainer.current, successChartConfig);
+                        if(successChartContainer && successChartContainer.current){
+                            //@ts-ignore
+                            new Chart(successChartContainer.current, successChartConfig);
+                        }
                     },300)
                 }
             }

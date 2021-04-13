@@ -31,8 +31,8 @@ const NavigationProfile: React.FC<Props> = (props) => {
 
     // Template
     return (
-        <div className="navigation-button navigation-profile">
-            {userContext['nickName'] == null ?
+        <div className={userContext['nickName'] === null || localStorage.getItem("nickName") === null ? "navigation-button" : "navigation-profile" }>
+            {userContext['nickName'] === null || localStorage.getItem("nickName") === null ?
                 (
                     <div className="navigation-button-content">
                         <button onClick={handleClick}>{text.navigation.logIn}</button>

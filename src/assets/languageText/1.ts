@@ -352,7 +352,8 @@ export const text = {
         getBadge1: 'Získali ste',
         getBadge2: 'ocenenie',
         getBadge3: 'za dokončenie',
-        getBadge4: 'úlohy'
+        getBadge4: 'úlohy',
+        getPointsDaily: 'dennej úlohy'
     },
     invitations: {
         user: 'Používateľ',

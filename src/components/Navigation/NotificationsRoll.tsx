@@ -97,7 +97,12 @@ const NotificationsRoll: React.FC<Props> = (props) => {
                                             <span>{text.notifications.getPoints1}</span>
                                             <span className="highlighted"> {notification.data.pointAmount} </span>
                                             <span>{text.notifications.getPoints2}</span>
-                                            <NavLink to={"/quest/"+notification.data.questId}> {text.notifications.getPoints3}</NavLink>
+                                            {notification.data.questId === 1 ? (
+                                                <span className="highlighted"> {text.notifications.getPointsDaily}</span>
+                                            ) : (
+                                                <NavLink to={"/quest/"+notification.data.questId}> {text.notifications.getPoints3}</NavLink>
+                                            )}
+
                                         </div>
                                     )}
 

@@ -137,7 +137,7 @@ function App() {
                             <Route path="/logout" component={Logout} />
                             <Route path="/ranking" component={Ranking} />
                             <Route path="/map" component={Map} />
-                            <Route path="/quest/" component={Quest} />
+                            <Route path={"/quest/:id"} render={(props) => <Quest {...props} />} />
                             <Route exact path="/quests" component={UserQuest} />
                             <Route exact path="/groups" component={Groups} />
                             <Route path={"/group/"} component={Group} />

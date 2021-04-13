@@ -19,7 +19,7 @@ interface Props {
 }
 
 // Component
-const Quest: React.FC = () => {
+const Quest: React.FC<Props> = (props:any) => {
     const {userContext} = useContext(UserContext)
 
     const text = require('../assets/languageText/'+userContext['languageId']+'.ts').text
@@ -27,7 +27,6 @@ const Quest: React.FC = () => {
     const history = useHistory()
     const alert = useAlert()
 
-    const [id] = useState(window.location.href.split('/').pop())
     const [images, setImages] = useState(null) as Array<any>
     const [stages, setStages] = useState(null)
     const [reviews, setReviews] = useState(null) as Array<any>
@@ -53,12 +52,12 @@ const Quest: React.FC = () => {
         getStages()
         getImages()
         getReviews(1)
-    },[id])
+    },[props])
 
     const getDetails = async () => {
         axios({
             method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/quest/detail?id='+id,
+            url: process.env.REACT_APP_API_SERVER_URL+'/quest/detail?id='+props.match.params.id,
             withCredentials: true
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
@@ -111,7 +110,7 @@ const Quest: React.FC = () => {
     const getStages = async () => {
         axios({
             method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/quest/stage?id='+id
+            url: process.env.REACT_APP_API_SERVER_URL+'/quest/stage?id='+props.match.params.id
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
 
@@ -143,7 +142,7 @@ const Quest: React.FC = () => {
     const getImages = async () => {
         axios({
             method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/quest/images?id='+id
+            url: process.env.REACT_APP_API_SERVER_URL+'/quest/images?id='+props.match.params.id
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
 
@@ -168,7 +167,7 @@ const Quest: React.FC = () => {
     const getReviews = async (page:number) => {
         axios({
             method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/quest/review?id='+id+"&page="+page,
+            url: process.env.REACT_APP_API_SERVER_URL+'/quest/review?id='+props.match.params.id+"&page="+page,
             withCredentials: true
         }).then(function (response) {
             let statusCode = response.data.responseEntity.statusCode
@@ -186,7 +185,7 @@ const Quest: React.FC = () => {
 
         axios({
             method: 'GET',
-            url: process.env.REACT_APP_API_SERVER_URL+'/quest/reviewinfo?id='+id,
+            url: process.env.REACT_APP_API_SERVER_URL+'/quest/reviewinfo?id='+props.match.params.id,
             withCredentials: true
         }).then(function (response) {
             setCountReviews(response.data.data[0])
@@ -218,8 +217,8 @@ const Quest: React.FC = () => {
 
                 {userContext['nickName'] && (
                     <div>
-                        <ModalReportQuest questId={id} showReportModal={showReportModal} setShowReportModal={setShowReportModal} />
-                        <ModalAddQuestToGroup showModal={showAddModal} setShowModal={setShowAddModal} questId={id} />
+                        <ModalReportQuest questId={props.match.params.id} showReportModal={showReportModal} setShowReportModal={setShowReportModal} />
+                        <ModalAddQuestToGroup showModal={showAddModal} setShowModal={setShowAddModal} questId={props.match.params.id} />
                     </div>
                 )}
 
@@ -272,9 +271,9 @@ const Quest: React.FC = () => {
                         {details !== null && reviews !== null && images !== null && (details.questPrivate === 0 || details.questOwner === 1) && (
                             <div>
                                 <QuestGallery images={images} />
-                                <QuestButton questId={id} />
-                                <QuestReviewsForm setPage={setPage} getReviews={getReviews} setAddReview={setAddReview} questId={id} reviews={reviews} setReviews={setReviews} addReview={addReview} />
-                                <QuestReviewsList page={page} setPage={setPage} questId={id} countReviews={countReviews} setCountReviews={setCountReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} setAddReview={setAddReview}/>
+                                <QuestButton questId={props.match.params.id} />
+                                <QuestReviewsForm setPage={setPage} getReviews={getReviews} setAddReview={setAddReview} questId={props.match.params.id} reviews={reviews} setReviews={setReviews} addReview={addReview} />
+                                <QuestReviewsList page={page} setPage={setPage} questId={props.match.params.id} countReviews={countReviews} setCountReviews={setCountReviews} getReviews={getReviews} reviews={reviews} setReviews={setReviews} setAddReview={setAddReview}/>
                             </div>
                         )}
                     </div>

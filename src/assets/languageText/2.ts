@@ -355,7 +355,8 @@ export const text = {
         getBadge1: 'You get',
         getBadge2: 'badge',
         getBadge3: 'for completing the',
-        getBadge4: 'quest'
+        getBadge4: 'quest',
+        getPointsDaily: 'daily quest'
     },
     invitations: {
         user: 'Users',
