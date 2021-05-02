@@ -74,8 +74,9 @@
       width: 70%;
 
       textarea{
+        width: calc(100% - 34px);
         min-height: 100px;
-        width: 98%;
+
         resize: vertical;
         font-size: 14px;
         font-family: OpenSansText;
